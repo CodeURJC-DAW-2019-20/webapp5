@@ -1,0 +1,53 @@
+
+
+
+
+
+#mainpage1{
+    position: relative;
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: salmon;
+}
+
+.text-on-image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.button{
+    text-align: center;
+    position: absolute;
+    background-color: red;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1%;
+}
+#mainpage2{
+    position: relative;
+    width: 70%;
+    background-color:blue;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mainpage3{
+    position: relative;
+    width: 70%;
+    display: block;
+    margin: auto;
+    background-color: green;
+}
+#mainpage4{
+background-color: yellow;
+
+}
+.image-with-text{
+    background-color: blue;
+    display: inline-block;
+}
