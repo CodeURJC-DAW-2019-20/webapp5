@@ -1,14 +1,9 @@
 
-
-
-
-
 #mainpage1{
     position: relative;
-    width: 70%;
+    /* width: 70%; */
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     background-color: salmon;
 }
 
@@ -18,6 +13,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    background-color: cadetblue;
+}
+.text-on-image > h1 {
+    font-size: 5rem;
 }
 .button{
     text-align: center;
@@ -30,24 +29,42 @@
 }
 #mainpage2{
     position: relative;
-    width: 70%;
+    /* width: 70%; */
     background-color:blue;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    text-align: center;
+}
+#mainpage2 > div{
+    width: 70%;
+    background-color: brown;
+    margin: auto;
+}
+#mainpage2 > div > h1{
+    text-align: left;
+    margin-left: 1rem;
+}
+#mainpage2 > div > p{
+    text-align: center;    
 }
 
 #mainpage3{
     position: relative;
-    width: 70%;
+    /* width: 70%; */
     display: block;
     margin: auto;
     background-color: green;
 }
 #mainpage4{
-background-color: yellow;
-
+    background-color: yellow;
+    display: block;
+    position: relative;
+    text-align: center;
 }
-.image-with-text{
+.content-image-down-text{
     background-color: blue;
+    max-width: 10rem;
     display: inline-block;
+    text-align: center;
+    margin-left: 4rem;
+    margin-right: 4rem;
 }
