@@ -8,11 +8,15 @@ Development off a web application for La Caverna del Dragon association (URJC - 
 ## PHASE 0: Project attributes
 
 ## Developer team
-* Alfonso Pajuelo Aguirre	| va.pajuelo@alumnos.urjc.es	| alfonsopajueloaguirre
-* Carlos Palomares Becerra	| c.palomaresb@alumnos.urjc.es	| carlospabe
-* Daniel Moreno Godoy		| d.moreno.2016@alumnos.urjc.es	| Danielmg21
-* Miguel Jiménez Granizo	| m.jimenezgra@alumnos.urjc.es	| byGranizo
-* Óscar Rivas Melar         | o.rivas.2017@alumnos.urjc.es 	| oscar-llury
+| Name	| Email	| User |
+|-------|-------|--------|
+| Alfonso Pajuelo Aguirre	| va.pajuelo@alumnos.urjc.es	| alfonsopajueloaguirre |
+| Carlos Palomares Becerra	| c.palomaresb@alumnos.urjc.es	| carlospabe |
+| Daniel Moreno Godoy		| d.moreno.2016@alumnos.urjc.es	| Danielmg21 |
+| Miguel Jiménez Granizo	| m.jimenezgra@alumnos.urjc.es	| byGranizo |
+| Óscar Rivas Melar         | o.rivas.2017@alumnos.urjc.es 	| oscar-llury |
+
+- Project's trello board: https://trello.com/b/3Y1kgUPj/
 
 ### Project description
 **Entities:**
