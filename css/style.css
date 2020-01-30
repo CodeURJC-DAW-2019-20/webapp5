@@ -31,14 +31,11 @@ p{
 
 .login_button{
 	background-color: #a10600;
-	height: 50px;
- 	width: 120px;
 }
 .register_button{
 	background-color: #a10600;
-	height: 50px;
- 	width: 120px;
-
+	margin-right: 80px;
+	margin-left: 30px;
 }
 
 
