@@ -1,6 +1,142 @@
 /* General */
 /* Home */
 /* Merch */
+/* Categories Product css
+============================================================================================ */
+.product_listing_area {
+    margin-bottom: 40px;
+}
+
+.p_list_text {
+    border: 1px solid #cccccc;
+    height: 100%;
+    padding-left: 18px;
+    padding-top: 25px;
+}
+
+.p_list_text h3 {
+    font-size: 24px;
+    color: #0b1033;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.p_list_text h3:before {
+    content: "";
+    width: 95px;
+    height: 2px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background: #d91522;
+}
+
+.p_list_text ul {
+    padding-top: 14px;
+}
+
+.p_list_text ul li a {
+    font-size: 14px;
+    line-height: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    letter-spacing: .35px;
+    color: #0b1033;
+    -webkit-transition: all 400ms linear 0s;
+    -o-transition: all 400ms linear 0s;
+    transition: all 400ms linear 0s;
+}
+
+.p_list_text ul li:hover a {
+    color: #d91522;
+}
+
+.p_list_img {
+    margin-left: -30px;
+}
+
+/* End Categories Product css */
+
+/* Fillter Product Area css
+============================================================================================ */
+.fillter_product_slider_area {
+    padding: 70px 0px 60px 0px;
+}
+
+.fillter_product_inner .portfolio_filter {
+    text-align: center;
+    padding-bottom: 35px;
+}
+
+.fillter_product_inner .portfolio_filter li {
+    display: inline-block;
+    margin-right: 25px;
+}
+
+.fillter_product_inner .portfolio_filter li a {
+    font-size: 16px;
+    color: #666666;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    letter-spacing: .40px;
+    text-transform: uppercase;
+}
+
+.fillter_product_inner .portfolio_filter li.active a {
+    color: #d91522;
+}
+
+.fillter_product_inner .portfolio_filter li:last-child {
+    margin-right: 0px;
+}
+
+.fillter_product_slider .fillter_product_slider {
+    text-align: center;
+}
+
+.fillter_product_slider .owl-prev, .fillter_product_slider .owl-next {
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    border: 1px solid #cccccc;
+    color: #000;
+    font-size: 23px;
+    line-height: 35px;
+    text-align: center;
+    -webkit-transition: all 400ms linear 0s;
+    -o-transition: all 400ms linear 0s;
+    transition: all 400ms linear 0s;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.fillter_product_slider .owl-prev:hover, .fillter_product_slider .owl-next:hover {
+    color: #fff;
+    background: #262121;
+    border-color: #262121;
+}
+
+.fillter_product_slider .owl-prev {
+    margin-right: 15px;
+}
+
+.fillter_home_sidebar {
+    margin-top: 35px;
+}
+
+.fillter_home_sidebar .portfolio_filter {
+    text-align: left;
+}
+
+.fillter_home_sidebar .home_l_product_slider .home_l_product_slider {
+    top: -54px;
+}
+
+/* End Fillter Product Area css
+============================================================================================ */
+
 /* Events */
 /* About us */
 .about_section{
