@@ -1,0 +1,25 @@
+/* -------------Event Template style------------- */
+
+#general-container{
+    width: 90%;
+    background-color: tomato;
+    margin: auto;
+}
+#event-header{
+    margin-top: 2rem;
+    background-color: violet;
+    object-fit: scale-down;
+    height: auto;
+    
+}
+#event-image{
+    float: left;
+}
+#event-info{
+    
+}
+#event-description{
+    width: 60%;
+    clear: left;
+    text-align: justify;
+}
