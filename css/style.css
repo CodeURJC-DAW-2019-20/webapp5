@@ -1,4 +1,46 @@
 /* General */
+*{
+	font-family: Moserrat;
+	font-weight: normal;
+	color: black;
+	size: 12px;
+}
+h1{
+	font-family: Monserrat;
+	font-weight: bold;
+	color: #a10600;
+}
+h2{
+	font-family: Monserrat;
+	font-weight: bold;
+	color: #a10600 ;
+}
+p{
+	font-family: Monserrat;
+	font-weight: normal;
+	color: black;
+	size: 12px;
+}
+.social_icons{
+	font-size: 40px;
+	color: #a10600;
+}
+
+.social_icons:hover{
+	color: white;
+}
+
+.login_button{
+	background-color: #a10600;
+}
+.register_button{
+	background-color: #a10600;
+	margin-right: 80px;
+	margin-left: 30px;
+}
+.head {
+	background-color: white; 
+}
 /* Home */
 /* Merch */
 /* Events */
