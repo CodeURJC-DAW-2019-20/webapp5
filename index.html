@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -30,19 +30,11 @@
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-  <script>
-    //No funciona si no se corre en servidor
-    $(function(){
-      $("#header").load("./src/components/header.html");
-      $("#footer").load("./src/components/footer.html");
-    });
-  </script>
-
   <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>  
-  <nav class="navbar sticky-top navbar-expand-md navbar-black bg-dark">
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="">
       <img src="./assets/img/logo/png/logo48.png" width="50" height="50" class="d-inline-block align-top">
     </a>
@@ -66,17 +58,17 @@
           <a class="nav-link" href="./about_us.html">Sobre nosotros</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
+          <a class="nav-link" href="./contact.html">Contacto</a>
         </li>
         <li class="nav-item">
       </ul>
 
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="btn btn-primary login_button" href="#">Login</a>
+          <a class="btn btn-primary" id="login_button" href="./login.html">Login</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-primary register_button" href="#">Registro</a>
+          <a class="btn btn-primary" id="register_button" href="#">Registro</a>
         </li>
       </ul>
 
@@ -119,12 +111,13 @@
       </div>
       <div class="row">
         <div class="col-sm-4">
-          <form>
+          <form action="https://gmail.us4.list-manage.com/subscribe/post?u=cd10347d8ef1795b1334f9a0f&id=1ec05fee4a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
             <div class="form-group">
               <label for="emailNewsletter">Suscribete a nuestra newsletter</label>
-              <input type="email" class="form-control" id="emailNewsletter" placeholder="Introduce tu email">
+              <input type="email" name="EMAIL" class="form-control" id="emailNewsletter" placeholder="Introduce tu email" required>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cd10347d8ef1795b1334f9a0f_1ec05fee4a" tabindex="-1" value=""></div>
+            <div class="clear"><button type="submit" value="Subscribe" name="subscribe" class="btn btn-primary">Enviar</button></div>
           </form>
         </div>
         <div class="col-sm-4">
