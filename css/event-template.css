@@ -6,17 +6,20 @@
     margin: auto;
 }
 #event-header{
-    margin-top: 2rem;
     background-color: violet;
-    object-fit: scale-down;
-    height: auto;
-    
+} 
+#event-container-main-image{
+    margin-top: 2rem;
+    display: block;
+    position: relative;
 }
-#event-image{
+/* image-with-text */
+#event-main-image{
     float: left;
 }
 #event-info{
-    
+    height: 100%;
+    background-color: chartreuse;
 }
 #event-description{
     width: 60%;
