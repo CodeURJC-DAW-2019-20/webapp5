@@ -34,7 +34,6 @@
 
   <style>
 	#escondido {
-		text-align: center;
 	  display: none;
 	}
 	</style>
@@ -59,7 +58,7 @@
 				<a class="nav-link" href="#">Merch</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Eventos</a>
+				<a class="nav-link" href="./events.html">Eventos</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="./about_us.html">Sobre nosotros</a>
@@ -82,7 +81,8 @@
 		</div>
 	</nav>
 
-
+  <br>
+  <br>
   <div class="container">
   	<div class="row">
       <div class="col-sm-12">
@@ -92,61 +92,78 @@
       </div>
     </div>
   </div>
-
-	<div class="container text-center">
+  <br>
+	<div class="container ml-auto">
     <div class="row">
       <div class="col-sm-4">
-      	<img src="./assets/img/events/event.jpg" width="300">
-  			<h4>Evento 1</h4>
+        <a href="#">
+          <img src="./assets/img/events/event.jpg" width="300">
+          <h3 class="mt-2">Evento 1</h3>
+        </a>
   			<p>Texto de ejemplo del evento número 1</p>
       </div>
       <div class="col-sm-4">
-      	<img src="./assets/img/events/event.jpg" width="300">
-  			<h4>Evento 2</h4>
+        <a href="#">
+          <img src="./assets/img/events/event.jpg" width="300">
+          <h3 class="mt-2">Evento 2</h3>
+        </a>
   			<p>Texto de ejemplo del evento número 2</p>
       </div>
       <div class="col-sm-4">
-      	<img src="./assets/img/events/event.jpg" width="300">
-  			<h4>Evento 3</h4>
+      	<a href="#">
+          <img src="./assets/img/events/event.jpg" width="300">
+          <h3 class="mt-2">Evento 3</h3> 
+        </a>
   			<p>Texto de ejemplo del evento número 3</p>
   		</div>
+    </div>
+    <br>
+    <div class="row">
       <div class="col-sm-4">
-      	<img src="./assets/img/events/event.jpg" width="300">
-  			<h4>Evento 4</h4>
-  			<p>Texto de ejemplo del evento número 4</p>
-  		</div>
+        <a href="#">
+          <img src="./assets/img/events/event.jpg" width="300">
+          <h3 class="mt-2">Evento 4</h3>
+        </a>
+        <p>Texto de ejemplo del evento número 4</p>
+      </div>
       <div class="col-sm-4">
-      	<img src="./assets/img/events/event.jpg" width="300">
-  			<h4>Evento 5</h4>
-  			<p>Texto de ejemplo del evento número 5</p>
-  		</div>
+        <a href="#">
+          <img src="./assets/img/events/event.jpg" width="300">
+          <h3 class="mt-2">Evento 5</h3>
+        </a>
+        <p>Texto de ejemplo del evento número 5</p>
+      </div>
       <div class="col-sm-4">
-      	<img src="./assets/img/events/event.jpg" width="300">
-  			<h4>Evento 6</h4>
-  			<p>Texto de ejemplo del evento número 6</p>
-  		</div>
+        <a href="#">
+          <img src="./assets/img/events/event.jpg" width="300">
+          <h3 class="mt-2">Evento 6</h3>
+        </a>
+        <p>Texto de ejemplo del evento número 6</p>
+      </div>
+    </div>
+    <br>
+    <div class="row" id="escondido">
+      <div class="col-sm-4">
+        <a href="#">
+          <img src="./assets/img/events/event.jpg" width="300">
+          <h3 class="mt-2">Evento 7</h3>
+        </a>
+        <p>Texto de ejemplo del evento número 7</p>
+      </div>
+      <div class="col-sm-4">
+        <a href="#">
+          <img src="./assets/img/events/event.jpg" width="300">
+          <h3 class="mt-2">Evento 8</h3>
+        </a>
+        <p>Texto de ejemplo del evento número 8</p>
+      </div>
     </div>
 	</div>
-	<div id="escondido">
-		<div class="container text-center">
-			<div class="row">
-	      <div class="col-sm-4">
-	      	<img src="./assets/img/events/event.jpg" width="300">
-	  			<h4>Evento 7</h4>
-  				<p>Texto de ejemplo del evento número 7</p>
-	  		</div>
-	      <div class="col-sm-4">
-	      	<img src="./assets/img/events/event.jpg" width="300">
-	  			<h4>Evento 8</h4>
-  				<p>Texto de ejemplo del evento número 8</p>
-	  		</div>
-	    </div>
-		</div>
-	</div>
-	
 	<div class="container text-center">
-		<button onclick="showMore()">Mostrar más</button>
+		<button class="btn btn-primary" onclick="showMore()">Mostrar más</button>
 	</div>
+  <br>
+  <br>
 		
 
 	<footer class="text-light bg-dark">
@@ -197,7 +214,7 @@
 </body>
 <script>
 function showMore() {
-  document.getElementById("escondido").style.display = "block";
+  document.getElementById("escondido").style.display = "flex";
 }
 </script>
 
