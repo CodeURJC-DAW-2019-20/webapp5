@@ -1,7 +1,7 @@
 
 
 /* Carousel Header Styles */
-.header-text {
+.mainpage1 {
     position: absolute;
     top: 20%;
     left: 1.8%;
@@ -13,11 +13,11 @@
     color: #a10600;
     line-height : 5px;
 }
-.header-text h1{
+.mainpage1 h1{
     font-size: 4rem;
     font-weight: 700;
 }
-.header-text h2{
+.mainpage1 h2{
     font-size: 2rem;
     font-weight: 500;
 }/* End Carousel Header Styles */
