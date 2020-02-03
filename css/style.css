@@ -24,6 +24,11 @@ h2{
 	font-weight: bold;
 	color: #a10600 ;
 }
+h3{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: black ;
+}
 p{
 	font-family: Montserrat-Regular;
 	font-weight: normal;
