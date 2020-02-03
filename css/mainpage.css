@@ -1,0 +1,81 @@
+
+
+/* Carousel Header Styles */
+.mainpage1 {
+    position: absolute;
+    top: 20%;
+    left: 1.8%;
+    right: auto;
+    width: 96.66666666666666%;
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 2px 2px #A8AD11;
+    color: #a10600;
+    line-height : 5px;
+}
+.mainpage1 h1{
+    font-size: 4rem;
+    font-weight: 700;
+}
+.mainpage1 h2{
+    font-size: 2rem;
+    font-weight: 500;
+}/* End Carousel Header Styles */
+
+/* Section2 text */
+#mainpage2{
+    position: relative;
+    /* width: 70%; */
+    background-color:#FFE3F1;
+    margin: auto;
+    text-align: center;
+    padding: 2rem;
+}
+#mainpage2 > div{
+    width: 70%;
+    /* background-color: brown; */
+    margin: auto;
+}
+#mainpage2 > div > h1{
+    text-align: left;
+    margin-left: 1rem;
+}
+#mainpage2 > div > p{
+    text-align: center;    
+}
+
+/* Section3 photo */
+#mainpage3{
+    position: relative;
+    /* width: 70%; */
+    display: block;
+    margin: auto;
+    /* background-color: green; */
+}
+
+/* Section4 productos */
+#mainpage4{
+    padding: 2rem;
+    background-color: #FFE3F1;
+    display: block;
+    position: relative;
+    text-align: center;
+}
+.content-image-down-text{
+    background-color: #E8C3C3;
+    max-width: 10rem;
+    display: inline-block;
+    text-align: center;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+.button_content-image-down-text{
+    text-align: center;
+    /* position: absolute; */
+    background-color: red;
+    /* top: 80%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    padding: 3%;
+    margin-bottom: 5rem;
+}
