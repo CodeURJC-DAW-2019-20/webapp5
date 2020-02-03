@@ -1,22 +1,31 @@
 /* General */
+@font-face{
+	font-family: Montserrat-Regular;
+	src: url(../assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face{
+	font-family: Montserrat-Bold;
+	src: url(../assets/fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
 *{
-	font-family: Moserrat;
+	font-family: Montserrat-Regular;
 	font-weight: normal;
 	color: black;
 	size: 12px;
 }
 h1{
-	font-family: Monserrat;
+	font-family: Montserrat-Bold;
 	font-weight: bold;
 	color: #a10600;
 }
 h2{
-	font-family: Monserrat;
+	font-family: Montserrat-Bold;
 	font-weight: bold;
 	color: #a10600 ;
 }
 p{
-	font-family: Monserrat;
+	font-family: Montserrat-Regular;
 	font-weight: normal;
 	color: black;
 	size: 12px;
@@ -25,21 +34,54 @@ p{
 	font-size: 40px;
 	color: #a10600;
 }
-
 .social_icons:hover{
-	color: white;
+	color: #870500;
+}
+a:not(nav){
+  color: #a10600;
+}
+a:not(nav):hover{
+  color: #870500;
 }
 
-.login_button{
+.btn.btn-primary, body .btn-primary:not(:disabled):not(.disabled):active{
 	background-color: #a10600;
+	border-color: #a10600;
 }
-.register_button{
-	background-color: #a10600;
+.btn.btn-primary:hover{
+	background-color: #870500;
+	border-color: #870500;
+}
+.btn.btn-primary:focus{
+	background-color: #870500;
+  border-color: #870500;
+  box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
+}
+.btn.btn-primary:not(:disabled):not(.disabled):active:focus{
+  box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
+}
+
+#login_button{
+	margin-right: 30px;
+}
+@media (max-width: 768px){
+	#login_button{
+		margin-bottom: 1rem;;
+	}
+}
+
+#register_button{
 	margin-right: 80px;
-	margin-left: 30px;
+	
 }
+
 .head {
 	background-color: white; 
+}
+
+form .form-control:focus{
+	border-color: #ED0800;
+	box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
 }
 /* Home */
 /* Merch */
@@ -85,7 +127,8 @@ p{
     margin-top: 1.5rem;
     height: 600px;
     width: 100%;
-    margin-bottom: 1rem;
+	margin-bottom: 1rem;
+	border-radius: 10px;
 }
 .contact_address{
     margin-top: 4rem;
@@ -93,3 +136,15 @@ p{
 .contact_below{
     margin-top: 2rem;
 }
+/* Login */
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+/* Register */
