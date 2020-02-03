@@ -2,42 +2,111 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="624f99c1-5d5b-4e38-97f5-fbe47dd43699" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/img/product/shirttemplate.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/products/shirtTemplate.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/jquery-3.2.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/popper.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/smoothscroll.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/theme.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/bootstrap-selector/css/bootstrap-select.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/bootstrap-selector/js/bootstrap-select.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/counterup/apear.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/counterup/countto.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/counterup/jquery.counterup.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/counterup/jquery.waypoints.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/elegant-icon/fonts/ElegantIcons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/elegant-icon/fonts/ElegantIcons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/elegant-icon/fonts/ElegantIcons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/elegant-icon/fonts/ElegantIcons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/elegant-icon/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/image-dropdown/dd.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/image-dropdown/flags.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/image-dropdown/jquery.dd.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/image-dropdown/skin2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/isotope/imagesloaded.pkgd.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/isotope/isotope.pkgd.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/jquery-ui/jquery-ui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/jquery-ui/jquery-ui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/line-icon/css/simple-line-icons.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/line-icon/fonts/Simple-Line-Icons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/line-icon/fonts/Simple-Line-Icons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/line-icon/fonts/Simple-Line-Icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/line-icon/fonts/Simple-Line-Icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/line-icon/fonts/Simple-Line-Icons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/magnify-popup/jquery.magnific-popup.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/magnify-popup/magnific-popup.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/owl-carousel/owl.carousel.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vendor/owl-carousel/owl.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/coloredbg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/gridtile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/gridtile_3x3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/gridtile_3x3_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/gridtile_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/sources/fb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/sources/fr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/sources/ig.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/sources/post.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/sources/revolution_slide1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/sources/revolution_slide2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/sources/tw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/sources/vm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/sources/wc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/sources/yt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/assets/svg/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/closedhand.cur" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/layers.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/ares.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/dione.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/erinyen.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/gyges.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/hades.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/hebe.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/hephaistos.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/hermes.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/hesperiden.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/metis.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/persephone.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/uranus.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation-skins/zeus.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/navigation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/openhand.cur" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/settings-ver.5.3.1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/css/settings.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/font-awesome/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/font-awesome/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/font-awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/font-awesome/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/pe-icon-7-stroke/css/helper.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/pe-icon-7-stroke/css/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/pe-icon-7-stroke/fonts/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/pe-icon-7-stroke/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/revicons/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/revicons/revicons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/revicons/revicons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/revicons/revicons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/fonts/revicons/revicons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/info.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/revolution.extension.actions.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/revolution.extension.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/revolution.extension.kenburn.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/revolution.extension.layeranimation.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/revolution.extension.migration.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/revolution.extension.navigation.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/revolution.extension.parallax.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/revolution.extension.slideanims.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/revolution.extension.video.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/source/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/source/revolution.extension.actions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/source/revolution.extension.carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/source/revolution.extension.kenburn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/source/revolution.extension.layeranimation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/source/revolution.extension.migration.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/source/revolution.extension.navigation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/source/revolution.extension.parallax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/source/revolution.extension.slideanims.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/extensions/source/revolution.extension.video.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/jquery.themepunch.enablelog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/jquery.themepunch.revolution.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/jquery.themepunch.tools.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/source/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/source/jquery.themepunch.enablelog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/source/jquery.themepunch.revolution.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/js/source/jquery.themepunch.tools.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/php/facebook/class-facebook.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/php/flickr/class-flickr.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/php/instagram/class-instagram.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/php/twitter/RestApi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/php/twitter/class-twitter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/php/twitter/connection/Application.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/php/twitter/connection/ConnectionAbstract.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/php/twitter/connection/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/php/vimeo/class-vimeo.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vendor/revolution/php/youtube/class-youtube.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/merchandising.html" beforeDir="false" afterPath="$PROJECT_DIR$/merchandising.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +137,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/js/vendor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/img/products" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -78,11 +147,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alfonso\Documents\GitHub\webapp5\assets\img\products" />
       <recent name="C:\Users\Alfonso\Documents\GitHub\webapp5\js\vendor" />
       <recent name="C:\Users\Alfonso\Documents\GitHub\webapp5\css" />
       <recent name="C:\Users\Alfonso\Documents\GitHub\webapp5\js" />
       <recent name="C:\Users\Alfonso\Documents\GitHub\webapp5\assets\img" />
-      <recent name="C:\Users\Alfonso\Documents\GitHub\webapp5" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Alfonso\Documents\GitHub\webapp5\assets\img\product" />
@@ -100,7 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1580477161269</updated>
       <workItem from="1580477164606" duration="5460000" />
-      <workItem from="1580724476069" duration="1401000" />
+      <workItem from="1580724476069" duration="5653000" />
     </task>
     <servers />
   </component>
