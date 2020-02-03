@@ -1,22 +1,31 @@
 /* General */
+@font-face{
+	font-family: Montserrat-Regular;
+	src: url(../assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face{
+	font-family: Montserrat-Bold;
+	src: url(../assets/fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
 *{
-	font-family: Moserrat;
+	font-family: Montserrat-Regular;
 	font-weight: normal;
 	color: black;
 	size: 12px;
 }
 h1{
-	font-family: Monserrat;
+	font-family: Montserrat-Bold;
 	font-weight: bold;
 	color: #a10600;
 }
 h2{
-	font-family: Monserrat;
+	font-family: Montserrat-Bold;
 	font-weight: bold;
 	color: #a10600 ;
 }
 p{
-	font-family: Monserrat;
+	font-family: Montserrat-Regular;
 	font-weight: normal;
 	color: black;
 	size: 12px;
