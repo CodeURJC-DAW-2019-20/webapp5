@@ -226,7 +226,7 @@ form .form-control:focus{
 }
 
 /* Events */
-#escondido {
+#hidden-element {
     display: none;
 }
 
