@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title></title>
@@ -15,14 +16,18 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/style.css">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
   <script src="js/vendor/modernizr-3.8.0.min.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+    integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+    crossorigin="anonymous"></script>
 
   <script src="https://kit.fontawesome.com/deb22f1091.js" crossorigin="anonymous"></script>
 
@@ -30,106 +35,104 @@
   <script src="js/main.js"></script>
 
   <meta name="theme-color" content="#fafafa">
+
 <body>
- <nav class="navbar sticky-top navbar-expand-md navbar-black bg-dark">
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="">
       <img src="./assets/img/logo/png/logo48.png" width="50" height="50" class="d-inline-block align-top">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
+      aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarMenu">
-
-
-     <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Inicio</a>
+          <a class="nav-link" href="./index.html">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Merch</a>
+          <a class="nav-link" href="./merchandising.html">Merch</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Eventos</a>
+          <a class="nav-link" href="./events.html">Eventos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Sobre nosotros</a>
+          <a class="nav-link" href="./about_us.html">Sobre nosotros</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
+          <a class="nav-link" href="./contact.html">Contacto</a>
         </li>
         <li class="nav-item">
       </ul>
-
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="btn btn-primary login_button" href="#">Login</a>
+          <a class="btn btn-primary" id="login_button" href="./login.html">Login</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-primary register_button" href="#">Registro</a>
+          <a class="btn btn-primary" id="register_button" href="./register.html">Registro</a>
         </li>
       </ul>
-
     </div>
   </nav>
 
-<div class="container mt-2 mb-3">
-	<div class="row">
-		<div class="col-6 mx-auto">
-		<img class="mx-auto d-block" src="./assets/img/logo/png/logo_grande.png" width="150" height="150">
-		</div>
-	</div>
+  <div class="container mt-2 mb-3">
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <img class="mx-auto d-block" src="./assets/img/logo/png/logo_grande.png" width="150" height="150">
+      </div>
+    </div>
 
-	<div class="row">
-		<div class="col-6 mx-auto">
-		<form class="form-horizontal" action='' method="POST">
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <form class="form-horizontal" action='' method="POST">
 
-		<div class="form-group">
-         
-			<div class="form-group">
-			    <label class="register-form_name">Nombre</label>
-			    <input type="text" class="form-control"id="register-name" placeholder="Nombre" required>
-			</div>
+          <div class="form-group">
 
-			<div class="form-group">
-			    <label class="register-form_surname">Apellidos</label>
-			    <input type="text" class="form-control" id="register-surname" placeholder="Apellidos" required>
-			</div>
+            <div class="form-group">
+              <label class="register-form_name">Nombre</label>
+              <input type="text" class="form-control" id="register-name" placeholder="Nombre" required>
+            </div>
 
-			<div class="form-group">
-			    <label class="register-form_username">Username</label>
-			    <input type="text" class="form-control" id="register-username" placeholder="Username" required>
-			</div>
-			 
+            <div class="form-group">
+              <label class="register-form_surname">Apellidos</label>
+              <input type="text" class="form-control" id="register-surname" placeholder="Apellidos" required>
+            </div>
 
-			<div class="form-group">
-			    <label class="register-form_email">E-mail</label>
-			    <input type="text" class="form-control" id="register-email" placeholder="E-mail" required>
-			</div>
+            <div class="form-group">
+              <label class="register-form_username">Username</label>
+              <input type="text" class="form-control" id="register-username" placeholder="Username" required>
+            </div>
 
-			<div class="form-group">
-			    <label class="register-form_password">Contraseña</label>
-			    <input type="text" class="form-control" id="register-password" placeholder="Contraseña" required>
-			</div>
+            <div class="form-group">
+              <label class="register-form_email">E-mail</label>
+              <input type="text" class="form-control" id="register-email" placeholder="E-mail" required>
+            </div>
 
-			<div class="form-group">
-			    <label class="register-form_password">Confirmar contraseña</label>
-			    <input type="text" class="form-control" id="register-confirm_password" placeholder="Confirmar contraseña" required>
-			</div>
+            <div class="form-group">
+              <label class="register-form_password">Contraseña</label>
+              <input type="text" class="form-control" id="register-password" placeholder="Contraseña" required>
+            </div>
 
-			<div class="control-group">
-			    <div class="controls">
-			    <button id="register" class="btn btn-primary">Register</button>
-			    </div>
-			</div>
-		</div>
-		
-		</form>
-		</div>
-	</div>
-</div>
+            <div class="form-group">
+              <label class="register-form_password">Confirmar contraseña</label>
+              <input type="text" class="form-control" id="register-confirm_password" placeholder="Confirmar contraseña"
+                required>
+            </div>
 
-<footer class="text-light bg-dark">
-    <div class="contain">
+            <div class="control-group">
+              <div class="controls">
+                <button id="register" class="btn btn-primary">Register</button>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-light bg-dark">
+    <div class="container">
       <div class="row">
         <div class="col-12 text-center">
           <img src="./assets/img/logo/png/logo_grande.png" width="150" height="150">
@@ -137,12 +140,18 @@
       </div>
       <div class="row">
         <div class="col-sm-4">
-          <form>
+          <form action="https://gmail.us4.list-manage.com/subscribe/post?u=cd10347d8ef1795b1334f9a0f&id=1ec05fee4a"
+            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+            target="_blank" novalidate>
             <div class="form-group">
               <label for="emailNewsletter">Suscribete a nuestra newsletter</label>
-              <input type="email" class="form-control" id="emailNewsletter" placeholder="Introduce tu email">
+              <input type="email" name="EMAIL" class="form-control" id="emailNewsletter"
+                placeholder="Introduce tu email" required>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                name="b_cd10347d8ef1795b1334f9a0f_1ec05fee4a" tabindex="-1" value=""></div>
+            <div class="clear"><button type="submit" value="Subscribe" name="subscribe"
+                class="btn btn-primary">Enviar</button></div>
           </form>
         </div>
         <div class="col-sm-4">
@@ -156,16 +165,19 @@
         <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
           <ul class="list-unstyled list-inline text-center">
             <li class="list-inline-item">
-              <a href="https://www.instagram.com/itsdougthepug/?hl=es" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram social_icons"></i></a>
+              <a href="https://www.instagram.com/itsdougthepug/?hl=es" target="_blank" rel="noopener noreferrer"><i
+                  class="fab fa-instagram social_icons"></i></a>
             </li>
-            <li class="list-inline-item"><a href="https://twitter.com/lcdd_urjc" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-twitter social_icons"></i></a>
+            <li class="list-inline-item"><a href="https://twitter.com/lcdd_urjc" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fab fa-twitter social_icons"></i></a>
             </li>
-            <li class="list-inline-item"><a href="https://discord.gg/yYDsMhw"target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-discord social_icons"></i></a><i>
+            <li class="list-inline-item"><a href="https://discord.gg/yYDsMhw" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord social_icons"></i></a><i>
             </li>
-            <li class="list-inline-item"><a href="mailto:lcddoficial@gmail.com" target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-envelope social_icons"></i></a>
+            <li class="list-inline-item"><a href="mailto:lcddoficial@gmail.com" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fas fa-envelope social_icons"></i></a>
             </li>
           </ul>
         </div>
@@ -175,4 +187,3 @@
 </body>
 
 </html>
-
