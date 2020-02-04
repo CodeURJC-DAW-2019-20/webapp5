@@ -115,7 +115,7 @@ form .form-control:focus{
 #mainpage2{
     position: relative;
     /* width: 70%; */
-    background-color:#FFE3F1;
+    /* background-color:#FFE3F1; */
     margin: auto;
     text-align: center;
     padding: 2rem;
@@ -145,13 +145,13 @@ form .form-control:focus{
 /* Section4 productos */
 #mainpage4{
     padding: 2rem;
-    background-color: #FFE3F1;
+    /* background-color: #FFE3F1; */
     display: block;
     position: relative;
     text-align: center;
 }
 .content-image-down-text{
-    background-color: #E8C3C3;
+    background-color: #FFE3F1;
     max-width: 10rem;
     display: inline-block;
     text-align: center;
