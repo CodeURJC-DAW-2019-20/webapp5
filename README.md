@@ -35,6 +35,8 @@ Development off a web application for La Caverna del Dragon association (URJC - 
 - Visitors: browse the website
 
 **Complementary tecnology:**
+* Bootstrap for responsive style.
+* ChartJS for diagram designs.
 * Subscribe to the newsletter.
 * Contact block by application form.
 * Event location by google maps.
