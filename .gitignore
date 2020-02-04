@@ -1,3 +1,7 @@
+#Editor/IDE folders
+.vscode
+.idea
+
 # Compiled class file
 *.class
 
