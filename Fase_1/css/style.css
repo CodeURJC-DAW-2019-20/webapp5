@@ -88,7 +88,8 @@ form .form-control:focus{
 	border-color: #ED0800;
 	box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
 }
-/* Home */
+/* Home 
+============================================================================================ */
 /* Carousel Header Styles */
 .mainpage1 {
     position: absolute;
@@ -225,39 +226,41 @@ form .form-control:focus{
     margin-left: -30px;
 }
 
-/* Events */
+/* Events 
+============================================================================================ */
 #hidden-element {
     display: none;
 }
-
-
 #general-container{
     width: 90%;
-    background-color: tomato;
     margin: auto;
-}
-#event-header{
-    background-color: violet;
+    margin-top: 2rem;
 } 
 #event-container-main-image{
-    margin-top: 2rem;
-    display: block;
-    position: relative;
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    /* width: 60%; */
 }
     /* image-with-text */
 #event-main-image{
-    float: left;
+    
 }
 #event-info{
-    height: 100%;
+    /* float: left; */
+    /* width: 30%; */
+    padding: 1rem;
     background-color: chartreuse;
 }
+
 #event-description{
-    width: 60%;
-    clear: left;
+   padding: 1rem;
+    clear: both;
     text-align: justify;
+    background-color: tomato;
 }
-/* About us */
+/* About us 
+============================================================================================ */
 .about_section{
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -293,7 +296,8 @@ form .form-control:focus{
 .rrss_icon_section-mail{
     color: purple;
 }
-/* Contact */
+/* Contact 
+============================================================================================ */
 #map {
     margin-top: 1.5rem;
     height: 600px;
@@ -307,7 +311,8 @@ form .form-control:focus{
 .contact_below{
     margin-top: 2rem;
 }
-/* Login */
+/* Login 
+============================================================================================ */
     /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   span.psw {
