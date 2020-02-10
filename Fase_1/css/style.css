@@ -250,14 +250,14 @@ form .form-control:focus{
     /* float: left; */
     /* width: 30%; */
     padding: 1rem;
-    background-color: chartreuse;
+    /* background-color: chartreuse; */
 }
 
 #event-description{
    padding: 1rem;
     clear: both;
     text-align: justify;
-    background-color: tomato;
+    /* background-color: tomato; */
 }
 /* About us 
 ============================================================================================ */

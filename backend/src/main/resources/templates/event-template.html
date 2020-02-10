@@ -81,27 +81,19 @@
 
       
         <div id="event-container-main-image">
-          <img id="event-main-image" class="img-fluid" src="assets\img\event-image.png" />
+          <img id="event-main-image" class="img-fluid" src="{{event.image}}" />
         </div>
         <div id="event-info">
-          <h1>Titulo evento</h1>
+          <h1>{{event.name}}</h1>
           <div>
             <i class="far fa-calendar-alt"></i>
-            <time datetime="2020-02-15">15-02-2020</time>
+            <time datetime="2020-02-15">{{event.date}}</time>
           </div>
-          <p class="align-middle">Lorem Ipsum is simply dummy text of the printing and</p>
+          <p class="align-middle">{{event.game}}</p>
         </div>
       
       <div id="event-description">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text
-          ever since the 1500s, when an unknown printer took a galley of type
-          and scrambled it to make a type specimen book. It has survived not
-          only five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.</p>
+        <p>{{event.description}}</p>
       </div>
     
   </div>
