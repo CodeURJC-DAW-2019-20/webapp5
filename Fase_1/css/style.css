@@ -88,6 +88,18 @@ form .form-control:focus{
 	border-color: #ED0800;
 	box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
 }
+form .input-group{
+    display: block;
+}
+form .custom-file:focus{
+    border-color: #ED0800;
+    box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
+}
+
+form .input-group .custom-file:after{
+    border-color: #ED0800;
+    box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
+}
 /* Home */
 /* Carousel Header Styles */
 .mainpage1 {
@@ -319,3 +331,6 @@ form .form-control:focus{
   }
 }
 /* Register */
+
+
+/*Register Events*/

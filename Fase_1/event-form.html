@@ -86,11 +86,13 @@
       <div class="col-6 mx-auto">
         <form class="form-horizontal" action='' method="POST">
 
-          <div class="form-group">
-
-            <div class="form-group">
-              <input type="file" class="events-file-input" id="customFile">
-              <label class="form-control" for="customFile">Elegir fichero</label>
+            <div class="input-group">
+              <label class="register-event-form_img">Imagen</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                  aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01">Elegir fichero</label>
+              </div>
             </div>
 
             <div class="form-group">
@@ -109,7 +111,7 @@
             </div>
 
             <div class="form-group">
-              <label class="register-event-form_description">Description</label>
+              <label class="register-event-form_description">Descripción</label>
               <textarea name="textarea" rows="3" class="form-control" required></textarea>
             </div>
 
@@ -131,7 +133,10 @@
                 </div>
             </fieldset>
 
-
+            <div class="form-group">
+              <label class="register-event-form_premio">Premio</label>
+              <input type="text" class="form-control" id="register-event-form-premio" placeholder="Premio" required>
+            </div>
 
 
             <div class="control-group">
@@ -140,7 +145,6 @@
               </div>
             </div>
 
-          </div>
 
         </form>
       </div>
