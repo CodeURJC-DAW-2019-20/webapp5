@@ -1,18 +1,15 @@
 package com.lcdd.backend;
 
-import java.awt.Image;
-
-import org.springframework.stereotype.Controller;
-
 
 public class Event {
 	
 	private String name;
 	private String game;
 	private String date;
-	private String location;
+	private String hour;
+	private String award;
 	private String description;
-	private Image image;
+	//private Image image;
 	
 	
 	public Event() {}
@@ -21,15 +18,13 @@ public class Event {
 			String name,
 			String game,
 			String date,
-			String location,
-			String description,
-			Image image) {
+			String award,
+			String description) {
 		this.name = name;
 		this.game = game;
 		this.date = date;
-		this.location = location;
+		this.award = award;
 		this.description = description;
-		this.image = image;
 	}
 	
 	public void setName(String name) {
@@ -56,11 +51,19 @@ public class Event {
 	}
 	
 	
-	public void setLocation(String location) {
-		this.location = location;
+	public String getHour() {
+		return hour;
 	}
-	public String getLocation() {
-		return this.location;
+
+	public void setHour(String hour) {
+		this.hour = hour;
+	}
+
+	public void setAward(String award) {
+		this.award = award;
+	}
+	public String getAward() {
+		return this.award;
 	}
 	
 	
@@ -71,11 +74,5 @@ public class Event {
 		return this.description;
 	}
 	
-	
-	public void setImage(Image image) {
-		this.image = image;
-	}
-	public Image getImage() {
-		return this.image;
-	}
+
 }
