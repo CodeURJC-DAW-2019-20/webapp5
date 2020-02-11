@@ -17,13 +17,7 @@ public class Event {
 	
 	public Event() {}
 	
-	public Event(
-			String name,
-			String game,
-			String date,
-			String location,
-			String description,
-			Image image) {
+	public Event() {
 		this.name = name;
 		this.game = game;
 		this.date = date;
