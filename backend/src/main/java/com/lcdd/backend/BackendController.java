@@ -7,10 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class BackendController {
 	
-	@RequestMapping("/event-template")
-	public String eventTemplate(Model model, Event event){
+	@RequestMapping("/eventTemplate")
+	public String eventTemplate(Model model){
 		
-		model.addAttribute("event", event);
+		model.addAttribute("name" , "Partido de futbol");
+		model.addAttribute("game" , "futbol");
+		model.addAttribute("date" , "15/15/15");
+		model.addAttribute("location" , "madrid");
+		model.addAttribute("description" , "esto es una descripción");
+		model.addAttribute("image", "/assets/img/event-image.png");
 		
 		return "event-template";
 	}

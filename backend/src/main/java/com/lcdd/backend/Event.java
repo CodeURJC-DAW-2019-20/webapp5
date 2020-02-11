@@ -12,18 +12,16 @@ public class Event {
 	private String date;
 	private String location;
 	private String description;
-	private Image image;
+	private String image;
 	
-	
-	public Event() {}
 	
 	public Event() {
-		this.name = name;
-		this.game = game;
-		this.date = date;
-		this.location = location;
-		this.description = description;
-		this.image = image;
+		this.name = "Partido de futbol";
+		this.game = "futbol";
+		this.date = "15/15/15";
+		this.location = "madrid";
+		this.description = "esto es una descripción";
+		this.image = "/assets/img/event-image.png";
 	}
 	
 	public void setName(String name) {
@@ -66,10 +64,10 @@ public class Event {
 	}
 	
 	
-	public void setImage(Image image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
-	public Image getImage() {
+	public String getImage() {
 		return this.image;
 	}
 }
