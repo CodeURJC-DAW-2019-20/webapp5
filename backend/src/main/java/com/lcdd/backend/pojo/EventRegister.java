@@ -5,15 +5,15 @@ public class EventRegister {
 	private long userId;
 	private long eventId;
 	private String inscriptionName;
-	private int participants_number;
+	private int participantsNumber;
 	
-	public EventRegister(long id, long userId, long eventId, String inscriptionName, int participants_number) {
+	public EventRegister(long id, long userId, long eventId, String inscriptionName, int participantsNumber) {
 		super();
 		this.id = id;
 		this.userId = userId;
 		this.eventId = eventId;
 		this.inscriptionName = inscriptionName;
-		this.participants_number = participants_number;
+		this.participantsNumber = participantsNumber;
 	}
 	public long getId() {
 		return id;
@@ -39,11 +39,11 @@ public class EventRegister {
 	public void setInscriptionName(String inscriptionName) {
 		this.inscriptionName = inscriptionName;
 	}
-	public int getParticipants_number() {
-		return participants_number;
+	public int getParticipantsNumber() {
+		return participantsNumber;
 	}
-	public void setParticipants_number(int participants_number) {
-		this.participants_number = participants_number;
+	public void setParticipants_number(int participantsNumber) {
+		this.participantsNumber = participantsNumber;
 	}
 	
 	
