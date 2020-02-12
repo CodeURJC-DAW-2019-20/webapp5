@@ -33,6 +33,7 @@
 
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/show_more.js"></script>
 
   <meta name="theme-color" content="#fafafa">
 </head>
@@ -88,7 +89,7 @@
     </div>
   </div>
   <br>
-  <div class="container ml-auto">
+  <div class="container ml-auto" id="original">
     <div class="row">
       <div class="col-sm-4">
         <a href="#">
@@ -137,22 +138,7 @@
       </div>
     </div>
     <br>
-    <div class="row" id="hidden-element">
-      <div class="col-sm-4">
-        <a href="#">
-          <img src="./assets/img/events/event.jpg" width="300">
-          <h3 class="mt-2">Evento 7</h3>
-        </a>
-        <p>Texto de ejemplo del evento número 7</p>
-      </div>
-      <div class="col-sm-4">
-        <a href="#">
-          <img src="./assets/img/events/event.jpg" width="300">
-          <h3 class="mt-2">Evento 8</h3>
-        </a>
-        <p>Texto de ejemplo del evento número 8</p>
-      </div>
-    </div>
+    
   </div>
   <div class="container text-center">
     <button class="btn btn-primary" onclick="showMore()">Mostrar más</button>
@@ -215,10 +201,5 @@
     </div>
   </footer>
 </body>
-<script>
-  function showMore() {
-    document.getElementById("hidden-element").style.display = "flex";
-  }
-</script>
 
 </html>
