@@ -11,7 +11,7 @@ public class UserSession {
 	private String email;
 	private String firstName;
 	private String lastName;
-	private int role;
+	private long roleId;
 	
 	public long getId() {
 		return id;
@@ -43,11 +43,11 @@ public class UserSession {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public int getRole() {
-		return role;
+	public long getRoleId() {
+		return roleId;
 	}
-	public void setRole(int role) {
-		this.role = role;
+	public void setRoleId(long roleId) {
+		this.roleId = roleId;
 	}
 	
 	
