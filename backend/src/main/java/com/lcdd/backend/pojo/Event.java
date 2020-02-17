@@ -2,13 +2,21 @@ package com.lcdd.backend.pojo;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
+import java.util.Random;
 
+//@Entity
 public class Event {
+	
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	
 	private String name;
 	private long gameId;
 	private String place;
-	private LocalDate date;
+	private LocalDate date;//yyyy-MM-dd
 	private LocalTime time;
 	private String description;
 	private boolean isTournament;
@@ -16,21 +24,36 @@ public class Event {
 	private float inscriptionFee;
 	private int maxParticipants;
 	
-	public Event(long id, String name, long gameId, String place, LocalDate date, LocalTime time, String description,
-			boolean isTournament, int groupSize, float inscriptionFee, int maxParticipants) {
+	public Event( String name, String game, String place, String description,
+			 int groupSize, float inscriptionFee, int maxParticipants) {
 		super();
-		this.id = id;
+		
+		Random rnd = new Random(651465);
+		this.id= rnd.nextLong();
+		
 		this.name = name;
-		this.gameId = gameId;
+		this.gameId = game.compareToIgnoreCase("LOL");
 		this.place = place;
-		this.date = date;
-		this.time = time;
+		
+		LocalDate datesss =  LocalDate.now();
+		LocalTime timesss = LocalTime.now();
+		 
+		this.date = datesss;
+		this.time = timesss;
 		this.description = description;
-		this.isTournament = isTournament;
+		this.isTournament = false;
 		this.groupSize = groupSize;
 		this.inscriptionFee = inscriptionFee;
 		this.maxParticipants = maxParticipants;
 	}
+	
+	public long getNameGameId(String gameId) {
+		if (gameId.compareToIgnoreCase("LOL")==0) {
+			return 1;
+		}
+		return -1;
+	}
+	
 	public long getId() {
 		return id;
 	}

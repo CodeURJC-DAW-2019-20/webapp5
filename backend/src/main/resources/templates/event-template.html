@@ -85,19 +85,35 @@
 
 
 		<div id="event-container-main-image">
-			<img id="event-main-image" class="img-fluid" src="#" />
+			<img id="event-main-image" class="img-fluid" src="./assets/img/event-image.png" />
 		</div>
 		<div id="event-info">
-			<h1></h1>
+			<h1>{{event.name}}</h1>
 			<div>
-				<i class="far fa-calendar-alt"></i>
-				<time datetime="2020-02-15"></time>
+				<div>
+					<i class="far fa-calendar-alt"></i>
+					<time datetime="2020-02-15"></time>
+					<br>
+				</div>
+				<i class="fas fa-map-marker-alt"> Lugar: {{event.place}}</i>
+				<br>
+				<i class="fas fa-gamepad"> GAME</i>
+				<br>
+				<i class="fas fa-child"> Máximo de participantes: {{event.maxParticipants}}</i>
+				<br>
+				<i class="fas fa-users"> Tamaño del equipo: {{event.groupSize}}</i>
+				<br>
+				<i class="fas fa-money-bill-wave"> Tasa de inscripción: {{event.inscriptionFee}}</i>
+				
 			</div>
 			<p class="align-middle"></p>
 		</div>
 
+		
+
 		<div id="event-description">
-			<p></p>
+			<h2>Descripción del evento</h2>
+			<p>{{event.description}}</p>
 		</div>
 
 	</div>

@@ -13,11 +13,14 @@ public class EventFormController {
 	
 	
   @RequestMapping("/eventForm")
-  public String eventForm(Model model){
+  public String eventForm(Model model, Event event){
     
     //int a = 1;
-	  //model.addAttribute("event", evento);
-    System.out.println("llego ak controlador");
+	System.out.println("llego ak controlador");
+	
+	model.addAttribute("event", event);
+	
+    
     return "event-template";
   }
   
