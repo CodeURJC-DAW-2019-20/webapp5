@@ -1,20 +1,28 @@
 package com.lcdd.backend.pojo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Merchandising {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name;
-	private long typeId;
+	private MerchType type;
 	private float price;
 	private float discount;
 	private int stock;
 	private String description;
 	
-	public Merchandising(long id, String name, long typeId, float price, float discount, int stock,
-			String description) {
-		super();
-		this.id = id;
+	public Merchandising(){}
+
+	public Merchandising(String name, MerchType type, float price, float discount, int stock, String description) {
 		this.name = name;
-		this.typeId = typeId;
+		this.type = type;
 		this.price = price;
 		this.discount = discount;
 		this.stock = stock;
@@ -37,12 +45,12 @@ public class Merchandising {
 		this.name = name;
 	}
 
-	public long getTypeId() {
-		return typeId;
+	public MerchType getType() {
+		return type;
 	}
 
-	public void setTypeId(long typeId) {
-		this.typeId = typeId;
+	public void setType(MerchType type) {
+		this.type = type;
 	}
 
 	public float getPrice() {
@@ -76,6 +84,10 @@ public class Merchandising {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	
+	
+	
 	
 	
 }

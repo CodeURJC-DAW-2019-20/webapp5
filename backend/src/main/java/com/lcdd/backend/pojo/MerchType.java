@@ -1,13 +1,21 @@
 package com.lcdd.backend.pojo;
 
-public class MerchType {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class MerchType {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String type;
 	
-	public MerchType(long id, String type) {
-		super();
-		this.id = id;
+	public MerchType(){}
+	
+	public MerchType(String type) {
 		this.type = type;
 	}
 	
