@@ -12,12 +12,12 @@ public class Event {
 	private LocalTime time;
 	private String description;
 	private boolean isTournament;
-	private boolean isSingleParticipation;
+	private int groupSize;
 	private float inscriptionFee;
 	private int maxParticipants;
 	
 	public Event(long id, String name, long gameId, String place, LocalDate date, LocalTime time, String description,
-			boolean isTournament, boolean isSingleParticipation, float inscriptionFee, int maxParticipants) {
+			boolean isTournament, int groupSize, float inscriptionFee, int maxParticipants) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -27,7 +27,7 @@ public class Event {
 		this.time = time;
 		this.description = description;
 		this.isTournament = isTournament;
-		this.isSingleParticipation = isSingleParticipation;
+		this.groupSize = groupSize;
 		this.inscriptionFee = inscriptionFee;
 		this.maxParticipants = maxParticipants;
 	}
@@ -79,11 +79,11 @@ public class Event {
 	public void setTournament(boolean isTournament) {
 		this.isTournament = isTournament;
 	}
-	public boolean isSingleParticipation() {
-		return isSingleParticipation;
+	public int getGroupSize() {
+		return groupSize;
 	}
-	public void setSingleParticipation(boolean isSingleParticipation) {
-		this.isSingleParticipation = isSingleParticipation;
+	public void setGroupSize(int groupSize) {
+		this.groupSize = groupSize;
 	}
 	public float getInscriptionFee() {
 		return inscriptionFee;

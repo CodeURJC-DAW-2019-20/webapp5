@@ -84,14 +84,17 @@
 						<label class="register-event-form_name">Nombre</label>
 						<input type="text" name="name" class="form-control"	id="register-event-name" placeholder="Nombre" required/>
 					</div>
-
-
-				<!-- REPASAR, VER POSIBLE DESPLEGABLE -->
+					
 					<div class="form-group">
 						<label class="register-event-form_game">Juego</label>
-						<input type="text" name="game" class="form-control" id="register-event-game" placeholder="Juego" required/>
+						<input type="text" name="gameId" class="form-control" id="register-event-game" placeholder="Juego" required/>
 					</div>
-				<!-- VER PARA CONBINAR -->
+				
+					<div class="form-group">
+						<label class="register-event-form_game">Lugar</label>
+						<input type="text" name="place" class="form-control" id="register-event-game" placeholder="Place" required/>
+					</div>				
+				
 					<div class="form-group">
 						<label for="register-event-date-input" class="col-2 col-form-label">Dia</label>
 						<input class="form-control" name="date" type="date" value="2020-01-21" id="example-date-input" required/>
@@ -99,30 +102,44 @@
 
 					<div class="form-group">
 						<label for="register-event-time-input" class="col-2 col-form-label">Hora</label>
-						<input class="form-control" name="hour" type="time" value="14:00:00" id="example-time-input" required/>
+						<input class="form-control" name="time" type="time" value="14:00:00" id="example-time-input" required/>
 					</div>
 
 					<div class="form-group">
-						<label class="register-event-form_description">Descripción</label>
+						<label class="register-event-form">Descripción</label>
 						<textarea name="description" rows="3" class="form-control" required></textarea>
 					</div>
 
-					<fieldset class="form-group">
-						<label class="register-event-form_type">Tipo evento</label>
-						<div class="col-sm-10">
-							<div class="form-check">
-								<input class="form-check-input" name="" type="radio" id="Torneo" value="option1" checked/>
-								<label class="form-check-label" for="Torneo"> Torneo </label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" name="" type="radio" id="evento" value="option2"/>
-								<label class="form-check-label" for="evento"> Evento </label>
-							</div>
-						</div>
-					</fieldset>
-
+				<!-- ver como resumir para isTournament -->
+					<div class="checkbox">
+					  <label>
+					    <input type="checkbox" value="isTournament">
+					    Torneo
+					  </label>
+					</div>
+				
 					<div class="form-group">
-						<label class="register-event-form_premio">Premio</label>
+						<label class="register-event-form">Máximo de integrantes del equipo</label>
+						<input type="number" class="form-control" id="register-event-form-" name="groupSize" placeholder="Máximo de integrantes del equipo" required/>
+					</div>
+					
+					
+					<div class="form-group">
+						<label class="register-event-form">Máximo de participantes</label>
+						<input type="number" class="form-control" id="register-event-form" name="maxParticipants" placeholder="Máximo de participantes" required/>
+					</div>
+					
+					<div class="form-group">
+						<label class="register-event-form">Tasa de inscripción</label>
+						<input type="number" class="form-control" id="register-event-form" name="inscriptionFee" placeholder="Tasa de inscripción (euros)" required/>
+					</div>
+					
+					
+					
+					
+				<!-- meter en caso de que sea torneo solo, sino valor por defecto 0 -->
+					<div class="form-group">
+						<label class="register-event-form">Premio</label>
 						<input type="text" class="form-control" id="register-event-form-premio"	placeholder="Premio" required/>
 					</div>
 
