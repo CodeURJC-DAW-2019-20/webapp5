@@ -3,7 +3,10 @@ package com.lcdd.backend.pojo;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Entity
 public class Event {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name;
 	private long gameId;
@@ -16,10 +19,10 @@ public class Event {
 	private float inscriptionFee;
 	private int maxParticipants;
 	
-	public Event(long id, String name, long gameId, String place, LocalDate date, LocalTime time, String description,
+	public Event() { }
+	
+	public Event(String name, long gameId, String place, LocalDate date, LocalTime time, String description,
 			boolean isTournament, boolean isSingleParticipation, float inscriptionFee, int maxParticipants) {
-		super();
-		this.id = id;
 		this.name = name;
 		this.gameId = gameId;
 		this.place = place;

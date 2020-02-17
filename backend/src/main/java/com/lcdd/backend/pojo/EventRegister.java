@@ -1,52 +1,67 @@
 package com.lcdd.backend.pojo;
 
+@Entity
 public class EventRegister {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private long userId;
-	private long eventId;
+	private User user;
+	private Event event;
 	private String inscriptionName;
 	private int participantsNumber;
 	
-	public EventRegister(long id, long userId, long eventId, String inscriptionName, int participantsNumber) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.eventId = eventId;
+	public EventRegister() { }
+	
+	public EventRegister(User user, Event event, String inscriptionName, int participantsNumber) {
+		this.user = user;
+		this.event = event;
 		this.inscriptionName = inscriptionName;
 		this.participantsNumber = participantsNumber;
 	}
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	public long getUserId() {
-		return userId;
+
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(long userId) {
-		this.userId = userId;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
-	public long getEventId() {
-		return eventId;
+
+	public Event getEvent() {
+		return event;
 	}
-	public void setEventId(long eventId) {
-		this.eventId = eventId;
+
+	public void setEvent(Event event) {
+		this.event = event;
 	}
+
 	public String getInscriptionName() {
 		return inscriptionName;
 	}
+
 	public void setInscriptionName(String inscriptionName) {
 		this.inscriptionName = inscriptionName;
 	}
+
 	public int getParticipantsNumber() {
 		return participantsNumber;
 	}
-	public void setParticipants_number(int participantsNumber) {
+
+	public void setParticipantsNumber(int participantsNumber) {
 		this.participantsNumber = participantsNumber;
 	}
 	
 	
 	
 	
+	
+
 }

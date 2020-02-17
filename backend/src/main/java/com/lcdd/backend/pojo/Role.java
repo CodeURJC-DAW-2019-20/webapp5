@@ -1,13 +1,16 @@
 package com.lcdd.backend.pojo;
 
+@Entity
 public class Role {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name;
 	
-	public Role(long id, String name) {
-		super();
-		this.id = id;
+	public Role() {	}
+	
+	public Role(String name) {
 		this.name = name;
 	}
 	
