@@ -1,9 +1,13 @@
 package com.lcdd.backend.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Game {
@@ -13,11 +17,16 @@ public class Game {
 	private String name;
 	private String acronym;
 	
-	public Game(){ }
+	@OneToMany(mappedBy="game")
+	private List<Event> events = new ArrayList<>();
 	
-	public Game(String name, String acronym) {
+	protected Game(){ }
+
+	public Game(String name, String acronym, List<Event> events) {
+		super();
 		this.name = name;
 		this.acronym = acronym;
+		this.events = events;
 	}
 
 	public long getId() {
@@ -43,6 +52,15 @@ public class Game {
 	public void setAcronym(String acronym) {
 		this.acronym = acronym;
 	}
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+	
 	
 	
 }

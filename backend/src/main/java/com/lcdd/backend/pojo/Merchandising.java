@@ -1,9 +1,14 @@
 package com.lcdd.backend.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Merchandising {
@@ -12,21 +17,29 @@ public class Merchandising {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name;
+	
+	@ManyToOne
 	private MerchType type;
+	
 	private float price;
 	private float discount;
 	private int stock;
 	private String description;
 	
-	public Merchandising(){}
+	@OneToMany(mappedBy="merch")
+	private List<Purchase> purchases = new ArrayList<>();
+	
+	protected Merchandising(){}
 
-	public Merchandising(String name, MerchType type, float price, float discount, int stock, String description) {
+	public Merchandising(String name, MerchType type, float price, float discount, int stock, String description,
+			List<Purchase> purchases) {
 		this.name = name;
 		this.type = type;
 		this.price = price;
 		this.discount = discount;
 		this.stock = stock;
 		this.description = description;
+		this.purchases = purchases;
 	}
 
 	public long getId() {
@@ -84,10 +97,14 @@ public class Merchandising {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
-	
-	
-	
+
+	public List<Purchase> getPurchases() {
+		return purchases;
+	}
+
+	public void setPurchases(List<Purchase> purchases) {
+		this.purchases = purchases;
+	}
+
 	
 }

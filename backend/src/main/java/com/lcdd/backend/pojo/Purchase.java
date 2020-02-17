@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Purchase {
@@ -13,12 +14,16 @@ public class Purchase {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@ManyToOne
 	private User user;
 	private float price;
 	private LocalDate date;
+	
+	@ManyToOne
 	private Merchandising merch;
 	
-	public Purchase() { }
+	protected Purchase() { }
 	
 	public Purchase(User user, float price, LocalDate date, Merchandising merch) {
 		this.user = user;

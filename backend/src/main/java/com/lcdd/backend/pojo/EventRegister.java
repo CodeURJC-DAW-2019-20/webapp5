@@ -4,18 +4,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class EventRegister {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@ManyToOne
 	private User user;
+	
+	@ManyToOne
 	private Event event;
+	
 	private String inscriptionName;
 	private int participantsNumber;
 	
-	public EventRegister() { }
+	protected EventRegister() { }
 	
 	public EventRegister(User user, Event event, String inscriptionName, int participantsNumber) {
 		this.user = user;

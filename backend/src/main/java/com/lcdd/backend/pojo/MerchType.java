@@ -1,9 +1,13 @@
 package com.lcdd.backend.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class MerchType {
@@ -13,24 +17,40 @@ public class MerchType {
 	private long id;
 	private String type;
 	
-	public MerchType(){}
+	@OneToMany(mappedBy="type")
+	private List<Merchandising> merchs = new ArrayList<>();
 	
-	public MerchType(String type) {
+	protected MerchType(){}
+
+	public MerchType(String type, List<Merchandising> merchs) {
 		this.type = type;
+		this.merchs = merchs;
 	}
-	
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getType() {
 		return type;
 	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	public List<Merchandising> getMerchs() {
+		return merchs;
+	}
+
+	public void setMerchs(List<Merchandising> merchs) {
+		this.merchs = merchs;
+	}
+	
 	
 	
 }
