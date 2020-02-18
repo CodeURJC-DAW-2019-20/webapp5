@@ -25,7 +25,7 @@ public class Event {
 	private int maxParticipants;
 	
 	public Event( String name, String game, String place, String description,
-			 int groupSize, float inscriptionFee, int maxParticipants) {
+			boolean isTournament, int groupSize, float inscriptionFee, int maxParticipants) {
 		super();
 		
 		Random rnd = new Random(651465);
@@ -34,14 +34,21 @@ public class Event {
 		this.name = name;
 		this.gameId = game.compareToIgnoreCase("LOL");
 		this.place = place;
-		
+		/*
 		LocalDate datesss =  LocalDate.now();
 		LocalTime timesss = LocalTime.now();
 		 
 		this.date = datesss;
 		this.time = timesss;
+		
+		*/
 		this.description = description;
-		this.isTournament = false;
+		if (isTournament){
+			this.isTournament = isTournament;
+		}else {
+			this.isTournament = false;
+		}
+		
 		this.groupSize = groupSize;
 		this.inscriptionFee = inscriptionFee;
 		this.maxParticipants = maxParticipants;
