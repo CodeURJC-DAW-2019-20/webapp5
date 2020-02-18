@@ -226,7 +226,16 @@ form .form-control:focus{
     margin-left: -30px;
 }
 
-/* Events 
+/* Event-form
+============================================================================================ */
+
+
+#div-mostrar{
+	display:none;
+	margin-left:2rem;
+}
+
+/* Event-template
 ============================================================================================ */
 #hidden-element {
     display: none;

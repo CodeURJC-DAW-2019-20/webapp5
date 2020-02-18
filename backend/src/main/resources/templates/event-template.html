@@ -90,11 +90,10 @@
 		<div id="event-info">
 			<h1>{{event.name}}</h1>
 			<div>
-				<div>
-					<i class="far fa-calendar-alt"></i>
-					<time datetime="2020-02-15"></time>
-					<br>
-				</div>
+				<i class="far fa-calendar-alt"> {{event.date}}</i>
+				<br>
+				<i class="fas fa-clock"> {{event.time}}</i>
+				<br>
 				<i class="fas fa-map-marker-alt"> Lugar: {{event.place}}</i>
 				<br>
 				<i class="fas fa-gamepad"> GAME</i>
@@ -103,7 +102,7 @@
 				<br>
 				<i class="fas fa-users"> Tamaño del equipo: {{event.groupSize}}</i>
 				<br>
-				<i class="fas fa-money-bill-wave"> Tasa de inscripción: {{event.inscriptionFee}}</i>
+				<i class="fas fa-money-bill-wave"> Tasa de inscripción: {{event.inscriptionFee}} euros.</i>
 				
 			</div>
 			<p class="align-middle"></p>

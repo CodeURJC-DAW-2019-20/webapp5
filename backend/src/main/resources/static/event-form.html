@@ -17,7 +17,10 @@
 
 <link rel="stylesheet"	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <script src="/assets/js/vendor/modernizr-3.8.0.min.js"></script>
+<script src="/assets/js/event-form-script.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script>
@@ -67,9 +70,10 @@
 				<img class="mx-auto d-block" src="./assets/img/logo/png/logo_grande.png" width="150" height="150"/>
 			</div>
 		</div>
-
+		
 		<div class="row">
 			<div class="col-6 mx-auto">
+			<h1>Crear un nuevo evento</h1>
 				<form class="form-horizontal" action="eventForm" method="POST">
 
 					<div class="form-group">
@@ -81,58 +85,50 @@
 					</div>
 
 					<div class="form-group">
-						<label class="register-event-form_name">Nombre</label>
+						<label class="register-event-form">Nombre</label>
 						<input type="text" name="name" class="form-control"	id="register-event-name" placeholder="Nombre" required/>
 					</div>
 					
 					<div class="form-group">
-						<label class="register-event-form_game">Juego</label>
+						<label class="register-event-form">Juego</label>
 						<input type="text" name="game" class="form-control" id="register-event-game" placeholder="Juego" required/>
 					</div>
 				
 					<div class="form-group">
-						<label class="register-event-form_game">Lugar</label>
+						<label class="register-event-form">Lugar</label>
 						<input type="text" name="place" class="form-control" id="register-event-game" placeholder="Place" required/>
 					</div>				
 				
 					<div class="form-group">
-						<label for="register-event-date-input" class="col-2 col-form-label">Dia</label>
-			<!--  -->			<input class="form-control" name="date" type="date" value="2020-01-21" id="example-date-input" required/>
+						<label class="register-event-form">Día</label>
+						<input class="form-control" name="date" type="text" placeholder="21-01-2020" id="example-date-input" required/>
 					</div>
 
 					<div class="form-group">
-						<label for="register-event-time-input" class="col-2 col-form-label">Hora</label>
-			<!--  -->				<input class="form-control" name="time" type="time" value="14:00:00" id="example-time-input" required/>
+						<label class="register-event-form">Hora</label>
+						<input class="form-control" name="time" type="text" placeholder="14:00" id="example-time-input" required/>
 					</div>
 
 					<div class="form-group">
 						<label class="register-event-form">Descripción</label>
 						<textarea name="description" rows="3" class="form-control" required></textarea>
 					</div>
-
-
-
-
-				
-					<div class="checkbox">
-					  <label>
-			<!--  -->			    <input type="checkbox" name="isTournament" value="false"/>
-					    Torneo
-					  </label>
+					
+					<label>
+					    <input class="check-mostrar" type="checkbox" name="isTournament" /> 
+					    ¿El evento es un Torneo?
+					</label>
+					
+					<div id="div-mostrar" class="form-group">
+						<label class="register-event-form">Premio</label>
+						<input type="text" class="form-control" id="register-event-form-premio" name=""	placeholder="Premio (indicar unidades)"/>
 					</div>
-	<!-- meter en caso de que sea torneo solo-->
+					
+				
 					<div class="form-group">
-						<label class="register-event-form">Máximo de integrantes de los equipo</label>
+						<label class="register-event-form">Máximo de integrantes de los equipos</label>
 						<input type="number" class="form-control" id="register-event-form-" name="groupSize" placeholder="Máximo de integrantes de los equipo" required/>
 					</div>
-					<div class="form-group">
-						<label class="register-event-form">Premio</label>
-			<!--  -->				<input type="text" class="form-control" id="register-event-form-premio" name=""	placeholder="Premio" required/>
-					</div>
-					
-					
-					
-					
 					
 					<div class="form-group">
 						<label class="register-event-form">Máximo de participantes</label>
@@ -143,13 +139,6 @@
 						<label class="register-event-form">Tasa de inscripción</label>
 						<input type="number" class="form-control" id="register-event-form" name="inscriptionFee" placeholder="Tasa de inscripción (euros)" required/>
 					</div>
-					
-					
-					
-					
-				
-					
-
 
 					<div class="control-group">
 						<div class="controls">

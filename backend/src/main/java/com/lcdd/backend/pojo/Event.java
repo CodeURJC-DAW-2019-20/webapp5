@@ -16,39 +16,43 @@ public class Event {
 	private String name;
 	private long gameId;
 	private String place;
-	private LocalDate date;//yyyy-MM-dd
-	private LocalTime time;
+	private String date;//yyyy-MM-dd
+	private String time;//hh:mm
 	private String description;
 	private boolean isTournament;
 	private int groupSize;
 	private float inscriptionFee;
 	private int maxParticipants;
 	
-	public Event( String name, String game, String place, String description,
-			boolean isTournament, int groupSize, float inscriptionFee, int maxParticipants) {
+	public Event( String name, String game, String place, String date, String time, String description,
+			String isTournament, int groupSize, float inscriptionFee, int maxParticipants) {
 		super();
-		
-		Random rnd = new Random(651465);
-		this.id= rnd.nextLong();
-		
+		/**/
+			Random rnd = new Random(651465);
+			this.id= rnd.nextLong();
+		/**/
 		this.name = name;
-		this.gameId = game.compareToIgnoreCase("LOL");
-		this.place = place;
-		/*
-		LocalDate datesss =  LocalDate.now();
-		LocalTime timesss = LocalTime.now();
-		 
-		this.date = datesss;
-		this.time = timesss;
+		/**/
+			this.gameId = game.compareToIgnoreCase("LOL");
+		/**/
+		this.place = place;		
+		this.date = date;
+		this.time = time;
 		
-		*/
 		this.description = description;
-		if (isTournament){
-			this.isTournament = isTournament;
-		}else {
-			this.isTournament = false;
-		}
-		
+		/**/
+			System.out.println("isTorunamnet:"+isTournament);
+			
+			if (! isTournament.isEmpty()) {	
+				if ( isTournament.equalsIgnoreCase("on")){
+					this.isTournament = true;
+				} 
+			}else {
+				this.isTournament = false;
+			}
+			
+			System.out.println("salida:"+this.isTournament);
+		/**/
 		this.groupSize = groupSize;
 		this.inscriptionFee = inscriptionFee;
 		this.maxParticipants = maxParticipants;
@@ -85,16 +89,16 @@ public class Event {
 	public void setPlace(String place) {
 		this.place = place;
 	}
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public LocalTime getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(LocalTime time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	public String getDescription() {

@@ -18,20 +18,16 @@ import com.lcdd.backend.pojo.Event;
 @Controller
 public class EventFormController {
   
-	private Event event;
+	//private Event event;
 	
   @RequestMapping("/eventForm")
-  public String eventForm(Model model, @RequestParam String name,
-		  
-	
-		  @RequestParam String date
-		  ){
+  public String eventForm(Model model, Event event){
     
     //int a = 1;
 	//System.out.println("llego ak controlador");
-	Event event;
+	//Event event;
 	  
-	model.addAttribute("name", name);
+	//model.addAttribute("name", name);
 	
 	//model.addAttribute("event.set", getNameGameId(game));
 	
@@ -39,11 +35,11 @@ public class EventFormController {
 	  //String dates = "16/08/2016";
 
 	  //convert String to LocalDate
-	  LocalDate localDate = LocalDate.parse(date);
+	 // LocalDate localDate = LocalDate.parse(date);
 	
 	//LocalDate localDate = new LocalDate(date);
 	
-	model.addAttribute("date", localDate);
+	model.addAttribute("event", event);
     
     return "event-template";
   }
