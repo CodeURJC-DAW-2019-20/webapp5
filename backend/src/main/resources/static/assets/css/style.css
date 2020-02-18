@@ -323,4 +323,27 @@ form .form-control:focus{
      width: 100%;
   }
 }
-/* Register */
+
+
+
+
+/* page404 
+============================================================================================ */
+#container-button404{
+    margin-bottom: 5rem;
+}
+.buttonpage404{
+    /*max-width: 80%;*/
+    margin: 2rem;
+}
+#image404-lcdd{
+    width: 20%;
+    display: block;
+    margin: auto;
+}
+#image404{
+    width: 50%;
+    display: block;
+    margin: auto;
+    
+}
