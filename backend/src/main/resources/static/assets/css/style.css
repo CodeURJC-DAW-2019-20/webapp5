@@ -1,11 +1,11 @@
 /* General */
 @font-face{
 	font-family: Montserrat-Regular;
-	src: url(../assets/fonts/Montserrat/Montserrat-Regular.ttf);
+	src: url(/assets/fonts/Montserrat/Montserrat-Regular.ttf);
 }
 @font-face{
 	font-family: Montserrat-Bold;
-	src: url(../assets/fonts/Montserrat/Montserrat-Bold.ttf);
+	src: url(/assets/fonts/Montserrat/Montserrat-Bold.ttf);
 }
 
 *{
@@ -87,6 +87,9 @@ a:not(nav):hover{
 form .form-control:focus{
 	border-color: #ED0800;
 	box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
+}
+#header_profile_image{
+	margin-left: 1rem;
 }
 /* Home 
 ============================================================================================ */

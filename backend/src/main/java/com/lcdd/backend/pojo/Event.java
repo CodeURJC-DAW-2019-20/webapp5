@@ -2,35 +2,52 @@ package com.lcdd.backend.pojo;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Date;
 import java.util.Random;
 
-//@Entity
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Event {
-	
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@ManyToOne
+	private Game game;
+	
 	
 	
 	private String name;
-	private long gameId;
 	private String place;
 	private String date;//yyyy-MM-dd
 	private String time;//hh:mm
 	private String description;
 	private boolean isTournament;
+	
+	@OneToOne(cascade=CascadeType.ALL)
 	private Tournament tournament;
+	
 	private int groupSize;
 	private float inscriptionFee;
 	private int maxParticipants;
 	
+	@OneToMany(mappedBy="event")
+	private List<EventRegister> registrations = new ArrayList<>();
+	protected Event() { }
 	public Event( String name, String game, String place, String date, String time, String description,
 			String isTournament, String tournament, String reward, int groupSize, float inscriptionFee, int maxParticipants) {
 		super();
 		/**/
-			Random rnd = new Random(651465);
-			this.id= rnd.nextLong();
 		/**/
 		this.name = name;
 		this.gameId = setNameGameId(game);
@@ -50,6 +67,7 @@ public class Event {
 		this.groupSize = groupSize;
 		this.inscriptionFee = inscriptionFee;
 		this.maxParticipants = maxParticipants;
+		this.registrations = registrations;
 	}
 	
 	public long setNameGameId(String game) {
@@ -79,69 +97,99 @@ public class Event {
 	public long getId() {
 		return id;
 	}
+
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+
+
+	public Game getGame() {
+		return game;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+
+	public void setGame(Game game) {
+		this.game = game;
 	}
-	public long getGameId() {
-		return gameId;
-	}
-	public void setGameId(long gameId) {
-		this.gameId = gameId;
-	}
+
+
 	public String getPlace() {
 		return place;
 	}
+
+
 	public void setPlace(String place) {
 		this.place = place;
 	}
-	public String getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-	public String getTime() {
+	public LocalTime getTime() {
 		return time;
 	}
-	public void setTime(String time) {
+	public void setTime(LocalTime time) {
 		this.time = time;
 	}
+
+
 	public String getDescription() {
 		return description;
 	}
+
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+
 	public boolean isTournament() {
 		return isTournament;
 	}
+
+
 	public void setTournament(boolean isTournament) {
 		this.isTournament = isTournament;
 	}
-	public int getGroupSize() {
-		return groupSize;
+	public boolean isSingleParticipation() {
+		return isSingleParticipation;
 	}
-	public void setGroupSize(int groupSize) {
-		this.groupSize = groupSize;
+	public void setSingleParticipation(boolean isSingleParticipation) {
+		this.isSingleParticipation = isSingleParticipation;
 	}
+
+
 	public float getInscriptionFee() {
 		return inscriptionFee;
 	}
+
+
 	public void setInscriptionFee(float inscriptionFee) {
 		this.inscriptionFee = inscriptionFee;
 	}
+
+
 	public int getMaxParticipants() {
 		return maxParticipants;
 	}
+
+
 	public void setMaxParticipants(int maxParticipants) {
 		this.maxParticipants = maxParticipants;
 	}
-	
+
+
+	public List<EventRegister> getRegistrations() {
+		return registrations;
+	}
+
+
+	public void setRegistrations(List<EventRegister> registrations) {
+		this.registrations = registrations;
+	}
+
 	
 }
