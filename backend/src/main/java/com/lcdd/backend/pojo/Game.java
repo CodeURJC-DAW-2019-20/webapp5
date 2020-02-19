@@ -22,8 +22,12 @@ public class Game {
 	
 	protected Game(){ }
 
+	public Game(String name, String acronym) {
+		this.name = name;
+		this.acronym = acronym;
+	}
+	
 	public Game(String name, String acronym, List<Event> events) {
-		super();
 		this.name = name;
 		this.acronym = acronym;
 		this.events = events;
