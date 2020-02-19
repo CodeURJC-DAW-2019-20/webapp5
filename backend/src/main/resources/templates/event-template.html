@@ -96,13 +96,18 @@
 				<br>
 				<i class="fas fa-map-marker-alt"> Lugar: {{event.place}}</i>
 				<br>
-				<i class="fas fa-gamepad"> GAME</i>
+				<i class="fas fa-gamepad"> Juego: {{event.gameId}}</i>
 				<br>
 				<i class="fas fa-child"> Máximo de participantes: {{event.maxParticipants}}</i>
 				<br>
 				<i class="fas fa-users"> Tamaño del equipo: {{event.groupSize}}</i>
 				<br>
 				<i class="fas fa-money-bill-wave"> Tasa de inscripción: {{event.inscriptionFee}} euros.</i>
+				
+				{{#event.isTournament}}
+					<br>
+					<i class="fas fa-boxes"> Premio para el ganador/es del torneo: {{event.tournament}}</i>
+				{{/event.isTournament}}
 				
 			</div>
 			<p class="align-middle"></p>
@@ -111,7 +116,7 @@
 		
 
 		<div id="event-description">
-			<h2>Descripción del evento</h2>
+			<h2>Descripción</h2>
 			<p>{{event.description}}</p>
 		</div>
 

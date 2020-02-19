@@ -1,12 +1,15 @@
 
-$(function(){
-	$('.check-mostrar').change(function(){
-  	if(!$(this).prop('checked')){
-    	$('#div-mostrar').hide();
-    }else{
-    	$('#div-mostrar').show();
-    }
-  
-  })
-
-})
+$(document).ready(function(){
+        $(".check-mostrar").click(function(evento){
+          
+            var valor = $(this).val();
+          
+            if(valor == 'true'){
+                $("#div-mostrar").css("display", "block");
+           
+            }else{
+                $("#div-mostrar").css("display", "none");
+                
+            }
+    });
+});

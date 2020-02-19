@@ -20,49 +20,60 @@ public class Event {
 	private String time;//hh:mm
 	private String description;
 	private boolean isTournament;
+	private Tournament tournament;
 	private int groupSize;
 	private float inscriptionFee;
 	private int maxParticipants;
 	
 	public Event( String name, String game, String place, String date, String time, String description,
-			String isTournament, int groupSize, float inscriptionFee, int maxParticipants) {
+			String isTournament, String tournament, String reward, int groupSize, float inscriptionFee, int maxParticipants) {
 		super();
 		/**/
 			Random rnd = new Random(651465);
 			this.id= rnd.nextLong();
 		/**/
 		this.name = name;
-		/**/
-			this.gameId = game.compareToIgnoreCase("LOL");
-		/**/
+		this.gameId = setNameGameId(game);
 		this.place = place;		
 		this.date = date;
 		this.time = time;
 		
+		this.tournament = new Tournament(reward,this.id);
 		this.description = description;
-		/**/
-			System.out.println("isTorunamnet:"+isTournament);
-			
-			if (! isTournament.isEmpty()) {	
-				if ( isTournament.equalsIgnoreCase("on")){
-					this.isTournament = true;
-				} 
-			}else {
-				this.isTournament = false;
-			}
-			
-			System.out.println("salida:"+this.isTournament);
-		/**/
+		if (! isTournament.isEmpty()) {	
+			if ( isTournament.equalsIgnoreCase("true")){
+				this.isTournament = true;
+			} 
+		}else {
+			this.isTournament = false;
+		}
 		this.groupSize = groupSize;
 		this.inscriptionFee = inscriptionFee;
 		this.maxParticipants = maxParticipants;
 	}
 	
-	public long getNameGameId(String gameId) {
-		if (gameId.compareToIgnoreCase("LOL")==0) {
-			return 1;
+	public long setNameGameId(String game) {
+		long id;
+		if (game.compareToIgnoreCase("LOL")==0) {
+			 id= 1;
+		} else if (game.compareToIgnoreCase("MESA")==0) {
+			id= 2;
+		} else {
+			id=-1;
 		}
-		return -1;
+		return id;
+	}
+	
+	public String getNameGameId(long gameId) {
+		String game;
+		if (gameId==1) {
+			game= "LOL";
+		} else if (gameId==2) {
+			game= "MESA";
+		} else {
+			game="no definido";
+		}
+		return game;
 	}
 	
 	public long getId() {

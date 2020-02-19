@@ -7,10 +7,9 @@ public class Tournament {
 	private String reward;
 	private long eventId;
 	
-	public Tournament(long id, long winnerId, String reward, long eventId) {
+	public Tournament(String reward, long eventId) {
 		super();
-		this.id = id;
-		this.winnerId = winnerId;
+		this.id = 1;
 		this.reward = reward;
 		this.eventId = eventId;
 	}

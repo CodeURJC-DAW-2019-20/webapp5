@@ -90,10 +90,19 @@
 					</div>
 					
 					<div class="form-group">
-						<label class="register-event-form">Juego</label>
-						<input type="text" name="game" class="form-control" id="register-event-game" placeholder="Juego" required/>
+						<label class="register-event-form">Elige un juego </label>
+						<select class="form-control" name="game" required>
+							<option id="register-event-game" value="LOL">League of Legends</option>
+							<option id="register-event-game" value="MESA">Juegos de mesa</option>
+							<option id="register-event-game" value="OTHERS">Otros...</option>
+						</select>
 					</div>
-				
+					
+					<!--  <input type="text" name="game" class="form-control" id="register-event-game"  required/>
+					-->
+					
+					
+					
 					<div class="form-group">
 						<label class="register-event-form">Lugar</label>
 						<input type="text" name="place" class="form-control" id="register-event-game" placeholder="Place" required/>
@@ -114,20 +123,23 @@
 						<textarea name="description" rows="3" class="form-control" required></textarea>
 					</div>
 					
-					<label>
-					    <input class="check-mostrar" type="checkbox" name="isTournament" /> 
-					    ¿El evento es un Torneo?
-					</label>
 					
-					<div id="div-mostrar" class="form-group">
+					<p class="auto-style3"><input name="isTournament" class="check-mostrar" type="radio" value="true"/>
+					<span class="auto-style4"> El evento es un torneo</span>
+					</p>
+          			
+          			<div id="div-mostrar" class="form-group">
 						<label class="register-event-form">Premio</label>
-						<input type="text" class="form-control" id="register-event-form-premio" name=""	placeholder="Premio (indicar unidades)"/>
+						<input type="text" class="form-control" id="register-event-form" name="reward"	placeholder="Premio (indicar unidades)"/>
 					</div>
-					
-				
+          			
+       				<p class="auto-style3"><input checked="checked" class="check-mostrar" name="isTournament" type="radio"  value="false"/>
+       				<span class="auto-style4"> El evento es un evento general</span>
+       				</p>
+            		
 					<div class="form-group">
 						<label class="register-event-form">Máximo de integrantes de los equipos</label>
-						<input type="number" class="form-control" id="register-event-form-" name="groupSize" placeholder="Máximo de integrantes de los equipo" required/>
+						<input type="number" class="form-control" id="register-event-form" name="groupSize" placeholder="Máximo de integrantes de los equipo" required/>
 					</div>
 					
 					<div class="form-group">
