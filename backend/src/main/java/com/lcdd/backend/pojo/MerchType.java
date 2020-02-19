@@ -22,6 +22,10 @@ public class MerchType {
 	
 	protected MerchType(){}
 
+	public MerchType(String type) {
+		this.type = type;
+	}
+	
 	public MerchType(String type, List<Merchandising> merchs) {
 		this.type = type;
 		this.merchs = merchs;

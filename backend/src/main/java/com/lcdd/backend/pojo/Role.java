@@ -22,6 +22,10 @@ public class Role {
 	
 	protected Role() {	}
 
+	public Role(String name) {
+		this.name = name;
+	}
+	
 	public Role(String name, List<User> users) {
 		super();
 		this.name = name;
