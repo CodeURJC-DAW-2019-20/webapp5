@@ -24,9 +24,7 @@ public class Event {
 	
 	@ManyToOne
 	private Game game;
-	
-	
-	
+
 	private String name;
 	private String place;
 	private String date;//yyyy-MM-dd
@@ -47,15 +45,14 @@ public class Event {
 	public Event( String name, String game, String place, String date, String time, String description,
 			String isTournament, String tournament, String reward, int groupSize, float inscriptionFee, int maxParticipants) {
 		super();
-		/**/
-		/**/
+		
 		this.name = name;
-		this.gameId = setNameGameId(game);
+		//this.gameId = setNameGameId(game);
 		this.place = place;		
 		this.date = date;
 		this.time = time;
 		
-		this.tournament = new Tournament(reward,this.id);
+		this.tournament = new Tournament(reward);
 		this.description = description;
 		if (! isTournament.isEmpty()) {	
 			if ( isTournament.equalsIgnoreCase("true")){
@@ -122,16 +119,20 @@ public class Event {
 	public void setPlace(String place) {
 		this.place = place;
 	}
-	public LocalDate getDate() {
+	
+	public String getDate() {
 		return date;
 	}
-	public void setDate(LocalDate date) {
+	
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public LocalTime getTime() {
+	
+	public String getTime() {
 		return time;
 	}
-	public void setTime(LocalTime time) {
+	
+	public void setTime(String time) {
 		this.time = time;
 	}
 
@@ -154,13 +155,6 @@ public class Event {
 	public void setTournament(boolean isTournament) {
 		this.isTournament = isTournament;
 	}
-	public boolean isSingleParticipation() {
-		return isSingleParticipation;
-	}
-	public void setSingleParticipation(boolean isSingleParticipation) {
-		this.isSingleParticipation = isSingleParticipation;
-	}
-
 
 	public float getInscriptionFee() {
 		return inscriptionFee;
@@ -189,6 +183,30 @@ public class Event {
 
 	public void setRegistrations(List<EventRegister> registrations) {
 		this.registrations = registrations;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public Tournament getTournament() {
+		return tournament;
+	}
+	
+	public void setTournament(Tournament tournament) {
+		this.tournament = tournament;
+	}
+	
+	public int getGroupSize() {
+		return groupSize;
+	}
+	
+	public void setGroupSize(int groupSize) {
+		this.groupSize = groupSize;
 	}
 
 	
