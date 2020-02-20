@@ -1,4 +1,4 @@
-package com.lcdd.backend;
+package com.lcdd.backend.controllers;
 
 import javax.annotation.PostConstruct;
 
