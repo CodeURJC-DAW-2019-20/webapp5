@@ -5,10 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LogErrorController {
+public class LoginErrorController {
   
   @GetMapping("/loginerror")
   public String serveLogError(Model model) {
-    return "logerror";
+    return "login_error";
   }
 }
