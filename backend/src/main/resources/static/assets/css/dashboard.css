@@ -1,4 +1,4 @@
-body {
+#dashboard_body {
   font-size: .875rem;
 }
 
@@ -50,7 +50,7 @@ body {
 }
 
 .sidebar .nav-link.active {
-  color: #007bff;
+  color: #a10600;
 }
 
 .sidebar .nav-link:hover .feather,

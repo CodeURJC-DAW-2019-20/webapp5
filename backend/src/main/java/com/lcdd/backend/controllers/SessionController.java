@@ -17,6 +17,7 @@ public class SessionController {
 	@ModelAttribute
     public void addAttributes(Model model) {
 		model.addAttribute("session", session);
-		model.addAttribute("idLoggedIn", false);
+		model.addAttribute("isLoggedIn", true);
+		model.addAttribute("isAdmin", true);
     }
 }

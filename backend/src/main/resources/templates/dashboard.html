@@ -4,82 +4,32 @@
 <head>
 	{{>components/html_head}}
 	<link rel="stylesheet" href="/assets/css/dashboard.css">
+	<script src="/assets/js/dashboard.js"></script>
 </head>
 <body>
 	{{>components/header}}
 	
-	<div class="container-fluid">
+	<div id="dashboard_body" class="container-fluid">
       <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
-            <ul class="nav flex-column">
+            <ul class="nav flex-column dash_menu">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a id="dash_events" class="nav-link active" href="#">
                   <span data-feather="home"></span>
-                  Dashboard <span class="sr-only">(current)</span>
+                  Eventos
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a id="dash_merch" class="nav-link" href="#">
                   <span data-feather="file"></span>
-                  Orders
+                  Merch
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="shopping-cart"></span>
-                  Products
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a id="dash_admin" class="nav-link" href="#">
                   <span data-feather="users"></span>
-                  Customers
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="bar-chart-2"></span>
-                  Reports
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="layers"></span>
-                  Integrations
-                </a>
-              </li>
-            </ul>
-
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Current month
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Last quarter
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Social engagement
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Year-end sale
+                  Gestiones de admin
                 </a>
               </li>
             </ul>
@@ -88,10 +38,10 @@
 
         
         
-        <!-- One -->
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="1">
+        <!-- Eventos -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 dash_page" id="events_page">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">One</h1>
+            <h1 class="h2">Eventos</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -238,10 +188,10 @@
         
         
         
-        <!-- Two -->
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="2" hidden>
+        <!-- Merch -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 dash_page" id="merch_page" hidden>
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Two</h1>
+            <h1 class="h2">Merch</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -386,10 +336,10 @@
           </div>
         </main>
         
-        <!-- Three -->
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="3" hidden>
+        <!-- Admin -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 dash_page" id="admin_page" hidden>
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Three</h1>
+            <h1 class="h2">Admin</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -537,7 +487,7 @@
         
         
         <!-- Four -->
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="4" hidden>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 dash_page" id="4" hidden>
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Four</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
