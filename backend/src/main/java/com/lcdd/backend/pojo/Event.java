@@ -1,12 +1,7 @@
 package com.lcdd.backend.pojo;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
-import java.util.Random;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +26,7 @@ public class Event {
 	private String time;//hh:mm
 	private String description;
 	private boolean isTournament;
+	private boolean haveImage;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	private Tournament tournament;
@@ -207,6 +203,14 @@ public class Event {
 	
 	public void setGroupSize(int groupSize) {
 		this.groupSize = groupSize;
+	}
+	
+	public boolean isHaveImage() {
+		return haveImage;
+	}
+	
+	public void setHaveImage(boolean haveImage) {
+		this.haveImage = haveImage;
 	}
 
 	
