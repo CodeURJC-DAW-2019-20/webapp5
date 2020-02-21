@@ -1,4 +1,12 @@
 $(function () {
+	//Life cycle functions
+	feather.replace()
+	
+	eventsChart();
+	merchChart();
+	
+	
+	//Handler behaviors
 	$( "#dash_events" ).click(function() {
 		$(".dash_page").attr("hidden",true);
 		$("#events_page").attr("hidden",false);
