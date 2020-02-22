@@ -1,9 +1,14 @@
 package com.lcdd.backend;
 
+import java.util.ArrayList;
+
 import javax.naming.AuthenticationException;
 
 import org.apache.catalina.User;
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component

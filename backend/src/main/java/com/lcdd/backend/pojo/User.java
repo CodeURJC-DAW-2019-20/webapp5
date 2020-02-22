@@ -10,6 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
@@ -22,7 +25,8 @@ public class User {
 	private String usermail;
 	private String firstName;
 	private String lastName;
-	private int role;
+	private String roles;
+	private String passwordHash;
 	
 	@ManyToOne
 	private Role role;
@@ -99,7 +103,7 @@ public class User {
 		return roles;
 	}
 	public void setRole(List<String> role) {
-		this.roles = role;
+		this.roles = roles;
 	}
 
 	public List<Purchase> getPurchases() {
