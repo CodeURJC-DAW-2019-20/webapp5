@@ -1,17 +1,39 @@
 package com.lcdd.backend.pojo;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+@Entity
 public class User {
-	private long id;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+	private String name;
 	private String email;
 	private String usermail;
-	private String passwordHash;
 	private String firstName;
 	private String lastName;
-	private int role;
+	private String passwordHash;
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
+
+	public User() {
+	}
+
 	
-	public User(long id, String email, String usermail, String password, String firstName, String lastName, int role) {
+	public User(long id, String email, String usermail, String password, String firstName, String lastName, String role) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -19,7 +41,7 @@ public class User {
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.role = role;
+		this.roles = new ArrayList<>(Arrays.asList(role));
 	}
 	
 	public long getId() {
@@ -41,10 +63,10 @@ public class User {
 		this.usermail = usermail;
 	}
 	public String getPassword() {
-		return password;
+		return passwordHash;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		this.passwordHash = password;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -58,11 +80,11 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public int getRole() {
-		return role;
+	public List<String> getRole() {
+		return roles;
 	}
-	public void setRole(int role) {
-		this.role = role;
+	public void setRole(List<String> role) {
+		this.roles = role;
 	}
 	
 	
