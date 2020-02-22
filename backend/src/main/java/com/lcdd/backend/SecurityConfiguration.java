@@ -15,8 +15,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/about_us").permitAll();
 		http.authorizeRequests().antMatchers("/contact").permitAll();
 		http.authorizeRequests().antMatchers("/events").permitAll();
+		http.authorizeRequests().antMatchers("/event-template").permitAll();
 		http.authorizeRequests().antMatchers("/merchandaidsing").permitAll();
+		http.authorizeRequests().antMatchers("/merch-template").permitAll();
 		http.authorizeRequests().antMatchers("/register").permitAll();
+		http.authorizeRequests().antMatchers("/404").permitAll();
+		http.authorizeRequests().antMatchers("/login_error").permitAll();
+		http.authorizeRequests().antMatchers("/dashboard").permitAll();
+		http.authorizeRequests().antMatchers("/events").permitAll();
+		
+		
+		
 		
 		// Private pages
 		http.authorizeRequests().antMatchers("/merch-form").hasAnyRole("ADMIN","PRESI","VICEPRESI");

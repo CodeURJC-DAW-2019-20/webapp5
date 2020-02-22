@@ -1,10 +1,12 @@
 package com.lcdd.backend.pojo;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 public class User {
 	private long id;
 	private String email;
 	private String usermail;
-	private String password;
+	private String passwordHash;
 	private String firstName;
 	private String lastName;
 	private int role;
@@ -14,7 +16,7 @@ public class User {
 		this.id = id;
 		this.email = email;
 		this.usermail = usermail;
-		this.password = password;
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.role = role;
