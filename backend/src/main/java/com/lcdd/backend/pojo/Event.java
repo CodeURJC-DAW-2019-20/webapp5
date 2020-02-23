@@ -43,6 +43,14 @@ public class Event {
 	protected Event() { }
 
 
+	
+	public Event(Game game, String description) {
+		this.game = game;
+		this.description = description;
+	}
+
+
+
 	public Event(Game game, String place, LocalDate date, LocalTime time, String description, boolean isTournament,
 			Tournament tournament, boolean isSingleParticipation, float inscriptionFee, int maxParticipants,
 			List<EventRegister> registrations) {
@@ -178,6 +186,4 @@ public class Event {
 	public void setRegistrations(List<EventRegister> registrations) {
 		this.registrations = registrations;
 	}
-
-	
 }

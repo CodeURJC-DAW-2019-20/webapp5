@@ -1,6 +1,6 @@
 package com.lcdd.backend.pojo;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,14 +18,20 @@ public class Purchase {
 	@ManyToOne
 	private User user;
 	private float price;
-	private LocalDate date;
+	private Date date;
 	
 	@ManyToOne
 	private Merchandising merch;
 	
 	protected Purchase() { }
 	
-	public Purchase(User user, float price, LocalDate date, Merchandising merch) {
+	public Purchase(User user, Date date, Merchandising merch) {
+		this.user = user;
+		this.date = date;
+		this.merch = merch;
+	}
+	
+	public Purchase(User user, float price, Date date, Merchandising merch) {
 		this.user = user;
 		this.price = price;
 		this.date = date;
@@ -56,11 +62,11 @@ public class Purchase {
 		this.price = price;
 	}
 
-	public LocalDate getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
