@@ -22,7 +22,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String email;
-	private String username;
+	private String name;
 	private String firstName;
 	private String lastName;
 	private String passwordHash;
@@ -43,7 +43,7 @@ public class User {
 	public User(String email, String username, String password, String firstName, String lastName, String  role,
 			List<Purchase> purchases, List<EventRegister> eventsReg) {
 		this.email = email;
-		this.username = username;
+		this.name = username;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -53,17 +53,10 @@ public class User {
 	}
 	
 	public User(String username, String password,String... role) {
-		this.username = username;
-		this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		this.name = username;
+		this.passwordHash = password;
+		//this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(role));
-	}
-
-	public long getId() {
-		return this.id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public String getEmail() {
@@ -74,12 +67,12 @@ public class User {
 		this.email = email;
 	}
 
-	public String getUsername() {
-		return this.username;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String username) {
+		this.name = username;
 	}
 
 	public String getPassword() {

@@ -35,7 +35,7 @@ public class LoginController {
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
 			User loggedUser = userComponent.getLoggedUser();
-			log.info("Logged as " + loggedUser.getUsername());
+			log.info("Logged as " + loggedUser.getName());
 			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
 		}
 	}
