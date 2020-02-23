@@ -21,10 +21,6 @@ public class WebController {
   public String loginerror(Model model) {
     return "login_error";
   }
-  @RequestMapping("/home")
-  public String home() {
-    return "home";
-  }
   @RequestMapping("/admin")
   public String admin(Model model, HttpServletRequest request) {
 	  // User user = userRepository.findByName(request.getUserPrincipal().getName());	
@@ -62,5 +58,5 @@ public class WebController {
 	  model.addAttribute("admin", request.isUserInRole("ADMIN"));
 	  return "merch_form";
   }
- 
+
 }
