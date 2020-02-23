@@ -20,13 +20,14 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 	private String email;
-	private String usermail;
+	private String username;
 	private String firstName;
 	private String lastName;
-	private String roles;
 	private String passwordHash;
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
 	
 	@ManyToOne
 	private Role role;
@@ -39,21 +40,26 @@ public class User {
 	
 	protected User() {}
 
-	public User(String email, String usermail, String password, String firstName, String lastName, Role role,
+	public User(String email, String username, String password, String firstName, String lastName, String  role,
 			List<Purchase> purchases, List<EventRegister> eventsReg) {
 		this.email = email;
-		this.usermail = usermail;
+		this.username = username;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.roles = new ArrayList<>(Arrays.asList(role));
-		this.role = role;
 		this.purchases = purchases;
 		this.eventsReg = eventsReg;
 	}
+	
+	public User(String username, String password,String... role) {
+		this.username = username;
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		this.roles = new ArrayList<>(Arrays.asList(role));
+	}
 
 	public long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(long id) {
@@ -61,23 +67,23 @@ public class User {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public String getUsermail() {
-		return usermail;
+	public String getUsername() {
+		return this.username;
 	}
 
-	public void setUsermail(String usermail) {
-		this.usermail = usermail;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
-		return passwordHash;
+		return this.passwordHash;
 	}
 
 	public void setPassword(String password) {
@@ -85,7 +91,7 @@ public class User {
 	}
 
 	public String getFirstName() {
-		return firstName;
+		return this.firstName;
 	}
 
 	public void setFirstName(String firstName) {
@@ -93,21 +99,21 @@ public class User {
 	}
 
 	public String getLastName() {
-		return lastName;
+		return this.lastName;
 	}
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 	public List<String> getRole() {
-		return roles;
+		return this.roles;
 	}
 	public void setRole(List<String> role) {
-		this.roles = roles;
+		this.roles = role;
 	}
 
 	public List<Purchase> getPurchases() {
-		return purchases;
+		return this.purchases;
 	}
 
 	public void setPurchases(List<Purchase> purchases) {
@@ -115,7 +121,7 @@ public class User {
 	}
 
 	public List<EventRegister> getEventsReg() {
-		return eventsReg;
+		return this.eventsReg;
 	}
 
 	public void setEventsReg(List<EventRegister> eventsReg) {

@@ -64,9 +64,19 @@
           <a class="nav-link" href="./contact.html">Contacto</a>
         </li>
         <li class="nav-item">
+          {{#user}}
+          <a class="nav-link" href="./menu.html">Menu</a>
+          {{/user}}
+        </li>
+        <li class="nav-item">
           {{#admin}}
           <a class="nav-link" href="./admin.html">Administrador</a>
           {{/admin}}
+        </li>
+        <li class="nav-item">
+          {{#user}}
+          <a class="nav-link" href="./logout.html">Logout</a>
+          {{/user}}
         </li>
         <li class="nav-item">
       </ul>
