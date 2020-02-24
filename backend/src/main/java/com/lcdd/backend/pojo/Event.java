@@ -13,8 +13,7 @@ import javax.persistence.OneToOne;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.lcdd.backend.dbrepositories.GameRepository;
-import com.lcdd.backend.dbrepositories.UserRepository;
+
 @Entity
 public class Event {
 	@Id
@@ -42,8 +41,6 @@ public class Event {
 	@OneToMany(mappedBy="event")
 	private List<EventRegister> registrations = new ArrayList<>();
 	
-	@Autowired
-	private GameRepository gameRepository;
 	
 	protected Event() { }
 	
@@ -69,7 +66,7 @@ public class Event {
 		this.groupSize = groupSize;
 		this.inscriptionFee = inscriptionFee;
 		this.maxParticipants = maxParticipants;
-		this.game = gameRepository.findByAcronym(game);
+		//this.game = gameRepository.findByAcronym(game);
 	}
 	/*
 	public long setNameGameId(String game) {

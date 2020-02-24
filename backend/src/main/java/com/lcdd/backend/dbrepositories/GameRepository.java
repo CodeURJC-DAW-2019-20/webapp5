@@ -6,5 +6,5 @@ import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.User;
 
 public interface GameRepository extends JpaRepository<Game, Long> {
-	Game findByAcronym(String acronym);
+	//Game findByAcronym(String acronym);
 }
