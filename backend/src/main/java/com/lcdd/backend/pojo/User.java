@@ -1,26 +1,46 @@
 package com.lcdd.backend.pojo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class User {
+public class User implements Serializable{
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1280611038677939004L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
+	@GenericGenerator(name="native",strategy="native")
 	private long id;
+	
+	@Column
 	private String email;
-	private String usermail;
+	@Column
+	private String username;
+	@Column
 	private String password;
+	@Column
 	private String firstName;
+	@Column
 	private String lastName;
+	@Transient
+	private String confirmPassword;
 	
 	@ManyToOne
 	private Role role;
@@ -33,10 +53,10 @@ public class User {
 	
 	protected User() {}
 
-	public User(String email, String usermail, String password, String firstName, String lastName, Role role,
+	public User(String email, String username, String password, String firstName, String lastName, Role role,
 			List<Purchase> purchases, List<EventRegister> eventsReg) {
 		this.email = email;
-		this.usermail = usermail;
+		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -61,12 +81,12 @@ public class User {
 		this.email = email;
 	}
 
-	public String getUsermail() {
-		return usermail;
+	public String getUserName() {
+		return username;
 	}
 
-	public void setUsermail(String usermail) {
-		this.usermail = usermail;
+	public void setUserName(String usermail) {
+		this.username = usermail;
 	}
 
 	public String getPassword() {

@@ -1,20 +1,33 @@
 package com.lcdd.backend.pojo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
-public class Role {
+public class Role implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2587120479014335598L;
+	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+	@GenericGenerator(name="native",strategy="native")
 	private long id;
+	
+	@Column
 	private String name;
 	
 	@OneToMany(mappedBy="role")
