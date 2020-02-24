@@ -22,6 +22,7 @@ import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.Purchase;
 import com.lcdd.backend.pojo.Role;
+import com.lcdd.backend.pojo.User;
 
 @Controller
 public class DashboardController {
@@ -39,24 +40,18 @@ public class DashboardController {
 	@Autowired
 	private EventRepository eventRepository;
 	
-	private List<Role> roleList;
-	
 	int i;
 	
 	@GetMapping("/dashboard")
 	public String serveDashboard(Model model) {
-		
-		constListFill();
+
 		model = fillEvenstTab(model);
 		model = fillMerchTab(model);
+		model = fillUserTab(model);
 		
 	
 		
 		return "dashboard";
-	}
-	
-	private void constListFill() {
-		roleList = roleRepository.findAll();
 	}
 	
 	private Model fillEvenstTab(Model model) {
@@ -108,16 +103,25 @@ public class DashboardController {
 			calendar.add(Calendar.MONTH, +1);
 		}
 		
-		
-		//purchaseList = purchaseRepository.findAll();
-		//Collections.reverse(purchaseList);
-		
 		purchaseList = purchaseRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
 		
 		model.addAttribute("PurchaseList", purchaseList);
 		
 		model.addAttribute("SalesArray", salesArray);
 		model.addAttribute("MonthsArray", monthsArray);
+		
+		return model;
+	}
+	
+	private Model fillUserTab(Model model) {
+		List<User> userList;
+		List<Role> roleList;
+		
+		userList = userRepository.findAll(Sort.by(Sort.Direction.ASC, "username"));
+		roleList = roleRepository.findAll();
+		
+		model.addAttribute("UserList", userList);
+		model.addAttribute("RoleList", roleList);
 		
 		return model;
 	}

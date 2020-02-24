@@ -127,7 +127,7 @@
             <h2>Admin</h1>
           </div>
           <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-striped table-sm user_table">
               <thead>
                 <tr>
                   <th>ID</th>
@@ -140,22 +140,24 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                	<td>25</td>
-                	<td>Vikoplopez</td>
-                	<td>Pedro</td>
-                	<td>Ramirez</td>
-                	<td>p.ramirez@alumnos.urjc.es</td>
+                {{#UserList}}
+                <tr user_id="{{id}}">
+                	<td>{{id}}</td>
+                	<td>{{username}}</td>
+                	<td>{{firstName}}</td>
+                	<td>{{lastName}}</td>
+                	<td>{{email}}</td>
                 	<td>
-                  		<select name="select">
-							<option value="0">Presi</option> 
-							<option value="1">Vice</option>
-							<option value="2">Vocal</option>
+                  		<select class="role_select" value="{{role.id}}">
+							{{#RoleList}}
+							<option value="{{id}}">{{name}}</option> 
+							{{/RoleList}}
 						</select>
 					</td>
 					<td><button class="btn btn-sm btn-outline-secondary">Guardar</button></td>
-					<td><button class="btn btn-sm btn-outline-secondary">Eliminar</button></td>
+					<td><button class="btn btn-sm btn-outline-secondary delete_button" user_id="{{id}}">Eliminar</button></td>
                 </tr>
+                {{/UserList}}
               </tbody>
             </table>
           </div>

@@ -37,16 +37,13 @@ public class User {
 		this.username = username;
 	}
 	
-	public User(String email, String username, String password, String firstName, String lastName, Role role,
-			List<Purchase> purchases, List<EventRegister> eventsReg) {
+	public User(String email, String username, String password, String firstName, String lastName, Role role) {
 		this.email = email;
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.role = role;
-		this.purchases = purchases;
-		this.eventsReg = eventsReg;
 	}
 
 	public long getId() {

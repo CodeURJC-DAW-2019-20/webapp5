@@ -6,6 +6,10 @@ $(function () {
 	merchChart();
 	
 	
+	$( ".role_select" ).each(function() {
+		$(this).val($(this).attr("value"));
+	});
+	
 	//Handler behaviors
 	$( "#dash_events" ).click(function() {
 		$(".dash_page").attr("hidden",true);
@@ -28,5 +32,11 @@ $(function () {
 		$( ".dash_menu a" ).removeClass("active");
 		$( "#dash_admin" ).addClass("active");
 	});
+	//Admin user handling
+	$( ".delete_button" ).click(function() {
+		var user_id = $(this).attr("user_id")
+		$(".user_table tr[user_id='"+ user_id +"']").remove();
+	});
+	
 });
 

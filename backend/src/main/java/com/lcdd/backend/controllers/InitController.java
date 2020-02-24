@@ -56,12 +56,14 @@ public class InitController {
 		gameRepository.save(new Game("Legends of Runaterra", "LoR"));
 		gameRepository.save(new Game("HeartStone", "HS"));
 		
+		Role presi= new Role("President");
+		Role vice= new Role("Vice-president");
 		roleRepository.save(new Role("ADMIN"));
-		roleRepository.save(new Role("President"));
-		roleRepository.save(new Role("Vice-president"));
+		roleRepository.save(presi);
+		roleRepository.save(vice);
 		roleRepository.save(new Role("Secretary"));
 		roleRepository.save(new Role("Treasurer"));
-		roleRepository.save(new Role("Vocals"));
+		roleRepository.save(new Role("Vocal"));
 		
 		MerchType chapa = new MerchType("Chapas");
 		MerchType posters = new MerchType("Chapas");
@@ -74,8 +76,8 @@ public class InitController {
 		eventRepository.save(new Event(lol, "Lol2"));
 		eventRepository.save(new Event(magic, "Cartas magicas"));
 		
-		User carlos = new User("cPabe");
-		User victor = new User("ViktorLopezz");
+		User carlos = new User("emailo", "cPabe", "pass", "carlos", "pabe", presi);
+		User victor = new User("emailo", "ViktorLopezz", "pass", "vic", "lopz", vice);
 		userRepository.save(carlos);
 		userRepository.save(victor);
 		
