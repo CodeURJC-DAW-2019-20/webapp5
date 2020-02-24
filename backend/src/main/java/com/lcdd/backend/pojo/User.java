@@ -55,7 +55,7 @@ public class User {
 	public User(String username, String password,String... role) {
 		this.name = username;
 		this.passwordHash = password;
-		//this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(role));
 	}
 

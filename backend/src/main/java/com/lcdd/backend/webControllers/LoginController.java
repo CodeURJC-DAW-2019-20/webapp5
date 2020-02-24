@@ -7,9 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lcdd.backend.pojo.User;
@@ -30,7 +29,7 @@ public class LoginController {
 	private UserComponent userComponent;	
 	
 	@RequestMapping("/login")
-	public ResponseEntity<User> logIn() {
+	public ResponseEntity<User> logIn(@RequestParam String username,@RequestParam String paasword ) {
 		
 		if (!userComponent.isLoggedUser()) {
 			log.info("Not user logged");
