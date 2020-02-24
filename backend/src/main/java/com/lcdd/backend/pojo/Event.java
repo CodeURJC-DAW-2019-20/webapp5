@@ -11,6 +11,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.lcdd.backend.dbrepositories.GameRepository;
+import com.lcdd.backend.dbrepositories.UserRepository;
 @Entity
 public class Event {
 	@Id
@@ -37,9 +41,14 @@ public class Event {
 	
 	@OneToMany(mappedBy="event")
 	private List<EventRegister> registrations = new ArrayList<>();
+	
+	@Autowired
+	private GameRepository gameRepository;
+	
 	protected Event() { }
+	
 	public Event( String name, String game, String place, String date, String time, String description,
-			String isTournament, String tournament, String reward, int groupSize, float inscriptionFee, int maxParticipants) {
+			String isTournament, String reward, int groupSize, float inscriptionFee, int maxParticipants) {
 		super();
 		
 		this.name = name;
@@ -60,9 +69,9 @@ public class Event {
 		this.groupSize = groupSize;
 		this.inscriptionFee = inscriptionFee;
 		this.maxParticipants = maxParticipants;
-		this.registrations = registrations;
+		this.game = gameRepository.findByAcronym(game);
 	}
-	
+	/*
 	public long setNameGameId(String game) {
 		long id;
 		if (game.compareToIgnoreCase("LOL")==0) {
@@ -86,7 +95,7 @@ public class Event {
 		}
 		return game;
 	}
-	
+	*/
 	public long getId() {
 		return id;
 	}
