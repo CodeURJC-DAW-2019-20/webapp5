@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	public UserRepositoryAuthProvider authenticationProvider;
+	public UserRepositoryAuthenticationProvider authenticationProvider;
 	
 	@Override 
 	protected void configure(HttpSecurity http)throws Exception{
@@ -47,7 +47,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.logout().logoutUrl("/logout");
 		http.logout().logoutSuccessUrl("/");
 	
-	    http.csrf().disable();
 	}
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {

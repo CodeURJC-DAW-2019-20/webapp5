@@ -54,7 +54,6 @@ public class User {
 	
 	public User(String username, String password,String... role) {
 		this.name = username;
-		this.passwordHash = password;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(role));
 	}
@@ -75,11 +74,11 @@ public class User {
 		this.name = username;
 	}
 
-	public String getPassword() {
+	public String getPasswordHash() {
 		return this.passwordHash;
 	}
 
-	public void setPassword(String password) {
+	public void setPasswordHash(String password) {
 		this.passwordHash = password;
 	}
 
@@ -98,10 +97,10 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public List<String> getRole() {
+	public List<String> getRoles() {
 		return this.roles;
 	}
-	public void setRole(List<String> role) {
+	public void setRoles(List<String> role) {
 		this.roles = role;
 	}
 

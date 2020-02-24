@@ -15,8 +15,5 @@ public class LoginPageController {
 	public String login(Model model) {
 		return "login";
 	}
-	@RequestMapping("/loginerror")
-	public String loginerror(Model model) {
-		return "loginerror";
-	}
+	
 }
