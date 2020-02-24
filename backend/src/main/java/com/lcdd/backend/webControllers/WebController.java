@@ -16,11 +16,7 @@ public class WebController {
   public String index() {
     return "index";
   }
-  
-  @RequestMapping("/loginerror")
-  public String loginerror(Model model) {
-    return "login_error";
-  }
+
   @RequestMapping("/admin")
   public String admin(Model model, HttpServletRequest request) {
 	  // User user = userRepository.findByName(request.getUserPrincipal().getName());	
