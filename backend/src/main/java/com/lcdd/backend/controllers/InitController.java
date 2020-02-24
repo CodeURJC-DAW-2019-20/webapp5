@@ -82,9 +82,9 @@ public class InitController {
 		Merchandising lolPoster = new Merchandising("Poster Lol", posters);
 		merchRepository.save(lolPoster);
 		
+		
 		Calendar calendar = Calendar.getInstance();
 		
-		purchaseRepository.save(new Purchase(carlos, calendar.getTime(),lolPoster));
 		
 		calendar.add(Calendar.MONTH, -11);
 		purchaseRepository.save(new Purchase(carlos, calendar.getTime(),lolPoster));
@@ -93,8 +93,11 @@ public class InitController {
 		calendar.add(Calendar.MONTH, +5);
 		purchaseRepository.save(new Purchase(victor, calendar.getTime(),lolPoster));
 		
+		calendar.add(Calendar.MONTH, +5);
+		purchaseRepository.save(new Purchase(carlos, calendar.getTime(),lolPoster));
 		
-		
+		calendar.add(Calendar.MONTH, +1);
+		purchaseRepository.save(new Purchase(victor, calendar.getTime(),lolPoster));
 		
 	}
 }

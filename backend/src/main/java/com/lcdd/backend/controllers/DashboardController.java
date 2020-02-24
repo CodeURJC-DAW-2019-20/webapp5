@@ -2,9 +2,12 @@ package com.lcdd.backend.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +20,7 @@ import com.lcdd.backend.dbrepositories.RoleRepository;
 import com.lcdd.backend.dbrepositories.UserRepository;
 import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.pojo.Game;
+import com.lcdd.backend.pojo.Purchase;
 import com.lcdd.backend.pojo.Role;
 
 @Controller
@@ -36,8 +40,6 @@ public class DashboardController {
 	private EventRepository eventRepository;
 	
 	private List<Role> roleList;
-	private List<EventRegister> eventRegisterList;
-	
 	
 	int i;
 	
@@ -59,6 +61,7 @@ public class DashboardController {
 	
 	private Model fillEvenstTab(Model model) {
 		
+		List<EventRegister> eventRegisterList;
 		List<Object[]> eventGameList = eventRepository.countGamesEvent();
 		
 		String[] gamesArray = new String[eventGameList.size()];
@@ -75,10 +78,9 @@ public class DashboardController {
 			i++;
 		}
 		
-		//Find all para tener todos los event registry y meterlos como lista
 		eventRegisterList = eventRegisterRepository.findAll();
-		model.addAttribute("EventRegisterList", eventRegisterList);
 		
+		model.addAttribute("EventRegisterList", eventRegisterList);
 		
 		model.addAttribute("GamesArray", gamesArray);
 		model.addAttribute("EventsArray", eventsArray);
@@ -88,6 +90,8 @@ public class DashboardController {
 	
 	private Model fillMerchTab(Model model) {
 
+		List<Purchase> purchaseList;
+		
 		Integer[] salesArray = new Integer[12];
 		String[] monthsArray = new String[12];
 		
@@ -103,6 +107,14 @@ public class DashboardController {
 			
 			calendar.add(Calendar.MONTH, +1);
 		}
+		
+		
+		//purchaseList = purchaseRepository.findAll();
+		//Collections.reverse(purchaseList);
+		
+		purchaseList = purchaseRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
+		
+		model.addAttribute("PurchaseList", purchaseList);
 		
 		model.addAttribute("SalesArray", salesArray);
 		model.addAttribute("MonthsArray", monthsArray);
