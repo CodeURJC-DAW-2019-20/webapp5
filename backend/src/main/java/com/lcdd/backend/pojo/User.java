@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -34,12 +35,14 @@ public class User implements Serializable{
 	@Column
 	private String username;
 	@Column
-	private String password;
-	@Column
 	private String firstName;
 	@Column
 	private String lastName;
+	@Column
+	@NotBlank
+	private String password;
 	@Transient
+	@NotBlank
 	private String confirmPassword;
 	
 	@ManyToOne
@@ -51,7 +54,9 @@ public class User implements Serializable{
 	@OneToMany(mappedBy="user")
 	private List<EventRegister> eventsReg = new ArrayList<>();
 	
-	protected User() {}
+	public User() {
+		super();
+	}
 
 	public User(String email, String username, String password, String firstName, String lastName, Role role,
 			List<Purchase> purchases, List<EventRegister> eventsReg) {
@@ -135,6 +140,22 @@ public class User implements Serializable{
 
 	public void setEventsReg(List<EventRegister> eventsReg) {
 		this.eventsReg = eventsReg;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	
