@@ -32,6 +32,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	private boolean checkPasswordValid(User user) throws Exception {
+		if (user.getConfirmPassword() == null || user.getConfirmPassword().isEmpty()) {
+			throw new Exception("Confirm Password es obligatorio");
+		}
 		if ( !user.getPassword().equals(user.getConfirmPassword())) {
 			throw new Exception("Password y Confirm Password no son iguales");
 		}
@@ -44,5 +47,18 @@ public class UserServiceImpl implements UserService{
 		User toUser = getUserById(fromUser.getId());
 		mapUser(fromUser, toUser);
 		return repository.save(toUser);
+	}
+	
+	/**
+	 * Map everythin but the password.
+	 * @param from
+	 * @param to
+	 */
+	protected void mapUser(User from,User to) {
+		to.setUsername(from.getUsername());
+		to.setFirstName(from.getFirstName());
+		to.setLastName(from.getLastName());
+		to.setEmail(from.getEmail());
+		to.setRole(from.getRole());
 	}
 }
