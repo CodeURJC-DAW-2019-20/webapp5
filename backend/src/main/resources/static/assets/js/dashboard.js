@@ -36,12 +36,16 @@ $(function () {
 	//Admin user handling
 	$( ".save_button" ).click(function() {
 		var user_id = $(this).attr("user_id")
-		var new_role = $(".user_table tr[user_id='"+ user_id +"'] select").val();
+		var newRoleId = $(".user_table tr[user_id='"+ user_id +"'] select").val();
 		
 		$.ajax({
 			type:'POST',
-			url: 'https://localhost:8443/users/' + user_id,
-			data: JSON.stringify(new_role)
+			url: 'https://localhost:8443/users/role/' + user_id,
+			data: JSON.stringify(newRoleId),
+			processData: false,
+	        headers: {
+	            "Content-Type": "application/json"
+	        }
 		}).done(function (item){
 			alert("Success")
 		})
@@ -56,6 +60,7 @@ $(function () {
 		}).done(function (item){
 			$(".user_table tr[user_id='"+ user_id +"']").remove();
 		})
+		
 	});
 	
 });

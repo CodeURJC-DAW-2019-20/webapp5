@@ -19,7 +19,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// Logout
 		
 		// Disable CSRF at the moment
-		//http.csrf().disable();
+		http.csrf().disable();
 		
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/user/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/user/**").permitAll();

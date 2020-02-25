@@ -27,7 +27,7 @@ public class User {
 	@ManyToOne
 	private Role role;
 	
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	private List<Purchase> purchases = new ArrayList<>();
 	
 	@OneToMany(mappedBy="user")
