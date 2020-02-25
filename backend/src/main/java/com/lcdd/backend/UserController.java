@@ -17,7 +17,8 @@ import com.lcdd.backend.pojo.User;
 
 @Controller
 public class UserController {
-
+	
+	
 	@Autowired
 	UserService userService;
 
@@ -27,7 +28,7 @@ public class UserController {
 	@GetMapping("/userForm")
 	public String userForm(Model model) {
 		model.addAttribute("userForm", new User());
-		model.addAttribute("userList", userService.getUserById(id));
+		// model.addAttribute("userList", userService.getUserById(id));
 		model.addAttribute("listTab","active");
 		return "user-form/user-view";
 	}	
