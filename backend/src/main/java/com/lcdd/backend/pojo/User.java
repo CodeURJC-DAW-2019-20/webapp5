@@ -3,7 +3,9 @@ package com.lcdd.backend.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +19,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String email;
-	private String usermail;
+	private String username;
 	private String password;
 	private String firstName;
 	private String lastName;
@@ -25,7 +27,7 @@ public class User {
 	@ManyToOne
 	private Role role;
 	
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	private List<Purchase> purchases = new ArrayList<>();
 	
 	@OneToMany(mappedBy="user")
@@ -33,16 +35,17 @@ public class User {
 	
 	protected User() {}
 
-	public User(String email, String usermail, String password, String firstName, String lastName, Role role,
-			List<Purchase> purchases, List<EventRegister> eventsReg) {
+	public User(String username) {
+		this.username = username;
+	}
+	
+	public User(String email, String username, String password, String firstName, String lastName, Role role) {
 		this.email = email;
-		this.usermail = usermail;
+		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.role = role;
-		this.purchases = purchases;
-		this.eventsReg = eventsReg;
 	}
 
 	public long getId() {
@@ -61,12 +64,12 @@ public class User {
 		this.email = email;
 	}
 
-	public String getUsermail() {
-		return usermail;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUsermail(String usermail) {
-		this.usermail = usermail;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
