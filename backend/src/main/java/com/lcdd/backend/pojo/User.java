@@ -32,6 +32,14 @@ public class User {
 	@ManyToOne
 	private Role role;
 	
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	@OneToMany(mappedBy="user")
 	private List<Purchase> purchases = new ArrayList<>();
 	
@@ -40,10 +48,10 @@ public class User {
 	
 	protected User() {}
 
-	public User(String email, String username, String password, String firstName, String lastName, String  role,
+	public User(String email, String name, String password, String firstName, String lastName, String  role,
 			List<Purchase> purchases, List<EventRegister> eventsReg) {
 		this.email = email;
-		this.name = username;
+		this.name = name;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -52,10 +60,32 @@ public class User {
 		this.eventsReg = eventsReg;
 	}
 	
+	
+	
+	public User(String email, String name, String firstName, String lastName, String passwordHash, Role role,String roles) {
+		super();
+		this.email = email;
+		this.name = name;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
+		this.role = role;
+		this.roles = new ArrayList<>(Arrays.asList(roles));
+	}
+
 	public User(String username, String password,String... role) {
 		this.name = username;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(role));
+	}
+
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getEmail() {

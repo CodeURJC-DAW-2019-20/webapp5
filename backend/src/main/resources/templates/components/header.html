@@ -25,25 +25,30 @@
       </li>
       <li class="nav-item">
     </ul>
+    
+  
     <ul class="navbar-nav">
-		{{#idLoggedIn}}
+		{{#logged}}
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" id="header_usr_dropdown" role="button" data-toggle="dropdown" href="#">@{{session.username}}<img src="/assets/img/cupula/placeholder_user_man.png" class="rounded-circle" id="header_profile_image" width="50" height="50"></a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Profile</a>
+					{{#isAdmin}}
+						<a class="dropdown-item" href="/dashboard">Admin Dashboard</a>
+					{{/isAdmin}}
+					<a class="dropdown-item" href="/profile">Profile</a>
           			<div class="dropdown-divider"></div>
           			<a class="dropdown-item" href="#">Logout</a>
 				</div>
 			</li>
-		{{/idLoggedIn}}
-		{{^idLoggedIn}}
+		{{/logged}}
+		{{^logged}}
 			<li class="nav-item">
 				<a class="btn btn-primary" id="login_button" href="login">Login</a>
 			</li>
 			<li class="nav-item">
 				<a class="btn btn-primary" id="register_button" href="register">Registro</a>
 			</li>
-		{{/idLoggedIn}}
+		{{/logged}}
       
       
     </ul>

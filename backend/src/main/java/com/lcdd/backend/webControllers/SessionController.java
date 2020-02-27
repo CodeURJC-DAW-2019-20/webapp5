@@ -1,5 +1,7 @@
 package com.lcdd.backend.webControllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -18,10 +20,11 @@ public class SessionController {
 	private UserSession session;
 	
 	@ModelAttribute
-    public void addAttributes(Model model) {
+    public void addAttributes(Model model, HttpServletRequest request) {
+		System.out.println(session.getIsLogggedIn());
+		model.addAttribute("logged",session.getIsLogggedIn());
 		model.addAttribute("session", session);
-		model.addAttribute("isLoggedIn",session);
-		model.addAttribute("isAdmin", true);
+		model.addAttribute("isAdmin", request.isUserInRole("ADMIN"));
     }
 	
 	
