@@ -10,14 +10,16 @@
   {{>components/header}}
 
 	<div id="general-container">
-<!-- 
-	{{#event.haveImage}}	
-		<p>Foto:</p>
-		<img src='/assets/img/events/image-{{id}}.jpg'/>
-	{{/event.haveImage}}
- -->
+
+
 		<div id="event-container-main-image">
-			<img id="event-main-image" class="img-fluid" src="/assets/img/events/image-{{event.id}}.jpg" />
+				{{#event.haveImage}}	
+					<img id="event-main-image" class="img-fluid" src='/images/eventsImages/image-{{event.id}}.jpg'/>
+				{{/event.haveImage}}
+				
+				{{^event.haveImage}}
+					<img id="event-main-image" class="img-fluid" src='/assets/img/event-image.png'/>
+				{{/event.haveImage}}
 		</div>
 		<div id="event-info">
 			<h1>{{event.name}}</h1>
