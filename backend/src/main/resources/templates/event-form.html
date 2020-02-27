@@ -38,17 +38,14 @@
 					
 					<div class="form-group">
 						<label class="register-event-form">Elige un juego </label>
-						<select class="form-control" name="game" required>
-							<option id="register-event-game" value="LoL">League of Legends</option>
-							<option id="register-event-game" value="TFT">Teamfight Tactics</option>
-							<option id="register-event-game" value="LoR">Legends of Runaterra</option>
-							<option id="register-event-game" value="MTG Arena">Magic: The Gathering Arena</option>
-							<option id="register-event-game" value="HS">HeartStone</option>
+						<select class="form-control" required>
+							 
+							{{#GameList}}
+								<option value="{{id}}">{{name}}</option>
+							{{/GameList}}
 						</select>
 					</div>
 					
-					<!--  <input type="text" name="game" class="form-control" id="register-event-game"  required/>
-					-->
 					
 					
 					

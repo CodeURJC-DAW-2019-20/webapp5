@@ -11,7 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Entity
@@ -29,6 +28,7 @@ public class Event {
 	private String time;//hh:mm
 	private String description;
 	private boolean isTournament;
+	
 	private boolean haveImage;
 	
 	@OneToOne(cascade=CascadeType.ALL)
@@ -44,55 +44,24 @@ public class Event {
 	
 	protected Event() { }
 	
-	public Event( String name, String game, String place, String date, String time, String description,
-			String isTournament, String reward, int groupSize, float inscriptionFee, int maxParticipants) {
+	public Event( String name, Game game, String place, String date, String time, String description,
+			boolean isTournament, String reward, int groupSize, float inscriptionFee, int maxParticipants) {
 		super();
 		
 		this.name = name;
-		//this.gameId = setNameGameId(game);
+		this.game = game;
 		this.place = place;		
 		this.date = date;
 		this.time = time;
-		
-		this.tournament = new Tournament(reward);
 		this.description = description;
-		if (! isTournament.isEmpty()) {	
-			if ( isTournament.equalsIgnoreCase("true")){
-				this.isTournament = true;
-			} 
-		}else {
-			this.isTournament = false;
-		}
+		this.isTournament = isTournament;
+		this.tournament = new Tournament(reward);
 		this.groupSize = groupSize;
 		this.inscriptionFee = inscriptionFee;
 		this.maxParticipants = maxParticipants;
-		//this.game = gameRepository.findByAcronym(game);
-	}
-	/*
-	public long setNameGameId(String game) {
-		long id;
-		if (game.compareToIgnoreCase("LOL")==0) {
-			 id= 1;
-		} else if (game.compareToIgnoreCase("MESA")==0) {
-			id= 2;
-		} else {
-			id=-1;
-		}
-		return id;
+		
 	}
 	
-	public String getNameGameId(long gameId) {
-		String game;
-		if (gameId==1) {
-			game= "LOL";
-		} else if (gameId==2) {
-			game= "MESA";
-		} else {
-			game="no definido";
-		}
-		return game;
-	}
-	*/
 	public long getId() {
 		return id;
 	}
