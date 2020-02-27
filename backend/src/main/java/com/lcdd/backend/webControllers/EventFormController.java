@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.pojo.Game;
-
+import com.lcdd.backend.pojo.EventDataForm;
 
 import com.lcdd.backend.ImageService;
 import com.lcdd.backend.dbrepositories.EventRepository;
@@ -51,24 +51,22 @@ public class EventFormController {
 	
 	
 	@RequestMapping(value = {"/eventForm"}, 
-			method = RequestMethod.POST,
-			consumes = "application/x-www-form-urlencoded;charset=UTF-8")
-	@ResponseBody
-	public String eventForm(Model model, @RequestBody Map<String,String> myMap) {
+			method = RequestMethod.POST)
+	public String eventForm(Model model, EventDataForm data) {
 		
-		String name = myMap.get("name");
-		Long gameId = Long.parseLong(myMap.get("game"));
-		String place = myMap.get("place");
-		String date = myMap.get("date");
-		String time = myMap.get("time");
-		String description = myMap.get("description");
-		boolean isTournament = Boolean.parseBoolean(myMap.get("isTournament"));
-		String reward = myMap.get("reward");
-		int groupSize = Integer.parseInt(myMap.get("groupSize"));
-		float inscriptionFee = Float.parseFloat(myMap.get("inscriptionFee"));
-		int maxParticipants = Integer.parseInt(myMap.get("maxParticipants")); 
+		String name = data.getName();
+		int gameId = data.getGame();
+		String place = data.getPlace();
+		String date = data.getDate();
+		String time = data.getTime();
+		String description = data.getDescription();
+		boolean isTournament = data.isTournament();
+		String reward = data.getReward();
+		int groupSize = data.getGroupSize();
+		float inscriptionFee = data.getInscriptionFee();
+		int maxParticipants = data.getMaxParticipants(); 
 
-		Optional<Game> game = gameRepository.findById(gameId);
+		Optional<Game> game = gameRepository.findById((long)gameId);
 		
 		if(!game.isPresent()) {
 			return null;
@@ -89,7 +87,7 @@ public class EventFormController {
 	imgService.saveImage("event", event.getId(), imageFile);
 	model.addAttribute("event", event);
 	*/
-	return "event-form";
+	return "event-template";
 	}
   
 }
