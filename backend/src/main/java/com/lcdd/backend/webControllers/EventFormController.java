@@ -52,7 +52,7 @@ public class EventFormController {
 	
 	@RequestMapping(value = {"/eventForm"}, 
 			method = RequestMethod.POST)
-	public String eventForm(Model model, EventDataForm data) {
+	public String eventForm(Model model, EventDataForm data, @RequestParam MultipartFile imageFile) throws IOException {
 		
 		String name = data.getName();
 		int gameId = data.getGame();
@@ -74,20 +74,15 @@ public class EventFormController {
 		
 		Event event = new Event(name, game.get(), place, date, time, description, isTournament, reward, groupSize, inscriptionFee, maxParticipants);
 		
+		event.setHaveImage(true);
+		
 		repository.save(event);
 		
-		model.addAttribute("event", event);
-		/*
-	event.setHaveImage(true);
+		imgService.saveImage("eventsImages", event.getId(), imageFile);
 		
-	repository.save(event);
+		model.addAttribute("event", event);
 	
-	//model.addAttribute("event", event);
-	
-	imgService.saveImage("event", event.getId(), imageFile);
-	model.addAttribute("event", event);
-	*/
-	return "event-template";
+		return "event-template";
 	}
   
 }

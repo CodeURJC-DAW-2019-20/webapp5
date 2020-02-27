@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Service
 @Configuration
 public class ImageService implements WebMvcConfigurer {
-	
+	//ruta donde estan las imagenes
 	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
 	
 	
@@ -22,12 +22,13 @@ public class ImageService implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-		registry.addResourceHandler("/assets/img/events/**")
+		registry.addResourceHandler("/images/**")
 				.addResourceLocations("file:" + FILES_FOLDER.toAbsolutePath().toString() + "/");
 		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
 	}
 	
 	
+	//crear el nombre de la imagen
 	private Path createFilePath(long id, Path folder) {
 		return folder.resolve("image-" + id + ".jpg");
 	}
