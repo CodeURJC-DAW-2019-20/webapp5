@@ -60,6 +60,8 @@ public class Event {
 		this.inscriptionFee = inscriptionFee;
 		this.maxParticipants = maxParticipants;
 		
+		this.haveImage = false;
+		
 	}
 	
 	public long getId() {

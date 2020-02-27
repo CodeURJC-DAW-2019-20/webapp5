@@ -14,11 +14,11 @@
 
 		<div id="event-container-main-image">
 				{{#event.haveImage}}	
-					<img id="event-main-image" class="img-fluid" src='/images/eventsImages/image-{{event.id}}.jpg'/>
+					<img class="event-main-image img-fluid" src='/images/eventsImages/image-{{event.id}}.jpg'/>
 				{{/event.haveImage}}
 				
 				{{^event.haveImage}}
-					<img id="event-main-image" class="img-fluid" src='/assets/img/event-image.png'/>
+					<img class="event-main-image img-fluid" src='/assets/img/event-image.png'/>
 				{{/event.haveImage}}
 		</div>
 		<div id="event-info">

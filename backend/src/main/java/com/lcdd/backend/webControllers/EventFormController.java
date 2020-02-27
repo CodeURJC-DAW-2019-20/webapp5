@@ -74,12 +74,13 @@ public class EventFormController {
 		
 		Event event = new Event(name, game.get(), place, date, time, description, isTournament, reward, groupSize, inscriptionFee, maxParticipants);
 		
-		event.setHaveImage(true);
-		
 		repository.save(event);
 		
-		imgService.saveImage("eventsImages", event.getId(), imageFile);
-		
+		if(! imageFile.isEmpty()) {
+			event.setHaveImage(true);
+			imgService.saveImage("eventsImages", event.getId(), imageFile);
+		}
+
 		model.addAttribute("event", event);
 	
 		return "event-template";
