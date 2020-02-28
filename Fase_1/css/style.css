@@ -88,8 +88,11 @@ form .form-control:focus{
 	border-color: #ED0800;
 	box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
 }
-/* Home 
-============================================================================================ */
+form .input-group{
+    display: block;
+}
+
+/* Home */
 /* Carousel Header Styles */
 .mainpage1 {
     position: absolute;
@@ -250,14 +253,14 @@ form .form-control:focus{
     /* float: left; */
     /* width: 30%; */
     padding: 1rem;
-    background-color: chartreuse;
+    /* background-color: chartreuse; */
 }
 
 #event-description{
    padding: 1rem;
     clear: both;
     text-align: justify;
-    background-color: tomato;
+    /* background-color: tomato; */
 }
 /* About us 
 ============================================================================================ */
@@ -324,3 +327,6 @@ form .form-control:focus{
   }
 }
 /* Register */
+
+
+/*Register Events*/

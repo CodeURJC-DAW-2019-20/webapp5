@@ -1,10 +1,7 @@
 package com.lcdd.backend.pojo;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+
+
 @Entity
 public class Event {
 	@Id
@@ -22,17 +21,20 @@ public class Event {
 	
 	@ManyToOne
 	private Game game;
-	
+
+	private String name;
 	private String place;
-	private LocalDate date;
-	private LocalTime time;
+	private String date;//yyyy-MM-dd
+	private String time;//hh:mm
 	private String description;
 	private boolean isTournament;
+	
+	private boolean haveImage;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	private Tournament tournament;
 	
-	private boolean isSingleParticipation;
+	private int groupSize;
 	private float inscriptionFee;
 	private int maxParticipants;
 	
@@ -41,33 +43,31 @@ public class Event {
 	
 	
 	protected Event() { }
-
-
-	
 	public Event(Game game, String description) {
 		this.game = game;
 		this.description = description;
 	}
-
-
-
-	public Event(Game game, String place, LocalDate date, LocalTime time, String description, boolean isTournament,
-			Tournament tournament, boolean isSingleParticipation, float inscriptionFee, int maxParticipants,
-			List<EventRegister> registrations) {
+	
+	public Event( String name, Game game, String place, String date, String time, String description,
+			boolean isTournament, String reward, int groupSize, float inscriptionFee, int maxParticipants) {
+		super();
+		
+		this.name = name;
 		this.game = game;
-		this.place = place;
+		this.place = place;		
 		this.date = date;
 		this.time = time;
 		this.description = description;
 		this.isTournament = isTournament;
-		this.tournament = tournament;
-		this.isSingleParticipation = isSingleParticipation;
+		this.tournament = new Tournament(reward);
+		this.groupSize = groupSize;
 		this.inscriptionFee = inscriptionFee;
 		this.maxParticipants = maxParticipants;
-		this.registrations = registrations;
+		
+		this.haveImage = false;
+		
 	}
-
-
+	
 	public long getId() {
 		return id;
 	}
@@ -96,24 +96,20 @@ public class Event {
 	public void setPlace(String place) {
 		this.place = place;
 	}
-
-
-	public LocalDate getDate() {
+	
+	public String getDate() {
 		return date;
 	}
-
-
-	public void setDate(LocalDate date) {
+	
+	public void setDate(String date) {
 		this.date = date;
 	}
-
-
-	public LocalTime getTime() {
+	
+	public String getTime() {
 		return time;
 	}
-
-
-	public void setTime(LocalTime time) {
+	
+	public void setTime(String time) {
 		this.time = time;
 	}
 
@@ -136,27 +132,6 @@ public class Event {
 	public void setTournament(boolean isTournament) {
 		this.isTournament = isTournament;
 	}
-
-
-	public Tournament getTournament() {
-		return tournament;
-	}
-
-
-	public void setTournament(Tournament tournament) {
-		this.tournament = tournament;
-	}
-
-
-	public boolean isSingleParticipation() {
-		return isSingleParticipation;
-	}
-
-
-	public void setSingleParticipation(boolean isSingleParticipation) {
-		this.isSingleParticipation = isSingleParticipation;
-	}
-
 
 	public float getInscriptionFee() {
 		return inscriptionFee;
@@ -186,4 +161,38 @@ public class Event {
 	public void setRegistrations(List<EventRegister> registrations) {
 		this.registrations = registrations;
 	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public Tournament getTournament() {
+		return tournament;
+	}
+	
+	public void setTournament(Tournament tournament) {
+		this.tournament = tournament;
+	}
+	
+	public int getGroupSize() {
+		return groupSize;
+	}
+	
+	public void setGroupSize(int groupSize) {
+		this.groupSize = groupSize;
+	}
+	
+	public boolean isHaveImage() {
+		return haveImage;
+	}
+	
+	public void setHaveImage(boolean haveImage) {
+		this.haveImage = haveImage;
+	}
+
+	
 }

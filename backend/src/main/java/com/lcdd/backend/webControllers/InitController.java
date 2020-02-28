@@ -1,4 +1,4 @@
-package com.lcdd.backend.controllers;
+package com.lcdd.backend.webControllers;
 
 import java.util.Calendar;
 
@@ -76,8 +76,10 @@ public class InitController {
 		eventRepository.save(new Event(lol, "Lol2"));
 		eventRepository.save(new Event(magic, "Cartas magicas"));
 		
-		User carlos = new User("emailo", "cPabe", "pass", "carlos", "pabe", presi);
-		User victor = new User("emailo", "ViktorLopezz", "pass", "vic", "lopz", vice);
+		User user = new User("user", "pass", "ROLE_USER");
+		userRepository.save(user);
+		User carlos = new User("email", "cPabe", "carlos", "pabe", "pass" , presi);
+		User victor = new User("email", "ViktorLopezz", "vic", "lopz","pass", vice);
 		userRepository.save(carlos);
 		userRepository.save(victor);
 		

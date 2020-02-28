@@ -229,7 +229,16 @@ form .form-control:focus{
     margin-left: -30px;
 }
 
-/* Events 
+/* Event-form
+============================================================================================ */
+
+
+#div-mostrar{
+	display:none;
+	margin-left:2rem;
+}
+
+/* Event-template
 ============================================================================================ */
 #hidden-element {
     display: none;
@@ -243,24 +252,25 @@ form .form-control:focus{
     float: left;
     margin-right: 1rem;
     margin-bottom: 1rem;
+     max-width: 800px;
     /* width: 60%; */
 }
     /* image-with-text */
-#event-main-image{
-    
+.event-main-image{
+   
 }
 #event-info{
     /* float: left; */
     /* width: 30%; */
     padding: 1rem;
-    background-color: chartreuse;
+    /*background-color: chartreuse;*/
 }
 
 #event-description{
    padding: 1rem;
     clear: both;
     text-align: justify;
-    background-color: tomato;
+    /*background-color: tomato;*/
 }
 /* About us 
 ============================================================================================ */
@@ -326,4 +336,27 @@ form .form-control:focus{
      width: 100%;
   }
 }
-/* Register */
+
+
+
+
+/* page404 
+============================================================================================ */
+#container-button404{
+    margin-bottom: 5rem;
+}
+.buttonpage404{
+    /*max-width: 80%;*/
+    margin: 2rem;
+}
+#image404-lcdd{
+    width: 10%;
+    display: block;
+    margin: auto;
+}
+#image404{
+    width: 50%;
+    display: block;
+    margin: auto;
+    
+}
