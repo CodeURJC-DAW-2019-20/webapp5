@@ -1,4 +1,4 @@
-package com.lcdd.backend;
+package com.lcdd.backend.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +10,6 @@ public class ProfileController {
 	
 	@GetMapping("profile")
 	public String profileModel(Model model) {
-		return "user-form/user-view";
+		return "profile";
 	}
 }
