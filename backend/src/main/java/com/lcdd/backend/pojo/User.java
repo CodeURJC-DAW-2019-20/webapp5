@@ -39,12 +39,16 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<EventRegister> eventsReg = new ArrayList<>();
 	
+	
+	
+	
+	
 	protected User() {}
 
 	public User(String username) {
-		this.username = username;
+		this.name = username;
 	}
-	public User(String email, String name, String password, String firstName, String lastName, String  role,
+	public User(String email, String name, String firstName, String lastName, String password, String  role,
 			List<Purchase> purchases, List<EventRegister> eventsReg) {
 		this.email = email;
 		this.name = name;
@@ -56,9 +60,7 @@ public class User {
 		this.eventsReg = eventsReg;
 	}
 	
-	
-	
-	public User(String email, String name, String firstName, String lastName, String passwordHash, Role role,String roles) {
+	public User(String email, String name, String firstName, String lastName, String passwordHash, Role role) {
 		super();
 		this.email = email;
 		this.name = name;
@@ -66,7 +68,6 @@ public class User {
 		this.lastName = lastName;
 		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
 		this.role = role;
-		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
 	public User(String username, String password,String... role) {
@@ -75,6 +76,11 @@ public class User {
 		this.roles = new ArrayList<>(Arrays.asList(role));
 	}
 
+	
+	
+	
+	
+	
 	
 	public Long getId() {
 		return id;
@@ -85,7 +91,7 @@ public class User {
 	}
 
 	public String getEmail() {
-		return this.email;
+		return email;
 	}
 
 	public void setEmail(String email) {
@@ -93,23 +99,15 @@ public class User {
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
-	public void setName(String username) {
-		this.name = username;
-	}
-
-	public String getPasswordHash() {
-		return this.passwordHash;
-	}
-
-	public void setPasswordHash(String password) {
-		this.passwordHash = password;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getFirstName() {
-		return this.firstName;
+		return firstName;
 	}
 
 	public void setFirstName(String firstName) {
@@ -117,21 +115,39 @@ public class User {
 	}
 
 	public String getLastName() {
-		return this.lastName;
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public List<String> getRoles() {
-		return this.roles;
+
+	public String getPasswordHash() {
+		return passwordHash;
 	}
-	public void setRoles(List<String> role) {
-		this.roles = role;
+
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
+	}
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	public List<Purchase> getPurchases() {
-		return this.purchases;
+		return purchases;
 	}
 
 	public void setPurchases(List<Purchase> purchases) {
@@ -139,14 +155,13 @@ public class User {
 	}
 
 	public List<EventRegister> getEventsReg() {
-		return this.eventsReg;
+		return eventsReg;
 	}
 
 	public void setEventsReg(List<EventRegister> eventsReg) {
 		this.eventsReg = eventsReg;
 	}
 
-	
 	
 	
 }

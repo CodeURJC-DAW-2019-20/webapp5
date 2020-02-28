@@ -1,4 +1,4 @@
-package com.lcdd.backend.controllers;
+package com.lcdd.backend.webControllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
