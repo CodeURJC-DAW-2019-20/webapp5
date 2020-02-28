@@ -1,84 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
-
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-  <link rel="icon" href="../static/assets/img/logo/png/logo16.png" sizes="16x16">
-  <link rel="icon" href="../static/assets/img/logo/png/logo32.png" sizes="32x32">
-  <link rel="icon" href="../static/assets/img/logo/png/logo48.png" sizes="48x48">
-
-  <link rel="stylesheet" href="../static/assets/css/normalize.css">
-  <link rel="stylesheet" href="../static/assets/css/main.css">
-  <link rel="stylesheet" href="../static/assets/css/style.css">
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-  <script src="../static/assets/js/vendor/modernizr-3.8.0.min.js"></script>
-
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
-          integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
-          crossorigin="anonymous"></script>
-
-  <script src="https://kit.fontawesome.com/deb22f1091.js" crossorigin="anonymous"></script>
-
-  <script src="../static/assets/js/plugins.js"></script>
-  <script src="../static/assets/js/main.js"></script>
-  <script src="../static/assets/js/show_more_merch.js"></script>
-
-  <meta name="theme-color" content="#fafafa">
+ 	<meta charset="UTF-8">
+ 	{{>components/html_head}}
+ 	<script src="assets/js/show_more_merch.js"></script>
 </head>
 
 <body>
-<!--================ Header =================-->
-<nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
-  <a class="navbar-brand" href="">
-    <img src="../static/assets/img/logo/png/logo48.png" width="50" height="50" class="d-inline-block align-top">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
-          aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse " id="navbarMenu">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="../static/index.html">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./merchandising.html">Merch</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../static/events.html">Eventos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../static/about_us.html">Sobre nosotros</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../static/contact.html">Contacto</a>
-      </li>
-      <li class="nav-item">
-    </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="btn btn-primary" id="login_button" href="../static/login.html">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="btn btn-primary" id="register_button" href="../static/register.html">Registro</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<!--================ End Header =================-->
-
+  {{>components/header}}
 <br>
 <br>
 
@@ -93,13 +22,12 @@
             <h4>Taza LCDD</h4>
             <h5><del>12.00€</del> 10.00€</h5>
             <div class="l_p_img">
-              <img src="../static/assets/img/products/lcdd_mug.png" width="300" height="300" alt="lcdd taza">
+              <img src="assets/img/products/lcdd_mug.png" width="300" height="300" alt="lcdd taza">
               <h5 class="sale">Opciones:</h5>
             </div>
             <div class="l_p_text">
               <ul>
                 <li class="p_icon"><a href="#">Ver Detalles</a></li>
-                <li><a class="add_cart" href="#">Comprar</a></li>
               </ul>
             </div>
           </div>
@@ -109,13 +37,12 @@
             <h4>Chapa Negro LCDD</h4>
             <h5>4.00€</h5>
             <div class="l_p_img">
-              <img src="../static/assets/img/products/lcdd_chapa_black.png" width="300" height="300" alt="lcdd chapa black">
+              <img src="assets/img/products/lcdd_chapa_black.png" width="300" height="300" alt="lcdd chapa black">
               <h5 class="sale">Opciones:</h5>
             </div>
             <div class="l_p_text">
               <ul>
                 <li class="p_icon"><a href="#">Ver Detalles</a></li>
-                <li><a class="add_cart" href="#">Comprar</a></li>
               </ul>
             </div>
           </div>
@@ -125,13 +52,12 @@
             <h4>Chapa Blanco LCDD</h4>
             <h5>4.00€</h5>
             <div class="l_p_img">
-              <img src="../static/assets/img/products/lcdd_chapa_white.png" width="300" height="300" alt="lcdd chapa white">
+              <img src="assets/img/products/lcdd_chapa_white.png" width="300" height="300" alt="lcdd chapa white">
               <h5 class="sale">Opciones:</h5>
             </div>
             <div class="l_p_text">
               <ul>
                 <li class="p_icon"><a href="#">Ver Detalles</a></li>
-                <li><a class="add_cart" href="#">Comprar</a></li>
               </ul>
             </div>
           </div>
@@ -146,13 +72,12 @@
             <h4>Camisa Negra LCDD</h4>
             <h5><del>55.00€</del> 45.00€</h5>
             <div class="l_p_img">
-              <img src="../static/assets/img/products/lcdd_shirt.png" width="300" height="300" alt="lcdd shirt 4">
+              <img src="assets/img/products/lcdd_shirt.png" width="300" height="300" alt="lcdd shirt 4">
               <h5 class="sale">Opciones:</h5>
             </div>
             <div class="l_p_text">
               <ul>
                 <li class="p_icon"><a href="#">Ver Detalles</a></li>
-                <li><a class="add_cart" href="#">Comprar</a></li>
               </ul>
             </div>
           </div>
@@ -162,13 +87,12 @@
             <h4>Camisa mas Negra LCDD</h4>
             <h5>60.00€</h5>
             <div class="l_p_img">
-              <img src="../static/assets/img/products/lcdd_shirt.png" width="300" height="300" alt="lcdd shirt 5">
+              <img src="assets/img/products/lcdd_shirt.png" width="300" height="300" alt="lcdd shirt 5">
               <h5 class="sale">Opciones:</h5>
             </div>
             <div class="l_p_text">
               <ul>
                 <li class="p_icon"><a href="#">Ver Detalles</a></li>
-                <li><a class="add_cart" href="#">Comprar</a></li>
               </ul>
             </div>
           </div>
@@ -178,13 +102,12 @@
             <h4>Camisa La Mas Negra LCDD</h4>
             <h5><del>90.00€ </del> 75.00€</h5>
             <div class="l_p_img">
-              <img src="../static/assets/img/products/lcdd_shirt.png" width="300" height="300" alt="lcdd shirt 6">
+              <img src="assets/img/products/lcdd_shirt.png" width="300" height="300" alt="lcdd shirt 6">
               <h5 class="sale">Opciones:</h5>
             </div>
             <div class="l_p_text">
               <ul>
                 <li class="p_icon"><a href="#">Ver Detalles</a></li>
-                <li><a class="add_cart" href="#">Comprar</a></li>
               </ul>
             </div>
           </div>
@@ -204,61 +127,6 @@
 <br>
 <br>
 
-<!--================ Footer =================-->
-<footer class="text-light bg-dark">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <img src="../static/assets/img/logo/png/logo_grande.png" width="150" height="150">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <form action="https://gmail.us4.list-manage.com/subscribe/post?u=cd10347d8ef1795b1334f9a0f&id=1ec05fee4a"
-              method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-              target="_blank" novalidate>
-          <div class="form-group">
-            <label for="emailNewsletter">Suscribete a nuestra newsletter</label>
-            <input type="email" name="EMAIL" class="form-control" id="emailNewsletter"
-                   placeholder="Introduce tu email" required>
-          </div>
-          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                                                                                    name="b_cd10347d8ef1795b1334f9a0f_1ec05fee4a" tabindex="-1" value=""></div>
-          <div class="clear"><button type="submit" value="Subscribe" name="subscribe"
-                                     class="btn btn-primary">Enviar</button></div>
-        </form>
-      </div>
-      <div class="col-sm-4">
-        <p class="text-center">Sobre nosotros</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="text-center">Contacto</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-        <ul class="list-unstyled list-inline text-center">
-          <li class="list-inline-item">
-            <a href="https://www.instagram.com/itsdougthepug/?hl=es" target="_blank" rel="noopener noreferrer"><i
-                    class="fab fa-instagram social_icons"></i></a>
-          </li>
-          <li class="list-inline-item"><a href="https://twitter.com/lcdd_urjc" target="_blank"
-                                          rel="noopener noreferrer">
-            <i class="fab fa-twitter social_icons"></i></a>
-          </li>
-          <li class="list-inline-item"><a href="https://discord.gg/yYDsMhw" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-discord social_icons"></i></a><i>
-          </li>
-          <li class="list-inline-item"><a href="mailto:lcddoficial@gmail.com" target="_blank"
-                                          rel="noopener noreferrer">
-            <i class="fas fa-envelope social_icons"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
-<!--================ End Footer =================-->
+  {{>components/footer}}
 </body>
-
 </html>

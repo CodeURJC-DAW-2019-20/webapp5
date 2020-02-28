@@ -1,73 +1,51 @@
 package com.lcdd.backend.pojo;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
-import javax.validation.constraints.NotBlank;
-
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class User implements Serializable{
-	
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1280611038677939004L;
+public class User {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="native")
-	@GenericGenerator(name="native",strategy="native")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
-	@Column
 	private String email;
-	@Column
 	private String username;
-	@Column
-	private String firstName;
-	@Column
-	private String lastName;
-	@Column
-	@NotBlank
 	private String password;
-	@Transient
-	@NotBlank
-	private String confirmPassword;
+	private String firstName;
+	private String lastName;
 	
 	@ManyToOne
 	private Role role;
 	
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	private List<Purchase> purchases = new ArrayList<>();
 	
 	@OneToMany(mappedBy="user")
 	private List<EventRegister> eventsReg = new ArrayList<>();
 	
-	public User() {
-		super();
-	}
+	protected User() {}
 
-	public User(String email, String username, String password, String firstName, String lastName, Role role,
-			List<Purchase> purchases, List<EventRegister> eventsReg) {
+	public User(String username) {
+		this.username = username;
+	}
+	
+	public User(String email, String username, String password, String firstName, String lastName, Role role) {
 		this.email = email;
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.role = role;
-		this.purchases = purchases;
-		this.eventsReg = eventsReg;
 	}
 
 	public long getId() {
@@ -86,12 +64,12 @@ public class User implements Serializable{
 		this.email = email;
 	}
 
-	public String getUserName() {
+	public String getUsername() {
 		return username;
 	}
 
-	public void setUserName(String usermail) {
-		this.username = usermail;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -140,22 +118,6 @@ public class User implements Serializable{
 
 	public void setEventsReg(List<EventRegister> eventsReg) {
 		this.eventsReg = eventsReg;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
 	}
 
 	

@@ -31,6 +31,13 @@ public class Merchandising {
 	
 	protected Merchandising(){}
 
+	
+	public Merchandising(String name, MerchType type) {
+		this.name = name;
+		this.type = type;
+	}
+	
+	
 	public Merchandising(String name, MerchType type, float price, float discount, int stock, String description,
 			List<Purchase> purchases) {
 		this.name = name;

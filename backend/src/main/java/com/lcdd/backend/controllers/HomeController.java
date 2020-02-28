@@ -1,4 +1,4 @@
-package com.lcdd.backend;
+package com.lcdd.backend.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
