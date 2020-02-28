@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,15 +33,7 @@ public class User {
 	@ManyToOne
 	private Role role;
 	
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
-
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	private List<Purchase> purchases = new ArrayList<>();
 	
 	@OneToMany(mappedBy="user")
@@ -48,6 +41,9 @@ public class User {
 	
 	protected User() {}
 
+	public User(String username) {
+		this.username = username;
+	}
 	public User(String email, String name, String password, String firstName, String lastName, String  role,
 			List<Purchase> purchases, List<EventRegister> eventsReg) {
 		this.email = email;

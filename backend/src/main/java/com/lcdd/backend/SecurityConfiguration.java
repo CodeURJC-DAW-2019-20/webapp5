@@ -1,5 +1,6 @@
 package com.lcdd.backend;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -47,6 +48,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.logout().logoutUrl("/logout");
 		http.logout().logoutSuccessUrl("/");
 	
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/user/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/user/**").permitAll();
+		http.authorizeRequests().anyRequest().permitAll();
 	}
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -56,10 +60,3 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 }
-
-	
-	
-
-
-
-

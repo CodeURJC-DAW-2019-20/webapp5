@@ -43,6 +43,10 @@ public class Event {
 	
 	
 	protected Event() { }
+	public Event(Game game, String description) {
+		this.game = game;
+		this.description = description;
+	}
 	
 	public Event( String name, Game game, String place, String date, String time, String description,
 			boolean isTournament, String reward, int groupSize, float inscriptionFee, int maxParticipants) {
