@@ -66,7 +66,7 @@ public class InitController {
 		roleRepository.save(new Role("Vocal"));
 		
 		MerchType chapa = new MerchType("Chapas");
-		MerchType posters = new MerchType("Chapas");
+		MerchType posters = new MerchType("Posters");
 		merchTypeRepository.save(chapa);
 		merchTypeRepository.save(posters);
 		merchTypeRepository.save(new MerchType("Camisetas"));

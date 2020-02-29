@@ -15,19 +15,20 @@ public class MerchType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String type;
 	
-	@OneToMany(mappedBy="type")
+	private String typeName;
+	
+	@OneToMany(mappedBy="merchtype")
 	private List<Merchandising> merchs = new ArrayList<>();
 	
 	protected MerchType(){}
 
-	public MerchType(String type) {
-		this.type = type;
+	public MerchType(String typeName) {
+		this.typeName = typeName;
 	}
 	
-	public MerchType(String type, List<Merchandising> merchs) {
-		this.type = type;
+	public MerchType(String typeName, List<Merchandising> merchs) {
+		this.typeName = typeName;
 		this.merchs = merchs;
 	}
 
@@ -40,11 +41,11 @@ public class MerchType {
 	}
 
 	public String getType() {
-		return type;
+		return typeName;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setType(String typeName) {
+		this.typeName = typeName;
 	}
 
 	public List<Merchandising> getMerchs() {

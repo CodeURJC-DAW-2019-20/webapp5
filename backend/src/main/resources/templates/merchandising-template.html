@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	{{>components/html_head}}
+</head>
+
+<body>
+  {{>components/header}}
+
+	<div id="general-container">
+
+
+		<div id="event-container-main-image">
+				{{#merch.haveImage}}	
+					<img class="event-main-image img-fluid" src='/images/merchsImages/image-{{merch.id}}.jpg'/>
+				{{/merch.haveImage}}
+				
+				{{^merch.haveImage}}
+					<img class="event-main-image img-fluid" src='/assets/img/merch-image.png'/>
+				{{/merch.haveImage}}
+		</div>
+		<div id="event-info">
+			<h1>{{event.name}}</h1>
+			<div>
+				<i class="fas fa-gamepad"> Nombre: {{merch.name}}</i>
+				<br>				
+				<i class="fas fa-class"> Tipo: {{merch.type.typeName}}</i>
+				<br>
+				<i class="fas fa-units"> Unidades: {{merch.stock}}</i>
+				<br>
+				<i class="fas fa-discount"> Descuento: {{merch.discount}}</i>
+				<br>
+				<i class="fas fa-money-bill-wave"> Precio: {{merch.price}} euros.</i>
+				
+			</div>
+			<p class="align-middle"></p>
+		</div>
+
+		
+
+		<div id="mercht-description">
+			<h2>Descripción</h2>
+			<p>{{merch.description}}</p>
+		</div>
+
+	</div>
+
+  {{>components/footer}}
+
+</body>
+</html>
