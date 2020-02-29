@@ -1,18 +1,14 @@
-package com.lcdd.backend;
+package com.lcdd.backend.webControllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class UserProfile {
+public class ProfileController {
 	
-  @RequestMapping("/event-form")
+  @RequestMapping("/profile")
   public String eventTemplate(Model model){
-
-    int a = 1;
-    model.addAttribute("event", a);
-
-    return "event-form";
+    return "profile";
   }
 }
