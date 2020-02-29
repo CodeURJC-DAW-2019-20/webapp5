@@ -25,6 +25,8 @@ public class SessionController {
 		model.addAttribute("logged",session.getIsLogggedIn());
 		model.addAttribute("session", session);
 		model.addAttribute("isAdmin", request.isUserInRole("ADMIN"));
+		session.setIsLogggedIn(false);
+		model.addAttribute("logout",session.getIsLogggedIn());
     }
 	
 	
