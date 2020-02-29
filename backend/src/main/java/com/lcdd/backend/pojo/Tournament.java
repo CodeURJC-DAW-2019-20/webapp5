@@ -20,6 +20,10 @@ public class Tournament {
 	
 	public Tournament(){}
 
+	public Tournament(String reward) {
+		this.reward = reward;
+	}
+	
 	public Tournament(EventRegister winner, String reward) {
 		this.winner = winner;
 		this.reward = reward;

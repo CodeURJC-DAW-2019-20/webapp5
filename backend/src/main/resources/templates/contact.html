@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	{{>components/html_head}}
+</head>
+
+<body>
+  {{>components/header}}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>Contacto</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row contact_below">
+      <div class="col-md-6">
+        <div class="contact_address">
+          <h3><strong>¿Quieres venir a conocernos?</strong></h3>
+          <p>S.008 Laboratorios II URJC</p>
+          <p>Calle Tulipán, s/n</p>
+          <p>28933 Móstoles, Madrid</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <form id="contact-form" action="https://formspree.io/mdognygv" method="POST">
+          <div class="form-group">
+            <label for="contact-form_email">Email:</label>
+            <input type="email" class="form-control" name="email" id="contact-form_email">
+          </div>
+          <div class="form-group">
+            <label for="contact-form_name">Name:</label>
+            <input type="email" class="form-control" name="name" id="contact-form_name">
+          </div>
+
+          <div class="form-group">
+            <label for="contact-form_message">Message:</label>
+            <textarea name="message" class="form-control" id="contact-form_message" rows="5"></textarea>
+          </div>
+
+
+          <button type="submit" class="btn btn-primary" id="contact-form-button">Submit</button>
+          <p id="contact-form-status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  {{>components/footer}}
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?&callback=initMap"></script>
+	<script src="/assets/js/contact.js"></script>
+</body>
+</html>

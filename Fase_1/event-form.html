@@ -1,20 +1,19 @@
 <!doctype html>
-<html class="no-js" lang="">
-
+<html>
 <head>
   <meta charset="utf-8">
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/assets/img/logo/png/logo16.png" sizes="16x16">
-  <link rel="icon" href="/assets/img/logo/png/logo32.png" sizes="32x32">
-  <link rel="icon" href="/assets/img/logo/png/logo48.png" sizes="48x48">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="./assets/img/logo/png/logo16.png" sizes="16x16">
+  <link rel="icon" href="./assets/img/logo/png/logo32.png" sizes="32x32">
+  <link rel="icon" href="./assets/img/logo/png/logo48.png" sizes="48x48">
 
   <link rel="stylesheet" href="/assets/css/normalize.css">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assetscss/main.css">
+  <link rel="stylesheet" href="/assetscss/style.css">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -23,7 +22,7 @@
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
     integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
@@ -35,12 +34,11 @@
   <script src="/assets/js/main.js"></script>
 
   <meta name="theme-color" content="#fafafa">
-</head>
 
 <body>
   <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="">
-      <img src="/assets/img/logo/png/logo48.png" width="50" height="50" class="d-inline-block align-top">
+      <img src="./assets/img/logo/png/logo48.png" width="50" height="50" class="d-inline-block align-top">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
       aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,50 +74,77 @@
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container mt-2 mb-3">
     <div class="row">
-      <div class="col-12">
-        <h1>Contacto</h1>
+      <div class="col-6 mx-auto">
+        <img class="mx-auto d-block" src="./assets/img/logo/png/logo_grande.png" width="150" height="150">
       </div>
     </div>
-  </div>
 
-  <div class="container">
     <div class="row">
-      <div class="col-12">
-        <div id="map"></div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row contact_below">
-      <div class="col-md-6">
-        <div class="contact_address">
-          <h3><strong>¿Quieres venir a conocernos?</strong></h3>
-          <p>S.008 Laboratorios II URJC</p>
-          <p>Calle Tulipán, s/n</p>
-          <p>28933 Móstoles, Madrid</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <form id="contact-form" action="https://formspree.io/mdognygv" method="POST">
-          <div class="form-group">
-            <label for="contact-form_email">Email:</label>
-            <input type="email" class="form-control" name="email" id="contact-form_email">
-          </div>
-          <div class="form-group">
-            <label for="contact-form_name">Name:</label>
-            <input type="email" class="form-control" name="name" id="contact-form_name">
-          </div>
+      <div class="col-6 mx-auto">
+        <form class="form-horizontal" action='' method="POST">
 
-          <div class="form-group">
-            <label for="contact-form_message">Message:</label>
-            <textarea name="message" class="form-control" id="contact-form_message" rows="5"></textarea>
-          </div>
+            <div class="form-group">
+              <label class="register-event-form_img">Imagen</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                  aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01">Elegir fichero</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="register-event-form_name">Nombre</label>
+              <input type="text" class="form-control" id="register-event-name" placeholder="Nombre" required>
+            </div>
+
+            <div class="form-group">
+              <label for="register-event-date-input" class="col-2 col-form-label">Dia</label>
+              <input class="form-control" type="date" value="2020-01-21" id="example-date-input" required>
+            </div>
+
+            <div class="form-group">         
+              <label for="register-event-time-input" class="col-2 col-form-label">Hora</label>
+              <input class="form-control" type="time" value="14:00:00" id="example-time-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="register-event-form_description">Descripción</label>
+              <textarea name="textarea" rows="3" class="form-control" required></textarea>
+            </div>
+
+            <fieldset class="form-group">
+                <label class="register-event-form_type">Tipo evento</label>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="Torneo" value="option1" checked>
+                    <label class="form-check-label" for="Torneo">
+                      Torneo
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="evento" value="option2">
+                    <label class="form-check-label" for="evento">
+                      Evento
+                    </label>
+                  </div>
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+              <label class="register-event-form_premio">Premio</label>
+              <input type="text" class="form-control" id="register-event-form-premio" placeholder="Premio" required>
+            </div>
 
 
-          <button type="submit" class="btn btn-primary" id="contact-form-button">Submit</button>
-          <p id="contact-form-status"></p>
+            <div class="control-group">
+              <div class="controls">
+                <button id="register" class="btn btn-primary">Register</button>
+              </div>
+            </div>
+
+
         </form>
       </div>
     </div>
@@ -129,7 +154,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <img src="/assets/img/logo/png/logo_grande.png" width="150" height="150">
+          <img src="./assets/img/logo/png/logo_grande.png" width="150" height="150">
         </div>
       </div>
       <div class="row">
@@ -178,89 +203,6 @@
       </div>
     </div>
   </footer>
-
-
-
-  <script>
-    function initMap() {
-      //Location of LCDD
-      var lcdd = { lat: 40.335270, lng: -3.877363 }
-      //Setup of map
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: lcdd,
-        /*mapTypeId: 'hybrid',*/
-        mapTypeControl: true,
-        mapTypeControlOptions: {
-          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-          position: google.maps.ControlPosition.TOP_LEFT
-        },
-        zoomControl: true,
-        zoomControlOptions: {
-          position: google.maps.ControlPosition.RIGHT_BOTTOM
-        },
-        streetViewControl: false,
-        rotateControl: false
-      });
-      //Setup of marker
-      var marker = new google.maps.Marker({
-        position: lcdd,
-        map: map,
-        animation: google.maps.Animation.DROP,
-        icon: './assets/img/otros/geo_icon.png'
-      });
-
-      var infowindow = new google.maps.InfoWindow({
-        content: "S.008 Laboratorios II URJC</br>Calle Tulipán, s/n</br>28933 Móstoles, Madrid"
-      });
-      marker.addListener('click', function () {
-        infowindow.open(map, marker);
-      });
-
-    }
-  </script>
-
-  <script async defer src="https://maps.googleapis.com/maps/api/js?&callback=initMap">
-  </script>
-
-  <script>
-    window.addEventListener("DOMContentLoaded", function () {
-      // get the form elements defined in your form HTML above
-      var form = document.getElementById("contact-form");
-      var button = document.getElementById("contact-form-button");
-      var status = document.getElementById("contact-form-status");
-      // Success and Error functions for after the form is submitted
-      function success() {
-        form.reset();
-        button.style = "display: none ";
-        status.innerHTML = "Thanks!";
-      }
-      function error() {
-        status.innerHTML = "Oops! There was a problem.";
-      }
-      // handle the form submission event
-      form.addEventListener("submit", function (ev) {
-        ev.preventDefault();
-        var data = new FormData(form);
-        ajax(form.method, form.action, data, success, error);
-      });
-    });
-    // helper function for sending an AJAX request
-    function ajax(method, url, data, success, error) {
-      var xhr = new XMLHttpRequest();
-      xhr.open(method, url);
-      xhr.setRequestHeader("Accept", "application/json");
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState !== XMLHttpRequest.DONE) return;
-        if (xhr.status === 200) {
-          success(xhr.response, xhr.responseType);
-        } else {
-          error(xhr.status, xhr.response, xhr.responseType);
-        }
-      };
-      xhr.send(data);
-    }
-  </script>
 </body>
 
 </html>
