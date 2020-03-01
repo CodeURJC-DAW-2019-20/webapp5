@@ -12,9 +12,9 @@
 	<div id="general-container">
 
 
-		<div id="event-container-main-image">
+		<div id="merch-container-main-image" >
 				{{#merch.haveImage}}	
-					<img class="event-main-image img-fluid" src='/images/merchImages/image-{{merch.id}}.jpg'/>
+					<img class="event-main-image img-fluid" src='/images/merchImages/image-{{merch.id}}.jpg' />
 				{{/merch.haveImage}}
 				
 				{{^merch.haveImage}}
@@ -24,13 +24,13 @@
 		<div id="event-info">
 			<h1>{{merch.name}}</h1>
 			<div>
-				<i class="fas fa-gamepad"> Nombre: {{merch.name}}</i>
+				<i class="fas fa-box-open"> Nombre: {{merch.name}}</i>
 				<br>				
-				<i class="fas fa-class"> Tipo: {{merch.type.typeName}}</i>
+				<i class="fas fa-cog"> Tipo: {{merch.type.typeName}}</i>
 				<br>
-				<i class="fas fa-units"> Unidades: {{merch.stock}}</i>
+				<i class="fas fa-calculator"> Unidades: {{merch.stock}}</i>
 				<br>
-				<i class="fas fa-discount"> Descuento: {{merch.discount}}</i>
+				<i class="fas fa-percent"> Descuento: {{merch.discount}}</i>
 				<br>
 				<i class="fas fa-money-bill-wave"> Precio: {{merch.price}} euros.</i>
 				
