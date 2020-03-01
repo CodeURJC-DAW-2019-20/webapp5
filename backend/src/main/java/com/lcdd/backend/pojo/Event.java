@@ -42,7 +42,9 @@ public class Event {
 	private List<EventRegister> registrations = new ArrayList<>();
 	
 	
-	protected Event() { }
+	protected Event() { 
+	}
+
 	public Event(Game game, String description) {
 		this.game = game;
 		this.description = description;

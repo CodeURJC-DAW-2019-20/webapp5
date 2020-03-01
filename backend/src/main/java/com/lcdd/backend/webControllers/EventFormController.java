@@ -40,7 +40,7 @@ public class EventFormController {
 	
 	@RequestMapping("event-form")
 	public String serveEvent(Model model) {
-		
+		// model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		List<Game> gameList; 
 		gameList = gameRepository.findAll();
 		
