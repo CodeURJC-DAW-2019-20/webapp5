@@ -18,7 +18,7 @@ public class MerchType {
 	
 	private String typeName;
 	
-	@OneToMany(mappedBy="merchtype")
+	@OneToMany(mappedBy="type")
 	private List<Merchandising> merchs = new ArrayList<>();
 	
 	protected MerchType(){}

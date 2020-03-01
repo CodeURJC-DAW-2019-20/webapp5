@@ -1,12 +1,12 @@
 package com.lcdd.backend.webControllers;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,9 +29,14 @@ public class MerchandisingFormController {
 	@Autowired
 	private MerchTypeRepository merchTypeRepository;
 	
-	@GetMapping(value = {"merchandising-info"})
+	@RequestMapping(value = {"merchandising-form"})
 	public String serveMerchandising(Model model) {
-		return "merchandising-template";
+		List<MerchType> merchtype; 
+		merchtype = merchTypeRepository.findAll();
+		
+		model.addAttribute("MerchList", merchtype);
+		
+		return "merchandising-form";
 	}
 	
 	
@@ -53,17 +58,16 @@ public class MerchandisingFormController {
 		}	
 		
 		Merchandising merch = new Merchandising(name, merchtype.get(), price, discount, stock, description);
-		
 		if(! imageFile.isEmpty()) {
 			merch.setHaveImage(true);
 			repository.save(merch);
 			imgService.saveImage("merchImages", merch.getId(), imageFile);
 		}else {
 			repository.save(merch);
-		}
+		} 
 			
 		model.addAttribute("merch", merch);
 	
-		return "merchandising-form";
+		return "merchandising-template";
 	}
 }
