@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lcdd.backend.UserSession;
 
@@ -21,11 +22,18 @@ public class SessionController {
 	
 	@ModelAttribute
     public void addAttributes(Model model, HttpServletRequest request) {
-		System.out.println(session.getIsLogggedIn());
 		model.addAttribute("logged",session.getIsLogggedIn());
 		model.addAttribute("session", session);
 		model.addAttribute("isAdmin", request.isUserInRole("ADMIN"));
+
     }
+	
+	@RequestMapping("logOut")
+	public String logOut (Model model, HttpServletRequest request) {
+		session.setIsLogggedIn(false);
+		model.addAttribute("logged",session.getIsLogggedIn());
+		return "index";
+	}
 	
 	
 }
