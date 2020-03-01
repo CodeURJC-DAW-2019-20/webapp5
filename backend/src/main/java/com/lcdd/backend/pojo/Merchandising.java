@@ -16,20 +16,25 @@ public class Merchandising {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String name;
+
 	
 	@ManyToOne
 	private MerchType type;
 	
+	private String name;
 	private float price;
 	private float discount;
 	private int stock;
 	private String description;
 	
+	private boolean haveImage;
+	
 	@OneToMany(mappedBy="merch")
 	private List<Purchase> purchases = new ArrayList<>();
 	
-	protected Merchandising(){}
+	protected Merchandising(){
+		
+	}
 
 	
 	public Merchandising(String name, MerchType type) {
@@ -38,15 +43,15 @@ public class Merchandising {
 	}
 	
 	
-	public Merchandising(String name, MerchType type, float price, float discount, int stock, String description,
-			List<Purchase> purchases) {
+	public Merchandising(String name, MerchType type, float price, float discount, int stock, String description) {
 		this.name = name;
 		this.type = type;
 		this.price = price;
 		this.discount = discount;
 		this.stock = stock;
 		this.description = description;
-		this.purchases = purchases;
+		
+		this.haveImage = false;
 	}
 
 	public long getId() {
@@ -105,13 +110,14 @@ public class Merchandising {
 		this.description = description;
 	}
 
-	public List<Purchase> getPurchases() {
-		return purchases;
+	public boolean isHaveImage() {
+		return haveImage;
+	}
+	
+	public void setHaveImage(boolean haveImage) {
+		this.haveImage = haveImage;
 	}
 
-	public void setPurchases(List<Purchase> purchases) {
-		this.purchases = purchases;
-	}
 
 	
 }

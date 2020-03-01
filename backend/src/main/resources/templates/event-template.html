@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	{{>components/html_head}}
+</head>
+
+<body>
+  {{>components/header}}
+
+	<div id="general-container">
+
+
+		<div id="event-container-main-image">
+				{{#event.haveImage}}	
+					<img class="event-main-image img-fluid" src='/images/eventsImages/image-{{event.id}}.jpg'/>
+				{{/event.haveImage}}
+				
+				{{^event.haveImage}}
+					<img class="event-main-image img-fluid" src='/assets/img/event-image.png'/>
+				{{/event.haveImage}}
+		</div>
+		<div id="event-info">
+			<h1>{{event.name}}</h1>
+			<div>
+				<i class="far fa-calendar-alt"> {{event.date}}</i>
+				<br>
+				<i class="fas fa-clock"> {{event.time}}</i>
+				<br>
+				<i class="fas fa-map-marker-alt"> Lugar: {{event.place}}</i>
+				<br>
+				<i class="fas fa-gamepad"> Juego: {{event.game.name}}</i>
+				<br>
+				<i class="fas fa-child"> Máximo de participantes: {{event.maxParticipants}}</i>
+				<br>
+				<i class="fas fa-users"> Tamaño del equipo: {{event.groupSize}}</i>
+				<br>
+				<i class="fas fa-money-bill-wave"> Tasa de inscripción: {{event.inscriptionFee}} euros.</i>
+				
+				{{#event.isTournament}}
+					<br>
+					<i class="fas fa-boxes"> Premio para el ganador/es del torneo: {{event.tournament.reward}}</i>
+				{{/event.isTournament}}
+				
+			</div>
+			<p class="align-middle"></p>
+		</div>
+
+		
+
+		<div id="event-description">
+			<h2>Descripción</h2>
+			<p>{{event.description}}</p>
+		</div>
+
+	</div>
+
+  {{>components/footer}}
+
+</body>
+</html>

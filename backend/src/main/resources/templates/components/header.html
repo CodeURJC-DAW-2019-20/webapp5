@@ -12,41 +12,43 @@
         <a class="nav-link" href="/">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./merchandising.html">Merch</a>
+        <a class="nav-link" href="merchandising">Merch</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./events.html">Eventos</a>
+        <a class="nav-link" href="events">Eventos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./about_us.html">Sobre nosotros</a>
+        <a class="nav-link" href="about-us">Sobre nosotros</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./contact.html">Contacto</a>
+        <a class="nav-link" href="contact">Contacto</a>
       </li>
       <li class="nav-item">
     </ul>
+    
+  
     <ul class="navbar-nav">
-		{{#isLoggedIn}}
+		{{#logged}}
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" id="header_usr_dropdown" role="button" data-toggle="dropdown" href="#">@{{session.username}}<img src="/assets/img/cupula/placeholder_user_man.png" class="rounded-circle" id="header_profile_image" width="50" height="50"></a>
 				<div class="dropdown-menu">
 					{{#isAdmin}}
 						<a class="dropdown-item" href="/dashboard">Admin Dashboard</a>
 					{{/isAdmin}}
-					<a class="dropdown-item" href="#">Profile</a>
+					<a class="dropdown-item" href="/profile">Profile</a>
           			<div class="dropdown-divider"></div>
-          			<a class="dropdown-item" href="#">Logout</a>
+          			<a class="dropdown-item" href="logOut">Logout</a>
 				</div>
 			</li>
-		{{/isLoggedIn}}
-		{{^isLoggedIn}}
+		{{/logged}}
+		{{^logged}}
 			<li class="nav-item">
-				<a class="btn btn-primary" id="login_button" href="./login.html">Login</a>
+				<a class="btn btn-primary" id="login_button" href="login">Login</a>
 			</li>
 			<li class="nav-item">
-				<a class="btn btn-primary" id="register_button" href="./register.html">Registro</a>
+				<a class="btn btn-primary" id="register_button" href="register">Registro</a>
 			</li>
-		{{/isLoggedIn}}
+		{{/logged}}
       
       
     </ul>

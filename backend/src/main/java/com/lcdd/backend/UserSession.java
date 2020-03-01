@@ -12,7 +12,17 @@ public class UserSession {
 	private String firstName;
 	private String lastName;
 	private long roleId;
+	private Boolean isLogggedIn = false;
 	
+	
+	public Boolean getIsLogggedIn() {
+		return isLogggedIn;
+	}
+
+	public void setIsLogggedIn(Boolean isLogggedIn) {
+		this.isLogggedIn = isLogggedIn;
+	}
+
 	public long getId() {
 		return id;
 	}
