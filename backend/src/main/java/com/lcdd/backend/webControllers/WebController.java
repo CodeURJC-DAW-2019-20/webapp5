@@ -11,11 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebController {
-  
-  @RequestMapping("/")
-  public String index() {
-    return "index";
-  }
 
   @RequestMapping("/admin")
   public String admin(Model model, HttpServletRequest request) {
@@ -36,23 +31,14 @@ public class WebController {
   public String events() {
     return "events";
   }
-  @RequestMapping("/merchandaising")
+  @RequestMapping("/merchandising")
   public String merchandaising() {
-    return "merchandaising";
+    return "merchandising";
   }
   @RequestMapping("/register")
   public String register() {
     return "register";
   }
-  @RequestMapping("/event_form")
-  public String event_form(Model model, HttpServletRequest request) {
-	  model.addAttribute("admin", request.isUserInRole("ADMIN"));
-	  return "event_form";
-  }
-  @RequestMapping("/merch_form")
-  public String merch_form(Model model, HttpServletRequest request) {
-	  model.addAttribute("admin", request.isUserInRole("ADMIN"));
-	  return "merch_form";
-  }
+
 
 }
