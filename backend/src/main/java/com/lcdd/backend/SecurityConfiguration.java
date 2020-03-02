@@ -28,21 +28,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/register").permitAll();
 		http.authorizeRequests().antMatchers("/404").permitAll();
 		http.authorizeRequests().antMatchers("/login_error").permitAll();
-		http.authorizeRequests().antMatchers("/dashboard").permitAll();
+
 		http.authorizeRequests().antMatchers("/eventForm").permitAll();
 		
 		// Private pages
-		http.authorizeRequests().antMatchers("/merch-form").hasAnyRole("ADMIN","PRESI","VICEPRESI");
-		http.authorizeRequests().antMatchers("/event-form").permitAll();
-		http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN","PRESI","VICEPRESI");
+		http.authorizeRequests().antMatchers("/merch-form").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/event-form").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers("/logout").authenticated();
+		http.authorizeRequests().antMatchers("/dashboard").hasAnyRole("ADMIN");
 		
 		// Login form
 		http.formLogin().loginPage("/login");
 		http.formLogin().usernameParameter("username");
 		http.formLogin().passwordParameter("password");
 		http.formLogin().defaultSuccessUrl("/");
-		//http.formLogin().failureUrl("/loginerror");
+		http.formLogin().failureUrl("/loginerror");
 		
 		// Log out
 		http.logout().logoutUrl("/logout");
