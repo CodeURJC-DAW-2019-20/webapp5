@@ -39,6 +39,9 @@ public class WebController {
   public String register() {
     return "register";
   }
-
+  @RequestMapping(value= {"home","index","/"})
+  public String index() {
+    return "index";
+  }
 
 }
