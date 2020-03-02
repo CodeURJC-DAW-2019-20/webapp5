@@ -8,6 +8,7 @@ merchImages
 .project
 .settings
 bin
+target
 
 # Compiled class file
 *.class
