@@ -20,7 +20,7 @@
 				{{/event.haveImage}}
 				
 				{{^event.haveImage}}
-					<img class="event-main-image img-fluid" src='/assets/img/event-image.png'/>
+					<img class="event-main-image img-fluid" src='/assets/img/event-image.jpg'/>
 				{{/event.haveImage}}
 		</div>
 		<div id="event-info">
@@ -44,15 +44,16 @@
 					<br>
 					<i class="fas fa-boxes"> Premio para el ganador/es del torneo: {{event.tournament.reward}}</i>
 				{{/event.isTournament}}
-				
+				<br>
+				{{#logged}}
 				<div class="row">
 				<br>
 					<div class="col-8 mx-auto">
-						<form class="form-horizontal" action="eventRegister" method="POST" >
+						<form class="form-horizontal" action="eventUserRegister" method="POST" >
 		          		<button id="button-register" class="btn btn-primary" type="button" onclick="showDiv()">Inscribirse en el evento</button>
 		          		<br>
 		          			<div id="div-register" style="display:none">
-								<label >Participantes por grupo:</label>
+								<label> Participantes del grupo:</label>
 								<input type="number" class="form-control" name="participants" max="{{event.groupSize}}" placeholder="Máximo {{event.groupSize}}"/>
 								<br>
 						
@@ -67,8 +68,15 @@
 						</form>
 					</div>
 				</div>
-				
-				
+				{{/logged}}
+				{{^logged}}
+				<div class="row">
+					<div class="col-8 mx-auto">
+						<button class="btn btn-primary" type="button" disabled>Inscribirse en el evento</button>
+						<p>Para registrarte en un evento es necesario iniciar sesión.</p>
+					</div>
+				</div>
+				{{/logged}}
 			</div>
 			<p class="align-middle"></p>
 		</div>
@@ -82,8 +90,8 @@
 	</div>
 
 	{{>components/footer}}
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
