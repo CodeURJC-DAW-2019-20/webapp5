@@ -7,7 +7,7 @@ import org.springframework.web.context.annotation.SessionScope;
 @SessionScope
 public class UserSession {
 	private long id;
-	private String username = "byGranizo";
+	private String username;
 	private String email;
 	private String firstName;
 	private String lastName;
