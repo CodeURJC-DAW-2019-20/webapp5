@@ -72,11 +72,22 @@ public class InitController {
 		merchTypeRepository.save(new MerchType("Camisetas"));
 		merchTypeRepository.save(new MerchType("Otros"));
 		
-		eventRepository.save(new Event("Evento de lol 1",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",true,"Un abrazo",5,(long)10,20));
-		eventRepository.save(new Event("Evento de magic",magic,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un meeting de magic no presencial",false,"",8,(long)1,1));
-		eventRepository.save(new Event("Evento de lol 2",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",false,"",2,(long)4,2));
-		eventRepository.save(new Event("Evento de magic 2",magic,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de magic presencial",true,"Un aplauso",1,(long)1,1));
-		eventRepository.save(new Event("Evento de lol 3",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",true,"Las gracias",5,(long)5,2));
+//		eventRepository.save(new Event("Evento de lol 1",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",true,"Un abrazo",5,(long)10,20));
+		Event event1 = new Event("Evento de lol 1",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",true,"Un abrazo",5,(long)10,20);
+        event1.setHaveImage(true);
+        eventRepository.save(event1);
+        Event event2 = new Event("Evento de magic",magic,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un meeting de magic no presencial",false,"",8,(long)1,1);
+        event2.setHaveImage(true);
+        eventRepository.save(event2);
+        Event event3 = new Event("Evento de lol 2",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",false,"",2,(long)4,2);
+        event3.setHaveImage(true);
+        eventRepository.save(event3);
+        Event event4 = new Event("Evento de magic 2",magic,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de magic presencial",true,"Un aplauso",1,(long)1,1);
+		event4.setHaveImage(true);
+        eventRepository.save(event4);
+        Event event5 = new Event("Evento de lol 3",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",true,"Las gracias",5,(long)5,2);
+		event5.setHaveImage(true);
+        eventRepository.save(event5);
 		
 		
 		//User user = new User("user", "pass", "ROLE_USER");
