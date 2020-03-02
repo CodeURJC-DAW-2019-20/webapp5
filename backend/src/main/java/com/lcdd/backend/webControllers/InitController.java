@@ -78,7 +78,7 @@ public class InitController {
 		
 		User user = new User("user", "pass", "ROLE_USER");
 		userRepository.save(user);
-		User carlos = new User("email", "cPabe", "carlos", "pabe", "pass" , presi);
+		User carlos = new User("email", "cPabe", "carlos", "pabe", "pass" , presi, "ROLE_ADMIN");
 		User victor = new User("email", "ViktorLopezz", "vic", "lopz","pass", vice);
 		userRepository.save(carlos);
 		userRepository.save(victor);
@@ -94,8 +94,10 @@ public class InitController {
 		purchaseRepository.save(new Purchase(carlos, calendar.getTime(),lolPoster));
 		purchaseRepository.save(new Purchase(victor, calendar.getTime(),lolPoster));
 		
+		
+		
 		calendar.add(Calendar.MONTH, +5);
-		purchaseRepository.save(new Purchase(victor, calendar.getTime(),lolPoster));
+		purchaseRepository.save(new Purchase(victor, calendar.getTime(),lolPoster));//+`çç
 		
 		calendar.add(Calendar.MONTH, +5);
 		purchaseRepository.save(new Purchase(carlos, calendar.getTime(),lolPoster));

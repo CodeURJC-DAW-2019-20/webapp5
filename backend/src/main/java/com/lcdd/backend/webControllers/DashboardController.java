@@ -117,7 +117,7 @@ public class DashboardController {
 		List<User> userList;
 		List<Role> roleList;
 		
-		userList = userRepository.findAll(Sort.by(Sort.Direction.ASC, "username"));
+		userList = userRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
 		roleList = roleRepository.findAll();
 		
 		model.addAttribute("UserList", userList);
