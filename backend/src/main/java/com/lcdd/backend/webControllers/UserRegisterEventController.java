@@ -16,8 +16,8 @@ public class UserRegisterEventController {
 	@Autowired
 	private UserSession session;
 	
-	@RequestMapping("eventRegister")
-	public void serveEvent(@RequestParam int participants, Model model, HttpServletRequest request) {
+	@RequestMapping("eventUserRegister")
+	public void serveEvent(Model model, HttpServletRequest request) {
 		
 		if (session.getIsLogggedIn()) {
 			model.addAttribute("logged",session.getIsLogggedIn());
