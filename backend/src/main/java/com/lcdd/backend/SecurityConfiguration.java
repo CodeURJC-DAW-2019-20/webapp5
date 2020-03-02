@@ -51,6 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/user/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/user/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/registerUser/**").permitAll();
 		http.authorizeRequests().anyRequest().permitAll();
 	}
 	@Override

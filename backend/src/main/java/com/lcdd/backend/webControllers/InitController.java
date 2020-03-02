@@ -76,8 +76,8 @@ public class InitController {
 		eventRepository.save(new Event(lol, "Lol2"));
 		eventRepository.save(new Event(magic, "Cartas magicas"));
 		
-		User user = new User("user", "pass", "ROLE_USER");
-		userRepository.save(user);
+		//User user = new User("user", "pass", "ROLE_USER");
+		//userRepository.save(user);
 		User carlos = new User("email", "cPabe", "carlos", "pabe", "pass" , presi, "ROLE_ADMIN");
 		User victor = new User("email", "ViktorLopezz", "vic", "lopz","pass", vice);
 		userRepository.save(carlos);

@@ -7,7 +7,7 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-	
+	<script src="/assets/js/register.js"></script>
 </head>
 
 <body>
@@ -22,41 +22,41 @@
 
     <div class="row">
       <div class="col-6 mx-auto">
-        <form class="form-horizontal" action='' method="POST">
+        <form class="form-horizontal" action="registerUser" method="POST">
 
           <div class="form-group">
 
             <div class="form-group">
               <label class="register-form_name">Nombre</label>
-              <input type="text" class="form-control" id="register-name" placeholder="Nombre" required>
+              <input type="text" class="form-control" name="firstName" id="register-name" placeholder="Nombre" required>
             </div>
 
             <div class="form-group">
               <label class="register-form_surname">Apellidos</label>
-              <input type="text" class="form-control" id="register-surname" placeholder="Apellidos" required>
+              <input type="text" class="form-control" name="lastName" id="register-surname" placeholder="Apellidos" required>
             </div>
 
             <div class="form-group">
               <label class="register-form_username">Username</label>
-              <input type="text" class="form-control" id="register-username" placeholder="Username" required>
+              <input type="text" class="form-control" name="name" id="register-username" placeholder="Username" required>
             </div>
 
             <div class="form-group">
               <label class="register-form_email">E-mail</label>
-              <input type="text" class="form-control" id="register-email" placeholder="E-mail" required>
+              <input type="text" class="form-control" name="email" id="register-email" placeholder="E-mail" required>
             </div>
 
             <div class="form-group">
               <label class="register-form_password">Contraseña</label>
-              <input type="text" class="form-control" id="register-password" placeholder="Contraseña" required>
+              <input type="password" class="form-control" name="passwordHash" id="register-password" placeholder="Contraseña" required>
             </div>
-
+		
             <div class="form-group">
               <label class="register-form_password">Confirmar contraseña</label>
-              <input type="text" class="form-control" id="register-confirm_password" placeholder="Confirmar contraseña"
-                required>
+              <input type="password" class="form-control" id="password-confirm" placeholder="Confirmar contraseña" required>
             </div>
-
+ 		
+ 		<input type="hidden" name="_csrf" value="{{token}}"/>
             <div class="control-group">
               <div class="controls">
                 <button id="register" class="btn btn-primary">Register</button>
@@ -70,6 +70,8 @@
   </div>
 
   {{>components/footer}}
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>

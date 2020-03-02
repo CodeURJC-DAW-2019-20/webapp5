@@ -27,6 +27,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String passwordHash;
+	
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
@@ -38,10 +39,6 @@ public class User {
 	
 	@OneToMany(mappedBy="user")
 	private List<EventRegister> eventsReg = new ArrayList<>();
-	
-	
-	
-	
 	
 	protected User() {}
 
@@ -71,17 +68,18 @@ public class User {
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
-	public User(String username, String password,String... role) {
-		this.name = username;
-		this.passwordHash = new BCryptPasswordEncoder().encode(password);
-		this.roles = new ArrayList<>(Arrays.asList(role));
+	public User(String email, String name, String firstName, String lastName, String passwordHash, String... roles) {
+		super();
+		this.email = email;
+		this.name = name;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
+		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
+	
+	
 
-	
-	
-	
-	
-	
 	
 	public Long getId() {
 		return id;
