@@ -4,6 +4,7 @@ eventsImages
 #Editor/IDE folders
 .vscode
 .idea
+bin
 
 # Compiled class file
 *.class

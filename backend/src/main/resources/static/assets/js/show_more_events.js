@@ -1,16 +1,3 @@
-//$(document).ready(function() {
-//    var columns = $('{{getCodeblockSixFirstEvents()}}');
-//    $("#main_row").append(columns);
-//});
-//
-//
-//function showMoreEvents() {
-//	var columns = $('{{getCodeblockNextThreeEvents()}}');
-//	$("#main_row").append(columns);
-//	columns.slideDown();
-//}
-
-
 $(document).ready(function() {
 	
 	$("#show_more_button").click(function(){
@@ -19,14 +6,19 @@ $(document).ready(function() {
     	$.ajax({
             url: '/eventList?pageId=' + nextPageId,
         }).done(function (items) {
-//            var result = JSON.stringify(items);
-//          console.log(items);
-//          console.log(result);
-            
-            $("#main_row").append(items);
-            $("#main_row").append(nextPageId);
-            $("#show_more_button").attr("nextPage", Number(nextPageId) + 1);
+        	if(items != "nomore"){
+        		$("#main_row").append(items);
+                $("#show_more_button").attr("nextPage", Number(nextPageId) + 1);
+        	} else {
+        		$('#show_more_button').prop('disabled', true);
+        		$('#show_more_button').text("No more results");
+        		
+        	}
+        	
         })
     	
     });
+	
+	$("#show_more_button").click();
+	
 });
