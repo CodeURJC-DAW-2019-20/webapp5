@@ -60,7 +60,7 @@ public class User {
 		this.eventsReg = eventsReg;
 	}
 	
-	public User(String email, String name, String firstName, String lastName, String passwordHash, Role role) {
+	public User(String email, String name, String firstName, String lastName, String passwordHash, Role role,String... roles) {
 		super();
 		this.email = email;
 		this.name = name;
@@ -68,6 +68,7 @@ public class User {
 		this.lastName = lastName;
 		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
 		this.role = role;
+		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
 	public User(String username, String password,String... role) {
