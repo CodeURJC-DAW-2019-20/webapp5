@@ -19,9 +19,8 @@ public class ProfileController {
 	
 	@GetMapping("profile")
 	public String profileModel(Model model, HttpServletRequest request) {
-		model.addAttribute("logged",session.getIsLogggedIn());
 		model.addAttribute("session", session);
-		
+		System.out.println(session.getFirstName());
 		return "profile";
 	}
 	
