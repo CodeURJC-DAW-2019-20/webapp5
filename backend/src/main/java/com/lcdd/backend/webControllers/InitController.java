@@ -88,6 +88,14 @@ public class InitController {
 		
 		Merchandising lolPoster = new Merchandising("Poster Lol", posters);
 		merchRepository.save(lolPoster);
+		merchRepository.save(new Merchandising("Disfraz de furro", posters));
+		merchRepository.save(new Merchandising("Bote de ketchup", posters));
+		merchRepository.save(new Merchandising("Peluca de dani", posters));
+		merchRepository.save(new Merchandising("Jojos referencia", posters));
+		merchRepository.save(new Merchandising("Skin de ramus", posters));
+		merchRepository.save(new Merchandising("El alma de la LCDD", posters));
+		merchRepository.save(new Merchandising("EU4", posters));
+		merchRepository.save(new Merchandising("Gamu", posters));
 		
 		
 		Calendar calendar = Calendar.getInstance();
