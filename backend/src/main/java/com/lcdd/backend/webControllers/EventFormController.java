@@ -23,6 +23,7 @@ import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.EventDataForm;
 
 import com.lcdd.backend.ImageService;
+import com.lcdd.backend.UserSession;
 import com.lcdd.backend.dbrepositories.EventRepository;
 import com.lcdd.backend.dbrepositories.GameRepository;
 
@@ -37,6 +38,8 @@ public class EventFormController {
 	private ImageService imgService;
 	@Autowired
 	private GameRepository gameRepository;
+	@Autowired
+	private UserSession session;
 	
 	@RequestMapping("event-form")
 	public String serveEvent(Model model) {
@@ -83,7 +86,8 @@ public class EventFormController {
 		}
 			
 		model.addAttribute("event", event);
-	
+		model.addAttribute("logged",session.getIsLogggedIn());
+		
 		return "event-template";
 	}
   

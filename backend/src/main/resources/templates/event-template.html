@@ -20,7 +20,7 @@
 				{{/event.haveImage}}
 				
 				{{^event.haveImage}}
-					<img class="event-main-image img-fluid" src='/assets/img/event-image.png'/>
+					<img class="event-main-image img-fluid" src='/assets/img/event-image.jpg'/>
 				{{/event.haveImage}}
 		</div>
 		<div id="event-info">
@@ -44,7 +44,8 @@
 					<br>
 					<i class="fas fa-boxes"> Premio para el ganador/es del torneo: {{event.tournament.reward}}</i>
 				{{/event.isTournament}}
-				
+				<br>
+				{{#logged}}
 				<div class="row">
 				<br>
 					<div class="col-8 mx-auto">
@@ -67,8 +68,15 @@
 						</form>
 					</div>
 				</div>
-				
-				
+				{{/logged}}
+				{{^logged}}
+				<div class="row">
+					<div class="col-8 mx-auto">
+						<button class="btn btn-primary" type="button" disabled>Inscribirse en el evento</button>
+						<p>Para registrarte en un evento es necesario iniciar sesión.</p>
+					</div>
+				</div>
+				{{/logged}}
 			</div>
 			<p class="align-middle"></p>
 		</div>

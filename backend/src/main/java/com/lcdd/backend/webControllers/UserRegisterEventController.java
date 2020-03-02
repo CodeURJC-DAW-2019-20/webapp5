@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lcdd.backend.UserSession;
-import com.lcdd.backend.pojo.EventRegister;
-import com.lcdd.backend.pojo.User;
 
 public class UserRegisterEventController {
 	
@@ -17,7 +15,7 @@ public class UserRegisterEventController {
 	private UserSession session;
 	
 	@RequestMapping("eventUserRegister")
-	public void serveEvent(Model model, HttpServletRequest request) {
+	public void serveEvent(Model model,@RequestParam int participants, HttpServletRequest request) {
 		
 		if (session.getIsLogggedIn()) {
 			model.addAttribute("logged",session.getIsLogggedIn());
