@@ -29,7 +29,7 @@
                 <div class="tab-pane active" id="profile">
                     <h5 class="mb-3">Información personal</h5>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <h6>Nombre</h6>
                             <p>
                                 {{session.firstName}}
@@ -45,6 +45,11 @@
                             <h6>Nombre de usuario</h6>
                             <p>
                                 {{session.username}}
+                            </p>
+                            <h6>Recomendacion personalizada</h6>
+                            <p>
+                                Por tu actividad reciente te recomendamos eventos de <b>{{popular.name}}</b>
+                                <button name="/merchandising" id="suggestion" class="btn btn-primary">Buscar mas</button>
                             </p>
                         </div>
                     </div>
@@ -81,6 +86,9 @@
            				 </div>
                     </form>
                 </div>
+                <br>
+                <br>
+           
             </div>
         </div>
     </div>
