@@ -66,17 +66,33 @@ public class InitController {
 		roleRepository.save(new Role("Vocal"));
 		
 		MerchType chapa = new MerchType("Chapas");
-		MerchType posters = new MerchType("Posters");
+		MerchType poster = new MerchType("Posters");
+		MerchType camiseta = new MerchType("Camisetas");
+		MerchType figura = new MerchType("Figuras");
+		MerchType taza = new MerchType("Tazas");
 		merchTypeRepository.save(chapa);
-		merchTypeRepository.save(posters);
-		merchTypeRepository.save(new MerchType("Camisetas"));
+		merchTypeRepository.save(poster);
+		merchTypeRepository.save(camiseta);
+		merchTypeRepository.save(figura);
+		merchTypeRepository.save(taza);
 		merchTypeRepository.save(new MerchType("Otros"));
 		
-		eventRepository.save(new Event("Evento de lol 1",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",true,"Un abrazo",5,(long)10,20));
-		eventRepository.save(new Event("Evento de magic",magic,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un meeting de magic no presencial",false,"",8,(long)1,1));
-		eventRepository.save(new Event("Evento de lol 2",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",false,"",2,(long)4,2));
-		eventRepository.save(new Event("Evento de magic 2",magic,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de magic presencial",true,"Un aplauso",1,(long)1,1));
-		eventRepository.save(new Event("Evento de lol 3",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",true,"Las gracias",5,(long)5,2));
+//		eventRepository.save(new Event("Evento de lol 1",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",true,"Un abrazo",5,(long)10,20));
+		Event event1 = new Event("Evento de lol 1",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",true,"Un abrazo",5,(long)10,20);
+        event1.setHaveImage(true);
+        eventRepository.save(event1);
+        Event event2 = new Event("Evento de magic",magic,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un meeting de magic no presencial",false,"",8,(long)1,1);
+        event2.setHaveImage(true);
+        eventRepository.save(event2);
+        Event event3 = new Event("Evento de lol 2",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",false,"",2,(long)4,2);
+        event3.setHaveImage(true);
+        eventRepository.save(event3);
+        Event event4 = new Event("Evento de magic 2",magic,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de magic presencial",true,"Un aplauso",1,(long)1,1);
+		event4.setHaveImage(true);
+        eventRepository.save(event4);
+        Event event5 = new Event("Evento de lol 3",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",true,"Las gracias",5,(long)5,2);
+		event5.setHaveImage(true);
+        eventRepository.save(event5);
 		
 		
 		//User user = new User("user", "pass", "ROLE_USER");
@@ -86,8 +102,27 @@ public class InitController {
 		userRepository.save(carlos);
 		userRepository.save(victor);
 		
-		Merchandising lolPoster = new Merchandising("Poster Lol", posters);
-		merchRepository.save(lolPoster);
+		Merchandising chapaNegra = new Merchandising("Chapa negra logo LCDD", chapa,(float) 5,50,5,"Es la mejor chapa del mundo.");
+		chapaNegra.setHaveImage(true);
+        merchRepository.save(chapaNegra);
+        Merchandising lolPoster = new Merchandising("Poster LoL", poster,(float) 10,15,7,"Es la mejor poster.");
+        lolPoster.setHaveImage(true);
+        merchRepository.save(lolPoster);
+        Merchandising figuraPoppy = new Merchandising("Figura Poppy", figura,(float) 15,5,20,"Debes comprarlo.");
+        figuraPoppy.setHaveImage(true);
+        merchRepository.save(figuraPoppy);
+        Merchandising chapaBlanca = new Merchandising("Chapa blanca logo LCDD", chapa,(float) 800,2,50,"No te atreverías a comprarlo.");
+        chapaBlanca.setHaveImage(true);
+        merchRepository.save(chapaBlanca);
+        Merchandising posterOnePiece = new Merchandising("Póster One Piece", poster,(float) 7,60,4,"WANTED. COMPRA.");
+        posterOnePiece.setHaveImage(true);
+        merchRepository.save(posterOnePiece);
+        Merchandising tazaLogo = new Merchandising("Taza logo LCDD", taza,(float) 5,5,40,"Café para todos los estilos.");
+        tazaLogo.setHaveImage(true);
+        merchRepository.save(tazaLogo);
+        Merchandising camisetaLogo = new Merchandising("Camiseta LCDD", camiseta,(float) 6,100,15,"Skin única LCDD.");
+        camisetaLogo.setHaveImage(true);
+        merchRepository.save(camisetaLogo);
 		
 		
 		Calendar calendar = Calendar.getInstance();

@@ -31,10 +31,6 @@ public class WebController {
   public String events() {
     return "events";
   }
-  @RequestMapping("/merchandising")
-  public String merchandaising() {
-    return "merchandising";
-  }
   @RequestMapping("/register")
   public String register() {
     return "register";

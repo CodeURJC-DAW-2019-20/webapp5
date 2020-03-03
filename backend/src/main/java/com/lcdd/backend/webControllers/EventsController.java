@@ -41,7 +41,7 @@ public class EventsController {
 		
 		if(pageEvent.hasContent()) {
 			for(Event event : pageEvent.getContent()) {
-				/*if (event.isHaveImage()) {
+				if (event.isHaveImage()) {
 					result += "<div class='col-sm-4'>" + 
 									"<a href='/event/" + event.getId() + "'>" + 
 										"<img src='/images/eventsImages/image-" + event.getId() +".jpg' width='300'>" + 
@@ -52,19 +52,19 @@ public class EventsController {
 				} else {
 					result += "<div class='col-sm-4'>" + 
 									"<a href='/event/" + event.getId() + "'>" + 
-										"<img src='/assets/img/events/placeholder_event_img.jpg' width='300'>" + 
+										"<img src='/assets/img/event-image.jpg' width='300'>" + 
 										"<h3 class='mt-2'>" + event.getName() + "</h3>" + 
 									"</a>" + 
 									"<p>" + event.getDescription() + "</p>" + 
 								"</div>";
-				}*/
-				result += "<div class='col-sm-4'>" + 
-						"<a href='/event/" + event.getId() + "'>" + 
-							"<img src='/assets/img/events/placeholder_event_img.jpg' width='300'>" + 
-							"<h3 class='mt-2'>" + event.getDescription() + "</h3>" + 
-						"</a>" + 
-						"<p>" + event.getDescription() + "</p>" + 
-					"</div>";
+				}
+//				result += "<div class='col-sm-4'>" + 
+//						"<a href='/event/" + event.getId() + "'>" + 
+//							"<img src='/assets/img/events/placeholder_event_img.jpg' width='300'>" + 
+//							"<h3 class='mt-2'>" + event.getDescription() + "</h3>" + 
+//						"</a>" + 
+//						"<p>" + event.getDescription() + "</p>" + 
+//					"</div>";
 				
 			}
 		} else {
