@@ -49,8 +49,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		// Log out
 		http.logout().logoutUrl("/logout");
+		http.logout().invalidateHttpSession(true);
 		http.logout().logoutSuccessUrl("/");
-	
 	
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/user/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/user/**").permitAll();

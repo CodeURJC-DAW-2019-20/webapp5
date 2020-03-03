@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.lcdd.backend.UserSession;
 import com.lcdd.backend.dbrepositories.EventRegisterRepository;
 import com.lcdd.backend.dbrepositories.EventRepository;
 import com.lcdd.backend.dbrepositories.GameRepository;
@@ -40,6 +41,9 @@ public class DashboardController {
 	@Autowired
 	private EventRepository eventRepository;
 	
+	@Autowired
+	private UserSession session;
+	
 	int i;
 	
 	@GetMapping("/dashboard")
@@ -48,6 +52,10 @@ public class DashboardController {
 		model = fillEvenstTab(model);
 		model = fillMerchTab(model);
 		model = fillUserTab(model);
+		
+		if(!session.getIsLogggedIn()) {
+			return "login";
+		}
 		
 	
 		
