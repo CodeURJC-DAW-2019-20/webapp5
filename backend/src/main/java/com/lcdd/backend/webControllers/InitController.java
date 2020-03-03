@@ -66,10 +66,15 @@ public class InitController {
 		roleRepository.save(new Role("Vocal"));
 		
 		MerchType chapa = new MerchType("Chapas");
-		MerchType posters = new MerchType("Posters");
+		MerchType poster = new MerchType("Posters");
+		MerchType camiseta = new MerchType("Camisetas");
+		MerchType figura = new MerchType("Figuras");
+		MerchType taza = new MerchType("Tazas");
 		merchTypeRepository.save(chapa);
-		merchTypeRepository.save(posters);
-		merchTypeRepository.save(new MerchType("Camisetas"));
+		merchTypeRepository.save(poster);
+		merchTypeRepository.save(camiseta);
+		merchTypeRepository.save(figura);
+		merchTypeRepository.save(taza);
 		merchTypeRepository.save(new MerchType("Otros"));
 		
 //		eventRepository.save(new Event("Evento de lol 1",lol,"URJC Móstoles, S10 Lab 2","03-03-2019", "15:00","Es un torneo de LoL presencial",true,"Un abrazo",5,(long)10,20));
@@ -97,16 +102,27 @@ public class InitController {
 		userRepository.save(carlos);
 		userRepository.save(victor);
 		
-		Merchandising lolPoster = new Merchandising("Poster Lol", posters);
-		merchRepository.save(lolPoster);
-		merchRepository.save(new Merchandising("Disfraz de furro", posters));
-		merchRepository.save(new Merchandising("Bote de ketchup", posters));
-		merchRepository.save(new Merchandising("Peluca de dani", posters));
-		merchRepository.save(new Merchandising("Jojos referencia", posters));
-		merchRepository.save(new Merchandising("Skin de ramus", posters));
-		merchRepository.save(new Merchandising("El alma de la LCDD", posters));
-		merchRepository.save(new Merchandising("EU4", posters));
-		merchRepository.save(new Merchandising("Gamu", posters));
+		Merchandising chapaNegra = new Merchandising("Chapa negra logo LCDD", chapa,(float) 5,50,5,"Es la mejor chapa del mundo.");
+		chapaNegra.setHaveImage(true);
+        merchRepository.save(chapaNegra);
+        Merchandising lolPoster = new Merchandising("Poster LoL", poster,(float) 10,15,7,"Es la mejor poster.");
+        lolPoster.setHaveImage(true);
+        merchRepository.save(lolPoster);
+        Merchandising figuraPoppy = new Merchandising("Figura Poppy", figura,(float) 15,5,20,"Debes comprarlo.");
+        figuraPoppy.setHaveImage(true);
+        merchRepository.save(figuraPoppy);
+        Merchandising chapaBlanca = new Merchandising("Chapa blanca logo LCDD", chapa,(float) 800,2,50,"No te atreverías a comprarlo.");
+        chapaBlanca.setHaveImage(true);
+        merchRepository.save(chapaBlanca);
+        Merchandising posterOnePiece = new Merchandising("Póster One Piece", poster,(float) 7,60,4,"WANTED. COMPRA.");
+        posterOnePiece.setHaveImage(true);
+        merchRepository.save(posterOnePiece);
+        Merchandising tazaLogo = new Merchandising("Taza logo LCDD", taza,(float) 5,5,40,"Café para todos los estilos.");
+        tazaLogo.setHaveImage(true);
+        merchRepository.save(tazaLogo);
+        Merchandising camisetaLogo = new Merchandising("Camiseta LCDD", camiseta,(float) 6,100,15,"Skin única LCDD.");
+        camisetaLogo.setHaveImage(true);
+        merchRepository.save(camisetaLogo);
 		
 		
 		Calendar calendar = Calendar.getInstance();
