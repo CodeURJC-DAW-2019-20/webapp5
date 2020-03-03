@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	{{>components/html_head}}
+</head>
+
+<body>
+  {{>components/header}}
+
+  <br>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>
+          Eventos
+        </h1>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="container ml-auto">
+    <div class="row" id="main_row">
+    </div>
+  </div>
+  <div class="container text-center">
+    <button class="btn btn-primary" id="show_more_button" nextPage="0">Mostrar más</button>
+  </div>
+  <br>
+  <br>
+
+	{{>components/footer}}
+	<script src="/assets/js/events.js"></script>
+	<script src="/assets/js/show_more_events.js"></script>
+</body>
+</html>

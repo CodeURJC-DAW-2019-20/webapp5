@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	{{>components/html_head}}
+	<script src="/assets/js/merch-form.js"></script>
+</head>
+
+<body>
+  {{>components/header}}
+
+
+	<div class="container mt-2 mb-3">
+		<div class="row">
+			<div class="col-6 mx-auto">
+				<img class="mx-auto d-block" src="./assets/img/logo/png/logo_grande.png" width="150" height="150"/>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-6 mx-auto">
+			<h1>Crear un nuevo artículo</h1>
+				<form class="form-horizontal" action="merchForm" method="POST" enctype="multipart/form-data">
+					<div class="form-group">
+						<label class="register-merch-form_img">Imagen</label>
+						<div class="custom-file">
+							<input type="file" name="imageFile" accept=".jpg, .jpeg" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"/>
+							<label class="custom-file-label" for="inputGroupFile01">Elegir fichero</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="register-merch-form">Nombre</label>
+						<input type="text" name="name" class="form-control"	id="register-merch-name" placeholder="Nombre" required/>
+					</div>
+					
+					<div class="form-group">
+						<label class="register-merch-form">Elige un tipo </label>
+						<select class="form-control" name="type" required>
+							 
+							{{#MerchList}}
+								<option value="{{id}}">{{typeName}}</option>
+							{{/MerchList}}
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label class="register-merch-form">Descripción</label>
+						<textarea name="description" rows="3" class="form-control" required></textarea>
+					</div>
+					
+        
+					<div class="form-group">
+						<label class="register-merch-form">Unidades</label>
+						<input type="number" class="form-control" id="register-merch-form" name="stock" placeholder="Unidades disponibles" required/>
+					</div>
+					
+					<div class="form-group">
+						<label class="register-merch-form">Descuento</label>
+						<input type="number" class="form-control" id="register-merch-form" name="discount" placeholder="Descuento aplicable (euros)" required/>
+					</div>
+					
+					<div class="form-group">
+						<label class="register-merch-form">Precio</label>
+						<input type="number" class="form-control" id="register-merch-form" name="price" placeholder="Precio de compra (euros)" required/>
+					</div>
+
+					<div class="control-group">
+						<div class="controls">
+							<button id="register" class="btn btn-primary">Añadir artículo</button>
+						</div>
+					</div>
+
+					<input type="hidden" name="_csrf" value="{{token}}"/>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+ {{>components/footer}}
+
+</body>
+</html>

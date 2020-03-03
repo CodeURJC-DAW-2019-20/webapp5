@@ -1,0 +1,309 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	{{>components/html_head}}
+	<link rel="stylesheet" href="/assets/css/dashboard.css">
+	<meta name="_csrf" content="{{token}}"/>
+	<meta name="_csrf_header" content="{{csrfHeader}}"/>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+	
+	
+</head>
+<body>
+	{{>components/header}}
+	
+	<div id="dashboard_body" class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column dash_menu">
+              <li class="nav-item">
+                <a id="dash_events" class="nav-link active" href="#">
+                  <span data-feather="calendar"></span>
+                  Eventos
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="dash_merch" class="nav-link" href="#">
+                  <span data-feather="dollar-sign"></span>
+                  Merch
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="dash_admin" class="nav-link" href="#">
+                  <span data-feather="users"></span>
+                  Gestiones de admin
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="dash_event-form" class="nav-link" href="event-form">
+                  <span data-feather="calendar"></span>
+                  Crear evento
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="dash_merch-form" class="nav-link" href="merchandising-form">
+                  <span data-feather="calendar"></span>
+                  Subir merchandaising
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        
+        
+        <!-- Eventos -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 dash_page" id="events_page">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2>Eventos por juego</h2>
+          </div>
+
+          <canvas class="my-4 w-100" id="eventsPerGameChart" width="900" height="380"></canvas>
+
+          <h2>Inscripciones</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Event name</th>
+                  <th>Game</th>
+                  <th>User</th>
+                  <th>Inscription<br>name</th>
+                  <th>Participants<br>number</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#EventRegisterList}}
+	                <tr>
+	                  <td>{{event.name}}</td>
+	                  <td>{{event.game.acronym}}</td>
+	                  <td>{{user.name}}</td>
+	                  <td>{{inscriptionName}}</td>
+	                  <td>{{participantsNumber}}</td>
+	                </tr>
+                {{/EventRegisterList}}
+              </tbody>
+            </table>
+          </div>
+        </main>
+        
+        
+        
+        <!-- Merch -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 dash_page" id="merch_page" hidden>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2>Ventas mensuales del ultimo año</h2>
+          </div>
+
+          <canvas class="my-4 w-100" id="monthlySalesChart" width="900" height="380"></canvas>
+
+          <h2>Lista de ventas</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Date and hour</th>
+                  <th>Item name</th>
+                  <th>Type</th>
+                  <th>Price</th>
+                  <th>User</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#PurchaseList}}
+	                <tr>
+	                  <td>{{date}}</td>
+	                  <td>{{merch.name}}</td>
+	                  <td>{{merch.type.type}}</td>
+	                  <td>{{price}}€</td>
+	                  <td>{{user.username}}</td>
+	                </tr>
+                {{/PurchaseList}}
+              </tbody>
+            </table>
+          </div>
+        </main>
+        
+        <!-- Admin -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 dash_page" id="admin_page" hidden>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2>Admin</h1>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm user_table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Usuario</th>
+                  <th>Nombre</th>
+                  <th>Apellidos</th>
+                  <th>Email</th>
+                  <th>Rol</th>
+                  <th colspan="2"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#UserList}}
+                <tr user_id="{{id}}">
+                	<td>{{id}}</td>
+                	<td>{{username}}</td>
+                	<td>{{firstName}}</td>
+                	<td>{{lastName}}</td>
+                	<td>{{email}}</td>
+                	<td>
+                  		<select class="role_select" value="{{role.id}}">
+							{{#RoleList}}
+							<option value="{{id}}">{{name}}</option> 
+							{{/RoleList}}
+						</select>
+					</td>
+					<td><button class="btn btn-sm btn-outline-secondary save_button" user_id="{{id}}">Guardar</button></td>
+					<td><button class="btn btn-sm btn-outline-secondary delete_button" user_id="{{id}}">Eliminar</button></td>
+                </tr>
+                {{/UserList}}
+              </tbody>
+            </table>
+          </div>
+        </main>
+                
+        
+        <!-- BASE -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" hidden>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+              </button>
+            </div>
+          </div>
+
+          <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+
+          <h2>Section title</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,015</td>
+                  <td>sodales</td>
+                  <td>ligula</td>
+                  <td>in</td>
+                  <td>libero</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+        
+        
+        
+      </div>
+    </div>
+    
+    <!-- Chart (in JS you can't use model attributes) -->
+    <script>
+	    function eventsChart(){
+	    	var ctx = document.getElementById("eventsPerGameChart");
+	        var myChart = new Chart(ctx, {
+	          type: 'bar',
+	          data: {
+		            labels: [
+		            	{{#GamesArray}}
+		            		"{{.}}",
+		            	{{/GamesArray}}
+		            ],
+		            datasets: [{
+		            	data: [
+	            			{{#EventsArray}}
+		            			{{.}},
+		            		{{/EventsArray}}
+	            			],
+           			backgroundColor: '#a10600',
+
+		            }]
+		          },
+	          options: {
+	            scales: {
+	              yAxes: [{
+	                ticks: {
+	                  beginAtZero: true,
+	                  stepSize: 1
+	                }
+	              }]
+	            },
+	            legend: {
+	              display: false,
+	            }
+	          }
+	        });
+	    }
+	
+	    function merchChart(){
+	    	var ctx = document.getElementById("monthlySalesChart");
+	        var myChart = new Chart(ctx, {
+	          type: 'line',
+	          data: {
+	        	  labels: [
+		            	{{#MonthsArray}}
+		            		"{{.}}",
+		            	{{/MonthsArray}}
+		            ],
+	            datasets: [{
+	            	data: [
+            			{{#SalesArray}}
+	            			{{.}},
+	            		{{/SalesArray}}
+            			],
+	              lineTension: 0,
+	              backgroundColor: 'transparent',
+	              borderColor: '#a10600',
+	              borderWidth: 4,
+	              pointBackgroundColor: '#a10600'
+	            }]
+	          },
+	          options: {
+	            scales: {
+	              yAxes: [{
+	                ticks: {
+	                  beginAtZero: true,
+	                  stepSize: 1
+	                }
+	              }]
+	            },
+	            legend: {
+	              display: false,
+	            }
+	          }
+	        });
+	    }
+	    
+    </script>
+    <script src="/assets/js/dashboard.js"></script>
+</body>
+</html>

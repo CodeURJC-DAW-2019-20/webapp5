@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	{{>components/html_head}}
+</head>
+
+<body>
+  {{>components/header}}
+
+	<div id="general-container">
+
+		<div id="merch-container-main-image" >
+				{{#merch.haveImage}}	
+					<img class="event-main-image img-fluid" src='/images/merchImages/image-{{merch.id}}.jpg' />
+				{{/merch.haveImage}}
+				
+				{{^merch.haveImage}}
+					<img class="event-main-image img-fluid" src='/assets/img/merch-image.png'/>
+				{{/merch.haveImage}}
+		</div>
+		<div id="event-info">
+			<h1>{{merch.name}}</h1>
+			<div>
+				<i class="fas fa-box-open"> Nombre: {{merch.name}}</i>
+				<br>				
+				<i class="fas fa-cog"> Tipo: {{merch.type.typeName}}</i>
+				<br>
+				<i class="fas fa-calculator"> Unidades: {{merch.stock}}</i>
+				<br>
+				<i class="fas fa-percent"> Descuento: {{merch.discount}}</i>
+				<br>
+				<i class="fas fa-money-bill-wave"> Precio: {{merch.price}} euros.</i>
+				<div class="control-group">
+					<div class="controls">
+						<form class="form-horizontal" action="/purchaseMerch/{{id}}"  method="POST" >
+							<button id="purchase" class="btn btn-primary">Comprar</button>
+							<input type="hidden" name="_csrf" value="{{token}}"/>
+						</form>
+					</div>
+				</div>
+			</div>
+			<p class="align-middle"></p>
+		</div>
+
+		
+
+		<div id="event-description">
+			<h2>Descripción</h2>
+			<p>{{merch.description}}</p>
+		</div>
+
+		
+		
+		<br>
+		<br>
+	
+
+	</div>
+
+  {{>components/footer}}
+
+</body>
+</html>

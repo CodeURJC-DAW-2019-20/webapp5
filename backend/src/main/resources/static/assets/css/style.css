@@ -1,0 +1,400 @@
+/* General */
+@font-face{
+	font-family: Montserrat-Regular;
+	src: url(/assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face{
+	font-family: Montserrat-Bold;
+	src: url(/assets/fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
+*{
+	font-family: Montserrat-Regular;
+	font-weight: normal;
+	color: black;
+	size: 12px;
+}
+h1{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: #a10600;
+}
+h2{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: #a10600 ;
+}
+h3{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: black ;
+}
+h4{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: black ;
+}
+h5{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: #a10600 ;
+}
+h6{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: black ;
+}
+p{
+	font-family: Montserrat-Regular;
+	font-weight: normal;
+	color: black;
+	size: 12px;
+}
+.social_icons{
+	font-size: 40px;
+	color: #a10600;
+}
+.social_icons:hover{
+	color: #870500;
+}
+a:not(nav){
+  color: #a10600;
+}
+a:not(nav):hover{
+  color: #870500;
+}
+
+.btn.btn-primary, body .btn-primary:not(:disabled):not(.disabled):active{
+	background-color: #a10600;
+	border-color: #a10600;
+}
+.btn.btn-primary:hover{
+	background-color: #870500;
+	border-color: #870500;
+}
+.btn.btn-primary:focus{
+	background-color: #870500;
+  border-color: #870500;
+  box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
+}
+.btn.btn-primary:not(:disabled):not(.disabled):active:focus{
+  box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
+}
+
+#login_button{
+	margin-right: 30px;
+}
+@media (max-width: 768px){
+	#login_button{
+		margin-bottom: 1rem;;
+	}
+}
+.head {
+	background-color: white; 
+}
+
+form .form-control:focus{
+	border-color: #ED0800;
+	box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
+}
+#header_profile_image{
+	margin-left: 1rem;
+}
+/* Home 
+============================================================================================ */
+#register_button{
+	margin-right: 80px;
+	
+}
+.passwordError:after{
+	content:"los campos de contraseña no coinciden";
+}
+/* Home 
+============================================================================================ */
+/* Carousel Header Styles */
+.mainpage1 {
+    position: absolute;
+    top: 20%;
+    left: 1.8%;
+    right: auto;
+    width: 96.66666666666666%;
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 2px 2px #A8AD11;
+    color: #a10600;
+    line-height : 5px;
+}
+.mainpage1 h1{
+    font-size: 4rem;
+    font-weight: 700;
+}
+.mainpage1 h2{
+    font-size: 2rem;
+    font-weight: 500;
+}/* End Carousel Header Styles */
+
+/* Section2 text */
+#mainpage2{
+    position: relative;
+    /* width: 70%; */
+    /* background-color:#FFE3F1; */
+    margin: auto;
+    text-align: center;
+    padding: 2rem;
+}
+#mainpage2 > div{
+    width: 70%;
+    /* background-color: brown; */
+    margin: auto;
+}
+#mainpage2 > div > h1{
+    text-align: left;
+    margin-left: 1rem;
+}
+#mainpage2 > div > p{
+    text-align: center;    
+}
+
+/* Section3 photo */
+#mainpage3{
+    position: relative;
+    /* width: 70%; */
+    display: block;
+    margin: auto;
+    /* background-color: green; */
+}
+
+/* Section4 productos */
+#mainpage4{
+    padding: 2rem;
+    /* background-color: #FFE3F1; */
+    display: block;
+    position: relative;
+    text-align: center;
+}
+.content-image-down-text{
+    background-color: #FFE3F1;
+    max-width: 10rem;
+    display: inline-block;
+    text-align: center;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+.button_content-image-down-text{
+    text-align: center;
+    /* position: absolute; */
+    background-color: red;
+    /* top: 80%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    padding: 3%;
+    margin-bottom: 5rem;
+}
+/* Merch-form
+============================================================================================ */
+
+/* Merch-template
+============================================================================================ */
+#merch-container-main-image{
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    max-width: 400px;
+    /* width: 60%; */
+}
+    /* image-with-text */
+.merch-main-image{
+   
+}
+
+
+
+
+
+/* Categories Product css
+============================================================================================ */
+.product_listing_area {
+    margin-bottom: 40px;
+}
+
+.p_list_text {
+    border: 1px solid #cccccc;
+    height: 100%;
+    padding-left: 18px;
+    padding-top: 25px;
+}
+
+.p_list_text h3 {
+    font-size: 24px;
+    color: #0b1033;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.p_list_text h3:before {
+    content: "";
+    width: 95px;
+    height: 2px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background: #d91522;
+}
+
+.p_list_text ul {
+    padding-top: 14px;
+}
+
+.p_list_text ul li a {
+    font-size: 14px;
+    line-height: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    letter-spacing: .35px;
+    color: #0b1033;
+    -webkit-transition: all 400ms linear 0s;
+    -o-transition: all 400ms linear 0s;
+    transition: all 400ms linear 0s;
+}
+
+.p_list_text ul li:hover a {
+    color: #d91522;
+}
+
+.p_list_img {
+    margin-left: -30px;
+}
+
+/* Event-form
+============================================================================================ */
+
+
+#div-mostrar{
+	display:none;
+	margin-left:2rem;
+}
+
+/* Event-template
+============================================================================================ */
+#hidden-element {
+    display: none;
+}
+#general-container{
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+} 
+#event-container-main-image{
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+     max-width: 800px;
+    /* width: 60%; */
+}
+    /* image-with-text */
+.event-main-image{
+   
+}
+#event-info{
+    /* float: left; */
+    /* width: 30%; */
+    padding: 1rem;
+    /*background-color: chartreuse;*/
+}
+
+#event-description{
+   padding: 1rem;
+    clear: both;
+    text-align: justify;
+    /*background-color: tomato;*/
+}
+/* About us 
+============================================================================================ */
+.about_section{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.about_in_section{
+    margin-top: 1.5rem
+}
+.asoc_card{
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+.asoc_card:hover{
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.asoc_card p{
+    color: black;
+    text-decoration: none;
+}
+.rrss_icon_section{
+    font-size: 50px;
+}
+
+.rrss_icon_section-insta{
+    color: #fd1d1d;
+}
+.rrss_icon_section-tw{
+    color: #00acee
+}
+.rrss_icon_section-disc{
+    color: #7289da
+}
+.rrss_icon_section-mail{
+    color: purple;
+}
+/* Contact 
+============================================================================================ */
+#map {
+    margin-top: 1.5rem;
+    height: 600px;
+    width: 100%;
+	margin-bottom: 1rem;
+	border-radius: 10px;
+}
+.contact_address{
+    margin-top: 4rem;
+}
+.contact_below{
+    margin-top: 2rem;
+}
+/* Login 
+============================================================================================ */
+    /* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+
+
+
+/* page404 
+============================================================================================ */
+#container-button404{
+    margin-bottom: 5rem;
+}
+.buttonpage404{
+    /*max-width: 80%;*/
+    margin: 2rem;
+}
+#image404-lcdd{
+    width: 10%;
+    display: block;
+    margin: auto;
+}
+#image404{
+    width: 50%;
+    display: block;
+    margin: auto;
+    
+}

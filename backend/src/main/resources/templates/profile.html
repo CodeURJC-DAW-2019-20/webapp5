@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+    	{{>components/html_head}}
+</head>
+
+<body>
+{{>components/header}}
+
+<div class="container">
+	<div class="row">
+      <div class="col-6 mx-auto">
+        <img class="mx-auto d-block" src="/assets/img/logo/png/logo_grande.png" width="150" height="150">
+      </div>
+    </div>
+    
+    <div class="row my-2">
+        <div class="col-lg-8 order-lg-2">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Editar</a>
+                </li>
+            </ul>
+            <div class="tab-content py-4">
+                <div class="tab-pane active" id="profile">
+                    <h5 class="mb-3">Información personal</h5>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Nombre</h6>
+                            <p>
+                                {{session.firstName}}
+                            </p>
+                            <h6>Apellidos</h6>
+                            <p>
+                                {{session.lastName}}
+                            </p>
+                            <h6>Email</h6>
+                            <p>
+                                {{session.email}}
+                            </p>
+                            <h6>Nombre de usuario</h6>
+                            <p>
+                                {{session.username}}
+                            </p>
+                            <h6>Recomendacion personalizada</h6>
+                            <p>
+                                Por tu actividad reciente te recomendamos eventos de <b>{{popular.name}}</b>
+                                <button name="/merchandising" id="suggestion" class="btn btn-primary">Buscar mas</button>
+                            </p>
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <div class="tab-pane" id="edit">
+                    <form role="form" action="profile" method="POST">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"><b>Nombre</b></label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  name="firstName" type="text" value="{{session.firstName}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"><b>Apellidos</b></label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  name="lastName" type="text" value="{{session.lastName}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"><b>Email</b></label>
+                            <div class="col-lg-9">
+                                <input class="form-control"  name="email" value="{{session.email}}">
+                            </div>
+                        </div>
+                        <input type="hidden" name="_csrf" value="{{token}}"/>
+           			 		<div class="control-group">
+              					<div class="controls">
+              					<div class="col-lg-9">
+                                <input type="reset" class="btn btn-secondary" value="Resetear">
+                				<button id="edit" class="btn btn-primary">Guardar Cambios</button>
+                				</div>
+                		 	</div>
+           				 </div>
+                    </form>
+                </div>
+                <br>
+                <br>
+           
+            </div>
+        </div>
+    </div>
+</div>
+
+  {{>components/footer}}
+
+</body>
+</html>

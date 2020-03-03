@@ -1,0 +1,97 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	{{>components/html_head}}
+	<script src="/assets/js/show-register-event.js"></script>
+	
+</head>
+
+<body>
+  {{>components/header}}
+
+	<div id="general-container">
+
+
+		<div id="event-container-main-image">
+				{{#event.haveImage}}	
+					<img class="event-main-image img-fluid" src='/images/eventsImages/image-{{event.id}}.jpg'/>
+				{{/event.haveImage}}
+				
+				{{^event.haveImage}}
+					<img class="event-main-image img-fluid" src='/assets/img/event-image.jpg'/>
+				{{/event.haveImage}}
+		</div>
+		<div id="event-info">
+			<h1>{{event.name}}</h1>
+			<div>
+				<i class="fas fa-calendar-alt"> {{event.date}}</i>
+				<br>
+				<i class="fas fa-clock"> {{event.time}}</i>
+				<br>
+				<i class="fas fa-map-marker-alt"> Lugar: {{event.place}}</i>
+				<br>
+				<i class="fas fa-gamepad"> Juego: {{event.game.name}}</i>
+				<br>
+				<i class="fas fa-child"> Máximo de participantes: {{event.maxParticipants}}</i>
+				<br>
+				<i class="fas fa-users"> Tamaño del equipo: {{event.groupSize}}</i>
+				<br>
+				<i class="fas fa-money-bill-wave"> Tasa de inscripción: {{event.inscriptionFee}} euros.</i>
+				
+				{{#event.isTournament}}
+					<br>
+					<i class="fas fa-boxes"> Premio para el ganador/es del torneo: {{event.tournament.reward}}</i>
+				{{/event.isTournament}}
+				<br>
+				{{#logged}}
+				<div class="row">
+				<br>
+					<div class="col-8 mx-auto">
+						<form class="form-horizontal" action="/userRegisterEvent/{{event.id}}" method="POST" >
+		          		<button id="button-register" class="btn btn-primary" type="button" onclick="showDiv()">Inscribirse en el evento</button>
+		          		<br>
+		          			<div id="div-register" style="display:none">
+								<label> Participantes del grupo:</label>
+								<input type="number" class="form-control" name="participants" max="{{event.groupSize}}" placeholder="Máximo {{event.groupSize}}"/>
+								<br>
+						
+								<div class="control-group">
+									<div class="controls">
+										<button id="register" type="submit" class="btn btn-primary">Registrarse</button>
+									</div>
+								</div>
+								
+							</div>
+							<input type="hidden" name="_csrf" value="{{token}}"/>
+						</form>
+					</div>
+				</div>
+				{{/logged}}
+				{{^logged}}
+				<div class="row">
+					<div class="col-8 mx-auto">
+						<button class="btn btn-primary" type="button" disabled>Inscribirse en el evento</button>
+						<p>Para registrarte en un evento es necesario iniciar sesión.</p>
+					</div>
+				</div>
+				{{/logged}}
+			</div>
+			<p class="align-middle"></p>
+		</div>
+
+		
+
+		<div id="event-description">
+			<h2>Descripción</h2>
+			<p>{{event.description}}</p>
+		</div>
+	</div>
+
+	{{>components/footer}}
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>
