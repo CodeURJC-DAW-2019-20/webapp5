@@ -49,7 +49,7 @@
 				<div class="row">
 				<br>
 					<div class="col-8 mx-auto">
-						<form class="form-horizontal" action="eventUserRegister" method="POST" >
+						<form class="form-horizontal" action="/userRegisterEvent/{{event.id}}" method="POST" >
 		          		<button id="button-register" class="btn btn-primary" type="button" onclick="showDiv()">Inscribirse en el evento</button>
 		          		<br>
 		          			<div id="div-register" style="display:none">
@@ -59,12 +59,12 @@
 						
 								<div class="control-group">
 									<div class="controls">
-										<button id="register" class="btn btn-primary">Registrarse</button>
+										<button id="register" type="submit" class="btn btn-primary">Registrarse</button>
 									</div>
 								</div>
 								
-								<input type="hidden" name="_csrf" value="{{token}}"/>
 							</div>
+							<input type="hidden" name="_csrf" value="{{token}}"/>
 						</form>
 					</div>
 				</div>

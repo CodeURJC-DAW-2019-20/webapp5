@@ -17,19 +17,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override 
 	protected void configure(HttpSecurity http)throws Exception{
 		// Public pages
-		http.authorizeRequests().antMatchers("/").permitAll();
-		http.authorizeRequests().antMatchers("/login").permitAll();
-		http.authorizeRequests().antMatchers("/about_us").permitAll();
-		http.authorizeRequests().antMatchers("/contact").permitAll();
-		http.authorizeRequests().antMatchers("/events").permitAll();
-		http.authorizeRequests().antMatchers("/event-template").permitAll();
-		http.authorizeRequests().antMatchers("/merchandaidsing").permitAll();
-		http.authorizeRequests().antMatchers("/merch-template").permitAll();
-		http.authorizeRequests().antMatchers("/register").permitAll();
-		http.authorizeRequests().antMatchers("/404").permitAll();
-		http.authorizeRequests().antMatchers("/login_error").permitAll();
-
-		http.authorizeRequests().antMatchers("/eventForm").permitAll();
+		
 		
 		// Private pages
 		http.authorizeRequests().antMatchers("/merch-form").hasAnyRole("ADMIN");
@@ -49,9 +37,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.logout().logoutUrl("/logout");
 		http.logout().logoutSuccessUrl("/");
 	
+	
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/user/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/user/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/registerUser/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/userRegisterEvent/**").permitAll();
+
 		http.authorizeRequests().anyRequest().permitAll();
 	}
 	@Override
