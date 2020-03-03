@@ -34,7 +34,10 @@
 				<i class="fas fa-money-bill-wave"> Precio: {{merch.price}} euros.</i>
 				<div class="control-group">
 					<div class="controls">
-						<button id="register" class="btn btn-primary">Comprar</button>
+						<form class="form-horizontal" action="/purchaseMerch/{{id}}"  method="POST" >
+							<button id="purchase" class="btn btn-primary">Comprar</button>
+							<input type="hidden" name="_csrf" value="{{token}}"/>
+						</form>
 					</div>
 				</div>
 			</div>

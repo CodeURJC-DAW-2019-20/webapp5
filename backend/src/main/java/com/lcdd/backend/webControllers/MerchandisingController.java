@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lcdd.backend.dbrepositories.MerchandisingRepository;
@@ -41,6 +42,25 @@ public class MerchandisingController {
 
         return "merchandising-template";
     }
+	
+	@RequestMapping(value = {"/purchaseMerch/{id}"}, 
+			method = RequestMethod.POST)
+	public String purchaseMerch(Model model, @PathVariable long id) {
+		
+		Merchandising merchFound = repository.findById(id).get();
+		
+        if(merchFound == null) {
+        	return "redirect:/error";
+        }
+        
+        merchFound.setStock(merchFound.getStock()-1);
+        repository.save(merchFound);
+        model.addAttribute("merch", merchFound);
+        
+        return "merchandising-template";
+	}
+	
+	
 	
 	@GetMapping("/merchList")
 	public ResponseEntity<String> getEventsList(@RequestParam() int pageId) {
