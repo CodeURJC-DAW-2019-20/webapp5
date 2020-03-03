@@ -32,6 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/eventForm").permitAll();
 		http.authorizeRequests().antMatchers("/purchaseMerch").permitAll();
 		
+		
 		// Private pages
 		http.authorizeRequests().antMatchers("/merch-form").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers("/event-form").hasAnyRole("ADMIN");
@@ -50,11 +51,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.logout().logoutUrl("/logout");
 		http.logout().logoutSuccessUrl("/");
 	
+	
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/user/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/user/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/registerUser/**").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/purchaseMerch/**").permitAll();
 		
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/userRegisterEvent/**").permitAll();
+
+		http.authorizeRequests().anyRequest().permitAll();
 	}
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {

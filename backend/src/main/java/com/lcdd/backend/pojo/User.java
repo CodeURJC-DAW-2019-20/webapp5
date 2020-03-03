@@ -160,7 +160,9 @@ public class User {
 	public void setEventsReg(List<EventRegister> eventsReg) {
 		this.eventsReg = eventsReg;
 	}
-
+	public void addEventRegister(EventRegister register) {
+		this.eventsReg.add(register);
+	}
 	
 	
 }
