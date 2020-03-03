@@ -54,7 +54,7 @@ public class DashboardController {
 		model = fillUserTab(model);
 		
 		if(!session.getIsLogggedIn()) {
-			return "login";
+			return "redirect:/login";
 		}
 		
 	
