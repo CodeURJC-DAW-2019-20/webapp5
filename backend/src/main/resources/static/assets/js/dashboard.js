@@ -11,6 +11,11 @@ $(function () {
 	});
 	
 	//Handler behaviors
+	var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    $(document).ajaxSend(function (e, xhr, options) {
+        xhr.setRequestHeader(header, token);
+    });
 	$( "#dash_events" ).click(function() {
 		$(".dash_page").attr("hidden",true);
 		$("#events_page").attr("hidden",false);
@@ -40,7 +45,7 @@ $(function () {
 		
 		$.ajax({
 			type:'POST',
-			url: 'https://localhost:8443/users/role/' + user_id,
+			url: '/users/role/' + user_id,
 			data: JSON.stringify(newRoleId),
 			processData: false,
 	        headers: {
@@ -56,7 +61,7 @@ $(function () {
 		
 		$.ajax({
 			type:'DELETE',
-			url: 'https://localhost:8443/users/' + user_id
+			url: '/users/' + user_id
 		}).done(function (item){
 			$(".user_table tr[user_id='"+ user_id +"']").remove();
 		})
