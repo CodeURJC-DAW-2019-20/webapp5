@@ -2,7 +2,7 @@
 #Image from https://hub.docker.com/_/openjdk
 FROM openjdk:8-jdk-alpine
 
-COPY backend-0.0.1-SNAPSHOT.jar /usr/src
+COPY backend.jar /usr/src
 
 WORKDIR /usr/src
-CMD ["java", "-jar", "backend-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "backend.jar"]
