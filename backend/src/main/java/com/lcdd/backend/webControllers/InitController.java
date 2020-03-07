@@ -97,8 +97,8 @@ public class InitController {
 		
 		//User user = new User("user", "pass", "ROLE_USER");
 		//userRepository.save(user);
-		User carlos = new User("email", "cPabe", "carlos", "pabe", "pass" , presi, "ROLE_ADMIN");
-		User victor = new User("email", "ViktorLopezz", "vic", "lopz","pass", vice);
+		User carlos = new User("email", "cPabe", "carlos", "pabe", "pass" , presi, "ROLE_USER", "ROLE_ADMIN");
+		User victor = new User("email", "ViktorLopezz", "vic", "lopz","pass", vice, "ROLE_USER");
 		userRepository.save(carlos);
 		userRepository.save(victor);
 		

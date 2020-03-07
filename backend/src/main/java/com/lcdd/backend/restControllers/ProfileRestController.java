@@ -59,7 +59,7 @@ public class ProfileRestController {
 	}
 	
 	//get an existing user
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<User> getUser(@PathVariable int id, Authentication auth, 
 			HttpServletRequest request, HttpSession session) {
 		
@@ -75,7 +75,7 @@ public class ProfileRestController {
 		}
 	}
 	
-	//add a new user
+	//add a new user, permited all
 	@PostMapping("/{id}")
 	public ResponseEntity<User> postUser(@PathVariable long id, @RequestBody User user) {
 		
@@ -94,7 +94,7 @@ public class ProfileRestController {
 		
 		User userFound = userService.findOne(id);
 		if(userFound!=null) {
-			if(auth.getName().equals(userFound.getName()) && (request.isUserInRole("ADMIN"))){
+			if(auth.getName().equals(userFound.getName()) || (request.isUserInRole("ADMIN"))){
 				//delete the user login
 				//admin can delete any user
 				userService.delete(userFound);
@@ -114,7 +114,7 @@ public class ProfileRestController {
 		
 		User userFound = userService.findOne(id);
 		if(userFound!=null) {
-			if(auth.getName().equals(userFound.getName()) && (request.isUserInRole("ADMIN"))){
+			if(auth.getName().equals(userFound.getName()) || (request.isUserInRole("ADMIN"))){
 				//update the user login
 				//admin can update any user
 				
