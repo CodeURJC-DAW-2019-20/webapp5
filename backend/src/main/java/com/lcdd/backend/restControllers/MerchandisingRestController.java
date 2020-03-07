@@ -66,7 +66,7 @@ public class MerchandisingRestController {
 	public ResponseEntity<String> getEventsList(@RequestParam() int pageId) {
 		String result = "";
 		
-		Page<Merchandising> pageMerch = repository.findAll(PageRequest.of(pageId,3));
+		Page<Merchandising> pageMerch = service.findAllPages(pageId);
 		
 		if(pageMerch.hasContent()) {
 			for(Merchandising merch : pageMerch.getContent()) {

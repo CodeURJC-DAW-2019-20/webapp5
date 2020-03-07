@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 import com.lcdd.backend.dbrepositories.MerchandisingRepository;
 import com.lcdd.backend.pojo.Merchandising;
 
-import es.codeurjc.daw.library.book.Book;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 @Service
 public class MerchandisingService {
@@ -31,5 +32,11 @@ public class MerchandisingService {
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
+	
+	public Page<Merchandising> findAllPages(int page) {
+		return repository.findAll(PageRequest.of(page,3));
+	}
+	
+	
 
 }
