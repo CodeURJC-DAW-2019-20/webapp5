@@ -20,13 +20,27 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.antMatcher("/api/**");
 		
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/logIn").authenticated();
 		
 		// URLs that need authentication to access to it
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/books/").hasRole("USER");
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/books/**").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/books/**").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/books/**").hasRole("ADMIN");		
+		
+		// URLs user
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/{id}").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/users/{id}").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/users/{id}").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/users/{id}").hasRole("USER");
+		
+		
+		
+		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/purchaseMerch/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/merch/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/registerMerch/**").hasRole("ADMIN");
+		
+		
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/purchaseMerch/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/userRegisterEvent/**").permitAll();
+			
 		
 		// Other URLs can be accessed without authentication
 		http.authorizeRequests().anyRequest().permitAll();
