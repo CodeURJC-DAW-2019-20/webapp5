@@ -34,9 +34,9 @@ public class UserController {
 	
 	@DeleteMapping("/users/{id}")
 	public ResponseEntity<Object> deleteUserById(@PathVariable long id) {
-		Optional<User> userFound = userRepository.findById(id);
+		User userFound = userRepository.findById(id);
 		
-		if(!userFound.isPresent()) {
+		if(userFound==null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
@@ -55,7 +55,7 @@ public class UserController {
 		
 		Role roleObject = roleRepository.findById(roleId).get();
 		
-		User user = userRepository.findById(id).get();
+		User user = userRepository.findById(id);
 		
 		user.setRole(roleObject);
 		
