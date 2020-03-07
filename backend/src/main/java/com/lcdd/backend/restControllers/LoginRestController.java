@@ -20,9 +20,9 @@ import com.lcdd.backend.UserComponent;
  * NOTE: This class is not intended to be modified by app developer.
  */
 @RestController
-public class LoginController {
+public class LoginRestController {
 
-	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
+	private static final Logger log = LoggerFactory.getLogger(LoginRestController.class);
 
 	@Autowired
 	private UserComponent userComponent;
