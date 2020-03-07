@@ -16,27 +16,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.lcdd.backend.UserSession;
-import com.lcdd.backend.dbrepositories.EventRepository;
-import com.lcdd.backend.dbrepositories.GameRepository;
-import com.lcdd.backend.dbrepositories.UserRepository;
 import com.lcdd.backend.pojo.User;
 import com.lcdd.backend.services.UserService;
 
 @Controller
 @RequestMapping("/api/users")
-public class ProfileRestController {
+public class UserRestController {
 	
 	@Autowired
 	private UserService userService;
-	@Autowired
-	UserRepository userRepo;
-	@Autowired
-	EventRepository eventRepository;
-	@Autowired
-	GameRepository gameRepository;
-	@Autowired
-	private UserSession session;
 	
 	//get all existing users
 	@GetMapping("/")
@@ -98,7 +86,7 @@ public class ProfileRestController {
 	
 	//update an existing user
 	@PutMapping("/{id}")
-	public ResponseEntity<User> putUser(@PathVariable long id, @RequestBody User userUpdate,
+	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User userUpdate,
 			Authentication auth, HttpServletRequest request, HttpSession session) {
 		
 		User userFound = userService.findOne(id);
@@ -111,6 +99,12 @@ public class ProfileRestController {
 				userFound.setFirstName(userUpdate.getFirstName());
 				userFound.setLastName(userUpdate.getLastName());
 				userFound.setEmail(userUpdate.getEmail());
+				userFound.setRoles(userUpdate.getRoles());
+				userFound.setRole(userUpdate.getRole());
+				userFound.setPurchases(userUpdate.getPurchases());
+				userFound.setEventsReg(userUpdate.getEventsReg());
+				
+				//no habria que ver si están vacios??
 				
 				userService.save(userFound);
 				return new ResponseEntity<>(userFound, HttpStatus.OK);
