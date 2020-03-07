@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -66,7 +65,7 @@ public class MerchandisingRestController {
 	public ResponseEntity<String> getEventsList(@RequestParam() int pageId) {
 		String result = "";
 		
-		Page<Merchandising> pageMerch = service.findAllPages(pageId);
+		Page<Merchandising> pageMerch = service.findAllPages(pageId,3);
 		
 		if(pageMerch.hasContent()) {
 			for(Merchandising merch : pageMerch.getContent()) {
