@@ -2,38 +2,30 @@ package com.lcdd.backend.webControllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.List;
-
-import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import com.lcdd.backend.UserSession;
 import com.lcdd.backend.dbrepositories.EventRegisterRepository;
 import com.lcdd.backend.dbrepositories.EventRepository;
-import com.lcdd.backend.dbrepositories.GameRepository;
 import com.lcdd.backend.dbrepositories.PurchaseRepository;
-import com.lcdd.backend.dbrepositories.RoleRepository;
-import com.lcdd.backend.dbrepositories.UserRepository;
 import com.lcdd.backend.pojo.EventRegister;
-import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.Purchase;
 import com.lcdd.backend.pojo.Role;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.services.RoleService;
+import com.lcdd.backend.services.UserService;
 
 @Controller
 public class DashboardController {
 	
 	@Autowired
-	private GameRepository gameRepository;
+	private RoleService roleService;
 	@Autowired
-	private RoleRepository roleRepository;
-	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	@Autowired
 	private PurchaseRepository purchaseRepository;
 	@Autowired
@@ -124,9 +116,9 @@ public class DashboardController {
 	private Model fillUserTab(Model model) {
 		List<User> userList;
 		List<Role> roleList;
-		
-		userList = userRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
-		roleList = roleRepository.findAll();
+					
+		userList = userService.findAll(Sort.by(Sort.Direction.ASC, "name"));
+		roleList = roleService.findAll();
 		
 		model.addAttribute("UserList", userList);
 		model.addAttribute("RoleList", roleList);

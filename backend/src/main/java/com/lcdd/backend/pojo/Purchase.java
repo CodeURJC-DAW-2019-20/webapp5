@@ -19,12 +19,14 @@ public class Purchase {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@JsonIgnore
 	@ManyToOne
 	private User user;
 	
 	private float price;
 	private Date date;
 	
+	//do not put @JsonIgnore
 	@ManyToOne
 	private Merchandising merch;
 	
