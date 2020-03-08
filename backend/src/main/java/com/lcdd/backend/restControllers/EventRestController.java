@@ -39,10 +39,10 @@ public class EventRestController {
 	}
 	
 	//every user
-	@GetMapping("/types")
-	public ResponseEntity<List<Game>> getEventTypeNames() {
-		List<Game> type = gameService.findAll();
-		return new ResponseEntity<>(type, HttpStatus.OK);
+	@GetMapping("/games")
+	public ResponseEntity<List<Game>> getEventGame() {
+		List<Game> games = gameService.findAll();
+		return new ResponseEntity<>(games, HttpStatus.OK);
 	}
 
 	//every user
@@ -67,29 +67,6 @@ public class EventRestController {
 	public ResponseEntity<Event> updateEventId(@PathVariable long id, @RequestBody Event updateEvent,
 			HttpServletRequest request, HttpSession session){
 		Event event = eventService.findById(id); //Returns with 404 if not found in database
-		
-//		@Id
-//		@GeneratedValue(strategy = GenerationType.AUTO)
-//		private long id;
-//		
-//		@ManyToOne
-//		private Game game;
-//
-//		private String name;
-//		private String place;
-//		private String date;//yyyy-MM-dd
-//		private String time;//hh:mm
-//		private String description;
-//		private boolean isTournament;
-//		
-//		private boolean haveImage;
-//		
-//		@OneToOne(cascade=CascadeType.ALL)
-//		private Tournament tournament;
-//		
-//		private int groupSize;
-//		private float inscriptionFee;
-//		private int maxParticipants;
 		
 		if(event.getName() != null) {
 			event.setName(updateEvent.getName());
