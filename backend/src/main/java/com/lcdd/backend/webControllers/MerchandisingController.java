@@ -34,13 +34,13 @@ public class MerchandisingController {
 	
 	@RequestMapping("/merchandising/{id}")
     public String getMerchandising(@PathVariable long id, Model model) {
-        Optional<Merchandising> merchFound = service.findById(id);
+        Merchandising merchFound = service.findById(id);
 
-        if(!merchFound.isPresent()) {
+        if(merchFound != null) {
         	return "redirect:/error";
         }
 
-        model.addAttribute("merch", merchFound.get());
+        model.addAttribute("merch", merchFound);
 
         return "merchandising-template";
     }
@@ -49,7 +49,7 @@ public class MerchandisingController {
 			method = RequestMethod.POST)
 	public String purchaseMerch(Model model, @PathVariable long id) {
 		
-		Merchandising merchFound = service.findById(id).get();
+		Merchandising merchFound = service.findById(id);
 		
         if(merchFound == null) {
         	return "redirect:/error";

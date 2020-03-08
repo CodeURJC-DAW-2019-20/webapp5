@@ -90,6 +90,7 @@ public class MerchandisingRestController {
 		if(merch.getDescription()!= null) {
 			merch.setDescription(updateMerch.getDescription());
 	}
+		service.save(merch);
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 
