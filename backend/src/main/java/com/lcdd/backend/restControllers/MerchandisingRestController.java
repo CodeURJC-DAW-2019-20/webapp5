@@ -37,7 +37,7 @@ public class MerchandisingRestController {
 		return service.findAll();
 	}
 
-	@GetMapping("/titles")
+	@GetMapping("/names")
 	public Collection<String> getMerchNames() {
 		return service.findAll().stream().map(b -> b.getName()).collect(Collectors.toList());
 	}
