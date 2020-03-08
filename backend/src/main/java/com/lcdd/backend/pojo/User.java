@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
 	
@@ -28,15 +30,18 @@ public class User {
 	private String lastName;
 	private String passwordHash;
 	
+	@JsonIgnore
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
 	@ManyToOne
 	private Role role;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	private List<Purchase> purchases = new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	private List<EventRegister> eventsReg = new ArrayList<>();
 	

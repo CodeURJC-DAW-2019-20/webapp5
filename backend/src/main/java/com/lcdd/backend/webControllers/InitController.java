@@ -58,12 +58,15 @@ public class InitController {
 		
 		Role presi= new Role("President");
 		Role vice= new Role("Vice-president");
+		Role vocal = new Role("Vocal");
+		Role secretary = new Role("Secretary");
+		Role treasurer = new Role("Treasurer");
 		roleRepository.save(new Role("ADMIN"));
 		roleRepository.save(presi);
 		roleRepository.save(vice);
-		roleRepository.save(new Role("Secretary"));
-		roleRepository.save(new Role("Treasurer"));
-		roleRepository.save(new Role("Vocal"));
+		roleRepository.save(vocal);
+		roleRepository.save(secretary);
+		roleRepository.save(treasurer);
 		
 		MerchType chapa = new MerchType("Chapas");
 		MerchType poster = new MerchType("Posters");
@@ -97,10 +100,16 @@ public class InitController {
 		
 		//User user = new User("user", "pass", "ROLE_USER");
 		//userRepository.save(user);
-		User carlos = new User("email", "cPabe", "carlos", "pabe", "pass" , presi, "ROLE_USER", "ROLE_ADMIN");
-		User victor = new User("email", "ViktorLopezz", "vic", "lopz","pass", vice, "ROLE_USER");
+		User carlos = new User("email", "cPabe", "carlos", "pabe", "pass" , secretary, "ROLE_USER");
+		User dani = new User("email", "daniel", "dani", "moreno","pass", treasurer, "ROLE_USER", "ROLE_ADMIN");
+		User oscar = new User("email", "oscar", "osk", "rivas","pass", vocal, "ROLE_USER");
+		User alfonso = new User("email", "alfonso", "angra", "lopz","pass", presi, "ROLE_USER", "ROLE_ADMIN");
+		User grani = new User("email", "miguel", "byGranizo", "jimenez","pass", vocal, "ROLE_USER");
 		userRepository.save(carlos);
-		userRepository.save(victor);
+		userRepository.save(dani);
+		userRepository.save(oscar);
+		userRepository.save(alfonso);
+		userRepository.save(grani);
 		
 		Merchandising chapaNegra = new Merchandising("Chapa negra logo LCDD", chapa,(float) 5,50,5,"Es la mejor chapa del mundo.");
 		chapaNegra.setHaveImage(true);
@@ -130,18 +139,18 @@ public class InitController {
 		
 		calendar.add(Calendar.MONTH, -11);
 		purchaseRepository.save(new Purchase(carlos, calendar.getTime(),lolPoster));
-		purchaseRepository.save(new Purchase(victor, calendar.getTime(),lolPoster));
+		purchaseRepository.save(new Purchase(dani, calendar.getTime(),lolPoster));
 		
 		
 		
 		calendar.add(Calendar.MONTH, +5);
-		purchaseRepository.save(new Purchase(victor, calendar.getTime(),lolPoster));//+`çç
+		purchaseRepository.save(new Purchase(dani, calendar.getTime(),lolPoster));//+`çç
 		
 		calendar.add(Calendar.MONTH, +5);
 		purchaseRepository.save(new Purchase(carlos, calendar.getTime(),lolPoster));
 		
 		calendar.add(Calendar.MONTH, +1);
-		purchaseRepository.save(new Purchase(victor, calendar.getTime(),lolPoster));
+		purchaseRepository.save(new Purchase(dani, calendar.getTime(),lolPoster));
 		
 	}
 }
