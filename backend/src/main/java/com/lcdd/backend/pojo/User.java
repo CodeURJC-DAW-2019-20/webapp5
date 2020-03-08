@@ -42,7 +42,7 @@ public class User {
 	private List<Purchase> purchases = new ArrayList<>();
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	private List<EventRegister> eventsReg = new ArrayList<>();
 	
 	protected User() {}
@@ -131,7 +131,7 @@ public class User {
 	}
 
 	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);;
 	}
 
 	public List<String> getRoles() {

@@ -28,12 +28,12 @@ public class ProfileController {
 	@Autowired
 	private UserSession session;
 	
-	@GetMapping("profile")
+	@GetMapping("/profile")
 	public String profileModel(Model model, HttpServletRequest request) {
 		model.addAttribute("session", session);
 		
 		Iterable<Event> eventList = eventRepository.findAll();
-		int count[] = new int[5];
+		int count[] = new int[(int) gameRepository.count()+1];
 		
 		for(Event event: eventList) {
 			Game game = event.getGame();

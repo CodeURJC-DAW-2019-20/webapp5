@@ -18,7 +18,7 @@ public class EventRegister {
 	@ManyToOne
 	private User user;
 	
-	@JsonIgnore
+	//do not put @JsonIgnore
 	@ManyToOne
 	private Event event;
 	

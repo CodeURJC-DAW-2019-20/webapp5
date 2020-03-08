@@ -107,7 +107,7 @@ public class UserRestController {
 	public ResponseEntity<User> postUser(@RequestBody User user) {
 		
 		boolean result = userService.createAnUser(user);
-		if (result == true) {
+		if ((result == true)&&(user.getName()!=null)&&(user.getPasswordHash()!=null)) {
 			return new ResponseEntity<>(user, HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);

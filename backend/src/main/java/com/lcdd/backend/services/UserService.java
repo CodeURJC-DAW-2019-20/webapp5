@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.lcdd.backend.pojo.User;
 import com.lcdd.backend.dbrepositories.UserRepository;
@@ -47,14 +48,16 @@ public class UserService {
 			//already exist a registered user with this name
 			return false;
 		}
-		if (userRepo.findById(user.getId()) == null) {
-			//already exist a registered user with this id
-			return false;
+		if (user.getId() != null ){
+			if (userRepo.findById(user.getId()) == null) {
+				//already exist a registered user with this id
+				return false;
+			}
 		}
 		/*if (user.getPasswordHash() == null ){
 			return false;
 		}*/
-		//user.setPasswordHash(new BCryptPasswordEncoder().encode(user.getPasswordHash()));
+		user.setPasswordHash(user.getPasswordHash());
 		save(user);
 		return true;
 	}
