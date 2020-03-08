@@ -1,27 +1,26 @@
 package com.lcdd.backend.webControllers;
 
+import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.lcdd.backend.UserSession;
-import com.lcdd.backend.dbrepositories.UserRepository;
+import com.lcdd.backend.dbrepositories.EventRepository;
+import com.lcdd.backend.dbrepositories.GameRepository;
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.RegisterDataForm;
 import com.lcdd.backend.pojo.User;
-import com.lcdd.backend.services.EventService;
-import com.lcdd.backend.services.GameService;
+import com.lcdd.backend.services.UserService;
 
 @Controller
 public class ProfileController {
 	@Autowired
-	UserRepository userRepository;
+	private UserService userService;
 	@Autowired
 	private EventService eventService;
 	@Autowired
@@ -29,12 +28,12 @@ public class ProfileController {
 	@Autowired
 	private UserSession session;
 	
-	@GetMapping("profile")
+	@GetMapping("/profile")
 	public String profileModel(Model model, HttpServletRequest request) {
 		model.addAttribute("session", session);
 		
-		Iterable<Event> eventList = eventService.findAll();
-		int count[] = new int[5];
+		Iterable<Event> eventList = eventRepository.findAll();
+		int count[] = new int[(int) gameRepository.count()+1];
 		
 		for(Event event: eventList) {
 			Game game = event.getGame();
@@ -67,7 +66,7 @@ public class ProfileController {
 			method = RequestMethod.POST)
 	public String editUser(Model model, RegisterDataForm user) {
 		
-		User edit = userRepository.findByName(session.getUsername());
+		User edit = userService.findByName(session.getUsername());
 		
 		edit.setEmail(user.getEmail());
 		edit.setFirstName(user.getFirstName());
@@ -77,7 +76,7 @@ public class ProfileController {
 		session.setFirstName(user.getFirstName());
 		session.setLastName(user.getLastName());
 				
-		userRepository.save(edit);
+		userService.save(edit);
 		return "profile";
 	}
 	

@@ -27,7 +27,9 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		// URLs user
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/{id}").hasRole("USER");
-		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/users/{id}").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/{id}/purchases").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/{id}/eventsRegistered").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/users/").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/users/{id}").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/users/{id}").hasRole("USER");
 
@@ -40,7 +42,6 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandising/").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandising/types").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandising/{id}").permitAll();
-		
 		
 		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/purchaseMerch/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/merch/**").hasRole("ADMIN");

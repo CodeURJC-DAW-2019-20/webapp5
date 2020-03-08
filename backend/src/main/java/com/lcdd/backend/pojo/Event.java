@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -19,6 +21,7 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Game game;
 
@@ -31,6 +34,7 @@ public class Event {
 	
 	private boolean haveImage;
 	
+	@JsonIgnore
 	@OneToOne(cascade=CascadeType.ALL)
 	private Tournament tournament;
 	
@@ -38,6 +42,7 @@ public class Event {
 	private float inscriptionFee;
 	private int maxParticipants;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="event")
 	private List<EventRegister> registrations = new ArrayList<>();
 	
