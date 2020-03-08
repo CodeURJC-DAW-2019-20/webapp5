@@ -1,8 +1,5 @@
 package com.lcdd.backend.webControllers;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
@@ -12,35 +9,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import com.lcdd.backend.dbrepositories.PurchaseRepository;
 import com.lcdd.backend.dbrepositories.RoleRepository;
-import com.lcdd.backend.dbrepositories.UserRepository;
-import com.lcdd.backend.pojo.Purchase;
 import com.lcdd.backend.pojo.Role;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.services.UserService;
 
 @Controller
 public class UserController {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	
 	@Autowired
 	private RoleRepository roleRepository;
 	
-	@Autowired
-	private PurchaseRepository purchaseRepository;
-	
 	@DeleteMapping("/users/{id}")
 	public ResponseEntity<Object> deleteUserById(@PathVariable long id) {
-		Optional<User> userFound = userRepository.findById(id);
+		User userFound = userService.findById(id);
 		
-		if(!userFound.isPresent()) {
+		if(userFound==null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		userRepository.deleteById(id);
+		userService.deleteById(id);
 		
 		return new ResponseEntity<>(true, HttpStatus.OK);
 	}
@@ -55,11 +46,11 @@ public class UserController {
 		
 		Role roleObject = roleRepository.findById(roleId).get();
 		
-		User user = userRepository.findById(id).get();
+		User user = userService.findById(id);
 		
 		user.setRole(roleObject);
 		
-		userRepository.save(user);
+		userService.save(user);
 		
 		return null;
 	}
