@@ -43,7 +43,7 @@ public class UserRestController {
 	public ResponseEntity<User> getUser(@PathVariable int id, Authentication auth, 
 			HttpServletRequest request, HttpSession session) {
 		
-		User user = userService.findOne(id);
+		User user = userService.findById(id);
 		
 		if (user != null) {
 			if ((auth.getName().equals(user.getName())) || (request.isUserInRole("ADMIN"))) {
@@ -63,7 +63,7 @@ public class UserRestController {
 	public ResponseEntity<List<Purchase>> getUserPurchases(@PathVariable int id, Authentication auth, 
 			HttpServletRequest request, HttpSession session) {
 		
-		User user = userService.findOne(id);
+		User user = userService.findById(id);
 		
 		if (user != null) {
 			if ((auth.getName().equals(user.getName())) || (request.isUserInRole("ADMIN"))) {
@@ -85,7 +85,7 @@ public class UserRestController {
 	public ResponseEntity<List<EventRegister>> getUsereventsRegistered(@PathVariable int id, Authentication auth, 
 			HttpServletRequest request, HttpSession session) {
 		
-		User user = userService.findOne(id);
+		User user = userService.findById(id);
 		
 		if (user != null) {
 			if ((auth.getName().equals(user.getName())) || (request.isUserInRole("ADMIN"))) {
@@ -119,12 +119,12 @@ public class UserRestController {
 	public ResponseEntity<User> deleteUserById(@PathVariable long id,
 			Authentication auth, HttpServletRequest request, HttpSession session) {
 		
-		User userFound = userService.findOne(id);
+		User userFound = userService.findById(id);
 		if(userFound!=null) {
 			if(auth.getName().equals(userFound.getName()) || (request.isUserInRole("ADMIN"))){
 				//delete the user login
 				//admin can delete any user
-				userService.delete(userFound);
+				userService.deleteByUser(userFound);
 				return new ResponseEntity<>(userFound, HttpStatus.OK);
 			}
 			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
@@ -139,7 +139,7 @@ public class UserRestController {
 	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User userUpdate,
 			Authentication auth, HttpServletRequest request, HttpSession session) {
 		
-		User userFound = userService.findOne(id);
+		User userFound = userService.findById(id);
 		if(userFound!=null) {
 			if(auth.getName().equals(userFound.getName()) || (request.isUserInRole("ADMIN"))){
 				//update the user login

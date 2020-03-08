@@ -1,20 +1,15 @@
 package com.lcdd.backend.webControllers;
 
 import java.util.Calendar;
-
 import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import com.lcdd.backend.dbrepositories.EventRegisterRepository;
 import com.lcdd.backend.dbrepositories.EventRepository;
 import com.lcdd.backend.dbrepositories.GameRepository;
 import com.lcdd.backend.dbrepositories.MerchTypeRepository;
 import com.lcdd.backend.dbrepositories.MerchandisingRepository;
 import com.lcdd.backend.dbrepositories.PurchaseRepository;
-import com.lcdd.backend.dbrepositories.RoleRepository;
-import com.lcdd.backend.dbrepositories.UserRepository;
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.pojo.Game;
@@ -25,6 +20,7 @@ import com.lcdd.backend.pojo.Role;
 import com.lcdd.backend.pojo.User;
 import com.lcdd.backend.services.UserService;
 import com.lcdd.backend.services.RoleService;
+
 @Controller
 public class InitController {
 	@Autowired

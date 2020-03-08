@@ -3,6 +3,7 @@ package com.lcdd.backend.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import com.lcdd.backend.pojo.User;
 import com.lcdd.backend.dbrepositories.UserRepository;
@@ -13,12 +14,16 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepo;
 	
-	public User findOne(long id) {
+	public User findById(long id) {
 		return userRepo.findById(id);
 	}
 	
 	public List<User> findAll(){
 		return userRepo.findAll();
+	}
+	
+	public List<User> findAll(Sort sort){
+		return userRepo.findAll(sort);
 	}
 	
 	public User findByName(String name) {
@@ -29,11 +34,11 @@ public class UserService {
 		userRepo.save(user);
 	}
 	
-	public void delete(long id) {
+	public void deleteById(long id) {
 		userRepo.deleteById(id);
 	}
 	
-	public void delete(User user) {
+	public void deleteByUser(User user) {
 		userRepo.delete(user);
 	}
 	
