@@ -32,11 +32,8 @@ public class UserRegisterEventController {
 	
 	@PostMapping("/userRegisterEvent/{id}")
 	public String serveEvent(Model model,@PathVariable Long id, @RequestParam int participants, HttpServletRequest request) {
-		User user = userRepository.findByName(session.getUsername());
+		User user = userService.findByName(session.getUsername());
 		Event event = eventService.findById(id);
-
-			User user = userService.findByName(session.getUsername());
-			Event event = eventRepository.findById(id).get();
 		EventRegister register = new EventRegister(user,event,user.getName(),participants);
 		event.setMaxParticipants(event.getMaxParticipants()-participants);
 		eventService.save(event);
