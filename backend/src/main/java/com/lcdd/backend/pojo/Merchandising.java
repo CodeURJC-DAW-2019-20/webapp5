@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Merchandising {
 	
@@ -29,6 +31,7 @@ public class Merchandising {
 	
 	private boolean haveImage;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="merch")
 	private List<Purchase> purchases = new ArrayList<>();
 	

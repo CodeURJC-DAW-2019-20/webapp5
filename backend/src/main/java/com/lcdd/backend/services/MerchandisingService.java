@@ -37,6 +37,16 @@ public class MerchandisingService {
 		return repository.findAll(PageRequest.of(page,size));
 	}
 	
+	public boolean createMerch(Merchandising merch) {
+		if(repository.findById(merch.getId()) != null) {
+			return false;
+		}
+		if(repository.findByName(merch.getName()) != null){
+			return false;
+		}
+		save(merch);
+		return true;
+	}
 	
 
 }

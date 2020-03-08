@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class MerchType {
 	
@@ -18,6 +20,7 @@ public class MerchType {
 	
 	private String typeName;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="type")
 	private List<Merchandising> merchs = new ArrayList<>();
 	
