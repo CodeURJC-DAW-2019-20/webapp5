@@ -6,5 +6,6 @@ import com.lcdd.backend.pojo.EventRegister;
 
 public interface EventRegisterRepository extends JpaRepository<EventRegister, Long> {
 	
-
+	EventRegister findById(long id);
+	
 }
