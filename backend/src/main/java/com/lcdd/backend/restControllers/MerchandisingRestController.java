@@ -4,11 +4,13 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,7 +53,7 @@ public class MerchandisingRestController {
 	//every user
 	@GetMapping("/{id}")
 	public ResponseEntity<Merchandising> getMerchandising(@PathVariable long id) {
-		Merchandising merch = service.findById(id).get();
+		Merchandising merch = service.findById(id);
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 
@@ -67,22 +69,36 @@ public class MerchandisingRestController {
 	
 	//only admin
 	@PutMapping("/{id}")
-	public Merchandising updateMerch(@PathVariable long id, @RequestBody Merchandising updatedMerch){
-
-		service.findById(id).get(); //Returns with 404 if not found in database
-		
-		updatedMerch.setId(id);
-		service.save(updatedMerch);
-		return updatedMerch;
+	public ResponseEntity<Merchandising> updateMerchId(@PathVariable long id, @RequestBody Merchandising updateMerch,
+			HttpServletRequest request, HttpSession session){
+		Merchandising merch = service.findById(id); //Returns with 404 if not found in database
+		if(merch.getName()!= null) {
+			merch.setName(updateMerch.getName());
+	}
+		if(merch.getPrice()!= 0) {
+			merch.setPrice(updateMerch.getPrice());
+	}
+		if(merch.getDiscount()!= 0) {
+			merch.setDiscount(updateMerch.getDiscount());
+	}
+		if(merch.getStock()!= 0) {
+			merch.setStock(updateMerch.getStock());
+	}
+		if(merch.getType()!= null) {
+			merch.setType(updateMerch.getType());
+	}
+		if(merch.getDescription()!= null) {
+			merch.setDescription(updateMerch.getDescription());
+	}
+		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 
 	//only admin
 	@DeleteMapping("/{id}")
-	public Merchandising deleteMerch(@PathVariable long id) {
-
-		Merchandising deletedBook = service.findById(id).get();
+	public ResponseEntity<Merchandising> deleteMerch(@PathVariable long id) {
+		Merchandising merch = service.findById(id);
 		service.delete(id);
-		return deletedBook;
+		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 
 

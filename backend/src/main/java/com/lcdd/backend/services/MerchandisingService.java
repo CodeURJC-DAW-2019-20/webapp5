@@ -18,7 +18,7 @@ public class MerchandisingService {
 	@Autowired
 	private MerchandisingRepository repository;
 	
-	public Optional<Merchandising> findById(long id) {
+	public Merchandising findById(long id) {
 		return repository.findById(id);
 	}
 
@@ -38,7 +38,7 @@ public class MerchandisingService {
 	}
 	
 	public boolean createMerch(Merchandising merch) {
-		if(repository.findById(merch.getId()) != null) {
+		if(repository.findById(merch.getId()) == null) {
 			return false;
 		}
 		if(repository.findByName(merch.getName()) != null){
