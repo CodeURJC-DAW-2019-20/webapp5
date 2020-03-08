@@ -40,14 +40,19 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/merchForm/").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchList/").permitAll();
 		
+		//URLs events
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/Event/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/Event/games/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/Event/{id}").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/Event/").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/Event/{id}").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/Event/{id}").hasRole("ADMIN");
 		
-		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/purchaseMerch/**").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/merch/**").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/registerMerch/**").hasRole("ADMIN");
 		
 		
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/purchaseMerch/**").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/userRegisterEvent/**").permitAll();
+		
+		
+		
 			
 		
 		// Other URLs can be accessed without authentication
