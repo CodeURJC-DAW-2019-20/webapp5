@@ -30,7 +30,7 @@ public class User {
 	private String lastName;
 	private String passwordHash;
 	
-	@JsonIgnore
+	//do not put @JsonIgnore
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
@@ -156,6 +156,10 @@ public class User {
 
 	public void setPurchases(List<Purchase> purchases) {
 		this.purchases = purchases;
+	}
+	
+	public void addPurchase(Purchase purchases) {
+		this.purchases.add(purchases);
 	}
 
 	public List<EventRegister> getEventsReg() {

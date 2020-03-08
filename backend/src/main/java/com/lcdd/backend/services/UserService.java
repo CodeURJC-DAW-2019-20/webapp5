@@ -42,8 +42,8 @@ public class UserService {
 			//already exist a registered user with this name
 			return false;
 		}
-		if (userRepo.findByEmail(user.getEmail()) != null) {
-			//already exist a registered user with this email
+		if (userRepo.findById(user.getId()) == null) {
+			//already exist a registered user with this id
 			return false;
 		}
 		/*if (user.getPasswordHash() == null ){
