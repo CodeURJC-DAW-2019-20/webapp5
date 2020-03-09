@@ -1,6 +1,5 @@
 package com.lcdd.backend;
 
-import org.springframework.http.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -52,12 +51,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.logout().invalidateHttpSession(true);
 		http.logout().logoutSuccessUrl("/");
 	
-		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/user/**").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/user/**").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/registerUser/**").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/purchaseMerch/**").permitAll();
 		
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/userRegisterEvent/**").permitAll();
+		
 
 		http.authorizeRequests().anyRequest().permitAll();
 	}

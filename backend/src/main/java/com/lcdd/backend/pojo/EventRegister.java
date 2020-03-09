@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class EventRegister {
@@ -12,9 +13,11 @@ public class EventRegister {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@JsonIgnore
 	@ManyToOne
 	private User user;
 	
+	//do not put @JsonIgnore
 	@ManyToOne
 	private Event event;
 	

@@ -173,16 +173,16 @@ Based on user's purchases and inscripted activites, they will recieve a mail abo
 - Completed tasks: implementation of a function for the "Show more" button on the Events and Merchandising pages. Sample image editing for assets. Text writing for all web.
 
 - 5 most significant comics:
-1. fix not showing multiple times
-2. updated event images
-3. scrolling into show more button
-4. early version of the feature (showMore)
-5. removed scroll to button functionality
+  1. fix not showing multiple times
+  2. updated event images
+  3. scrolling into show more button
+  4. early version of the feature (showMore)
+  5. removed scroll to button functionality
 
 - 5 files with participation:
-1. events.html
-2. about_us.html
-3. merchandising.html
+  1. events.html
+  2. about_us.html
+  3. merchandising.html
 
 **Óscar**
 
@@ -221,5 +221,118 @@ Based on user's purchases and inscripted activites, they will recieve a mail abo
   5. UserController.java
 
 ## PHASE 3: API REST to the web application and docker deployment
+- Document [Api documentation](API.md) with information about the REST API.
+### Docker
+Docker allows you to use our application without having anything install.You just need to follow the next steps:
+  1. Install docker, you can download it [here](https://docs.docker.com/install/#supported-platforms). 
+  2. To run the app you simply have to open a terminal in Docker folder and execute "docker-compose up".
+  3. To access the app you have to open your navigator and go to https://localhost:8080 .
+
+- To stop the app you have to execute "docker-compose down".
+- The docker-compose.yml file uses a mysql image sets up in port 3306 (Don't forget to stop your local mysql), and a contafin image, sets up in port 8080.
+
+#### Linux Commands
+To execute docker in linux you should follow the next commands:
+- ./create-image.sh
+- docker-compose up
+To stop running the docker use:
+- docker-compose down
+
+**Class Diagram**: 
+![Class Diagram](backend/src/main/resources/static/assets/img/ClassTemplateFase3.png)
+
+### Members participation
+
+**Miguel**
+
+- Completed tasks: 
+
+- 5 most significant comics:
+  1. 
+  2. 
+  3. 
+  4. 
+  5. 
+  
+- 5 files with participation:
+  1. 
+  2. 
+  3. 
+  4. 
+  5. 
+
+**Daniel**
+
+-  Completed tasks:generate Rest security configuration, Login Rest Controller, RestControllerExceptionHandler and README.
+
+- 5 most significant comics:
+  1. LoginController done + RestSecurity started
+  2. Security User
+  3. Security role + merch 
+  4. Event security
+  5. Added class diagram
+  
+- 5 files with participation:
+  1. RestSecurityConfig
+  2. LoginRestController
+  3. RestControllerExceptionHandler
+  4. README.md
+  5. API.md
+
+**Carlos**
+
+- Completed tasks: APIRest and services implemented to every event related entity, and implemented GET, POST, PUT and DELETE methods for event related purposes with its own security implementation.
+
+- 5 most significant comics:
+  1. initial api rest changes on event related classes
+  2. changed repositories to services
+  3. added security, fixed post and checked put and delete
+  4. fixed errors after merge
+  5. updated local variable names
+
+- 5 files with participation:
+  1. EventRestController.java
+  2. RestSecuriryConfig.java
+  3. UserRegisterEventService.java
+  4. EventService.java
+  5. GameService.java
+
+**Óscar**
+
+- Completed tasks: generate the role and user service and rest controllers for api rest. Update initController with data more realistic data.
+
+- 5 most significant comics:
+  1. fixed new errors from the last commit.
+  2. use Role and User Service from all fase2 controllers.
+  3. Rest user and role controller working good, updated initController.
+  4. created RoleRestController and RoleService update UserRestController too.
+  5. created userService and profileRestController
+
+- 5 files with participation:
+  1. UserRestController.java
+  2. RoleRestController.java
+  3. RoleService.java
+  4. UserService.java
+  5. InitController.java
+
+**Alfonso**
+
+- Completed tasks: APIRest and services implemented to every merchandising entity, finished advanced algorithm and implemented methods POST and GET images in the APIREST.
+
+- 5 most significant comics:
+  1. Started merchandising rest controller.
+  2. Implemented services merch and merchtypes.
+  3. Postman testing.
+  4. Update security.
+  5. Algorithm progress. 
+
+- 5 files with participation:
+  1. MerchandisingRestController.java 
+  2. MerchandisingService.java
+  3. MerchTypeService.java
+  4. profile.html
+  5. SecurityConfiguration.java
+  
+  
 
 ## PHASE 4: Web with SPA architecture

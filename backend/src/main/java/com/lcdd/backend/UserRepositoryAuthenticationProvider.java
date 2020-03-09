@@ -3,7 +3,6 @@ package com.lcdd.backend;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -14,22 +13,21 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-
-import com.lcdd.backend.dbrepositories.UserRepository;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.services.UserService;
 
 @Component
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	@Autowired 
 	public UserSession userSession;
 
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
 
-		User user = userRepository.findByName(auth.getName());
+		User user = userService.findByName(auth.getName());
 
 		if (user == null) {
 			throw new BadCredentialsException("User not found");

@@ -1,10 +1,7 @@
 package com.lcdd.backend.pojo;
 
 import java.util.Date;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,12 +16,14 @@ public class Purchase {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@JsonIgnore
 	@ManyToOne
 	private User user;
 	
 	private float price;
 	private Date date;
 	
+	//do not put @JsonIgnore
 	@ManyToOne
 	private Merchandising merch;
 	

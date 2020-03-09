@@ -1,10 +1,7 @@
 package com.lcdd.backend;
 
 import com.lcdd.backend.pojo.User;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.annotation.SessionScope;
 
 

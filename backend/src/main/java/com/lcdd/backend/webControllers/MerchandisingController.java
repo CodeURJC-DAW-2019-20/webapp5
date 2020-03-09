@@ -1,10 +1,7 @@
 package com.lcdd.backend.webControllers;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,16 +11,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.lcdd.backend.dbrepositories.MerchandisingRepository;
 import com.lcdd.backend.pojo.Merchandising;
+import com.lcdd.backend.services.MerchandisingService;
 
 
 @Controller
 public class MerchandisingController {
 	
 	@Autowired
-	MerchandisingRepository repository;
+	private MerchandisingService service;
+
 	
 	@RequestMapping(value= {"merchandising"})
 	public String serveMerchandising(Model model) {
@@ -32,13 +29,13 @@ public class MerchandisingController {
 	
 	@RequestMapping("/merchandising/{id}")
     public String getMerchandising(@PathVariable long id, Model model) {
-        Optional<Merchandising> merchFound = repository.findById(id);
+        Merchandising merchFound = service.findById(id);
 
-        if(!merchFound.isPresent()) {
+        if(merchFound != null) {
         	return "redirect:/error";
         }
 
-        model.addAttribute("merch", merchFound.get());
+        model.addAttribute("merch", merchFound);
 
         return "merchandising-template";
     }
@@ -47,14 +44,14 @@ public class MerchandisingController {
 			method = RequestMethod.POST)
 	public String purchaseMerch(Model model, @PathVariable long id) {
 		
-		Merchandising merchFound = repository.findById(id).get();
+		Merchandising merchFound = service.findById(id);
 		
         if(merchFound == null) {
         	return "redirect:/error";
         }
         
         merchFound.setStock(merchFound.getStock()-1);
-        repository.save(merchFound);
+        service.save(merchFound);
         model.addAttribute("merch", merchFound);
         
         return "merchandising-template";
@@ -63,10 +60,10 @@ public class MerchandisingController {
 	
 	
 	@GetMapping("/merchList")
-	public ResponseEntity<String> getEventsList(@RequestParam() int pageId) {
+	public ResponseEntity<String> getMerchsList(@RequestParam() int pageId) {
 		String result = "";
 		
-		Page<Merchandising> pageMerch = repository.findAll(PageRequest.of(pageId,3));
+		Page<Merchandising> pageMerch = service.findAllPages(pageId,3);
 		
 		if(pageMerch.hasContent()) {
 			for(Merchandising merch : pageMerch.getContent()) {
@@ -162,4 +159,5 @@ public class MerchandisingController {
 		
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
+
 }
