@@ -36,39 +36,31 @@ public class ProfileController {
 	public String profileModel(Model model, HttpServletRequest request) {
 		model.addAttribute("session", session);
 		
+		//advanced algorim
 		Iterable<Event> eventList = eventService.findAll();
 		int count[] = new int[(int) gameService.countGames()+1];
-		
 		for(Event event: eventList) {
 			Game game = event.getGame();
 				long gameId = game.getId();
 					count[(int)gameId]++;
 			
 		}
-		
-		int posicionmayor = 0;
-        /* for(int i=0; i<count.length && i<count.length; i++){
-            if(count[i]>numeromayor){
-                numeromayor = count[i];
-            }
-        } */
-	        
+		int posicionmayor = 0;   
         for ( int i = 1; i < count.length; i++ )
         {
         	if (count[i] > count[posicionmayor] ) posicionmayor = i;
-        }
-	       
-		//long p = 1;  
+        }   
 		Game popular = gameService.findById((long)count[posicionmayor]);
-		//Optional<Game> popular = gameRepository.findById(p);   
+		//show popular event game
 		model.addAttribute("popular", popular);
 		
 		return "profile";
 	}
 	
+	//ajax pageable by most displayed game in the events
 	@RequestMapping(value= {"/eventSuggestion"}, method = RequestMethod.POST)
 	public ResponseEntity<String> getEventsSuggestion(@RequestParam() int pageId) {
-		
+		//advanced algorim
 		Iterable<Event> eventList = eventService.findAll();
 		int count[] = new int[(int) gameService.countGames()+1];
 		for(Event event: eventList) {
@@ -84,6 +76,7 @@ public class ProfileController {
 		Game popular = gameService.findById((long)count[posicionmayor]);
 		
 		String result = "";
+		//pageable by result
 		Page<Event> pageEvent = eventService.findAllPagesByGame(popular,pageId,3);
 		
 		if(pageEvent.hasContent()) {
