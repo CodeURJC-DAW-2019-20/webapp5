@@ -1,7 +1,7 @@
 # CONTaFin - API REST Documentation
 
 ## About our API
-All you can find in our API Rest is information about users, loans, fines (penalties), resources, types, copies and genres. All you need to do is simply; you have to follow the API rules. If you try to do following a different way, it's probably what you will recieve an error.
+All you can find in our API Rest is information about users, merchandaising, events, games, tournaments and UserRole. All you need to do is simply; you have to follow the API rules. If you try to do following a different way, it's probably what you will recieve an error.
 
 ## How to use our API
 1. Download [Postman](https://www.getpostman.com/).
@@ -74,1563 +74,312 @@ Allows a user to log out.
 
 	**Code**: 404 NOT FOUND
 
-## Admin
-The following queries will be preceded by /Admin. 
-  
-### Obtain user data
-Resource to show all users with their data.
 
-* ##### URL
 
-	< /UserData >
 
-* ##### Method:
 
-	`GET`
-	
-* ##### URL Params:
-	* page=[int]
-	* size=[int]
-	
-* ##### Example of query:
 
-	* URL
-		
-		`/api/Admin/UserData/?page=1&size=10`
-  
-* ##### Success Response:
+## User
+The following queries contains information about the Users.
+
+|User Information|Permissions|Request Type|Request URL|Sucess response|Error Response|
+|----------------|-----------|------------|------------|-------------------|---------------------|
+|All Users Registered|ADMIN|GET|/api/users/|(User List) and *OK* (200)|*NOT FOUND* (404)|
+|User information|USER|GET|/api/users/id|User and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Purchases of a User|USER|GET|/api/users/id/purchases|(Purchases List) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Events Registered of a User|USER|GET|/api/users/id/eventsRegistered|(EventRegister List) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Add User|ALL|POST|/api/users/|(USER) and *CREATED* (201)|*NOT ACCEPTABLE* (406)|
+|Delate User|USER|DELETE|/api/users/id/|(USER) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Update information of an USER|USER|PUT|/api/users/id/|(USER) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+
+### Example of GET to https://localhost:8443/api/users/ 
+```json
+[
+    {
+        "id": 27,
+        "email": "email",
+        "name": "cPabe",
+        "firstName": "carlos",
+        "lastName": "pabe",
+        "passwordHash": "$2a$10$SWHYXTts.MoEJMdK5WS/PufoZYXZ1GnP3RWr0hZLHCZkPYcEtaBpm",
+        "roles": [
+            "ROLE_USER"
+        ],
+        "role": {
+            "id": 9,
+            "name": "Secretary"
+        }
+    },
+    {
+        "id": 28,
+        "email": "email",
+        "name": "daniel",
+        "firstName": "dani",
+        "lastName": "moreno",
+        "passwordHash": "$2a$10$Obl9jm5ZYBOafd5TkrzXzOwkUq0rIsUNCUawb2rCxyazhTaargnyi",
+        "roles": [
+            "ROLE_USER",
+            "ROLE_ADMIN"
+        ],
+        "role": {
+            "id": 10,
+            "name": "Treasurer"
+        }
+    }
+]
+```
+### Example of DELETE to https://localhost:8443/api/users/27
+```json
+{
+    "id": 27,
+    "email": "email",
+    "name": "cPabe",
+    "firstName": "carlos",
+    "lastName": "pabe",
+    "passwordHash": "$2a$10$SWHYXTts.MoEJMdK5WS/PufoZYXZ1GnP3RWr0hZLHCZkPYcEtaBpm",
+    "roles": [
+        "ROLE_USER"
+    ],
+    "role": {
+        "id": 9,
+        "name": "Secretary"
+    }
+}
+```
+### Example of PUT to https://localhost:8443/api/users/27
+```json
+{
+    "email": "email",
+    "name": "daniel",
+    "firstName": "dani",
+    "lastName": "moreno",
+    "passwordHash": "pass",
+    "roles": [
+        "ROLE_USER",
+        "ROLE_ADMIN"
+    ],
+    "role": {
+        "id": 10,
+        "name": "Treasurer"
+    }
+}
+```
+
+## MERCHANDAISING
+The following queries contains information about the Merchandaising.
+
+|Merch Information|Permissions|Request Type|Request URL|Sucess response|Error Response|
+|----------------|-----------|------------|------------|-------------------|---------------------|
+|Merch list|ALL|GET|/api/merchandaisings/|(Merch List) and *OK* (200)|*NOT FOUND* (404)|
+|Type list of merchandaising|ALL|GET|/api/merchandaisings/types/|(Merch Type list) and *OK* (200)|*NOT FOUND* (404)|
+|Merch Information|ALL|GET|/api/merchandaisings/id/|(MERCH) and *OK* (200)|*NOT FOUND* (404)|
+|Create a Merch|ADMIN|POST|/api/merchandaisings/|(MERCH) and *CREATED* (200)|*NOT ACCEPTABLE* (406)|
+|Update Merch|ADMIN|PUT|/api/merchandaisings/id/|(MERCH) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Delate Merch|ADMIN|DELETE|/api/merchandaisings/id/|(MERCH) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+
+
+### Example of GET to https://localhost:8443/api/merchandisings/
+```json
+[
+    {
+        "id": 32,
+        "name": "Chapa negra logo LCDD",
+        "price": 5,
+        "discount": 50,
+        "stock": 5,
+        "description": "Es la mejor chapa del mundo.",
+        "haveImage": true
+    },
+    {
+        "id": 33,
+        "name": "Poster LoL",
+        "price": 10,
+        "discount": 15,
+        "stock": 7,
+        "description": "Es la mejor poster.",
+        "haveImage": true
+    },
+    {
+        "id": 34,
+        "name": "Figura Poppy",
+        "price": 15,
+        "discount": 5,
+        "stock": 20,
+        "description": "Debes comprarlo.",
+        "haveImage": true
+    },
+    {
+        "id": 35,
+        "name": "Chapa blanca logo LCDD",
+        "price": 800,
+        "discount": 2,
+        "stock": 50,
+        "description": "No te atreverías a comprarlo.",
+        "haveImage": true
+    }
+]
+```
+### Example of GET to https://localhost:8443/api/merchandisings/types
+```json
+[
+    {
+        "id": 11,
+        "type": "Chapas"
+    },
+    {
+        "id": 12,
+        "type": "Posters"
+    },
+    {
+        "id": 13,
+        "type": "Camisetas"
+    }
+]
+```
+### Example of POST to https://localhost:8443/api/merchandisings/
+```json
+{
+    "id": 40,
+    "name": "Camiseta2 LCDD",
+    "price": 6,
+    "discount": 100,
+    "stock": 15,
+    "description": "Skin única LCDD.",
+    "haveImage": true
+}
+```
+### Example of DELETE to https://localhost:8443/api/merchandisings/38
+```json
+[
+    {
+    "id": 38,
+    "name": "Camiseta LCDD",
+    "price": 6,
+    "discount": 100,
+    "stock": 15,
+    "description": "Skin única LCDD.",
+    "haveImage": true
+}
+]
+```
+### Example of PUT to https://localhost:8443/api/merchandisings/37
+```json
+[
+    {
+    "id": 37,
+    "name": "Taza editada logo LCDD",
+    "price": 55,
+    "discount": 5,
+    "stock": 45,
+    "description": "Café para algunos los estilos.",
+    "haveImage": true
+}
+]
+```
+
+## EVENTS
+The following queries contains information about the Events.
+
+|Merch Information|Permissions|Request Type|Request URL|Sucess response|Error Response|
+|----------------|-----------|------------|------------|-------------------|---------------------|
+|Event list|ALL|GET|/api/events/|(Event List) and *OK* (200)|*NOT FOUND* (404)|
+|Game list|ALL|GET|/api/events/games/|(Game list) and *OK* (200)|*NOT FOUND* (404)|
+|Event information|ALL|GET|/api/events/id/|(EVENT) and *OK* (200)|*NOT FOUND* (404)|
+|Users registered in an specific event|ADMIN|GET|/api/events/id/userRegistered/|(User list) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Create an Event|ADMIN|POST|/api/events/|(EVENT) and *CREATED* (200)|*NOT ACCEPTABLE* (406)|
+|Update an event|ADMIN|PUT|/api/events/id/|(EVENT) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Delete an event|ADMIN|DELETE|/api/events/id/|(EVENT) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+
+### Example of GET to https://localhost:8443/api/events/games
+```json
+[
+    {
+        "id": 1,
+        "name": "League of Legends",
+        "acronym": "LoL"
+    },
+    {
+        "id": 2,
+        "name": "Magic: The Gathering Arena",
+        "acronym": "MTG Arena"
+    },
+    {
+        "id": 3,
+        "name": "Teamfight Tactics",
+        "acronym": "TFT"
+    },
+    {
+        "id": 4,
+        "name": "Legends of Runaterra",
+        "acronym": "LoR"
+    }
+]
+```
+### Example of GET to https://localhost:8443/api/events/17/userRegistered
+```json
+[
+    {
+        "id": 27,
+        "email": "email",
+        "name": "cPabe",
+        "firstName": "carlos",
+        "lastName": "pabe",
+        "passwordHash": "$2a$10$g.a1mn5ef6QRC5L/C5tfsOOWiNxgzefBevh5NH4Oekzav/FPA/85a",
+        "roles": [
+            "ROLE_USER"
+        ],
+        "role": {
+            "id": 9,
+            "name": "Secretary"
+        }
+    },
+    {
+        "id": 30,
+        "email": "email",
+        "name": "alfonso",
+        "firstName": "angra",
+        "lastName": "lopz",
+        "passwordHash": "$2a$10$JRdPWxmmSMgWF7/m4YCole40VavGDIgJjb.RE.RD7wSFPhgrcaoFa",
+        "roles": [
+            "ROLE_USER",
+            "ROLE_ADMIN"
+        ],
+        "role": {
+            "id": 6,
+            "name": "President"
+        }
+    }
+]
+```
+### Example of POST to https://localhost:8443/api/events/
+```json
+{
+    "id": 56,
+    "name": "Evento prueva post2",
+    "place": "URJC Móstoles, S10 Lab 2",
+    "date": "03-03-2019",
+    "time": "15:00",
+    "description": "Es un evento de prqeeagrargueba",
+    "haveImage": true,
+    "groupSize": 2,
+    "inscriptionFee": 5,
+    "maxParticipants": 30
+}
+```
+
+### Example of DELETE to https://localhost:8443/api/events/56/
+```json
+{
+    "id": 56,
+    "name": "Evento prueva post2",
+    "place": "URJC Móstoles, S10 Lab 2",
+    "date": "03-03-2019",
+    "time": "15:00",
+    "description": "Es un evento de prqeeagrargueba",
+    "haveImage": true,
+    "groupSize": 2,
+    "inscriptionFee": 5,
+    "maxParticipants": 30
+}
+```
 
-  	```
-	{
-	    "totalElements": 44,
-	    "totalPages": 5,
-	    "number": 1,
-	    "size": 10,
-	    "first": false,
-	    "last": false,
-	    "content": [
-		{
-		    "id": 11,
-		    "name": "user 7",
-		    "email": "email7@hotmail.es",
-		    "level": 1,
-		    "points": 0,
-		    "streak": 0,
-		    "fluency": 0,
-		    "dailyGoal": 0,
-		    "lastConnection": "-",
-		    "lastUnit": 0,
-		    "lastLesson": 0,
-		    "progress": null,
-		    "remainingGoals": 0,
-		    "exp": 0
-		},
-		{
-		    "id": 12,
-		    "name": "user 8",
-		    "email": "email8@hotmail.es",
-		    "level": 1,
-		    "points": 0,
-		    "streak": 0,
-		    "fluency": 0,
-		    "dailyGoal": 0,
-		    "lastConnection": "-",
-		    "lastUnit": 0,
-		    "lastLesson": 0,
-		    "progress": null,
-		    "remainingGoals": 0,
-		    "exp": 0
-		},
-		{
-		    "id": 13,
-		    "name": "user 9",
-		    "email": "email9@hotmail.es",
-		    "level": 1,
-		    "points": 0,
-		    "streak": 0,
-		    "fluency": 0,
-		    "dailyGoal": 0,
-		    "lastConnection": "-",
-		    "lastUnit": 0,
-		    "lastLesson": 0,
-		    "progress": null,
-		    "remainingGoals": 0,
-		    "exp": 0
-		},
-		{
-		    "id": 14,
-		    "name": "user 10",
-		    "email": "email10@hotmail.es",
-		    "level": 1,
-		    "points": 0,
-		    "streak": 0,
-		    "fluency": 0,
-		    "dailyGoal": 0,
-		    "lastConnection": "-",
-		    "lastUnit": 0,
-		    "lastLesson": 0,
-		    "progress": null,
-		    "remainingGoals": 0,
-		    "exp": 0
-		},
-		{
-		    "id": 15,
-		    "name": "user 11",
-		    "email": "email11@hotmail.es",
-		    "level": 1,
-		    "points": 0,
-		    "streak": 0,
-		    "fluency": 0,
-		    "dailyGoal": 0,
-		    "lastConnection": "-",
-		    "lastUnit": 0,
-		    "lastLesson": 0,
-		    "progress": null,
-		    "remainingGoals": 0,
-		    "exp": 0
-		},
-		{
-		    "id": 16,
-		    "name": "user 12",
-		    "email": "email12@hotmail.es",
-		    "level": 1,
-		    "points": 0,
-		    "streak": 0,
-		    "fluency": 0,
-		    "dailyGoal": 0,
-		    "lastConnection": "-",
-		    "lastUnit": 0,
-		    "lastLesson": 0,
-		    "progress": null,
-		    "remainingGoals": 0,
-		    "exp": 0
-		},
-		{
-		    "id": 17,
-		    "name": "user 13",
-		    "email": "email13@hotmail.es",
-		    "level": 1,
-		    "points": 0,
-		    "streak": 0,
-		    "fluency": 0,
-		    "dailyGoal": 0,
-		    "lastConnection": "-",
-		    "lastUnit": 0,
-		    "lastLesson": 0,
-		    "progress": null,
-		    "remainingGoals": 0,
-		    "exp": 0
-		},
-		{
-		    "id": 18,
-		    "name": "user 14",
-		    "email": "email14@hotmail.es",
-		    "level": 1,
-		    "points": 0,
-		    "streak": 0,
-		    "fluency": 0,
-		    "dailyGoal": 0,
-		    "lastConnection": "-",
-		    "lastUnit": 0,
-		    "lastLesson": 0,
-		    "progress": null,
-		    "remainingGoals": 0,
-		    "exp": 0
-		},
-		{
-		    "id": 19,
-		    "name": "user 15",
-		    "email": "email15@hotmail.es",
-		    "level": 1,
-		    "points": 0,
-		    "streak": 0,
-		    "fluency": 0,
-		    "dailyGoal": 0,
-		    "lastConnection": "-",
-		    "lastUnit": 0,
-		    "lastLesson": 0,
-		    "progress": null,
-		    "remainingGoals": 0,
-		    "exp": 0
-		},
-		{
-		    "id": 20,
-		    "name": "user 16",
-		    "email": "email16@hotmail.es",
-		    "level": 1,
-		    "points": 0,
-		    "streak": 0,
-		    "fluency": 0,
-		    "dailyGoal": 0,
-		    "lastConnection": "-",
-		    "lastUnit": 0,
-		    "lastLesson": 0,
-		    "progress": null,
-		    "remainingGoals": 0,
-		    "exp": 0
-		}
-	    ]
-	}
-	
-	```
-  
-* ##### Error Response:
-
-	**Code**: 401 UNAUTHORIZED
-  
-#### Export data from all users
-
-Resource to obtain an excel with the data of the users.
-
-* ##### URL
-
-	< /UserData/Excel >
-
-* ##### Method:
-
-	`GET`
-
-* ##### Success Response:
-	
-	```
-	file: user_list.xls
-	```
-	
-* ##### Error Response:
-
-	**Code**: 403 FORBIDDEN
-
-## Users
-The following queries will be preceded by /User.
- 
-#### Resource to show a user
-
-* ##### URL
-
-	< />
-
-* ##### Method:
-
-	`GET`
-	
-* ##### Success respone:
-
-	```
-	{
-	    "id": 1,
-	    "name": "user",
-	    "email": "---@hotmail.es",
-	    "level": 2,
-	    "points": 12,
-	    "streak": 1,
-	    "fluency": 16,
-	    "dailyGoal": 1,
-	    "lastConnection": "2018-03-17/18:36:07",
-	    "lastUnit": 1,
-	    "lastLesson": 1,
-	    "progress": [
-		0,
-		1,
-		0,
-		0,
-		0,
-		0,
-		0
-	    ],
-	    "remainingGoals": 0,
-	    "exp": 0
-	}
-	```
-  
-* ##### Error response:
-
-	**Code**: 401 UNAUTHORIZED
-  
-#### Change the name of user
-
-* ##### URL
-
-	< /Name>
-
-* ##### Método:
-
-	`PUT`
-  
-* ##### Data Params
-
-	```
-	{
-	    "newName": "Contafin"
-	}
-	```
-* ##### Success response:
-	```
-	{
-	    "id": 1,
-	    "name": "Contafin",
-	    "email": "email@hotmail.es",
-	    "level": 2,
-	    "points": 12,
-	    "streak": 1,
-	    "fluency": 16,
-	    "dailyGoal": 1,
-	    "lastConnection": "2018-03-17/18:36:07",
-	    "lastUnit": 1,
-	    "lastLesson": 1,
-	    "progress": [
-		0,
-		1,
-		0,
-		0,
-		0,
-		0,
-		0
-	    ],
-	    "remainingGoals": 0,
-	    "exp": 0
-	}
-	```	
-* ##### Error response:
-
-	**Code**: 401 UNAUTHORIZED or 400 BAD REQUEST
-	
-#### Change the email of user
-
-* ##### URL
-
-	< /Email>
-
-* ##### Method:
-
-	`PUT`
-  
-* ##### Data Params
-
-	```
-	{
-	    "newEmail": "contafin@hotmail.es"
-	}
-	```
-* ##### Success response:
-	```
-	{
-	    "id": 1,
-	    "name": "Contafin",
-	    "email": "contafin@hotmail.es",
-	    "level": 2,
-	    "points": 12,
-	    "streak": 1,
-	    "fluency": 16,
-	    "dailyGoal": 1,
-	    "lastConnection": "2018-03-17/18:39:23",
-	    "lastUnit": 1,
-	    "lastLesson": 1,
-	    "progress": [
-		0,
-		1,
-		0,
-		0,
-		0,
-		0,
-		0
-	    ],
-	    "remainingGoals": 0,
-	    "exp": 0
-	}
-	```	
-* ##### Error response:
-
-	**Code**: 401 UNAUTHORIZED or 400 BAD REQUEST
-	
-#### Change the password of user
-
-* ##### URL
-
-	< /Password>
-
-* ##### Method:
-
-	`PUT`
-  
-* ##### Data Params
-
-	```
-	{
-	    "newPass": "******"
-	    "oldPass": "******"
-	}
-	```
-* ##### Success response:
-	```
-	{
-	    "id": 1,
-	    "name": "Contafin",
-	    "email": "contafin@hotmail.es",
-	    "level": 2,
-	    "points": 12,
-	    "streak": 1,
-	    "fluency": 16,
-	    "dailyGoal": 1,
-	    "lastConnection": "2018-03-17/18:40:02",
-	    "lastUnit": 1,
-	    "lastLesson": 1,
-	    "progress": [
-		0,
-		1,
-		0,
-		0,
-		0,
-		0,
-		0
-	    ],
-	    "remainingGoals": 0,
-	    "exp": 0
-	}
-	```	
-* ##### Error response:
-
-	**Code**: 401 UNAUTHORIZED or 400 BAD REQUEST
-	
-
-#### Resource to update goal of user
-
-* ##### URL
-
-	< /Goal>
-
-* ##### Method:
-
-	`PUT`
-* ##### Data Params
-
-	```
-	{
-	    "goal": "1"
-	}
-	```
-* ##### Success response:
-	```
-	{
-	    "id": 1,
-	    "name": "Contafin",
-	    "email": "contafin@hotmail.es",
-	    "level": 2,
-	    "points": 12,
-	    "streak": 1,
-	    "fluency": 16,
-	    "dailyGoal": 3,
-	    "lastConnection": "2018-03-17/18:45:36",
-	    "lastUnit": 1,
-	    "lastLesson": 1,
-	    "progress": [
-		0,
-		1,
-		0,
-		0,
-		0,
-		0,
-		0
-	    ],
-	    "remainingGoals": 3,
-	    "exp": 0
-	}
-	```	
-* ##### Error response:
-
-	**Code**: 401 UNAUTHORIZED or 400 BAD REQUEST
-	
-  
-#### Resource to upload user profile image
-
-* ##### URL
-
-	< /Photo>
-
-* ##### Method:
-
-	`POST`
-  
-* ##### Data Params
-
-	```
-	file: image file format (*.jpg, *.jpeg, *.png)
-	```
-* ##### Error response:
-
-	**Code**: 401 UNAUTHORIZED or 400 BAD REQUEST or 500 INTERNAL SERVER ERROR
-	
-
-#### Resource to delete a user
-
-* ##### URL
-
-	< />
-
-* ##### Método:
-
-	`DELETE`
-  
-* ##### Error Response:
-
-	* Code: 404 NOT FOUND or 401 UNAUTHORIZED
-  
-## Unit
-The following queries will be preceded by /Unit.
-
-### Resource to show all units
-
-* ##### URL:
-
-	< / >
-
-* ##### Method:
-	
-	`GET`
-	
-* ##### URL Params:
-
-	`Empty`
-	
-* ##### Example of query:
-
-	* URL
-		
-		`/api/Unit/`
-		
-* ##### Success response:
-
-	```
-	{
-	    "totalElements": 2,
-            "totalPages": 1,
-	    "number": 0,
-	    "size": 20,
-	    "first": true,
-	    "last": true,
-	    "content": [
-		{
-		    "id": 1,
-		    "name": "Unidad 1"
-		},
-		{
-		    "id": 2,
-		    "name": "Unidad 2"
-		}
-	    ]
-	}
-	
-	```
-
-### Resource to show one unit
-
-* ##### URL:
-
-	< /{id} >
-
-* ##### Method:
-	
-	`GET`
-	
-* ##### URL Params:
-
-	`id=[long]`
-	
-* ##### Example of query:
-
-	* URL
-		
-		`/api/Unit/1`
-		
-* ##### Success response:
-
-	```
-	{
-	    "id": 1,
-	    "name": "Unidad 1"
-	}
-	```
-	
-* ##### Error response:
-
-	**Code:** 404 NOT FOUND
-
-
-### Create Unit with its lessons and exercises
-
-* ##### URL:
-
-	< / >
-
-* ##### Method:
-	
-	`POST`
-	
-* ##### URL Params:
-
-	`Empty`
-	
-* ##### Example of query:
-
-	* URL
-		
-		`/api/Unit/`
-
-* ##### Data params:
-
-	```
-	{
-	    "name": "Unidad 3",
-	    "lessons": [
-		{
-		    "id": 7,
-		    "name": "Lección 1 Unidad 3",
-		    "exercises": [
-			{
-				"kind": 1,
-				"statement": "Enunciado 1",
-				"texts": [ "Opcion 1", "Opcion 2","Opcion 3" ],
-				"answer": {
-					"result": "dos"
-				}
-			},
-			{
-				"kind": 2,
-				"statement": "Enunciado 2",
-				"answer": {
-					"result": "Este texto es de prueba"
-				}
-			},
-			{
-				"kind": 5,
-				"statement": "Enunciado 3",
-				"texts": [ "Opcion 1", "Opcion 2", "Opcion 3" ],
-				"answer": {
-					"result": "uno"
-				}
-			},
-			{
-				"kind": 7,
-				"statement": "Enunciado 4",
-				"texts": [ "Opcion 1", "Opcion 2", "Opcion 3" ],
-				"answer": {
-					"result": "tres"
-				}
-			}
-		    ]
-		},
-		{
-		    "id": 8,
-		    "name": "Lección 2 Unidad 3",
-		    "exercises": [
-			{
-				"kind": 1,
-				"statement": "Enunciado 1",
-				"texts": [ "Opcion 1", "Opcion 2", "Opcion 3" ],
-				"answer": {
-					"result": "dos"
-				}
-			},
-			{
-				"kind": 2,
-				"statement": "Enunciado 2",
-				"answer": {
-					"result": "Este texto es de prueba"
-				}
-			},
-			{
-				"kind": 5,
-				"statement": "Enunciado 3",
-				"texts": [ "Opcion 1", "Opcion 2", "Opcion 3" ],
-				"answer": {
-					"result": "uno"
-				}
-			},
-			{
-				"kind": 7,
-				"statement": "Enunciado 4",
-				"texts": [ "Opcion 1", "Opcion 2", "Opcion 3" ],
-				"answer": {
-					"result": "tres"
-				}
-			}
-		    ]
-		},
-		{
-		    "id": 9,
-		    "name": "Lección 3 Unidad 3",
-		    "exercises": [
-			{
-				"kind": 1,
-				"statement": "Enunciado 1",
-				"texts": [ "Opcion 1", "Opcion 2", "Opcion 3" ],
-				"answer": {
-					"result": "dos"
-				}
-			},
-			{
-				"kind": 2,
-				"statement": "Enunciado 2",
-				"answer": {
-					"result": "Este texto es de prueba"
-				}
-			},
-			{
-				"kind": 5,
-				"statement": "Enunciado 3",
-				"texts": [ "Opcion 1", "Opcion 2", "Opcion 3" ],
-				"answer": {
-					"result": "uno"
-				}
-			},
-			{
-				"kind": 7,
-				"statement": "Enunciado 4",
-				"texts": [ "Opcion 1", "Opcion 2", "Opcion 3" ],
-				"answer": {
-					"result": "tres"
-				}
-			}
-		    ]
-		}
-	    ]
-	}
-	```
-
-* ##### Success response:
-
-	```
-	{
-	    "id": 3,
-	    "name": "Unidad 3",
-	    "lessons": [
-		{
-		    "id": 7,
-		    "name": "Lección 1 Unidad 3",
-		    "exercises": [
-			{
-			    "id": 25,
-			    "kind": 1,
-			    "statement": "Enunciado 1",
-			    "texts": [
-				"Opcion 1",
-				"Opcion 2",
-				"Opcion 3"
-			    ]
-			},
-			{
-			    "id": 26,
-			    "kind": 2,
-			    "statement": "Enunciado 2",
-			    "texts": null
-			},
-			{
-			    "id": 27,
-			    "kind": 5,
-			    "statement": "Enunciado 3",
-			    "texts": [
-				"Opcion 1",
-				"Opcion 2",
-				"Opcion 3"
-			    ]
-			},
-			{
-			    "id": 28,
-			    "kind": 7,
-			    "statement": "Enunciado 4",
-			    "texts": [
-				"Opcion 1",
-				"Opcion 2",
-				"Opcion 3"
-			    ]
-			}
-		    ]
-		},
-		{
-		    "id": 8,
-		    "name": "Lección 2 Unidad 3",
-		    "exercises": [
-			{
-			    "id": 29,
-			    "kind": 1,
-			    "statement": "Enunciado 1",
-			    "texts": [
-				"Opcion 1",
-				"Opcion 2",
-				"Opcion 3"
-			    ]
-			},
-			{
-			    "id": 30,
-			    "kind": 2,
-			    "statement": "Enunciado 2",
-			    "texts": null
-			},
-			{
-			    "id": 31,
-			    "kind": 5,
-			    "statement": "Enunciado 3",
-			    "texts": [
-				"Opcion 1",
-				"Opcion 2",
-				"Opcion 3"
-			    ]
-			},
-			{
-			    "id": 32,
-			    "kind": 7,
-			    "statement": "Enunciado 4",
-			    "texts": [
-				"Opcion 1",
-				"Opcion 2",
-				"Opcion 3"
-			    ]
-			}
-		    ]
-		},
-		{
-		    "id": 9,
-		    "name": "Lección 3 Unidad 3",
-		    "exercises": [
-			{
-			    "id": 33,
-			    "kind": 1,
-			    "statement": "Enunciado 1",
-			    "texts": [
-				"Opcion 1",
-				"Opcion 2",
-				"Opcion 3"
-			    ]
-			},
-			{
-			    "id": 34,
-			    "kind": 2,
-			    "statement": "Enunciado 2",
-			    "texts": null
-			},
-			{
-			    "id": 35,
-			    "kind": 5,
-			    "statement": "Enunciado 3",
-			    "texts": [
-				"Opcion 1",
-				"Opcion 2",
-				"Opcion 3"
-			    ]
-			},
-			{
-			    "id": 36,
-			    "kind": 7,
-			    "statement": "Enunciado 4",
-			    "texts": [
-				"Opcion 1",
-				"Opcion 2",
-				"Opcion 3"
-			    ]
-			}
-		    ]
-		}
-	    ]
-	}
-	```
-* ##### Success response:
-
-	```
-	true
-	```
-	
-* ##### Error response:
-
-	**Code:** 404 NOT FOUND
-
-### Upload images of the unit created
-
-* ##### URL:
-
-	< / {id}/Images>
-
-* ##### Method:
-	
-	`POST`
-
-* ##### URL Params:
-
-	`id=[long]`
-	
-* ##### URL Params:
-
-	`Empty`
-	
-* ##### Example of query:
-
-	* URL
-		
-		`/api/Unit/1/Images`
-
-* ##### Data Params:
-
-	```
-	images[]: image file format (*.jpg, *.jpeg, *.png) (length = 9)
-	```
-* ##### Error response:
-
-	**Code:** 500 INTERNAL SERVER ERROR or 400 BAD REQUEST
-
-### Change the name of the unit
-
-* ##### URL:
-
-	< /{id} >
-
-* ##### Method:
-	
-	`PUT`
-	
-* ##### URL Params:
-
-	`id=[long]`
-	
-* ##### Example of query:
-
-	* URL
-		
-		`/api/Unit/1`
-		
-* ##### Data Params:
-	
-	```
-	{
-		"name": "Unidad Prueba"
-	}
-	```
-
-* ##### Success response:
-
-	```
-	{
-	    "id": 1,
-	    "name": "Unidad Prueba"
-	}
-	```
-	
-* ##### Error response:
-
-	**Code:** 404 NOT FOUND
-
-### Delete unit
-
-* ##### URL:
-
-	< /{id} >
-
-* ##### Method:
-	
-	`DELETE`
-	
-* ##### URL Params:
-
-	`id=[long]`
-	
-* ##### Example of query:
-
-	* URL
-		
-		`/api/Unit/1`
-		
-* ##### Data Params:
-	
-	```
-	{
-		"name": "Unidad Prueba"
-	}
-	```
-
-* ##### Success response:
-
-	```
-	{
-	    "id": 1,
-	    "name": "Unidad Prueba"
-	}
-	```
-	
-* ##### Error response:
-
-	**Code:** 404 NOT FOUND
-
-
-## Lesson
-The following queries will be preceded by /Unit.
-
-### Resource to show all lessons
-
-* ##### URL:
-
-	< /Lessons/ >
-
-* ##### Method:
-	
-	`GET`
-	
-* ##### URL Params:
-
-	`Empty`
-	
-* ##### Example of query:
-
-	* URL
-		
-		`/api/Unit/Lessons/`
-		
-* ##### Success response:
-
-	```
-	{
-	    "totalElements": 6,
-	    "totalPages": 1,
-	    "number": 0,
-	    "size": 20,
-	    "first": true,
-	    "last": true,
-	    "content": [
-		{
-		    "id": 4,
-		    "name": "Lección 1 Unidad 2"
-		},
-		{
-		    "id": 5,
-		    "name": "Lección 2 Unidad 2"
-		},
-		{
-		    "id": 6,
-		    "name": "Lección 3 Unidad 2"
-		},
-		{
-		    "id": 7,
-		    "name": "Lección 1 Unidad 3"
-		},
-		{
-		    "id": 8,
-		    "name": "Lección 2 Unidad 3"
-		},
-		{
-		    "id": 9,
-		    "name": "Lección 3 Unidad 3"
-		}
-	    ]
-	}
-	
-	```
-
-### Resource to show an unit with its lessons
-
-* ##### URL:
-
-	< /{idunit}/Lesson/ >
-
-* ##### Method:
-	
-	`GET`
-	
-* ##### URL Params:
-
-	`idunit=[long]`
-	
-* ##### Example of query:
-
-	* URL
-		
-		`/api/Unit/1/Lesson/`
-		
-* ##### Success response:
-
-	```
-	{
-	    "id": 1,
-	    "name": "Unidad 1",
-	    "lessons": [
-		{
-		    "id": 1,
-		    "name": "Lección 1 Unidad 1",
-		    "exercises": null
-		},
-		{
-		    "id": 2,
-		    "name": "Lección 2 Unidad 1",
-		    "exercises": null
-		},
-		{
-		    "id": 3,
-		    "name": "Lección 3 Unidad 1",
-		    "exercises": null
-		}
-	    ]
-	}
-	```
-	
-* ##### Error response:
-
-	**Code:** 404 NOT FOUND
-
-### Resource to show one lesson
-
-* ##### URL:
-
-	< /{idunit}/Lesson/{id} >
-
-* ##### Method:
-	
-	`GET`
-	
-* ##### URL Params:
-
-	`
-	idunit=[long]
-	id=[long]
-	`
-	
-* ##### Example of query:
-
-	* URL
-		
-		`/api/Unit/1/Lesson/1`
-		
-* ##### Success response:
-
-	```
-	{
-	    "id": 1,
-	    "name": "Lección 1 Unidad 1"
-	}
-	```
-	
-* ##### Error response:
-
-	**Code:** 404 NOT FOUND
-
-### Change the name of the lesson
-
-* ##### URL:
-
-	< /{idunit}/Lesson/{id} >
-
-* ##### Method:
-	
-	`PUT`
-	
-* ##### URL Params:
-
-	`
-	idunit=[long]
-	id=[long]
-	`
-	
-* ##### Example of query:
-
-	* URL
-		
-		`/api/Unit/1/Lesson/1`
-		
-* ##### Data Params:
-	
-	```
-	{
-		"name": "Leccion Prueba"
-	}
-	```
-
-* ##### Success response:
-
-	```
-	{
-	    "id": 1,
-	    "name": "Leccion Prueba"
-	}
-	```
-	
-* ##### Error response:
-
-	**Code:** 404 NOT FOUND
-	
-### To complete the lesson when all exercises are done
-
-* ##### URL:
-
-	< /{idunit}/Lesson/{idlesson}/Completed >
-
-* ##### Method:
-	
-	`GET`
-	
-* ##### URL Params:
-
-	`
-	idunit=[long]
-	idlesson=[long]
-	`
-	
-* ##### Example of query:
-
-	* URL
-		
-		`/api/Unit/1/Lesson/1/Completed`
-		
-* ##### Success response:
-
-	```
-	true
-	```
-	
-* ##### Error response:
-
-	**Code:** 404 NOT FOUND
-
-### FALTA METER LA CONSULTA PARA SABER SI LA LECCIÓN ESTÁ YA COMPLETADA
-
-
-
-## Exercise
-
-The following queries must be preceded by /Unit.
-
-### Resource to show all exercises
-
-* ##### URL:
-
-	< /Lesson/Exercises/ >
-
-* ##### Method:
-
-	`GET`
-	
-* ##### URL Params:
-
-	`Empty`
-
-* ##### Example of query:
-
-	* URL
-		
-		`api/Unit/Lesson/Exercises/`
-
-* ##### Success Response:
-
-	```
-	{
-	    "totalElements": 24,
-	    "totalPages": 2,
-	    "number": 0,
-	    "size": 10,
-	    "first": true,
-	    "last": false,
-	    "content": [
-		{
-		    "id": 1,
-		    "kind": 1,
-		    "statement": "1.1.1 Seleccione el asiento",
-		    "texts": [
-			"213.Maquinaria",
-			"210.Terrenos y bienes naturales",
-			"218. Elementos de transporte"
-		    ]
-		},
-		{
-		    "id": 2,
-		    "kind": 2,
-		    "statement": "1.1.2 Escribe la denominación de la cuenta que recoge: maquinarias para el proceso productivo de la empresa",
-		    "texts": []
-		},
-		{
-		    "id": 3,
-		    "kind": 5,
-		    "statement": "1.1.5 Escoge la respuesta correcta para la cuenta: 210. Terrenos y bienes naturales",
-		    "texts": [
-			"Activo",
-			"Pasivo",
-			"Patrimonio neto"
-		    ]
-		},
-		{
-		    "id": 4,
-		    "kind": 7,
-		    "statement": "1.1.7 Escoge el enunciado correcto para el asiento: \"10 211. Construcciones a 174. Provedores de inmovilizado a l/p 10\"",
-		    "texts": [
-			" La empresa compra un local por 10, dejándolo a deber a su provedor, al que pagará integramente dentro de 10 años a través de la letra de cambio.",
-			"La empresa compra un local por 10, dejándolo a deber a su provedor, al que pagará integramente dentro de 10 años.",
-			" La empresa compra un local por 10, dejándolo a deber a su provedor, al que pagará en un plazo no superior a un año."
-		    ]
-		},
-		{
-		    "id": 5,
-		    "kind": 1,
-		    "statement": "1.1.1 Seleccione el asiento",
-		    "texts": [
-			"213.Maquinaria",
-			"210.Terrenos y bienes naturales",
-			"218. Elementos de transporte"
-		    ]
-		},
-		{
-		    "id": 6,
-		    "kind": 2,
-		    "statement": "1.2.2 Escribe la denominación de la cuenta que recoge: maquinarias para el proceso productivo de la empresa",
-		    "texts": []
-		},
-		{
-		    "id": 7,
-		    "kind": 5,
-		    "statement": "1.2.5 Escoge la respuesta correcta para la cuenta: 210. Terrenos y bienes naturales",
-		    "texts": [
-			"Activo",
-			"Pasivo",
-			"Patrimonio neto"
-		    ]
-		},
-		{
-		    "id": 8,
-		    "kind": 7,
-		    "statement": "1.2.7 Escoge el enunciado correcto para el asiento: \"10 211. Construcciones a 174. Provedores de inmovilizado a l/p 10\"",
-		    "texts": [
-			" La empresa compra un local por 10, dejándolo a deber a su provedor, al que pagará integramente dentro de 10 años a través de la letra de cambio.",
-			"La empresa compra un local por 10, dejándolo a deber a su provedor, al que pagará integramente dentro de 10 años.",
-			" La empresa compra un local por 10, dejándolo a deber a su provedor, al que pagará en un plazo no superior a un año."
-		    ]
-		},
-		{
-		    "id": 9,
-		    "kind": 1,
-		    "statement": "1.3.1 Seleccione el asiento",
-		    "texts": [
-			"213.Maquinaria",
-			"210.Terrenos y bienes naturales",
-			"218. Elementos de transporte"
-		    ]
-		},
-		{
-		    "id": 10,
-		    "kind": 2,
-		    "statement": "1.3.2 Escribe la denominación de la cuenta que recoge: maquinarias para el proceso productivo de la empresa",
-		    "texts": []
-		}
-	    ]
-	}
-	```
-
-* ##### Error Response:
-
-	**Code:** 404 NOT FOUND
-
-### Resource to show one exercise
-
-* ##### URL:
-
-	< {idunit}/Lesson/{idlesson}/Exercise/{id} >
-
-* ##### Method:
-
-	`GET`
-
-* ##### URL Params:
-
-	* `idunit=[long]`
-	* `idlesson=[long]`
-	* `id=[long]`
-
-* ##### Example of query:
-
-	* URL
-		
-		`api/Unit/1/Lesson/1/Exercise/1`
-
-* ##### Success Response:
-
-	```
-	{
-	    "id": 1,
-	    "kind": 1,
-	    "statement": "1.1.1 Seleccione el asiento",
-	    "texts": [
-		"213.Maquinaria",
-		"210.Terrenos y bienes naturales",
-		"218. Elementos de transporte"
-	    ]
-	}
-	```
-
-* ##### Error Response:
-
-	**Code:** 404 NOT FOUND
-
-### Change an exercise
-
-* ##### URL:
-
-	< {idunit}/Lesson/{idlesson}/Exercise/{id} >
-
-* ##### Method:
-
-	`PUT`
-
-* ##### URL Params:
-
-	* `idunit=[long]`
-	* `idlesson=[long]`
-	* `id=[long]`
-
-* ##### Example of query:
-
-	* URL
-		
-		`api/Unit/1/Lesson/1/Exercise/1`
-
-* ##### Data Params:
-
-	```
-	{
-	    "kind": 1,
-	    "statement": "1.1.1 Seleccione el asiento",
-	    "texts": [
-	        "213.Maquinaria",
-	        "210.Terrenos y bienes naturales",
-	        "218. Elementos de transporte"
-	    ]
-	}
-	```
-
-* ##### Success Response:
-
-	```
-	{
-	    "id": 2,
-	    "kind": 1,
-	    "statement": "1.1.1 Seleccione el asiento",
-	    "texts": [
-		"213.Maquinaria",
-		"210.Terrenos y bienes naturales",
-		"218. Elementos de transporte"
-	    ]
-	}
-	```
-
-* ##### Error Response:
-
-	**Code:** 404 NOT FOUND
-
-### Resource to show an answer
-
-* ##### URL:
-
-	< {idunit}/Lesson/{idlesson}/Exercise/{id}/Answer >
-
-* ##### Method:
-
-	`GET`
-
-* ##### URL Params:
-
-	* `idunit=[long]`
-	* `idlesson=[long]`
-	* `id=[long]`
-
-* ##### Example of query:
-
-	* URL
-		
-		`api/Unit/1/Lesson/1/Exercise/1/Answer`
-
-* ##### Success Response:
-
-	```
-	{
-	    "id": 1,
-	    "result": "uno"
-	}
-	
-	```
-
-* ##### Error Response:
-
-	**Code:** 404 NOT FOUND
-
-### Change an answer
-
-* ##### URL:
-
-	< {idunit}/Lesson/{idlesson}/Exercise/{id}/Answer >
-
-* ##### Method:
-
-	`PUT`
-
-* ##### URL Params:
-
-	* `idunit=[long]`
-	* `idlesson=[long]`
-	* `id=[long]`
-
-* ##### Example of query:
-
-	* URL
-		
-		`api/Unit/1/Lesson/1/Exercise/1/Answer`
-
-* ##### Data Params:
-
-	```
-	{
-	    "result": "dos"
-	}
-	```
-
-* ##### Success Response:
-
-	```
-	{
-	    "id": 1,
-	    "result": "dos"
-	}
-	
-	```
-
-* ##### Error Response:
-
-	**Code:** 404 NOT FOUND
-
-### Check if an answer is correct or not
-
-* ##### URL:
-
-	< {idunit}/Lesson/{idlesson}/Exercise/{id}/Solution >
-
-* ##### Method:
-
-	`PUT`
-
-* ##### URL Params:
-
-	* `idunit=[long]`
-	* `idlesson=[long]`
-	* `id=[long]`
-
-* ##### Example of query:
-
-	* URL
-		
-		`api/Unit/1/Lesson/1/Exercise/1/Solution`
-
-* ##### Data Params:
-
-	```
-	{
-	    "result": "dos"
-	}
-	```
-
-* ##### Success Response:
-
-	```
-	true
-	```
-
-* ##### Error Response:
-
-	**Code:** 404 NOT FOUND
