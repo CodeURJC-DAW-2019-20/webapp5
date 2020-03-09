@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,6 +42,14 @@ public class EventRestController {
 	@GetMapping("/")
 	public ResponseEntity<List<Event>> getEvent() {
 		List<Event> event = eventService.findAll();
+		return new ResponseEntity<>(event, HttpStatus.OK);
+	}
+	
+
+	//every user
+	@GetMapping("/pages/{id}")
+	public ResponseEntity<Page<Event>> getEventPages(@PathVariable int id) {
+		Page<Event> event = eventService.findAllPages(id, 3);
 		return new ResponseEntity<>(event, HttpStatus.OK);
 	}
 	

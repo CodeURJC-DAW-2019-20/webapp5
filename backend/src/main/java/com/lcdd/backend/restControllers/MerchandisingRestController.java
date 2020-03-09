@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,6 +37,12 @@ public class MerchandisingRestController {
 	@GetMapping("/")
 	public ResponseEntity<List<Merchandising>> getMerchandising() {
 		List<Merchandising> merch = service.findAll();
+		return new ResponseEntity<>(merch, HttpStatus.OK);
+	}
+	//every user
+	@GetMapping("/pages/{id}")
+	public ResponseEntity<Page<Merchandising>> getMerchandisingPages(@PathVariable int id) {
+		Page<Merchandising> merch = service.findAllPages(id, 3);
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 	
