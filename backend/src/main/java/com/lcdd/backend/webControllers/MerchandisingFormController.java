@@ -18,21 +18,23 @@ import com.lcdd.backend.dbrepositories.MerchandisingRepository;
 import com.lcdd.backend.pojo.MerchDataForm;
 import com.lcdd.backend.pojo.MerchType;
 import com.lcdd.backend.pojo.Merchandising;
+import com.lcdd.backend.services.MerchTypeService;
+import com.lcdd.backend.services.MerchandisingService;
 
 @Controller
 public class MerchandisingFormController {
 	
 	@Autowired
-	private MerchandisingRepository repository;
+	private MerchandisingService serviceMerch;
 	@Autowired
 	private ImageService imgService;
 	@Autowired
-	private MerchTypeRepository merchTypeRepository;
+	private MerchTypeService serviceType;
 	
 	@RequestMapping(value = {"merchandising-form"})
 	public String serveMerchandising(Model model) {
 		List<MerchType> merchtype; 
-		merchtype = merchTypeRepository.findAll();
+		merchtype = serviceType.findAll();
 		
 		model.addAttribute("MerchList", merchtype);
 		
@@ -51,7 +53,7 @@ public class MerchandisingFormController {
 		int stock = data.getStock();
 		String description = data.getDescription();
 		
-		Optional<MerchType> merchtype = merchTypeRepository.findById((long)typeId);
+		Optional<MerchType> merchtype = serviceType.findById((long)typeId);
 		
 		if(!merchtype.isPresent()) {
 			return null;
@@ -60,10 +62,10 @@ public class MerchandisingFormController {
 		Merchandising merch = new Merchandising(name, merchtype.get(), price, discount, stock, description);
 		if(! imageFile.isEmpty()) {
 			merch.setHaveImage(true);
-			repository.save(merch);
+			serviceMerch.save(merch);
 			imgService.saveImage("merchImages", merch.getId(), imageFile);
 		}else {
-			repository.save(merch);
+			serviceMerch.save(merch);
 		} 
 			
 		model.addAttribute("merch", merch);

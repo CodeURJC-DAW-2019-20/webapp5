@@ -2,30 +2,23 @@ package com.lcdd.backend.webControllers;
 
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Optional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.pojo.Game;
+import com.lcdd.backend.services.EventService;
+import com.lcdd.backend.services.GameService;
 import com.lcdd.backend.pojo.EventDataForm;
 
 import com.lcdd.backend.ImageService;
 import com.lcdd.backend.UserSession;
-import com.lcdd.backend.dbrepositories.EventRepository;
-import com.lcdd.backend.dbrepositories.GameRepository;
 
 
 
@@ -33,11 +26,11 @@ import com.lcdd.backend.dbrepositories.GameRepository;
 public class EventFormController {
   
 	@Autowired
-	private EventRepository repository;
+	private EventService eventService;
 	@Autowired
 	private ImageService imgService;
 	@Autowired
-	private GameRepository gameRepository;
+	private GameService gameService;
 	@Autowired
 	private UserSession session;
 	
@@ -45,7 +38,7 @@ public class EventFormController {
 	public String serveEvent(Model model) {
 		// model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		List<Game> gameList; 
-		gameList = gameRepository.findAll();
+		gameList = gameService.findAll();
 		
 		model.addAttribute("GameList", gameList);
 		 
@@ -69,20 +62,20 @@ public class EventFormController {
 		float inscriptionFee = data.getInscriptionFee();
 		int maxParticipants = data.getMaxParticipants(); 
 
-		Optional<Game> game = gameRepository.findById((long)gameId);
+		Game game = gameService.findById((long)gameId);
 		
-		if(!game.isPresent()) {
+		if(game != null) {
 			return null;
 		}		
 		
-		Event event = new Event(name, game.get(), place, date, time, description, isTournament, reward, groupSize, inscriptionFee, maxParticipants);
+		Event event = new Event(name, game, place, date, time, description, isTournament, reward, groupSize, inscriptionFee, maxParticipants);
 		
 		if(! imageFile.isEmpty()) {
 			event.setHaveImage(true);
-			repository.save(event);
+			eventService.save(event);
 			imgService.saveImage("eventsImages", event.getId(), imageFile);
 		}else {
-			repository.save(event);
+			eventService.save(event);
 		}
 			
 		model.addAttribute("event", event);

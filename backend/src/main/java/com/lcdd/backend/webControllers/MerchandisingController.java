@@ -17,13 +17,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lcdd.backend.dbrepositories.MerchandisingRepository;
 import com.lcdd.backend.pojo.Merchandising;
+import com.lcdd.backend.services.MerchandisingService;
 
 
 @Controller
 public class MerchandisingController {
 	
 	@Autowired
-	MerchandisingRepository repository;
+	private MerchandisingService service;
+
 	
 	@RequestMapping(value= {"merchandising"})
 	public String serveMerchandising(Model model) {
@@ -32,13 +34,13 @@ public class MerchandisingController {
 	
 	@RequestMapping("/merchandising/{id}")
     public String getMerchandising(@PathVariable long id, Model model) {
-        Optional<Merchandising> merchFound = repository.findById(id);
+        Merchandising merchFound = service.findById(id);
 
-        if(!merchFound.isPresent()) {
+        if(merchFound != null) {
         	return "redirect:/error";
         }
 
-        model.addAttribute("merch", merchFound.get());
+        model.addAttribute("merch", merchFound);
 
         return "merchandising-template";
     }
@@ -47,14 +49,14 @@ public class MerchandisingController {
 			method = RequestMethod.POST)
 	public String purchaseMerch(Model model, @PathVariable long id) {
 		
-		Merchandising merchFound = repository.findById(id).get();
+		Merchandising merchFound = service.findById(id);
 		
         if(merchFound == null) {
         	return "redirect:/error";
         }
         
         merchFound.setStock(merchFound.getStock()-1);
-        repository.save(merchFound);
+        service.save(merchFound);
         model.addAttribute("merch", merchFound);
         
         return "merchandising-template";
@@ -66,7 +68,7 @@ public class MerchandisingController {
 	public ResponseEntity<String> getEventsList(@RequestParam() int pageId) {
 		String result = "";
 		
-		Page<Merchandising> pageMerch = repository.findAll(PageRequest.of(pageId,3));
+		Page<Merchandising> pageMerch = service.findAllPages(pageId,3);
 		
 		if(pageMerch.hasContent()) {
 			for(Merchandising merch : pageMerch.getContent()) {
@@ -162,4 +164,5 @@ public class MerchandisingController {
 		
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
+
 }

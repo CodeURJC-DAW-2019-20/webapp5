@@ -9,4 +9,8 @@ import com.lcdd.backend.pojo.Merchandising;
 public interface MerchandisingRepository extends JpaRepository<Merchandising, Long> {
 	
 	Page<Merchandising> findAll(Pageable page);
+	
+	Merchandising findByName(String name);
+	
+	Merchandising findById(long id);
 }
