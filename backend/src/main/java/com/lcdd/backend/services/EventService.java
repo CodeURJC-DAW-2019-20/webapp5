@@ -25,6 +25,10 @@ public class EventService {
 		return repository.findAll();
 	}
 	
+	public Page<Event> findAll(Pageable page){
+		return repository.findAll(page);
+	}
+	
 	public void save(Event event) {	
 		repository.save(event);
 	}
@@ -53,10 +57,6 @@ public class EventService {
 	
 	public List<Object[]> countGamesEvent(){
 		return repository.countGamesEvent();
-	}
-	
-	public Page<Event> findAll(Pageable page){
-		return repository.findAll(page);
 	}
 
 }

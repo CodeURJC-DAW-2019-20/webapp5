@@ -57,5 +57,4 @@ public class ImageService implements WebMvcConfigurer {
 		return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").body(file);
 	}
 
-	
 }

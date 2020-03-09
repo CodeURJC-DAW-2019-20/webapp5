@@ -50,7 +50,7 @@
                             <h6>Recomendacion personalizada</h6>
                             <p>
                                 Por tu actividad reciente te recomendamos eventos de <b>{{popular.name}}</b>
-             					<button name="submit" id="show_more_event_suggestions" class="btn btn-primary">Buscar más eventos de este tipo</button>
+             					<a href="/events?game={{popular.id}}" class="btn btn-primary">Buscar más eventos de este tipo</a>
                             </p>
                          
                         </div>
@@ -97,6 +97,5 @@
 </div>
 
   {{>components/footer}}
-	<script src="/assets/js/events.js"></script>
 </body>
 </html>
