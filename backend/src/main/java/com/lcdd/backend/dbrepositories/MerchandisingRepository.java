@@ -11,6 +11,5 @@ public interface MerchandisingRepository extends JpaRepository<Merchandising, Lo
 	Page<Merchandising> findAll(Pageable page);
 	
 	Merchandising findByName(String name);
-	
 	Merchandising findById(long id);
 }

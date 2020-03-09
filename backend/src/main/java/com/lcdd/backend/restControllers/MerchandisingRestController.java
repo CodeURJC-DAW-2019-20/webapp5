@@ -66,7 +66,7 @@ public class MerchandisingRestController {
 	
 	//only admin
 	@PutMapping("/{id}")
-	public ResponseEntity<Merchandising> updateMerchId(@PathVariable long id, @RequestBody Merchandising updateMerch,
+	public ResponseEntity<Merchandising> updateMerch(@PathVariable long id, @RequestBody Merchandising updateMerch,
 			HttpServletRequest request, HttpSession session){
 		Merchandising merch = service.findById(id);
 		if(merch.getName()!= null) {

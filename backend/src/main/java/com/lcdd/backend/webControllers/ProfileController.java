@@ -1,10 +1,8 @@
 package com.lcdd.backend.webControllers;
 
-import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lcdd.backend.UserSession;
-import com.lcdd.backend.dbrepositories.EventRepository;
-import com.lcdd.backend.dbrepositories.GameRepository;
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.RegisterDataForm;

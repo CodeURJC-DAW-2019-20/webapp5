@@ -19,6 +19,7 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 	
 	Page<Event> findAll(Pageable page);
 	Page<Event> findByGame(Game game, Pageable pageable); 
+	
 	Event findByName(String name);
 	Event findById(long id);
 	
