@@ -233,8 +233,9 @@ Docker allows you to use our application without having anything install.You jus
 
 #### Linux Commands
 
-### IDE
-  
+
+**Class Diagram**: 
+![Class Diagram](backend/src/main/resources/static/assets/img/ClassTemplateFase3.png)
 
 ### Members participation
 
