@@ -38,13 +38,30 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/role/{id}").hasRole("ADMIN");
 		
 		// URLs merch
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandisings/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandisings/types").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandisings/{id}").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandisings/{id}/image").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandisings/?page={id}").permitAll();
+		
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/merchandisings/").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/merchandisings/{id}/image").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/merchandisings/{id}").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/merchandisings/{id}").hasRole("ADMIN");
+		
+		//URLs roles
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/role/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/role/{id}").hasRole("ADMIN");
 			
 		//URLs events
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/?page={id}").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/games").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/{id}").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/{id}/image").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/{id}/userRegistered").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/events/").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/events/{id}/image").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/events/{id}").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/events/{id}").hasRole("ADMIN");
 		

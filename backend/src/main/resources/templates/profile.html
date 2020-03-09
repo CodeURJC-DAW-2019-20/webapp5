@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     	{{>components/html_head}}
+    	
 </head>
 
 <body>
@@ -29,7 +30,7 @@
                 <div class="tab-pane active" id="profile">
                     <h5 class="mb-3">Información personal</h5>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-16">
                             <h6>Nombre</h6>
                             <p>
                                 {{session.firstName}}
@@ -49,8 +50,9 @@
                             <h6>Recomendacion personalizada</h6>
                             <p>
                                 Por tu actividad reciente te recomendamos eventos de <b>{{popular.name}}</b>
-                                <button name="/merchandising" id="suggestion" class="btn btn-primary">Buscar mas</button>
+             					<button name="submit" id="show_more_event_suggestions" class="btn btn-primary">Buscar más eventos de este tipo</button>
                             </p>
+                         
                         </div>
                     </div>
                     <!--/row-->
@@ -95,6 +97,6 @@
 </div>
 
   {{>components/footer}}
-
+	<script src="/assets/js/events.js"></script>
 </body>
 </html>

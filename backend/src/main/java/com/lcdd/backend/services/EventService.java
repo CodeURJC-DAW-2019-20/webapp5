@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.lcdd.backend.dbrepositories.EventRepository;
 import com.lcdd.backend.pojo.Event;
+import com.lcdd.backend.pojo.Game;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -33,6 +35,9 @@ public class EventService {
 	
 	public Page<Event> findAllPages(int page, int size) {
 		return repository.findAll(PageRequest.of(page,size));
+	}
+	public Page<Event> findAllPagesByGame(Game game, int page, int size) {
+		return repository.findByGame(game, PageRequest.of(page,size));
 	}
 	
 	public boolean createEvent(Event event) {

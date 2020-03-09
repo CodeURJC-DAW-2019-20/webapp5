@@ -60,7 +60,7 @@ public class MerchandisingController {
 	
 	
 	@GetMapping("/merchList")
-	public ResponseEntity<String> getEventsList(@RequestParam() int pageId) {
+	public ResponseEntity<String> getMerchsList(@RequestParam() int pageId) {
 		String result = "";
 		
 		Page<Merchandising> pageMerch = service.findAllPages(pageId,3);

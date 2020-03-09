@@ -1,9 +1,13 @@
 package com.lcdd.backend.restControllers;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,9 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.lcdd.backend.pojo.Game;
+import com.lcdd.backend.pojo.Merchandising;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.ImageService;
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.services.GameService;
 import com.lcdd.backend.services.UserRegisterEventService;
@@ -32,11 +41,21 @@ public class EventRestController {
 	private GameService gameService;
 	@Autowired
 	private UserRegisterEventService userRegService;
+	@Autowired
+	private ImageService imageService;
 
 	//every user
 	@GetMapping("/")
 	public ResponseEntity<List<Event>> getEvent() {
 		List<Event> event = eventService.findAll();
+		return new ResponseEntity<>(event, HttpStatus.OK);
+	}
+	
+
+	//every user
+	@GetMapping("/pages/{id}")
+	public ResponseEntity<Page<Event>> getEventPages(@PathVariable int id) {
+		Page<Event> event = eventService.findAllPages(id, 3);
 		return new ResponseEntity<>(event, HttpStatus.OK);
 	}
 	
@@ -52,6 +71,17 @@ public class EventRestController {
 	public ResponseEntity<Event> getEvent(@PathVariable long id) {
 		Event event = eventService.findById(id);
 		return new ResponseEntity<>(event, HttpStatus.OK);
+	}
+	
+	//every user
+	@GetMapping("/{id}/image")
+	public ResponseEntity<Object> getEventImage(@PathVariable long id) throws IOException{
+		Event event = eventService.findById(id);
+		
+	if (event.isHaveImage()) {
+		return this.imageService.createResponseFromImage("eventsImages", id);
+	}
+		return new ResponseEntity<>(event, HttpStatus.NOT_FOUND);
 	}
 	
 	//get all users registered in an event
@@ -74,6 +104,20 @@ public class EventRestController {
 			return new ResponseEntity<>(event, HttpStatus.CREATED);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+	}
+	
+	@PostMapping("/{id}/image")
+	public ResponseEntity<Event> postEventImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
+			throws IOException {
+
+		Event event = eventService.findById(id);
+
+			event.isHaveImage();
+			eventService.save(event);
+
+			imageService.saveImage("eventsImages", event.getId(), imageFile);
+			return new ResponseEntity<>(HttpStatus.CREATED);
+
 	}
 	
 	//only admin
