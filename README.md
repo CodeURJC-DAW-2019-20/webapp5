@@ -232,7 +232,11 @@ Docker allows you to use our application without having anything install.You jus
 - The docker-compose.yml file uses a mysql image sets up in port 3306 (Don't forget to stop your local mysql), and a contafin image, sets up in port 8080.
 
 #### Linux Commands
-
+To execute docker in linux you should follow the next commands:
+- ./create-image.sh
+- docker-compose up
+To stop running the docker use:
+- docker-compose down
 
 **Class Diagram**: 
 ![Class Diagram](backend/src/main/resources/static/assets/img/ClassTemplateFase3.png)
@@ -259,21 +263,21 @@ Docker allows you to use our application without having anything install.You jus
 
 **Daniel**
 
--  Completed tasks: 
+-  Completed tasks:generate Rest security configuration, Login Rest Controller, RestControllerExceptionHandler and README.
 
 - 5 most significant comics:
-  1. 
-  2. 
-  3. 
-  4. 
-  5. 
+  1. LoginController done + RestSecurity started
+  2. Security User
+  3. Security role + merch 
+  4. Event security
+  5. Added class diagram
   
 - 5 files with participation:
-  1. 
-  2. 
-  3. 
-  4. 
-  5. 
+  1. RestSecurityConfig
+  2. LoginRestController
+  3. RestControllerExceptionHandler
+  4. README.md
+  5. API.md
 
 **Carlos**
 
