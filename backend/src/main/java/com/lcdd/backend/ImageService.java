@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,7 +13,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Service
 @Configuration
 public class ImageService implements WebMvcConfigurer {
-	//ruta donde estan las imagenes
 	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
 	
 	
@@ -28,7 +26,6 @@ public class ImageService implements WebMvcConfigurer {
 	}
 	
 	
-	//crear el nombre de la imagen
 	private Path createFilePath(long id, Path folder) {
 		return folder.resolve("image-" + id + ".jpg");
 	}

@@ -9,14 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.lcdd.backend.UserSession;
-import com.lcdd.backend.dbrepositories.EventRegisterRepository;
-import com.lcdd.backend.dbrepositories.EventRepository;
-import com.lcdd.backend.dbrepositories.PurchaseRepository;
 import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.pojo.Purchase;
 import com.lcdd.backend.pojo.Role;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.services.EventService;
+import com.lcdd.backend.services.PurchaseService;
 import com.lcdd.backend.services.RoleService;
+import com.lcdd.backend.services.UserRegisterEventService;
 import com.lcdd.backend.services.UserService;
 
 @Controller
@@ -27,11 +27,11 @@ public class DashboardController {
 	@Autowired
 	private UserService userService;
 	@Autowired
-	private PurchaseRepository purchaseRepository;
+	private PurchaseService purchaseService;
 	@Autowired
-	private EventRegisterRepository eventRegisterRepository;
+	private UserRegisterEventService eventRegisterService;
 	@Autowired
-	private EventRepository eventRepository;
+	private EventService eventService;
 	
 	@Autowired
 	private UserSession session;
@@ -57,7 +57,7 @@ public class DashboardController {
 	private Model fillEvenstTab(Model model) {
 		
 		List<EventRegister> eventRegisterList;
-		List<Object[]> eventGameList = eventRepository.countGamesEvent();
+		List<Object[]> eventGameList = eventService.countGamesEvent();
 		
 		String[] gamesArray = new String[eventGameList.size()];
 		i = 0;
@@ -73,7 +73,7 @@ public class DashboardController {
 			i++;
 		}
 		
-		eventRegisterList = eventRegisterRepository.findAll();
+		eventRegisterList = eventRegisterService.findAll();
 		
 		model.addAttribute("EventRegisterList", eventRegisterList);
 		
@@ -96,14 +96,14 @@ public class DashboardController {
 		calendar.add(Calendar.MONTH, -11);
 		
 		for(int i=0; i<12; i++) {
-			aux = purchaseRepository.lastYearPurchasesByMonth(calendar.getTime());
+			aux = purchaseService.lastYearPurchasesByMonth(calendar.getTime());
 			salesArray[i] = (aux == null) ? 0 : aux;
 			monthsArray[i] = new SimpleDateFormat("MMMM").format(calendar.getTime());
 			
 			calendar.add(Calendar.MONTH, +1);
 		}
 		
-		purchaseList = purchaseRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
+		purchaseList = purchaseService.findAll(Sort.by(Sort.Direction.DESC, "date"));
 		
 		model.addAttribute("PurchaseList", purchaseList);
 		

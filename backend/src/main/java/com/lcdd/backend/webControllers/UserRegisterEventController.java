@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.lcdd.backend.UserSession;
-import com.lcdd.backend.dbrepositories.EventRegisterRepository;
-import com.lcdd.backend.dbrepositories.EventRepository;
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.pojo.User;
 import com.lcdd.backend.services.UserService;

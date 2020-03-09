@@ -3,14 +3,11 @@ package com.lcdd.backend.services;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.lcdd.backend.dbrepositories.EventRegisterRepository;
 import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.pojo.User;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
