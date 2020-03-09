@@ -107,7 +107,7 @@ The following queries contains information about the Merchandaising.
 |Merch Information|Permissions|Request Type|Request URL|Sucess response|Error Response|
 |----------------|-----------|------------|------------|-------------------|---------------------|
 |Merch list|ALL|GET|/api/merchandaisings/|(Merch List) and *OK* (200)|*NOT FOUND* (404)|
-|Type list of merchandaising|ALL|GET|/api/merchandaisings/types/|(Merch Type list) and *OK* (200)|*NOT FOUND* (404)|
+|List of merchandaising type|ALL|GET|/api/merchandaisings/types/|(Merch Type list) and *OK* (200)|*NOT FOUND* (404)|
 |Merch Information|ALL|GET|/api/merchandaisings/id/|(MERCH) and *OK* (200)|*NOT FOUND* (404)|
 |Create a Merch|ADMIN|POST|/api/merchandaisings/|(MERCH) and *CREATED* (200)|*NOT ACCEPTABLE* (406)|
 |Update Merch|ADMIN|PUT|/api/merchandaisings/id/|(MERCH) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
@@ -216,7 +216,7 @@ The following queries contains information about the Merchandaising.
 ## EVENTS
 The following queries contains information about the Events.
 
-|Merch Information|Permissions|Request Type|Request URL|Sucess response|Error Response|
+|Events Information|Permissions|Request Type|Request URL|Sucess response|Error Response|
 |----------------|-----------|------------|------------|-------------------|---------------------|
 |Event list|ALL|GET|/api/events/|(Event List) and *OK* (200)|*NOT FOUND* (404)|
 |Game list|ALL|GET|/api/events/games/|(Game list) and *OK* (200)|*NOT FOUND* (404)|
@@ -319,3 +319,71 @@ The following queries contains information about the Events.
 }
 ```
 
+## ROLES
+The following queries contains information about the all types of roles (President,vicepresident...).
+
+|Roles Information|Permissions|Request Type|Request URL|Sucess response|Error Response|
+|----------------|-----------|------------|------------|-------------------|---------------------|
+|Roles of directive board|ALL|GET|/api/role/|(Role List) and *OK* (200)|*NOT FOUND* (404)|
+|Users in an specefic role|ADMIN|GET|/api/role/id/|(User list) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+
+### Example of GET to https://localhost:8443/api/role/
+```json
+[
+    {
+        "id": 6,
+        "name": "President"
+    },
+    {
+        "id": 7,
+        "name": "Vice-president"
+    },
+    {
+        "id": 8,
+        "name": "Vocal"
+    },
+    {
+        "id": 9,
+        "name": "Secretary"
+    },
+    {
+        "id": 10,
+        "name": "Treasurer"
+    }
+]
+```
+### Example of GET to https://localhost:8443/api/role/8
+```json
+[
+    {
+        "id": 29,
+        "email": "email",
+        "name": "oscar",
+        "firstName": "osk",
+        "lastName": "rivas",
+        "passwordHash": "$2a$10$r564zwMtQqBC.iCplimgSeHAbL93OmUyJaLyO9Qy.UnKRDNIZ7Xua",
+        "roles": [
+            "ROLE_USER"
+        ],
+        "role": {
+            "id": 8,
+            "name": "Vocal"
+        }
+    },
+    {
+        "id": 31,
+        "email": "email",
+        "name": "miguel",
+        "firstName": "byGranizo",
+        "lastName": "jimenez",
+        "passwordHash": "$2a$10$vKhAJtVDmj6Dzq1Etlwl.OhSK4cRNT3/eAXj8IJagLTpVV/nEAOdq",
+        "roles": [
+            "ROLE_USER"
+        ],
+        "role": {
+            "id": 8,
+            "name": "Vocal"
+        }
+    }
+]
+```
