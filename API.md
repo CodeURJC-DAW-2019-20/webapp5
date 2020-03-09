@@ -1,4 +1,4 @@
-# CONTaFin - API REST Documentation
+# LCDD Application - API REST Documentation
 
 ## About our API
 All you can find in our API Rest is information about users, merchandaising, events, games, tournaments and UserRole. All you need to do is simply; you have to follow the API rules. If you try to do following a different way, it's probably what you will recieve an error.
