@@ -281,19 +281,21 @@ To stop running the docker use:
 
 **Carlos**
 
-- Completed tasks: 
+- Completed tasks: APIRest and services implemented to every event related entity, and implemented GET, POST, PUT and DELETE methods for event related purposes with its own security implementation.
 
 - 5 most significant comics:
-  1. 
-  2. 
-  3. 
-  4. 
-  5. 
+  1. initial api rest changes on event related classes
+  2. changed repositories to services
+  3. added security, fixed post and checked put and delete
+  4. fixed errors after merge
+  5. updated local variable names
 
 - 5 files with participation:
-  1. 
-  2. 
-  3. 
+  1. EventRestController.java
+  2. RestSecuriryConfig.java
+  3. UserRegisterEventService.java
+  4. EventService.java
+  5. GameService.java
 
 **Óscar**
 
@@ -315,20 +317,22 @@ To stop running the docker use:
 
 **Alfonso**
 
-- Completed tasks: 
+- Completed tasks: APIRest and services implemented to every merchandising entity, finished advanced algorithm and implemented methods POST and GET images in the APIREST.
 
 - 5 most significant comics:
-  1. 
-  2. 
-  3. 
-  4. 
-  5. 
+  1. Started merchandising rest controller.
+  2. Implemented services merch and merchtypes.
+  3. Postman testing.
+  4. Update security.
+  5. Algorithm progress. 
 
 - 5 files with participation:
-  1. 
-  2. 
-  3.
-  4. 
-  5. 
+  1. MerchandisingRestController.java 
+  2. MerchandisingService.java
+  3. MerchTypeService.java
+  4. profile.html
+  5. SecurityConfiguration.java
+  
+  
 
 ## PHASE 4: Web with SPA architecture
