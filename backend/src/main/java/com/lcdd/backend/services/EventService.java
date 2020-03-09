@@ -1,15 +1,13 @@
 package com.lcdd.backend.services;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.lcdd.backend.dbrepositories.EventRepository;
 import com.lcdd.backend.pojo.Event;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 @Service
 public class EventService {
@@ -48,5 +46,12 @@ public class EventService {
 		return true;
 	}
 	
+	public List<Object[]> countGamesEvent(){
+		return repository.countGamesEvent();
+	}
+	
+	public Page<Event> findAll(Pageable page){
+		return repository.findAll(page);
+	}
 
 }

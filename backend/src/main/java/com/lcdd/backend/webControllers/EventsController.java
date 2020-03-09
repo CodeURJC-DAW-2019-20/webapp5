@@ -9,16 +9,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.lcdd.backend.pojo.Event;
-import com.lcdd.backend.dbrepositories.EventRepository;
+import com.lcdd.backend.services.EventService;
 
 @Controller
 public class EventsController {
 	
 	//private List<Event> eventsList;
 	@Autowired
-	private EventRepository repository;
+	private EventService eventService;
 	
 //	private static int eventsShownCounter = 1;
 //	private Iterator<Event> eventsListIterator;
@@ -37,7 +36,7 @@ public class EventsController {
 	public ResponseEntity<String> getEventsList(@RequestParam() int pageId) {
 		String result = "";
 		
-		Page<Event> pageEvent = repository.findAll(PageRequest.of(pageId,3));
+		Page<Event> pageEvent = eventService.findAll(PageRequest.of(pageId,3));
 		
 		if(pageEvent.hasContent()) {
 			for(Event event : pageEvent.getContent()) {

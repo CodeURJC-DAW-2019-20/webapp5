@@ -1,6 +1,5 @@
 package com.lcdd.backend.webControllers;
 
-
 import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,17 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.services.EventService;
 import com.lcdd.backend.services.GameService;
 import com.lcdd.backend.pojo.EventDataForm;
-
 import com.lcdd.backend.ImageService;
 import com.lcdd.backend.UserSession;
-
-
 
 @Controller
 public class EventFormController {

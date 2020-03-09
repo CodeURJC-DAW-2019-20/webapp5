@@ -3,7 +3,6 @@ package com.lcdd.backend.webControllers;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.lcdd.backend.ImageService;
-import com.lcdd.backend.dbrepositories.MerchTypeRepository;
-import com.lcdd.backend.dbrepositories.MerchandisingRepository;
 import com.lcdd.backend.pojo.MerchDataForm;
 import com.lcdd.backend.pojo.MerchType;
 import com.lcdd.backend.pojo.Merchandising;

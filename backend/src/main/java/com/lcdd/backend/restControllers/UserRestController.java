@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.pojo.Purchase;
 import com.lcdd.backend.pojo.User;
-import com.lcdd.backend.services.UserRegisterEventService;
 import com.lcdd.backend.services.UserService;
 
 @Controller

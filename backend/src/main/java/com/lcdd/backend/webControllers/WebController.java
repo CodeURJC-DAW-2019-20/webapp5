@@ -1,13 +1,11 @@
 package com.lcdd.backend.webControllers;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-// import es.urjc.code.security.User;
 
 @Controller
 public class WebController {
@@ -17,22 +15,26 @@ public class WebController {
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return "admin";
 	}
-	@RequestMapping("/about_us")
-	public String about_us() {
+	@GetMapping(value= {"about-us"})
+	public String serveAboutUs(Model model) {
 		return "about_us";
 	}
-	@RequestMapping("/contact")
-	public String contact() {
+	
+	@GetMapping(value= {"contact"})
+	public String serveContact(Model model) {
 		return "contact";
 	}
-	@RequestMapping("/events")
-	public String events() {
-		return "events";
+	
+	@RequestMapping("/login")
+	public String login(Model model) {
+		return "login";
 	}
-	@RequestMapping("/register")
-	public String register() {
-		return "register";
+	
+	@GetMapping("/loginerror")
+	public String serveLogError(Model model) {
+		return "logerror";
 	}
+
 	@RequestMapping(value= {"home","index","/"})
 	public String index() {
 		return "index";
