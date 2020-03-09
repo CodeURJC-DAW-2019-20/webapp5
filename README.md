@@ -78,7 +78,7 @@ Based on user's purchases and inscripted activites, they will recieve a mail abo
   ![Profile page](backend/src/main/resources/static/assets/img/webScreenShots/profile.PNG)
   
   - Profile edit: permit user to show and edit him personal information.
-  ![Profile edit_page](backend/src/main/resources/static/assets/img/webScreenShots/profile.edit-profile.PNG)
+  ![Profile edit_page](backend/src/main/resources/static/assets/img/webScreenShots/edit-profile.PNG)
  
   - Error page: personalized error page.
   ![Error_page](backend/src/main/resources/static/assets/img/webScreenShots/error.PNG)
@@ -119,10 +119,10 @@ Based on user's purchases and inscripted activites, they will recieve a mail abo
 ### Diagrams
 
 **Navigation Diagram for public pages**:
-![Navigation Diagram for public pages](backend/src/main/resources/static/assets/img/navigationDiagramFase2-1.jpg)
+![Navigation Diagram for public pages](backend/src/main/resources/static/assets/img/navigationDiagramFase2-1.png)
 
 **Navigation Diagram for private pages**:
-![Navigation Diagram for private pages](backend/src/main/resources/static/assets/img/navigationDiagramFase2-2.jpg)
+![Navigation Diagram for private pages](backend/src/main/resources/static/assets/img/navigationDiagramFase2-2.png)
 
 **Data Base Diagram**
 ![BBDD Diagram](backend/src/main/resources/static/assets/img/BBDDDiagram.png)
