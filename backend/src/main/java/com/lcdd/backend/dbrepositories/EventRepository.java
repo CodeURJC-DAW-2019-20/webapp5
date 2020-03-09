@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.lcdd.backend.pojo.Event;
+import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.User;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
@@ -17,6 +18,7 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 	List<Object[]> countGamesEvent();
 	
 	Page<Event> findAll(Pageable page);
+	Page<Event> findByGame(Game game, Pageable pageable); 
 	Event findByName(String name);
 	Event findById(long id);
 	

@@ -31,6 +31,10 @@ public class GameService {
 		repository.deleteById(id);
 	}
 	
+	public long countGames() {
+		return repository.count();
+	}
+	
 	public Page<Game> findAllPages(int page, int size) {
 		return repository.findAll(PageRequest.of(page,size));
 	}
