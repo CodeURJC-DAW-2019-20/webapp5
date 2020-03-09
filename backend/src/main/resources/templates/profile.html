@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     	{{>components/html_head}}
+    	
 </head>
 
 <body>
@@ -49,8 +50,9 @@
                             <h6>Recomendacion personalizada</h6>
                             <p>
                                 Por tu actividad reciente te recomendamos eventos de <b>{{popular.name}}</b>
-             					<button name="/EventSuggestion" id="EventSuggestion" class="btn btn-primary">Buscar mas</button>
+             					<button name="submit" id="show_more_event_suggestions" class="btn btn-primary">Buscar más eventos de este tipo</button>
                             </p>
+                         
                         </div>
                     </div>
                     <!--/row-->
@@ -95,6 +97,6 @@
 </div>
 
   {{>components/footer}}
-
+	<script src="/assets/js/events.js"></script>
 </body>
 </html>

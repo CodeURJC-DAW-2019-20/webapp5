@@ -66,7 +66,7 @@ public class ProfileController {
 		return "profile";
 	}
 	
-	@GetMapping("/eventSuggestion")
+	@RequestMapping(value= {"/eventSuggestion"}, method = RequestMethod.POST)
 	public ResponseEntity<String> getEventsSuggestion(@RequestParam() int pageId) {
 		
 		Iterable<Event> eventList = eventService.findAll();

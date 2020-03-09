@@ -1,6 +1,8 @@
 package com.lcdd.backend.restControllers;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,8 +18,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.lcdd.backend.ImageService;
 import com.lcdd.backend.pojo.MerchType;
 import com.lcdd.backend.pojo.Merchandising;
 import com.lcdd.backend.services.MerchTypeService;
@@ -32,6 +37,8 @@ public class MerchandisingRestController {
 	private MerchandisingService service;
 	@Autowired
 	private MerchTypeService serviceType;
+	@Autowired 
+	private ImageService serviceImage;
 
 	//every user
 	@GetMapping("/")
@@ -59,6 +66,16 @@ public class MerchandisingRestController {
 		Merchandising merch = service.findById(id);
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
+	//every user
+		@GetMapping("/{id}/image")
+		public ResponseEntity<Object> getMerchandisingImage(@PathVariable long id) throws IOException{
+			Merchandising merch = service.findById(id);
+			
+		if (merch.isHaveImage()) {
+			return this.serviceImage.createResponseFromImage("merchImages", id);
+		}
+			return new ResponseEntity<>(merch, HttpStatus.NOT_FOUND);
+		}
 
 	//only admin
 	@PostMapping("/")
@@ -69,6 +86,21 @@ public class MerchandisingRestController {
 			return new ResponseEntity<>(merch, HttpStatus.CREATED);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+	}
+	
+	//only admin
+	@PostMapping("/{id}/image")
+	public ResponseEntity<Merchandising> postMerchandisingImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
+			throws IOException {
+
+		Merchandising merch = service.findById(id);
+
+			merch.isHaveImage();
+			service.save(merch);
+
+			serviceImage.saveImage("merchImages", merch.getId(), imageFile);
+			return new ResponseEntity<>(HttpStatus.CREATED);
+
 	}
 	
 	//only admin
@@ -97,6 +129,8 @@ public class MerchandisingRestController {
 		service.save(merch);
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
+	
+
 
 	//only admin
 	@DeleteMapping("/{id}")
