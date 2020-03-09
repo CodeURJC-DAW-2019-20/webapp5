@@ -14,6 +14,8 @@ import com.lcdd.backend.dbrepositories.EventRepository;
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.pojo.User;
 import com.lcdd.backend.services.UserService;
+import com.lcdd.backend.services.EventService;
+import com.lcdd.backend.services.UserRegisterEventService;
 import com.lcdd.backend.pojo.EventRegister;
 
 @Controller
@@ -24,22 +26,20 @@ public class UserRegisterEventController {
 	@Autowired
 	private UserService userService;
 	@Autowired
-	private EventRepository eventRepository;
+	private EventService eventService;
 	@Autowired
-	private EventRegisterRepository repository;
+	private UserRegisterEventService eventRegisterService;
 	
 	@PostMapping("/userRegisterEvent/{id}")
 	public String serveEvent(Model model,@PathVariable Long id, @RequestParam int participants, HttpServletRequest request) {
-
-			User user = userService.findByName(session.getUsername());
-			Event event = eventRepository.findById(id).get();
-
-			EventRegister register = new EventRegister(user,event,user.getName(),participants);
-			event.setMaxParticipants(event.getMaxParticipants()-participants);
-			eventRepository.save(event);
-			model.addAttribute("event", event);
-			repository.save(register);
-			return "event-template";
-
-			}
+		User user = userService.findByName(session.getUsername());
+		Event event = eventService.findById(id);
+		EventRegister register = new EventRegister(user,event,user.getName(),participants);
+		event.setMaxParticipants(event.getMaxParticipants()-participants);
+		eventService.save(event);
+		model.addAttribute("event", event);
+		eventRegisterService.save(register);
+		return "event-template";
+	}
+	
 }

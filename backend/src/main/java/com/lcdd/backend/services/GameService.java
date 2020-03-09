@@ -34,4 +34,8 @@ public class GameService {
 	public Page<Game> findAllPages(int page, int size) {
 		return repository.findAll(PageRequest.of(page,size));
 	}
+	
+	public long count() {
+		return repository.count();
+	}
 }

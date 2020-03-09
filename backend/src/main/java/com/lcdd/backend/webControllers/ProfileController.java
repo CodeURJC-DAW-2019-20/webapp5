@@ -15,6 +15,8 @@ import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.RegisterDataForm;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.services.EventService;
+import com.lcdd.backend.services.GameService;
 import com.lcdd.backend.services.UserService;
 
 @Controller
@@ -22,9 +24,9 @@ public class ProfileController {
 	@Autowired
 	private UserService userService;
 	@Autowired
-	EventRepository eventRepository;
+	private EventService eventService;
 	@Autowired
-	GameRepository gameRepository;
+	private GameService gameService;
 	@Autowired
 	private UserSession session;
 	
@@ -32,8 +34,8 @@ public class ProfileController {
 	public String profileModel(Model model, HttpServletRequest request) {
 		model.addAttribute("session", session);
 		
-		Iterable<Event> eventList = eventRepository.findAll();
-		int count[] = new int[(int) gameRepository.count()+1];
+		Iterable<Event> eventList = eventService.findAll();
+		int count[] = new int[(int) gameService.count()+1];
 		
 		for(Event event: eventList) {
 			Game game = event.getGame();
@@ -55,9 +57,9 @@ public class ProfileController {
         }
 	       
 		//long p = 1;  
-		Optional<Game> popular = gameRepository.findById((long)count[posicionmayor]);
+		Game popular = gameService.findById((long)count[posicionmayor]);
 		//Optional<Game> popular = gameRepository.findById(p);   
-		model.addAttribute("popular", popular.get());
+		model.addAttribute("popular", popular);
 		
 		return "profile";
 	}
