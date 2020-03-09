@@ -112,7 +112,8 @@ The following queries contains information about the Merchandaising.
 |Create a Merch|ADMIN|POST|/api/merchandaisings/|(MERCH) and *CREATED* (200)|*NOT ACCEPTABLE* (406)|
 |Update Merch|ADMIN|PUT|/api/merchandaisings/id/|(MERCH) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 |Delate Merch|ADMIN|DELETE|/api/merchandaisings/id/|(MERCH) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
-
+|Merch Image|ALL|GET|/api/merchandaisings/id/image/|(Merch image) and *OK* (200)|*NOT FOUND* (404)|
+|Create MErch Image|ADMIN|POST|/api/merchandaising/id/image/|(Merch image) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 
 ### Example of GET to https://localhost:8443/api/merchandisings/
 ```json
@@ -225,6 +226,8 @@ The following queries contains information about the Events.
 |Create an Event|ADMIN|POST|/api/events/|(EVENT) and *CREATED* (200)|*NOT ACCEPTABLE* (406)|
 |Update an event|ADMIN|PUT|/api/events/id/|(EVENT) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 |Delete an event|ADMIN|DELETE|/api/events/id/|(EVENT) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Event Image|ALL|GET|/api/events/id/image/|(Event image) and *OK* (200)|*NOT FOUND* (404)|
+|Create Event Image|ADMIN|POST|/api/events/id/image/|(Event image) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 
 ### Example of GET to https://localhost:8443/api/events/games
 ```json
