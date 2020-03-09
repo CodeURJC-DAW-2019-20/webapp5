@@ -14,7 +14,7 @@ public class RoleService {
 	private RoleRepository roleRepo;
 	
 	
-	public Role findOne(long id) {
+	public Role findById(long id) {
 		return roleRepo.findById(id);
 	}
 	

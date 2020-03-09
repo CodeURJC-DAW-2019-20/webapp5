@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import com.lcdd.backend.dbrepositories.RoleRepository;
 import com.lcdd.backend.pojo.Role;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.services.RoleService;
 import com.lcdd.backend.services.UserService;
 
 @Controller
@@ -21,7 +21,7 @@ public class UserController {
 	private UserService userService;
 	
 	@Autowired
-	private RoleRepository roleRepository;
+	private RoleService roleService;
 	
 	@DeleteMapping("/users/{id}")
 	public ResponseEntity<Object> deleteUserById(@PathVariable long id) {
@@ -44,7 +44,7 @@ public class UserController {
 		
 		Long roleId = Long.parseLong(newRoleId.replaceAll("\"", ""));
 		
-		Role roleObject = roleRepository.findById(roleId).get();
+		Role roleObject = roleService.findById(roleId);
 		
 		User user = userService.findById(id);
 		

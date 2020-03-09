@@ -27,12 +27,11 @@ public class DashboardController {
 	@Autowired
 	private UserService userService;
 	@Autowired
-	private PurchaseService purchaseService;
-	@Autowired
 	private UserRegisterEventService eventRegisterService;
 	@Autowired
 	private EventService eventService;
-	
+	@Autowired
+	private PurchaseService purchaseService;
 	@Autowired
 	private UserSession session;
 	

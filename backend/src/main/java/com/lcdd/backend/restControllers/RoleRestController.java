@@ -32,7 +32,7 @@ public class RoleRestController {
 	@GetMapping("/{id}")
 	public ResponseEntity<List<User>> getAllUsersByRole(@PathVariable long id, HttpSession session) {
 		
-		Role roleSearch = roleService.findOne(id);
+		Role roleSearch = roleService.findById(id);
 		
 		if (roleSearch != null) {
 			List<User> allUsersByRole = roleService.getUsersByRoleName(roleSearch.getName());
