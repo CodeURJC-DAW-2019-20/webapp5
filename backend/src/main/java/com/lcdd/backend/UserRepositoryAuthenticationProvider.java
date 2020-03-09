@@ -17,19 +17,20 @@ import org.springframework.stereotype.Component;
 
 import com.lcdd.backend.dbrepositories.UserRepository;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.services.UserService;
 
 @Component
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	@Autowired 
 	public UserSession userSession;
 
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
 
-		User user = userRepository.findByName(auth.getName());
+		User user = userService.findByName(auth.getName());
 
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
