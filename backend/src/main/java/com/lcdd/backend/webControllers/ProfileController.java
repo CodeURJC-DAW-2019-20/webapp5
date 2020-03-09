@@ -30,9 +30,9 @@ public class ProfileController {
 	@Autowired
 	private UserService userService;
 	@Autowired
-	EventService eventService;
+	private EventService eventService;
 	@Autowired
-	GameService gameService;
+	private GameService gameService;
 	@Autowired
 	private UserSession session;
 	

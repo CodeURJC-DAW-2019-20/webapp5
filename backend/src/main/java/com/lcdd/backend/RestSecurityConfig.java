@@ -43,15 +43,32 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandising/types").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandising/{id}").permitAll();
 		
-		
 		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/purchaseMerch/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/merch/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/registerMerch/**").hasRole("ADMIN");
+		//URLs events
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/Event/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/Event/games/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/Event/{id}").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/Event/").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/Event/{id}").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/Event/{id}").hasRole("ADMIN");
 		
 		
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/purchaseMerch/**").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/userRegisterEvent/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/role/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/role/{id}").hasRole("ADMIN");
+		
+		
+		
 			
+		//URLs events
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/games").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/{id}").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/{id}/userRegistered").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/events/").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/events/{id}").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/events/{id}").hasRole("ADMIN");
 		
 		// Other URLs can be accessed without authentication
 		http.authorizeRequests().anyRequest().permitAll();

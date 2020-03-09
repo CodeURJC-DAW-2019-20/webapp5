@@ -1,5 +1,7 @@
 package com.lcdd.backend.restControllers;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,19 +19,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lcdd.backend.pojo.Game;
+import com.lcdd.backend.pojo.User;
 import com.lcdd.backend.pojo.Event;
+import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.services.GameService;
+import com.lcdd.backend.services.UserRegisterEventService;
 import com.lcdd.backend.services.EventService;
 
 
 @RestController
-@RequestMapping("/api/Event")
+@RequestMapping("/api/events")
 public class EventRestController {
 	
 	@Autowired
 	private EventService eventService;
 	@Autowired
 	private GameService gameService;
+	@Autowired
+	private UserRegisterEventService userRegService;
 
 	//every user
 	@GetMapping("/")
@@ -50,6 +57,18 @@ public class EventRestController {
 	public ResponseEntity<Event> getEvent(@PathVariable long id) {
 		Event event = eventService.findById(id);
 		return new ResponseEntity<>(event, HttpStatus.OK);
+	}
+	
+	//get all users registered in an event
+	@GetMapping("{id}/userRegistered")
+	public ResponseEntity<List<User>> getUsersInEventRegister(@PathVariable long id, HttpSession session) {
+		//admin can see all users
+		List<User> registeredUsers = userRegService.findByEventId(id);
+		if (!registeredUsers.isEmpty()) {
+			return new ResponseEntity<>(registeredUsers, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	//only admin
@@ -106,6 +125,5 @@ public class EventRestController {
 		eventService.delete(id);
 		return new ResponseEntity<>(event, HttpStatus.OK);
 	}
-
-
+	
 }
