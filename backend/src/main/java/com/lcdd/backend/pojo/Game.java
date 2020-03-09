@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Game {
 	@Id
@@ -17,6 +19,8 @@ public class Game {
 	private String name;
 	private String acronym;
 	
+	
+	@JsonIgnore
 	@OneToMany(mappedBy="game")
 	private List<Event> events = new ArrayList<>();
 	

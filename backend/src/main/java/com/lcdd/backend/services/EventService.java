@@ -25,7 +25,7 @@ public class EventService {
 		return repository.findAll();
 	}
 	
-	public void save(Event event) {
+	public void save(Event event) {	
 		repository.save(event);
 	}
 
@@ -38,7 +38,7 @@ public class EventService {
 	}
 	
 	public boolean createEvent(Event event) {
-		if(repository.findById(event.getId()) == null) {
+		if(repository.findById(event.getId()) != null) {
 			return false;
 		}
 		if(repository.findByName(event.getName()) != null){
