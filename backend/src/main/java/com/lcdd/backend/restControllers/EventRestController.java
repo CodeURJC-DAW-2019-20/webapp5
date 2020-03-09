@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.User;
 import com.lcdd.backend.pojo.Event;
-import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.services.GameService;
 import com.lcdd.backend.services.UserRegisterEventService;
 import com.lcdd.backend.services.EventService;

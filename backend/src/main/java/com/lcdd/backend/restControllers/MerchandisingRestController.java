@@ -24,7 +24,7 @@ import com.lcdd.backend.services.MerchandisingService;
 
 
 @RestController
-@RequestMapping("/api/merchandising")
+@RequestMapping("/api/merchandisings")
 public class MerchandisingRestController {
 	
 	@Autowired

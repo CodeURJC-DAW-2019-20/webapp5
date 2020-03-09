@@ -38,7 +38,7 @@ public class MerchandisingService {
 	}
 	
 	public boolean createMerch(Merchandising merch) {
-		if(repository.findById(merch.getId()) == null) {
+		if(repository.findById(merch.getId()) != null) {
 			//already exist a merch with the same id
 			return false;
 		}
