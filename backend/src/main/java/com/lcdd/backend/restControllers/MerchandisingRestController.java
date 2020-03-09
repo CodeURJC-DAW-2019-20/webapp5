@@ -59,9 +59,10 @@ public class MerchandisingRestController {
 
 	//only admin
 	@PostMapping("/")
-	public ResponseEntity<Merchandising> createMerch(@RequestBody Merchandising merch) {
-		boolean bol = service.createMerch(merch);
-		if(bol == true) {
+	public ResponseEntity<Merchandising> postMerch(@RequestBody Merchandising merch) {
+		
+		boolean result = service.createMerch(merch);
+		if(result == true) {
 			return new ResponseEntity<>(merch, HttpStatus.CREATED);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
@@ -71,7 +72,7 @@ public class MerchandisingRestController {
 	@PutMapping("/{id}")
 	public ResponseEntity<Merchandising> updateMerchId(@PathVariable long id, @RequestBody Merchandising updateMerch,
 			HttpServletRequest request, HttpSession session){
-		Merchandising merch = service.findById(id); //Returns with 404 if not found in database
+		Merchandising merch = service.findById(id);
 		if(merch.getName()!= null) {
 			merch.setName(updateMerch.getName());
 	}
