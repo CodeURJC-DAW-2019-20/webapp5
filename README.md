@@ -259,6 +259,7 @@ To stop running the docker use:
   2. docker-compose.yml
   3. create-image.sh
   4. wait-for.sh
+  
 **Daniel**
 
 -  Completed tasks:generate Rest security configuration, Login Rest Controller, RestControllerExceptionHandler and README.
