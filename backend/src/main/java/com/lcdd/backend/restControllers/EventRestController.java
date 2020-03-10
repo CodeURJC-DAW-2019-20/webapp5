@@ -112,11 +112,12 @@ public class EventRestController {
 
 		Event event = eventService.findById(id);
 
-			event.isHaveImage();
-			eventService.save(event);
+		//event.isHaveImage();
+		event.setHaveImage(true);
+		eventService.save(event);
 
-			imageService.saveImage("eventsImages", event.getId(), imageFile);
-			return new ResponseEntity<>(HttpStatus.CREATED);
+		imageService.saveImage("eventsImages", event.getId(), imageFile);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 
 	}
 	

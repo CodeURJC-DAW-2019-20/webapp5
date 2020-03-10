@@ -66,15 +66,15 @@ public class MerchandisingRestController {
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 	//every user
-		@GetMapping("/{id}/image")
-		public ResponseEntity<Object> getMerchandisingImage(@PathVariable long id) throws IOException{
-			Merchandising merch = service.findById(id);
-			
-		if (merch.isHaveImage()) {
-			return this.serviceImage.createResponseFromImage("merchImages", id);
-		}
-			return new ResponseEntity<>(merch, HttpStatus.NOT_FOUND);
-		}
+	@GetMapping("/{id}/image")
+	public ResponseEntity<Object> getMerchandisingImage(@PathVariable long id) throws IOException{
+		Merchandising merch = service.findById(id);
+		
+	if (merch.isHaveImage()) {
+		return this.serviceImage.createResponseFromImage("merchImages", id);
+	}
+		return new ResponseEntity<>(merch, HttpStatus.NOT_FOUND);
+	}
 
 	//only admin
 	@PostMapping("/")
@@ -94,11 +94,12 @@ public class MerchandisingRestController {
 
 		Merchandising merch = service.findById(id);
 
-			merch.isHaveImage();
-			service.save(merch);
+		//merch.isHaveImage();
+		merch.setHaveImage(true);
+		service.save(merch);
 
-			serviceImage.saveImage("merchImages", merch.getId(), imageFile);
-			return new ResponseEntity<>(HttpStatus.CREATED);
+		serviceImage.saveImage("merchImages", merch.getId(), imageFile);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 
 	}
 	
