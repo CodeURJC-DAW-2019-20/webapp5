@@ -53,7 +53,7 @@ public class EventRestController {
 	
 
 	//every user
-	@GetMapping("/pages/{id}")
+	@GetMapping("/?page={id}")
 	public ResponseEntity<Page<Event>> getEventPages(@PathVariable int id) {
 		Page<Event> event = eventService.findAllPages(id, 3);
 		return new ResponseEntity<>(event, HttpStatus.OK);
