@@ -136,7 +136,7 @@ Based on user's purchases and inscripted activites, they will recieve a mail abo
 
 - Completed tasks: creation of the Spring project, generation of the "Entity" classes for the database and its previous modeling. Integration of components and creation of the admin dashboard. Certification https and port 8443.
 
-- 5 most significant comics:
+- 5 most significant commits:
   1. Pojo classers + Session
   2. Added https and secure config class
   3. All adapted to db, Lasting relations
@@ -154,7 +154,7 @@ Based on user's purchases and inscripted activites, they will recieve a mail abo
 
 -  Completed tasks: generate the event and merchandaising templates forms. Configure the user roles of the application. Security configuration when accessing the database.
 
-- 5 most significant comics:
+- 5 most significant commits:
   1. Added register event view
   2. Inserted event-form in backend
   3. Added data base user roles
@@ -172,7 +172,7 @@ Based on user's purchases and inscripted activites, they will recieve a mail abo
 
 - Completed tasks: implementation of a function for the "Show more" button on the Events and Merchandising pages. Sample image editing for assets. Text writing for all web.
 
-- 5 most significant comics:
+- 5 most significant commits:
   1. fix not showing multiple times
   2. updated event images
   3. scrolling into show more button
@@ -188,7 +188,7 @@ Based on user's purchases and inscripted activites, they will recieve a mail abo
 
 - Completed tasks: generate the event more information template that is filled from the form data template and its java controllers. Convert all static html pages into templates, also include the head, nav and footer as components. Create the error page and configure it to replace the "white error page".
 
-- 5 most significant comics:
+- 5 most significant commits:
   1. event-form done, remining event-template
   2. updates, remaining photo, id, game, isTorunament (also added display none/block to Premio)
   3. created page 404
@@ -206,7 +206,7 @@ Based on user's purchases and inscripted activites, they will recieve a mail abo
 
 - Completed tasks: pagination and show more merchandising, convert the user view into a template, implement the user's logic for editing after the creation of the profile.
 
-- 5 most significant comics:
+- 5 most significant commits:
   1. Implemented User Profile Logic
   2. Repository and User Controllers
   3. Updated Diagramns and Assets
@@ -226,7 +226,7 @@ Based on user's purchases and inscripted activites, they will recieve a mail abo
 Docker allows you to use our application without having anything install.You just need to follow the next steps:
   1. Install docker, you can download it [here](https://docs.docker.com/install/#supported-platforms). 
   2. To run the app you simply have to open a terminal in Docker folder and execute "docker-compose up".
-  3. To access the app you have to open your navigator and go to https://localhost:8080 .
+  3. If you are in Docker Desktop to access the app you have to open your navigator and go to https://localhost:8443. If you are in Docker Toolbox to acces to the app you have to open your navigator and go to https://localhost: with the port number that it is indicated in the first lines of the command line: for example: `docker is configured to use the default machine with IP 192.168.99.100 `
 
 - To stop the app you have to execute "docker-compose down".
 - The docker-compose.yml file uses a mysql image sets up in port 3306 (Don't forget to stop your local mysql), and a contafin image, sets up in port 8080.
@@ -245,27 +245,25 @@ To stop running the docker use:
 
 **Miguel**
 
-- Completed tasks: 
+- Completed tasks: Dockerizing of app and database. script for building the app and pushing it to docker hub repository.
 
-- 5 most significant comics:
-  1. 
-  2. 
-  3. 
-  4. 
-  5. 
-  
+- 5 most significant commits:
+  1. Everything working, lasting little chyanges before merging
+  2. Script + dockerfile ready
+  3. build script ready
+  4. workflow finished
+  5. base image stablished
+
 - 5 files with participation:
-  1. 
-  2. 
-  3. 
-  4. 
-  5. 
-
+  1. Dockerfile
+  2. docker-compose.yml
+  3. create-image.sh
+  4. wait-for.sh
 **Daniel**
 
 -  Completed tasks:generate Rest security configuration, Login Rest Controller, RestControllerExceptionHandler and README.
 
-- 5 most significant comics:
+- 5 most significant commits:
   1. LoginController done + RestSecurity started
   2. Security User
   3. Security role + merch 
@@ -283,7 +281,7 @@ To stop running the docker use:
 
 - Completed tasks: APIRest and services implemented to every event related entity, and implemented GET, POST, PUT and DELETE methods for event related purposes with its own security implementation.
 
-- 5 most significant comics:
+- 5 most significant commits:
   1. initial api rest changes on event related classes
   2. changed repositories to services
   3. added security, fixed post and checked put and delete
@@ -301,7 +299,7 @@ To stop running the docker use:
 
 - Completed tasks: generate the role and user service and rest controllers for api rest. Update initController with data more realistic data.
 
-- 5 most significant comics:
+- 5 most significant commits:
   1. fixed new errors from the last commit.
   2. use Role and User Service from all fase2 controllers.
   3. Rest user and role controller working good, updated initController.
@@ -319,7 +317,7 @@ To stop running the docker use:
 
 - Completed tasks: APIRest and services implemented to every merchandising entity, finished advanced algorithm and implemented methods POST and GET images in the APIREST.
 
-- 5 most significant comics:
+- 5 most significant commits:
   1. Started merchandising rest controller.
   2. Implemented services merch and merchtypes.
   3. Postman testing.
