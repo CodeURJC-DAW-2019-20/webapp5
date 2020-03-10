@@ -89,8 +89,8 @@ public class MerchandisingRestController {
 	
 	//only admin
 	
-	//@PutMapping("/{id}/image")
-	@PostMapping("/{id}/image")
+	//@PostMapping("/{id}/image")
+	@PutMapping("/{id}/image")
 	public ResponseEntity<Merchandising> postMerchandisingImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
 			throws IOException {
 
