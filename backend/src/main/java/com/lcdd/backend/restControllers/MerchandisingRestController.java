@@ -40,14 +40,14 @@ public class MerchandisingRestController {
 	private ImageService serviceImage;
 
 	//every user
-	@GetMapping("/")
+	@GetMapping(value={"", "/"})
 	public ResponseEntity<List<Merchandising>> getMerchandising() {
 		List<Merchandising> merch = service.findAll();
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 	//every user
-	@GetMapping("")
-	public ResponseEntity<Page<Merchandising>> getMerchandisingPages(@RequestParam(name = "page", required = false) int page) {
+	@GetMapping(value = "", params = "page")
+	public ResponseEntity<Page<Merchandising>> getMerchandisingPages(@RequestParam(name = "page") int page) {
 		Page<Merchandising> merch = service.findAllPages(page, 3);
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}

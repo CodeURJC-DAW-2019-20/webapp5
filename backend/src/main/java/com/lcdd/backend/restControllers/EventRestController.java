@@ -45,16 +45,16 @@ public class EventRestController {
 	private ImageService imageService;
 
 	//every user
-	@GetMapping("/")
-	public ResponseEntity<List<Event>> getEvent() {
+	@GetMapping(value={"", "/"})
+	public ResponseEntity<List<Event>> getEventList() {
 		List<Event> event = eventService.findAll();
 		return new ResponseEntity<>(event, HttpStatus.OK);
 	}
 	
 
 	//every user
-	@GetMapping("")
-	public ResponseEntity<Page<Event>> getEventPages(@RequestParam(name = "page", required = false) int page) {
+	@GetMapping(value = "", params = "page")
+	public ResponseEntity<Page<Event>> getEventPages(@RequestParam(name = "page") int page) {
 		Page<Event> event = eventService.findAllPages(page, 3);
 		return new ResponseEntity<>(event, HttpStatus.OK);
 	}
