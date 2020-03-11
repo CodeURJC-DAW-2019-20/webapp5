@@ -46,9 +46,9 @@ public class MerchandisingRestController {
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 	//every user
-	@GetMapping("/?page={id}")
-	public ResponseEntity<Page<Merchandising>> getMerchandisingPages(@PathVariable int id) {
-		Page<Merchandising> merch = service.findAllPages(id, 3);
+	@GetMapping("")
+	public ResponseEntity<Page<Merchandising>> getMerchandisingPages(@RequestParam(name = "page", required = false) int page) {
+		Page<Merchandising> merch = service.findAllPages(page, 3);
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 	

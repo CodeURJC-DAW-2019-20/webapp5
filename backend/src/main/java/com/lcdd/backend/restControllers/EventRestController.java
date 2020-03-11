@@ -53,9 +53,9 @@ public class EventRestController {
 	
 
 	//every user
-	@GetMapping("/?page={id}")
-	public ResponseEntity<Page<Event>> getEventPages(@PathVariable int id) {
-		Page<Event> event = eventService.findAllPages(id, 3);
+	@GetMapping("")
+	public ResponseEntity<Page<Event>> getEventPages(@RequestParam(name = "page", required = false) int page) {
+		Page<Event> event = eventService.findAllPages(page, 3);
 		return new ResponseEntity<>(event, HttpStatus.OK);
 	}
 	
