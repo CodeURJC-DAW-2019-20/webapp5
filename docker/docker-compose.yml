@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_DATABASE=lcdd_db
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+    ports:
+      - 3306:3306
+
+
+  backend:
+    image: bygranizo/lcdd_backend
+    entrypoint: ["./wait-for-it.sh", "db:3306", "--", "java", "-jar", "backend.jar"]
+    ports:
+      - 8443:8443
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/lcdd_db?useSSL=false
+      - SPRING_DATASOURCE_USERNAME=test
+      - SPRING_DATASOURCE_PASSWORD=test

@@ -2,45 +2,36 @@ package com.lcdd.backend.webControllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.List;
-
-import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import com.lcdd.backend.UserSession;
-import com.lcdd.backend.dbrepositories.EventRegisterRepository;
-import com.lcdd.backend.dbrepositories.EventRepository;
-import com.lcdd.backend.dbrepositories.GameRepository;
-import com.lcdd.backend.dbrepositories.PurchaseRepository;
-import com.lcdd.backend.dbrepositories.RoleRepository;
-import com.lcdd.backend.dbrepositories.UserRepository;
 import com.lcdd.backend.pojo.EventRegister;
-import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.Purchase;
 import com.lcdd.backend.pojo.Role;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.services.EventService;
+import com.lcdd.backend.services.PurchaseService;
+import com.lcdd.backend.services.RoleService;
+import com.lcdd.backend.services.UserRegisterEventService;
+import com.lcdd.backend.services.UserService;
 
 @Controller
 public class DashboardController {
 	
 	@Autowired
-	private GameRepository gameRepository;
+	private RoleService roleService;
 	@Autowired
-	private RoleRepository roleRepository;
+	private UserService userService;
 	@Autowired
-	private UserRepository userRepository;
+	private UserRegisterEventService eventRegisterService;
 	@Autowired
-	private PurchaseRepository purchaseRepository;
+	private EventService eventService;
 	@Autowired
-	private EventRegisterRepository eventRegisterRepository;
-	@Autowired
-	private EventRepository eventRepository;
-	
+	private PurchaseService purchaseService;
 	@Autowired
 	private UserSession session;
 	
@@ -65,7 +56,7 @@ public class DashboardController {
 	private Model fillEvenstTab(Model model) {
 		
 		List<EventRegister> eventRegisterList;
-		List<Object[]> eventGameList = eventRepository.countGamesEvent();
+		List<Object[]> eventGameList = eventService.countGamesEvent();
 		
 		String[] gamesArray = new String[eventGameList.size()];
 		i = 0;
@@ -81,7 +72,7 @@ public class DashboardController {
 			i++;
 		}
 		
-		eventRegisterList = eventRegisterRepository.findAll();
+		eventRegisterList = eventRegisterService.findAll();
 		
 		model.addAttribute("EventRegisterList", eventRegisterList);
 		
@@ -104,14 +95,14 @@ public class DashboardController {
 		calendar.add(Calendar.MONTH, -11);
 		
 		for(int i=0; i<12; i++) {
-			aux = purchaseRepository.lastYearPurchasesByMonth(calendar.getTime());
+			aux = purchaseService.lastYearPurchasesByMonth(calendar.getTime());
 			salesArray[i] = (aux == null) ? 0 : aux;
 			monthsArray[i] = new SimpleDateFormat("MMMM").format(calendar.getTime());
 			
 			calendar.add(Calendar.MONTH, +1);
 		}
 		
-		purchaseList = purchaseRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
+		purchaseList = purchaseService.findAll(Sort.by(Sort.Direction.DESC, "date"));
 		
 		model.addAttribute("PurchaseList", purchaseList);
 		
@@ -124,9 +115,9 @@ public class DashboardController {
 	private Model fillUserTab(Model model) {
 		List<User> userList;
 		List<Role> roleList;
-		
-		userList = userRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
-		roleList = roleRepository.findAll();
+					
+		userList = userService.findAll(Sort.by(Sort.Direction.ASC, "name"));
+		roleList = roleService.findAll();
 		
 		model.addAttribute("UserList", userList);
 		model.addAttribute("RoleList", roleList);
