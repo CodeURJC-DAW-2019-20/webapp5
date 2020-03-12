@@ -40,15 +40,15 @@ public class MerchandisingRestController {
 	private ImageService serviceImage;
 
 	//every user
-	@GetMapping("/")
+	@GetMapping(value={"", "/"})
 	public ResponseEntity<List<Merchandising>> getMerchandising() {
 		List<Merchandising> merch = service.findAll();
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 	//every user
-	@GetMapping("/pages/{id}")
-	public ResponseEntity<Page<Merchandising>> getMerchandisingPages(@PathVariable int id) {
-		Page<Merchandising> merch = service.findAllPages(id, 3);
+	@GetMapping(value = "", params = "page")
+	public ResponseEntity<Page<Merchandising>> getMerchandisingPages(@RequestParam(name = "page") int page) {
+		Page<Merchandising> merch = service.findAllPages(page, 3);
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 	
@@ -66,15 +66,15 @@ public class MerchandisingRestController {
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
 	//every user
-		@GetMapping("/{id}/image")
-		public ResponseEntity<Object> getMerchandisingImage(@PathVariable long id) throws IOException{
-			Merchandising merch = service.findById(id);
-			
-		if (merch.isHaveImage()) {
-			return this.serviceImage.createResponseFromImage("merchImages", id);
-		}
-			return new ResponseEntity<>(merch, HttpStatus.NOT_FOUND);
-		}
+	@GetMapping("/{id}/image")
+	public ResponseEntity<Object> getMerchandisingImage(@PathVariable long id) throws IOException{
+		Merchandising merch = service.findById(id);
+		
+	if (merch.isHaveImage()) {
+		return this.serviceImage.createResponseFromImage("merchImages", id);
+	}
+		return new ResponseEntity<>(merch, HttpStatus.NOT_FOUND);
+	}
 
 	//only admin
 	@PostMapping("/")
@@ -88,17 +88,20 @@ public class MerchandisingRestController {
 	}
 	
 	//only admin
-	@PostMapping("/{id}/image")
+	
+	//@PostMapping("/{id}/image")
+	@PutMapping("/{id}/image")
 	public ResponseEntity<Merchandising> postMerchandisingImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
 			throws IOException {
 
 		Merchandising merch = service.findById(id);
 
-			merch.isHaveImage();
-			service.save(merch);
+		//merch.isHaveImage();
+		merch.setHaveImage(true);
+		service.save(merch);
 
-			serviceImage.saveImage("merchImages", merch.getId(), imageFile);
-			return new ResponseEntity<>(HttpStatus.CREATED);
+		serviceImage.saveImage("merchImages", merch.getId(), imageFile);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 
 	}
 	

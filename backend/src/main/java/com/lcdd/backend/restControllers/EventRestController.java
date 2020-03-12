@@ -45,17 +45,17 @@ public class EventRestController {
 	private ImageService imageService;
 
 	//every user
-	@GetMapping("/")
-	public ResponseEntity<List<Event>> getEvent() {
+	@GetMapping(value={"", "/"})
+	public ResponseEntity<List<Event>> getEventList() {
 		List<Event> event = eventService.findAll();
 		return new ResponseEntity<>(event, HttpStatus.OK);
 	}
 	
 
 	//every user
-	@GetMapping("/pages/{id}")
-	public ResponseEntity<Page<Event>> getEventPages(@PathVariable int id) {
-		Page<Event> event = eventService.findAllPages(id, 3);
+	@GetMapping(value = "", params = "page")
+	public ResponseEntity<Page<Event>> getEventPages(@RequestParam(name = "page") int page) {
+		Page<Event> event = eventService.findAllPages(page, 3);
 		return new ResponseEntity<>(event, HttpStatus.OK);
 	}
 	
@@ -106,17 +106,19 @@ public class EventRestController {
 		return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 	}
 	
-	@PostMapping("/{id}/image")
+	//@PostMapping("/{id}/image")
+	@PutMapping("/{id}/image")
 	public ResponseEntity<Event> postEventImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
 			throws IOException {
 
 		Event event = eventService.findById(id);
 
-			event.isHaveImage();
-			eventService.save(event);
+		//event.isHaveImage();
+		event.setHaveImage(true);
+		eventService.save(event);
 
-			imageService.saveImage("eventsImages", event.getId(), imageFile);
-			return new ResponseEntity<>(HttpStatus.CREATED);
+		imageService.saveImage("eventsImages", event.getId(), imageFile);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 
 	}
 	
