@@ -46,6 +46,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/merchandisings/").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/merchandisings/{id}/image").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/merchandisings/{id}/image").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/merchandisings/{id}").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/merchandisings/{id}").hasRole("ADMIN");
 		
@@ -62,6 +63,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/{id}/userRegistered").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/events/").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/events/{id}/image").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/events/{id}/image").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/events/{id}").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/events/{id}").hasRole("ADMIN");
 		

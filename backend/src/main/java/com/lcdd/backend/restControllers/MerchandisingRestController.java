@@ -90,6 +90,20 @@ public class MerchandisingRestController {
 	//only admin
 	
 	@PostMapping("/{id}/image")
+	public ResponseEntity<Merchandising> postMerchandisingImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
+			throws IOException {
+
+		Merchandising merch = service.findById(id);
+
+		//merch.isHaveImage();
+		merch.setHaveImage(true);
+		service.save(merch);
+
+		serviceImage.saveImage("merchImages", merch.getId(), imageFile);
+		return new ResponseEntity<>(HttpStatus.CREATED);
+
+	}
+	
 	@PutMapping("/{id}/image")
 	public ResponseEntity<Merchandising> postMerchandisingImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
 			throws IOException {

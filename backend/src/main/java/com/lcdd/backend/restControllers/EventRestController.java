@@ -107,8 +107,22 @@ public class EventRestController {
 	}
 	
 	@PostMapping("/{id}/image")
-	@PutMapping("/{id}/image")
 	public ResponseEntity<Event> postEventImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
+			throws IOException {
+
+		Event event = eventService.findById(id);
+
+		//event.isHaveImage();
+		event.setHaveImage(true);
+		eventService.save(event);
+
+		imageService.saveImage("eventsImages", event.getId(), imageFile);
+		return new ResponseEntity<>(HttpStatus.CREATED);
+
+	}
+	
+	@PutMapping("/{id}/image")
+	public ResponseEntity<Event> putEventImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
 			throws IOException {
 
 		Event event = eventService.findById(id);
