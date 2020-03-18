@@ -106,7 +106,7 @@ public class EventRestController {
 		return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 	}
 	
-	//@PostMapping("/{id}/image")
+	@PostMapping("/{id}/image")
 	@PutMapping("/{id}/image")
 	public ResponseEntity<Event> postEventImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
 			throws IOException {
