@@ -105,7 +105,7 @@ public class MerchandisingRestController {
 	}
 	
 	@PutMapping("/{id}/image")
-	public ResponseEntity<Merchandising> postMerchandisingImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
+	public ResponseEntity<Merchandising> putMerchandisingImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
 			throws IOException {
 
 		Merchandising merch = service.findById(id);
