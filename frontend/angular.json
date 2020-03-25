@@ -25,6 +25,8 @@
             ],
             "styles": [
               "src/styles.css",
+              "src/main.css",
+              "src/normalize.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
