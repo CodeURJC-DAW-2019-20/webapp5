@@ -7,6 +7,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,23 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+
+
+  //Error page
+  /*
+  {
+    path: '**',
+    component: HomeComponent
+  }
+  {
+    path: '**',
+    redirectTo: 'tool/login'
+  }
+  */
 ];
 
 @NgModule({

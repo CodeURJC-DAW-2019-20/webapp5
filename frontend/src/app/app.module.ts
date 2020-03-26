@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +44,8 @@ import { UsersDashComponent } from './pages/dashboard/users-dash/users-dash.comp
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
