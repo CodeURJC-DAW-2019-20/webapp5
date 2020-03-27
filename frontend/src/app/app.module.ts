@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { EventsDashComponent } from './pages/dashboard/events-dash/events-dash.c
 import { MerchDashComponent } from './pages/dashboard/merch-dash/merch-dash.component';
 import { UsersDashComponent } from './pages/dashboard/users-dash/users-dash.component';
 import { EventsFormComponent } from './pages/events/events-form/events-form.component';
+import { LcddMapComponent } from './elements/lcdd-map/lcdd-map.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { EventsFormComponent } from './pages/events/events-form/events-form.comp
     EventsDashComponent,
     MerchDashComponent,
     UsersDashComponent,
-    EventsFormComponent
+    EventsFormComponent,
+    LcddMapComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { EventsFormComponent } from './pages/events/events-form/events-form.comp
     NgbModule,
     FontAwesomeModule,
     LoadingBarHttpClientModule,
-    LoadingBarRouterModule
+    LoadingBarRouterModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
