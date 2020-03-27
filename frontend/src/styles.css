@@ -309,58 +309,7 @@ form .form-control:focus{
     text-align: justify;
     /*background-color: tomato;*/
 }
-/* About us 
-============================================================================================ */
-.about_section{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-.about_in_section{
-    margin-top: 1.5rem
-}
-.asoc_card{
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-}
-.asoc_card:hover{
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-.asoc_card p{
-    color: black;
-    text-decoration: none;
-}
-.rrss_icon_section{
-    font-size: 50px;
-}
 
-.rrss_icon_section-insta{
-    color: #fd1d1d;
-}
-.rrss_icon_section-tw{
-    color: #00acee
-}
-.rrss_icon_section-disc{
-    color: #7289da
-}
-.rrss_icon_section-mail{
-    color: purple;
-}
-/* Contact 
-============================================================================================ */
-#map {
-    margin-top: 1.5rem;
-    height: 600px;
-    width: 100%;
-	margin-bottom: 1rem;
-	border-radius: 10px;
-}
-.contact_address{
-    margin-top: 4rem;
-}
-.contact_below{
-    margin-top: 2rem;
-}
 /* Login 
 ============================================================================================ */
     /* Change styles for span and cancel button on extra small screens */

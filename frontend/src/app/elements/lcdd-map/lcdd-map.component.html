@@ -1,0 +1,16 @@
+<google-map style="border-radius: 10px;"
+	[height]="height"
+	[width]="width"
+	[zoom]="zoom"
+	[center]="lcdd"
+	[options]="mapOptions">
+
+	<map-marker #marker
+		[position]="lcdd"
+		[options]="markerOptions"
+		(mapClick)="openInfoWindow(marker)">
+	</map-marker>
+
+	<map-info-window>S.008 Laboratorios II URJC<br>Calle Tulipán, s/n<br>28933 Móstoles, Madrid</map-info-window>
+
+</google-map>
