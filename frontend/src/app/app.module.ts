@@ -21,6 +21,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { EventsDashComponent } from './pages/dashboard/events-dash/events-dash.component';
 import { MerchDashComponent } from './pages/dashboard/merch-dash/merch-dash.component';
 import { UsersDashComponent } from './pages/dashboard/users-dash/users-dash.component';
+import { EventsFormComponent } from './pages/events/events-form/events-form.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UsersDashComponent } from './pages/dashboard/users-dash/users-dash.comp
     DashboardComponent,
     EventsDashComponent,
     MerchDashComponent,
-    UsersDashComponent
+    UsersDashComponent,
+    EventsFormComponent
   ],
   imports: [
     BrowserModule,
