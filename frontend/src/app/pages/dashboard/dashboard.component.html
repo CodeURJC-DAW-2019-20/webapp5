@@ -4,19 +4,19 @@
 			<div class="sidebar-sticky">
 				<ul class="nav flex-column dash_menu">
 					<li class="nav-item">
-						<a id="dash_events" class="nav-link active" (click)="changeSection('events')">
+						<a id="dash_events" class="nav-link active" [ngClass]="{'active': dashSection == 'events'}" (click)="changeSection('events')">
 							<span data-feather="calendar"></span>
 							Eventos
 						</a>
 					</li>
 					<li class="nav-item">
-						<a id="dash_merch" class="nav-link" (click)="changeSection('merch')">
+						<a id="dash_merch" class="nav-link" [ngClass]="{'active': dashSection == 'merch'}" (click)="changeSection('merch')">
 							<span data-feather="dollar-sign"></span>
 							Merch
 						</a>
 					</li>
 					<li class="nav-item">
-						<a id="dash_admin" class="nav-link" (click)="changeSection('users')">
+						<a id="dash_admin" class="nav-link" [ngClass]="{'active': dashSection == 'users'}" (click)="changeSection('users')">
 							<span data-feather="users"></span>
 							Gestiones de admin
 						</a>
@@ -37,9 +37,9 @@
 			</div>
 		</nav>
 		
-		<app-events-dash *ngIf="dashSection == 'events'"></app-events-dash>
-		<app-merch-dash *ngIf="dashSection == 'merch'"></app-merch-dash>
-		<app-users-dash *ngIf="dashSection == 'users'"></app-users-dash>
+		<app-events-dash class="col-md-9 ml-sm-auto col-lg-10 px-4" *ngIf="dashSection == 'events'"></app-events-dash>
+		<app-merch-dash class="col-md-9 ml-sm-auto col-lg-10 px-4" *ngIf="dashSection == 'merch'"></app-merch-dash>
+		<app-users-dash class="col-md-9 ml-sm-auto col-lg-10 px-4" *ngIf="dashSection == 'users'"></app-users-dash>
 		
 	</div>
 </div>

@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
-import { GoogleMapsModule } from '@angular/google-maps'
+import { GoogleMapsModule } from '@angular/google-maps';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,8 @@ import { MerchDashComponent } from './pages/dashboard/merch-dash/merch-dash.comp
 import { UsersDashComponent } from './pages/dashboard/users-dash/users-dash.component';
 import { EventsFormComponent } from './pages/events/events-form/events-form.component';
 import { LcddMapComponent } from './elements/lcdd-map/lcdd-map.component';
+import { EventsBarChartComponent } from './elements/events-bar-chart/events-bar-chart.component';
+import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-chart.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { LcddMapComponent } from './elements/lcdd-map/lcdd-map.component';
     MerchDashComponent,
     UsersDashComponent,
     EventsFormComponent,
-    LcddMapComponent
+    LcddMapComponent,
+    EventsBarChartComponent,
+    MerchLineChartComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,8 @@ import { LcddMapComponent } from './elements/lcdd-map/lcdd-map.component';
     FontAwesomeModule,
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

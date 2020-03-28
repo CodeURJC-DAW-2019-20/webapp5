@@ -53,6 +53,10 @@
   color: #a10600;
 }
 
+.sidebar .nav-link:hover {
+  cursor: pointer;
+}
+
 .sidebar .nav-link:hover .feather,
 .sidebar .nav-link.active .feather {
   color: inherit;
