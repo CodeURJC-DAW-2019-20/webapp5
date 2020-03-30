@@ -24,6 +24,7 @@ import { MerchDashComponent } from './pages/dashboard/merch-dash/merch-dash.comp
 import { UsersDashComponent } from './pages/dashboard/users-dash/users-dash.component';
 import { EventsFormComponent } from './pages/events/events-form/events-form.component';
 import { LcddMapComponent } from './elements/lcdd-map/lcdd-map.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LcddMapComponent } from './elements/lcdd-map/lcdd-map.component';
     MerchDashComponent,
     UsersDashComponent,
     EventsFormComponent,
-    LcddMapComponent
+    LcddMapComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
