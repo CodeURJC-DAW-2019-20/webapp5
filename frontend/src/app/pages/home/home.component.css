@@ -21,13 +21,21 @@
     line-height : 5px;
 }
 .mainpage1 h1{
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
 }
 .mainpage1 h2{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
-}/* End Carousel Header Styles */
+}
+.text-mainpage1{
+    font-weight: 700;
+    text-shadow: 2px 2px #A8AD11;
+    color: #a10600;
+    line-height : 5px;
+}
+
+/* End Carousel Header Styles */
 
 /* Section2 text */
 #mainpage2{
