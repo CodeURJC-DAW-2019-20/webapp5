@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
-import { GoogleMapsModule } from '@angular/google-maps'
+import { GoogleMapsModule } from '@angular/google-maps';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,8 @@ import { UsersDashComponent } from './pages/dashboard/users-dash/users-dash.comp
 import { EventsFormComponent } from './pages/events/events-form/events-form.component';
 import { LcddMapComponent } from './elements/lcdd-map/lcdd-map.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { EventsBarChartComponent } from './elements/events-bar-chart/events-bar-chart.component';
+import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-chart.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { ErrorComponent } from './pages/error/error.component';
     UsersDashComponent,
     EventsFormComponent,
     LcddMapComponent,
-    ErrorComponent
+    ErrorComponent,
+    EventsBarChartComponent,
+    MerchLineChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,8 @@ import { ErrorComponent } from './pages/error/error.component';
     FontAwesomeModule,
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

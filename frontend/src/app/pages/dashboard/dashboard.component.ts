@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  dashSection: string;
+
+  changeSection(newSection: string){
+    this.dashSection = newSection;
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+    this.dashSection = 'events';
   }
 
 }
