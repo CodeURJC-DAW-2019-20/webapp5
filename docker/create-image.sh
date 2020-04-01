@@ -3,26 +3,21 @@
 path_docker=$(pwd)
 
 path_project_front=$(dirname $(pwd))/frontend
-path_dist=$path_project_front/dist
+path_dist=$path_project_front/dist/frontend
 
 path_project_back=$(dirname $(pwd))/backend
 path_jar=$path_project_back/target
 
+mkdir -p $path_project_back/src/main/resources/public/new
+path_front_location_in_back=$path_project_back/src/main/public/new
+
 echo "Building frontend"
 cd $path_project_front
 
-#docker run -it --rm -v "$(pwd)":/app -w /app alexsuch/angular-cli:7.3.8-chromium ng build
-#docker run --rm -it -v $(pwd):/opt -w /opt teracy/angular-cli /bin/bash
+docker run --rm -it -v $(pwd):/frontend -w /frontend teracy/angular-cli:8.3 npm install --no-bin-links && ng build
 
-#https://hub.docker.com/r/alexsuch/angular-cli (top)
-#https://hub.docker.com/r/teracy/angular-cli
-#https://hub.docker.com/r/pivotalpa/angular-cli
-
-
-
-
-
-
+echo "Moving frontend"
+cp -a $path_dist/. $path_front_location_in_back
 #echo "Compiling java application"
 #cd $path_project_back
 #docker run -it --rm -v "$(pwd)":/usr/src/backend -v "$HOME/.m2":/root/.m2 -w /usr/src/backend maven:3.6.1-jdk-8-alpine mvn package -DskipTests
