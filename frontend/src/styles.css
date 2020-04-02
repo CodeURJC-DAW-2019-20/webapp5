@@ -105,27 +105,6 @@ form .form-control:focus{
 	margin-left: 1rem;
 }
 
-/* Merch-form
-============================================================================================ */
-
-/* Merch-template
-============================================================================================ */
-#merch-container-main-image{
-    float: left;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-    max-width: 400px;
-    /* width: 60%; */
-}
-    /* image-with-text */
-.merch-main-image{
-   
-}
-
-
-
-
-
 /* Categories Product css
 ============================================================================================ */
 .product_listing_area {
