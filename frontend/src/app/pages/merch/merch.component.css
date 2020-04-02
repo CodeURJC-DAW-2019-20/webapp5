@@ -9,3 +9,61 @@
 .merch-main-image{
    
 }
+
+
+/* Categories Product css
+============================================================================================ */
+.product_listing_area {
+    margin-bottom: 40px;
+}
+
+.p_list_text {
+    border: 1px solid #cccccc;
+    height: 100%;
+    padding-left: 18px;
+    padding-top: 25px;
+}
+
+.p_list_text h3 {
+    font-size: 24px;
+    color: #0b1033;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.p_list_text h3:before {
+    content: "";
+    width: 95px;
+    height: 2px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background: #d91522;
+}
+
+.p_list_text ul {
+    padding-top: 14px;
+}
+
+.p_list_text ul li a {
+    font-size: 14px;
+    line-height: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    letter-spacing: .35px;
+    color: #0b1033;
+    -webkit-transition: all 400ms linear 0s;
+    -o-transition: all 400ms linear 0s;
+    transition: all 400ms linear 0s;
+}
+
+.p_list_text ul li:hover a {
+    color: #d91522;
+}
+
+.p_list_img {
+    margin-left: -30px;
+}
+
