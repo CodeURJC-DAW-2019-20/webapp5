@@ -1,1 +1,101 @@
-<p>events-form works!</p>
+
+<div class="container mt-2 mb-3">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <img class="mx-auto d-block" src="../../../assets/img/logo/png/logo_grande.png" width="150" height="150"/>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-6 mx-auto">
+        <h1>Crear un nuevo evento</h1>
+            <form class="form-horizontal" action="eventForm" method="POST" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label class="register-event-form_img">Imagen</label>
+                    <div class="custom-file">
+                        <input type="file" name="imageFile" accept=".jpg, .jpeg" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"/>
+                        <label class="custom-file-label" for="inputGroupFile01">Elegir fichero</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="register-event-form">Nombre</label>
+                    <input type="text" [(ngModel)]="name" name="name" class="form-control"	id="register-event-name" placeholder="Nombre" />
+                </div>
+                
+                <div class="form-group">
+                    <label class="register-event-form">Elige un juego </label>
+                    <select class="form-control" name="game" >
+                         <!--
+                        {{#GameList}}
+                            <option value="{{id}}">{{name}}</option>
+                        {{/GameList}}-->
+                    </select>
+                </div>
+                
+                
+                
+                
+                <div class="form-group">
+                    <label class="register-event-form">Lugar</label>
+                    <input type="text" name="place" class="form-control" id="register-event-game" placeholder="Place" />
+                </div>				
+            
+                <div class="form-group">
+                    <label class="register-event-form">Día</label>
+                    <input class="form-control" name="date" type="text" placeholder="21-01-2020" id="example-date-input" />
+                </div>
+
+                <div class="form-group">
+                    <label class="register-event-form">Hora</label>
+                    <input class="form-control" name="time" type="text" placeholder="14:00" id="example-time-input" />
+                </div>
+
+                <div class="form-group">
+                    <label class="register-event-form">Descripción</label>
+                    <textarea name="description" rows="3" class="form-control" ></textarea>
+                </div>
+                
+                
+                <p class="auto-style3"><input name="isTournament" class="check-mostrar" type="radio" value="true"/>
+                <span class="auto-style4"> El evento es un torneo</span>
+                </p>
+                
+                <div id="div-mostrar" class="form-group">
+                    <label class="register-event-form">Premio</label>
+                    <input type="text" class="form-control" id="register-event-form" name="reward"	placeholder="Premio (indicar unidades)"/>
+                </div>
+                
+                <p class="auto-style3"><input checked="checked" class="check-mostrar" name="isTournament" type="radio"  value="false"/>
+                <span class="auto-style4"> El evento es un evento general</span>
+                </p>
+                
+                <div class="form-group">
+                    <label class="register-event-form">Máximo de integrantes de los equipos</label>
+                    <input type="number" class="form-control" id="register-event-form" name="groupSize" placeholder="Máximo de integrantes de los equipo" />
+                </div>
+                
+                <div class="form-group">
+                    <label class="register-event-form">Máximo de participantes</label>
+                    <input type="number" class="form-control" id="register-event-form" name="maxParticipants" placeholder="Máximo de participantes" />
+                </div>
+                
+                <div class="form-group">
+                    <label class="register-event-form">Tasa de inscripción</label>
+                    <input type="number" class="form-control" id="register-event-form" name="inscriptionFee" placeholder="Tasa de inscripción (euros)" />
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button id="register" (click)="submit()" class="btn btn-primary">Register</button>
+                    </div>
+                </div>
+                
+               <!--<input type="hidden" name="_csrf" value="{{token}}"/>--> 
+
+
+            </form>
+        </div>
+    </div>
+</div>

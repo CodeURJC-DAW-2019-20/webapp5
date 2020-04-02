@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Events } from '../../../interfaces/events';
 
 @Component({
   selector: 'app-events-form',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsFormComponent implements OnInit {
 
+  name: string;
+
+
+
+ // event: Events
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  submit(name: string){
+    this.name = name;
+    console.log(this.name);
+   }
+
 
 }
