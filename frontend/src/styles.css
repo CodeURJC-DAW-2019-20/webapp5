@@ -85,14 +85,7 @@ a:not(nav):hover{
     display: block;
 }
 
-#login_button{
-	margin-right: 30px;
-}
-@media (max-width: 768px){
-	#login_button{
-		margin-bottom: 1rem;;
-	}
-}
+
 .head {
 	background-color: white; 
 }
