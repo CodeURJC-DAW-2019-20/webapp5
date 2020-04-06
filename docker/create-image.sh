@@ -28,6 +28,7 @@ cp -a $path_dist/. $path_front_location_in_back
 #rm backend.jar
 #mv backend-0.0.1-SNAPSHOT.jar backend.jar
 #
+#
 #echo "Creating docker image"
 #docker build -t bygranizo/lcdd_backend .
 #docker push bygranizo/lcdd_backend
