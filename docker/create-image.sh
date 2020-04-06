@@ -8,8 +8,8 @@ path_dist=$path_project_front/dist/frontend
 path_project_back=$(dirname $(pwd))/backend
 path_jar=$path_project_back/target
 
-mkdir -p $path_project_back/src/main/resources/public/new
-path_front_location_in_back=$path_project_back/src/main/resources/public/new
+mkdir -p $path_project_back/src/main/resources/static/new
+path_front_location_in_back=$path_project_back/src/main/resources/static/new
 
 echo "Building frontend"
 cd $path_project_front

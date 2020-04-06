@@ -37,7 +37,7 @@ export class LcddMapComponent implements OnInit {
   }
   
   markerOptions: google.maps.MarkerOptions = {
-    icon: '../../../assets/img/otros/geo_icon.png',
+    icon: 'assets/img/otros/geo_icon.png',
     animation: google.maps.Animation.DROP,
   }
 

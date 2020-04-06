@@ -23,8 +23,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public images = [1, 2, 3].map((n) => `../../../assets/img/home/home_page${n}.jpg`);
-
   constructor() { }
 
   ngOnInit(): void {
