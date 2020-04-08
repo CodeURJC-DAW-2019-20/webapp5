@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
   styles: [`
   /deep/ .carousel-control-prev-icon{
-    background-image: url("../../../assets/img/home/prevFOTO.png") !important;
+    background-image: url("assets/img/home/prevFOTO.png") !important;
     width: 50px !important;
     height: 50px !important;
   }
   /deep/ .carousel-control-next-icon{
-    background-image: url("../../../assets/img/home/nextFOTO.png") !important;
+    background-image: url("assets/img/home/nextFOTO.png") !important;
     width: 50px !important;
     height: 50px !important;
   }
