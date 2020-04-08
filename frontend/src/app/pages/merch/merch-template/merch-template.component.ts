@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+const BASE_URL = 'http://127.0.0.1:8080/merchs/';
 
 @Component({
   selector: 'app-merch-template',
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MerchTemplateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
+
   }
 
 }

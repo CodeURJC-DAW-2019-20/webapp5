@@ -30,6 +30,7 @@ import { EventsBarChartComponent } from './elements/events-bar-chart/events-bar-
 import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-chart.component';
 import { MerchFormComponent } from './pages/merch/merch-form/merch-form/merch-form.component';
 import { MerchTemplateComponent } from './pages/merch/merch-template/merch-template/merch-template.component';
+import { MerchItemComponent } from './pages/merch/merch-template/merch-item/merch-item.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MerchTemplateComponent } from './pages/merch/merch-template/merch-templ
     MerchLineChartComponent,
     MerchFormComponent,
     MerchTemplateComponent,
+    MerchItemComponent,
   ],
   imports: [
     BrowserModule,
