@@ -12,21 +12,18 @@
 
           <div class="form-group">
             <label for="login-form_username">Username</label>
-            <input type="text" name="username" class="form-control" id="login-form_username" placeholder="Enter Username" required>
+            <input type="text" name="username" class="form-control" id="login-form_username" placeholder="Enter Username" [(ngModel)]="user" required>
           </div>
           <div class="form-group">
             <label for="login-form_password">Password</label>
-            <input type="password"name="password" class="form-control" id="login-form_password" placeholder="Enter Password" required>
+            <input type="password"name="password" class="form-control" id="login-form_password" placeholder="Enter Password" [(ngModel)]="pass" required>
           </div>
 
 
 
           <div class="row">
             <div class="col-6">
-            
-              <input type="hidden" name="_csrf" value="{{token}}"/>
-
-              <button type="submit" class="btn btn-primary" id="login-form_button">Login</button>
+              <button type="submit" class="btn btn-primary" id="login-form_button" (click)="login()">Login</button>
 
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="login-form_remember">
