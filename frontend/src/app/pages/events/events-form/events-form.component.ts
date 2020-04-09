@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Events } from '../../../interfaces/events';
+import { FormBuilder } from '@angular/forms';
+import { Events } from 'src/app/interfaces/events';
+import { EventsService } from 'src/app/services/events/events.service';
 
 @Component({
   selector: 'app-events-form',
@@ -8,22 +10,22 @@ import { Events } from '../../../interfaces/events';
 })
 export class EventsFormComponent implements OnInit {
 
-  name: string;
+  event;
 
 
-
- // event: Events
-
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private service: EventsService, private formBuilder: FormBuilder,) {
+    this.event = this.formBuilder.group({ name: '' });
   }
 
-  submit(name: string){
-    this.name = name;
-    console.log(this.name);
-   }
+  ngOnInit(): void{
+    //this.event = this.EventsService.getItems();
+  }
+
+  submit(event){
+    //this.name = name;
+    this.service.saveEvent(this.event);
+    console.log(this.event);
+  }
 
 
 }
