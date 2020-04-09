@@ -28,6 +28,7 @@ import { LcddMapComponent } from './elements/lcdd-map/lcdd-map.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { EventsBarChartComponent } from './elements/events-bar-chart/events-bar-chart.component';
 import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-chart.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,9 @@ import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
     GoogleMapsModule,
-    ChartsModule
+    ChartsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
