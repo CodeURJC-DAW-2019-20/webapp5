@@ -12,24 +12,38 @@ export class EventsFormComponent implements OnInit {
 
   event;
   gamesList: string[]=["1","2","3"];
+  flag: boolean;
 
   constructor() {
     this.event = new FormGroup({
       name: new FormControl(null,Validators.required),
       game: new FormControl(null,Validators.required),
       place: new FormControl(null,Validators.required),
-      day: new FormControl(null,Validators.required)
+      day: new FormControl(null,Validators.required),
+      hour: new FormControl(null,Validators.required),
+      description: new FormControl(null,Validators.required),
+      isTournament: new FormControl(null,Validators.required),
+      reward: new FormControl(null),
+      groupSize: new FormControl(null,Validators.required),
+      maxParticipants: new FormControl(null,Validators.required),
+      inscriptionFee: new FormControl(null,Validators.required)
     }); 
   }
 
   ngOnInit(): void{
     //this.event = this.EventsService.getItems();
+    this.flag = true;
+    console.log(this.flag);
   }
 
   submit(){
     //this.name = name;
     //this.service.saveEvent(this.event);
     console.log(this.event.value);
+  }
+  showReward(bool: boolean){
+    this.flag = bool;
+    console.log(this.flag);
   }
 
 
