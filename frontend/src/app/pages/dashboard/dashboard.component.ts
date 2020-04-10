@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faDollarSign, faCalendar, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   dashSection: string;
+
+  public faIcons = {
+    events: faCalendar,
+    merch: faDollarSign,
+    users: faUsers,
+  }
 
   changeSection(newSection: string){
     this.dashSection = newSection;

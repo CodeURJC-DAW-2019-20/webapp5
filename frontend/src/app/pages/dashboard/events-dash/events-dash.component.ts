@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EventRegisterService } from 'src/app/services/event-register/event-register.service';
+import { EventsService } from 'src/app/services/events/events.service';
 
 @Component({
   selector: 'app-events-dash',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsDashComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private eventRegisterService: EventRegisterService,
+    private eventService: EventsService,
+  ) { }
 
   ngOnInit(): void {
+    this.getEventsByGameChartData();
+    this.getInscriptionTableData();
+  }
+
+  getEventsByGameChartData(){
+  }
+
+  getInscriptionTableData(){
   }
 
 }

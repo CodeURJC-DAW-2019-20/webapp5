@@ -32,7 +32,7 @@ public class UserRestController {
 	
 	
 	//get all existing users
-	@GetMapping("/")
+	@GetMapping(value={"", "/"})
 	public ResponseEntity<List<User>> getUsers(HttpSession session) {
 		//admin can see all users
 		List<User> users = userService.findAll();

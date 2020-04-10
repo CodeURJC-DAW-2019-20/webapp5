@@ -1,19 +1,8 @@
-/* Home 
-============================================================================================ */
-#register_button{
-	margin-right: 80px;
-}
-.passwordError:after{
-	content:"los campos de contraseña no coinciden";
-}
-
 /* Carousel Header Styles */
 .mainpage1 {
     position: absolute;
     top: 20%;
-    left: 1.8%;
-    right: auto;
-    width: 96.66666666666666%;
+    margin: auto;
     font-size: 4rem;
     font-weight: 700;
     text-shadow: 2px 2px #A8AD11;
