@@ -12,7 +12,7 @@ export class EventsFormComponent implements OnInit {
 
   event;
   gamesList: string[]=["1","2","3"];
-  flag: boolean;
+  public flag: boolean;
 
   constructor() {
     this.event = new FormGroup({
@@ -32,8 +32,7 @@ export class EventsFormComponent implements OnInit {
 
   ngOnInit(): void{
     //this.event = this.EventsService.getItems();
-    this.flag = true;
-    console.log(this.flag);
+    this.flag = false;
   }
 
   submit(){
@@ -41,10 +40,11 @@ export class EventsFormComponent implements OnInit {
     //this.service.saveEvent(this.event);
     console.log(this.event.value);
   }
-  showReward(bool: boolean){
-    this.flag = bool;
-    console.log(this.flag);
+  showReward(){
+    this.flag = true;
   }
-
+  hideReward(){
+    this.flag = false;
+  }
 
 }

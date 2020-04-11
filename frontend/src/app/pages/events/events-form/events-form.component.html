@@ -96,7 +96,7 @@
                     <input
                         type="radio"
                         name="isTournament"
-                        (onclick)="showReward(true)"
+                        (click)="showReward()"
                         formControlName="isTournament"
                         ngControl="inp"
                         class="check-mostrar"
@@ -104,7 +104,7 @@
 					<span class="auto-style4"> El evento es un torneo</span>
 				</p>
 
-                <div id="div-mostrar" *ngIf=flag class="form-group">
+                <div *ngIf="flag==true" id="div-mostrar" class="form-group">
                     <label class="register-event-form">Premio</label>
                     <input
                         type="text"
@@ -119,7 +119,8 @@
                     <input
                         type="radio"
                         name="isTournament"
-                        (onclick)="showReward(false)"
+                        (click)="hideReward()"
+                        [value]="false"
                         formControlName="isTournament"
                         ngControl="inp"
                         class="check-mostrar"
