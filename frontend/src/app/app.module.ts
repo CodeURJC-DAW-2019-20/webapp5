@@ -28,9 +28,6 @@ import { LcddMapComponent } from './elements/lcdd-map/lcdd-map.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { EventsBarChartComponent } from './elements/events-bar-chart/events-bar-chart.component';
 import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-chart.component';
-import { MerchFormComponent } from './pages/merch/merch-form/merch-form/merch-form.component';
-import { MerchTemplateComponent } from './pages/merch/merch-template/merch-template/merch-template.component';
-import { MerchItemComponent } from './pages/merch/merch-template/merch-item/merch-item.component';
 
 @NgModule({
   declarations: [
@@ -53,9 +50,6 @@ import { MerchItemComponent } from './pages/merch/merch-template/merch-item/merc
     ErrorComponent,
     EventsBarChartComponent,
     MerchLineChartComponent,
-    MerchFormComponent,
-    MerchTemplateComponent,
-    MerchItemComponent,
   ],
   imports: [
     BrowserModule,
