@@ -181,4 +181,10 @@ public class EventRestController {
 		return new ResponseEntity<>(event, HttpStatus.OK);
 	}
 	
+	@GetMapping("/games/counts")
+	public ResponseEntity<List<Object[]>> getEventGamesCount() {
+		List<Object[]> eventGameList = eventService.countGamesEvent();
+		return new ResponseEntity<>(eventGameList, HttpStatus.OK);
+	}
+	
 }

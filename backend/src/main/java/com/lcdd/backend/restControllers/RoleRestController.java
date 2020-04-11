@@ -21,7 +21,7 @@ public class RoleRestController {
 	private RoleService roleService;
 	
 	//permited to all
-	@GetMapping("/")
+	@GetMapping(value={"", "/"})
 	public ResponseEntity<List<Role>> getAllRole(HttpSession session) {
 		
 		List<Role> allRole = roleService.findAll();

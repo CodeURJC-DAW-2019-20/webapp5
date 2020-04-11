@@ -5,31 +5,31 @@
 				<ul class="nav flex-column dash_menu">
 					<li class="nav-item">
 						<a id="dash_events" class="nav-link active" [ngClass]="{'active': dashSection == 'events'}" (click)="changeSection('events')">
-							<span data-feather="calendar"></span>
+							<fa-icon [icon]="faIcons.events"></fa-icon>
 							Eventos
 						</a>
 					</li>
 					<li class="nav-item">
 						<a id="dash_merch" class="nav-link" [ngClass]="{'active': dashSection == 'merch'}" (click)="changeSection('merch')">
-							<span data-feather="dollar-sign"></span>
+							<fa-icon [icon]="faIcons.merch"></fa-icon>
 							Merch
 						</a>
 					</li>
 					<li class="nav-item">
 						<a id="dash_admin" class="nav-link" [ngClass]="{'active': dashSection == 'users'}" (click)="changeSection('users')">
-							<span data-feather="users"></span>
+							<fa-icon [icon]="faIcons.users"></fa-icon>
 							Gestiones de admin
 						</a>
 					</li>
 					<li class="nav-item">
 						<a id="dash_event-form" class="nav-link">
-							<span data-feather="calendar"></span>
+							<fa-icon [icon]="faIcons.events"></fa-icon>
 							Crear evento
 						</a>
 					</li>
 					<li class="nav-item">
 						<a id="dash_merch-form" class="nav-link">
-							<span data-feather="calendar"></span>
+							<fa-icon [icon]="faIcons.merch"></fa-icon>
 							Subir merchandaising
 						</a>
 					</li>

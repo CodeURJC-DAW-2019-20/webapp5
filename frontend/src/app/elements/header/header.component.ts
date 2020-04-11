@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   public isMenuCollapsed = true;
+  public isUserMenuCollapsed = true;
+  public isUserLoggedIn = true;
+  public isUserAdmin = true;
+  public username = "byGranizo";
 
   constructor() { }
 
