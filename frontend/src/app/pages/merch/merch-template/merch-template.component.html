@@ -42,65 +42,48 @@
         <p>{{Merch.description}}</p>
     </div>
 --> 
-    <div id="event-info">
-        <h1>{{Merch.name}}</h1>
-        <div>
-            <i class="fas fa-box-open"> Nombre: {{Merch.name}}</i>
-            <br>				
-            <i class="fas fa-cog"> Tipo: Porfa</i>
-            <br>
-            <i class="fas fa-calculator"> Unidades: {{Merch.stock}}</i>
-            <br>
-            <i class="fas fa-percent"> Descuento: {{Merch.discount}}</i>
-            <br>
-            <i class="fas fa-money-bill-wave"> Precio: {{Merch.price}} euros.</i>
-            <!--<div class="control-group">
-                <div class="controls">
-                    <form class="form-horizontal" action="/purchaseMerch/{{id}}"  method="POST" >
-                        <button id="purchase" class="btn btn-primary">Comprar</button>
-                        <input type="hidden" name="_csrf" value="{{token}}"/>
-                    </form>
-                </div>
-            </div>--> 
+    <br>
+
+    <div id="general-container">
+        <div id="merch-container-main-image" >
+                <img class="event-main-image img-fluid" src="MerchImage" />
+                <img class="event-main-image img-fluid" src='assets/img/products/shirtTemplate.jpg'/>
         </div>
-        <p class="align-middle"></p>
-    </div>
 
-    
+        <div class="event-info">
+            <h1>{{Merch.name}}</h1>
+            <div>
+                <fa-icon [icon]="faBoxOpen"></fa-icon><i> Nombre: {{Merch.name}}</i>
+                <br>				
+                <fa-icon [icon]="faCog"></fa-icon><i> Tipo: Porfa</i>
+                <br>
+                <fa-icon [icon]="faCalculator"></fa-icon><i> Unidades: {{Merch.stock}} ud</i>
+                <br>
+                <fa-icon [icon]="faPercent"></fa-icon><i> Descuento: {{Merch.discount}} %</i>
+                <br>
+                <fa-icon [icon]="faMoneyBillWave"></fa-icon><i> Precio: {{Merch.price}} euros.</i>
+                <!--<div class="control-group">
+                    <div class="controls">
+                        <form class="form-horizontal" action="/purchaseMerch/{{id}}"  method="POST" >
+                            <button id="purchase" class="btn btn-primary">Comprar</button>
+                            <input type="hidden" name="_csrf" value="{{token}}"/>
+                        </form>
+                    </div>
+                </div>--> 
+            </div>
+        </div>
 
-    <div id="event-description">
-        <h2>Descripción</h2>
-        <p>{{Merch.description}}</p>
-    </div>
-
-    
+        <div>
+            <h2>Descripción</h2>
+            <p>{{Merch.description}}</p>
+        </div>
     
     <br>
     <br>
-
-
-
-<div>
-    {{Merch.id}}
-</div>
-
-<div>
-    {{Merch.name}}
-</div>
-
-<div>
-    {{Merch.price}}
-</div>
-
-<div>
-    {{Merch.discount}}
-</div>
-
-<div>
-    {{Merch.stock}}
-</div>
-
-<div>
-    {{Merch.description}}
-</div>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    </div>

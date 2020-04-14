@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Merch } from '../../../interfaces/merch';
+import { MerchService } from '../../../services/merch/merch.service';
+import { faBoxOpen, faCog, faCalculator, faPercent, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
 
-const BASE_URL = 'https://localhost:8443/api/merchandisings/38';
 
 @Component({
   selector: 'app-merch-template',
@@ -11,17 +12,30 @@ const BASE_URL = 'https://localhost:8443/api/merchandisings/38';
   styleUrls: ['./merch-template.component.css']
 })
 export class MerchTemplateComponent implements OnInit {
+  Merch: any;
+  faBoxOpen = faBoxOpen;
+  faCog = faCog;
+  faCalculator = faCalculator;
+  faPercent = faPercent;
+  faMoneyBillWave = faMoneyBillWave;
 
-  Merch;
+  thumbnail: any;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(protected merchService: MerchService) { }
 
   ngOnInit(): void {
-		this.refresh();
+		this.refreshMerch();
   }
 
-  private refresh() {
-		this.httpClient.get(BASE_URL).subscribe(
+  private refreshMerch() {
+    this.merchService.getMerch().subscribe(
+			response => this.Merch = response as any,
+			error => this.handleError(error)
+		);
+  }
+
+  private refreshMerchImage() {
+    this.merchService.getMerchImage().subscribe(
 			response => this.Merch = response as any,
 			error => this.handleError(error)
 		);
