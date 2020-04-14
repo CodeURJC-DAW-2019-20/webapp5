@@ -30,6 +30,7 @@ import { EventsBarChartComponent } from './elements/events-bar-chart/events-bar-
 import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-chart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventTemplateComponent } from './pages/events/event-template/event-template.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { EventTemplateComponent } from './pages/events/event-template/event-temp
     GoogleMapsModule,
     ChartsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

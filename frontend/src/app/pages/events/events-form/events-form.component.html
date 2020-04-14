@@ -10,19 +10,37 @@
         <div class="col-6 mx-auto">
         <h1>Crear un nuevo evento</h1>
 
-            <form class="form-horizontal"
+            <!--<form class="form-horizontal"
                 [formGroup]="event"
-                (ngSubmit)="submit()">
-
+                (ngSubmit)="submit()">-->
+            <form>
 
                 <div class="form-group">
                     <label class="register-event-form_img">Imagen</label>
-                    <div class="custom-file">
-                        <input type="file" name="imageFile" accept=".jpg, .jpeg" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"/>
-                        <label class="custom-file-label" for="inputGroupFile01">Elegir fichero</label>
-                    </div>
-                </div>
 
+                    <div>
+                        <!--<div class="custom-file">-->
+
+                        <input
+                            type="file"
+                            (change)="onFileChanged($event)"
+                            name="imageFile"
+                            accept=".jpg, .jpeg"
+                            class="custom-file-input"
+                            id="inputGroupFile01"/>
+                        <label class="custom-file-label" for="inputGroupFile01">Elegir fichero</label>
+                        <img [src]="imgURL" height="200" *ngIf="imgURL">
+
+                    </div>
+
+                    <input type="button" (click)="onUpload()" value="upload">
+                    <hr />
+
+                    {{ receivedImageData['pic'] | json}}
+                    <img [src]="convertedImage" >
+
+                </div>
+<!--
                 <div class="form-group">
                     <label class="register-event-form">Nombre</label>
                     <input
@@ -175,7 +193,7 @@
                             class="btn btn-primary">Register</button>
                     </div>
                 </div>
-                
+-->
                <!--<input type="hidden" name="_csrf" value="{{token}}"/>--> 
 
 
