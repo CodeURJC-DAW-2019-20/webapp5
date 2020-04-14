@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users/users.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,24 +13,23 @@ export class LoginComponent implements OnInit {
   public pass: string;
 
 
-  constructor(public userService: UsersService) { }
+  constructor(public userService: UsersService,public loginService: LoginService) { }
 
   ngOnInit(): void {
   }
 
   login(){
-    this.userService.login(this.user, this.pass).subscribe(
+    this.loginService.login(this.user, this.pass).subscribe(
       (user) => {
         console.log(user);
-        this.dialogRef.close();
       },
       (error) => alert('Invalid user or password'),
     );
   }
   logOut() {
-    this.userService.logOut().subscribe(
+    this.loginService.logOut().subscribe(
         (response) => {
-            this.router.navigate(['/']);
+            //this.router.navigate(['/']);
         },
         (error) => console.log('Error when trying to log out: ' + error),
     );
