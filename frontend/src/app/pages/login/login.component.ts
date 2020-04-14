@@ -21,8 +21,17 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.user, this.pass).subscribe(
       (user) => {
         console.log(user);
-      }
+        this.dialogRef.close();
+      },
+      (error) => alert('Invalid user or password'),
     );
   }
-
+  logOut() {
+    this.userService.logOut().subscribe(
+        (response) => {
+            this.router.navigate(['/']);
+        },
+        (error) => console.log('Error when trying to log out: ' + error),
+    );
+}
 }
