@@ -15,14 +15,30 @@ export class EventsDashComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getEventsByGameChartData();
-    this.getInscriptionTableData();
+    //this.getEventsByGameChartData();
+    //this.getInscriptionTableData();
   }
 
   getEventsByGameChartData(){
+    this.eventService.getEventGamesCount().subscribe(
+      eventsByGame => {
+
+      },
+      error => {
+
+      }
+    );
   }
 
   getInscriptionTableData(){
+    this.eventRegisterService.getEventRegisterList().subscribe(
+      inscriptions => {
+
+      },
+      error => {
+
+      }
+    );
   }
 
 }
