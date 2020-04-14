@@ -42,9 +42,11 @@ export class LoginService {
       return user;
     }));
   }
-  logOut(){
 
-    return this.http.get(URL + '/logOut').pipe(
+  logOut(){
+    let url = environment.apiEndPoint + '/logOut';
+    
+    return this.http.get(url).pipe(
       map(response => {
         this.removeCurrentUser();
         return response;

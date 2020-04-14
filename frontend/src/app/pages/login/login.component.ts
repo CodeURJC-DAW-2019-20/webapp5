@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users/users.service';
 import { LoginService } from 'src/app/services/login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,11 @@ export class LoginComponent implements OnInit {
   public pass: string;
 
 
-  constructor(public userService: UsersService,public loginService: LoginService) { }
+  constructor(
+    public userService: UsersService,
+    public loginService: LoginService,
+    public router: Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +27,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.user, this.pass).subscribe(
       (user) => {
         console.log(user);
+        this.router.navigate(['/']);
       },
       (error) => {
         console.log(error);
@@ -29,12 +35,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  logOut() {
-    this.loginService.logOut().subscribe(
-        (response) => {
-            //this.router.navigate(['/']);
-        },
-        (error) => console.log('Error when trying to log out: ' + error),
-    );
-}
 }
