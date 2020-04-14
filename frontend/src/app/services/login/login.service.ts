@@ -55,7 +55,7 @@ export class LoginService {
   private setCurrentUser(user: Users){
     this.isLogged = true;
     this.user = user;
-    this.isAdmin = this.user.roleSpring.indexOf('ROLE_ADMIN') !== -1;
+    this.isAdmin = user.roles.indexOf('ROLE_ADMIN') !== -1;
   }
   removeCurrentUser(){
     localStorage.removeItem('currentUser');

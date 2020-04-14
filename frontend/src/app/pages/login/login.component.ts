@@ -23,7 +23,10 @@ export class LoginComponent implements OnInit {
       (user) => {
         console.log(user);
       },
-      (error) => alert('Invalid user or password'),
+      (error) => {
+        console.log(error);
+        alert('Invalid user or password');
+      }
     );
   }
   logOut() {

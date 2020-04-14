@@ -17,5 +17,5 @@ export interface Users {
 	purchases?: Purchase[];
 	events?: EventRegister[];
 	authData?: string; 
-	roleSpring?: string[];
+	roles?: string[];
 }
