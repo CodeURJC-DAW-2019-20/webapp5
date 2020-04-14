@@ -29,6 +29,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { EventsBarChartComponent } from './elements/events-bar-chart/events-bar-chart.component';
 import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-chart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EventTemplateComponent } from './pages/events/event-template/event-template.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ErrorComponent,
     EventsBarChartComponent,
     MerchLineChartComponent,
+    EventTemplateComponent,
   ],
   imports: [
     BrowserModule,
