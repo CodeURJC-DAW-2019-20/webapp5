@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { faDollarSign, faCalendar, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from 'src/app/services/login/login.service';
+import { LoginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +13,8 @@ import { faDollarSign, faCalendar, faUsers } from '@fortawesome/free-solid-svg-i
 export class DashboardComponent implements OnInit {
 
   dashSection: string;
+
+  public loginService: LoginService;
 
   public faIcons = {
     events: faCalendar,
@@ -20,9 +26,12 @@ export class DashboardComponent implements OnInit {
     this.dashSection = newSection;
   }
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
+    if(!this.loginService.isAdmin){
+      this.router.navigate(['/error']);
+    }
     this.dashSection = 'events';
   }
 
