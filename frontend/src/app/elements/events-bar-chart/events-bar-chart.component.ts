@@ -15,6 +15,9 @@ export class EventsBarChartComponent implements OnInit {
   @Input()
   height: any = 380;
 
+  @Input()
+  data: any;
+
   charType: ChartType = 'bar';
   labels: Label[] = ['1', '2', '3', '4'];
   datasets: ChartDataSets[] = [

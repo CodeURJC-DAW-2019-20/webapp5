@@ -20,7 +20,7 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@JsonIgnore
+
 	@ManyToOne
 	private Game game;
 

@@ -8,22 +8,26 @@ import { PurchasesService } from 'src/app/services/purchases/purchases.service';
 })
 export class MerchDashComponent implements OnInit {
 
+  public lastYearPurchases: any;
+  public purchaseList: any;
+  
   constructor(
     private purchaseService: PurchasesService
   ) { }
 
   ngOnInit(): void {
-    //getPurchasesByMonthChartData();
-    //getPurchaseTableData();
+    this.getPurchasesByMonthChartData();
+    this.getPurchaseTableData();
   }
 
   getPurchasesByMonthChartData(){
     this.purchaseService.getPurchaseLastYearList().subscribe(
       lastYearPurchases => {
-
+        console.log(lastYearPurchases);
+        this.lastYearPurchases = lastYearPurchases;
       },
       error => {
-
+        console.log("La liaste pardisima");
       }
     );
   }
@@ -31,12 +35,14 @@ export class MerchDashComponent implements OnInit {
   getPurchaseTableData(){
     this.purchaseService.getPurchaseList().subscribe(
       purchaseList => {
-
+        console.log(purchaseList);
+        this.purchaseList = purchaseList;
       },
       error => {
-
+        console.log("La liaste pardisima");
       }
     );
   }
+
 
 }

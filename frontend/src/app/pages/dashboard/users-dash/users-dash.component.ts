@@ -9,23 +9,27 @@ import { RolesService } from 'src/app/services/roles/roles.service';
 })
 export class UsersDashComponent implements OnInit {
 
+  public usersList: any;
+  public rolesList: any;
+
   constructor(
     private userService: UsersService,
     private rolesService: RolesService,
   ) { }
 
   ngOnInit(): void {
-    //getPurchasesByMonthChartData();
-    //getPurchaseTableData();
+    this.getPurchasesByMonthChartData();
+    this.getPurchaseTableData();
   }
 
   getPurchasesByMonthChartData(){
     this.userService.getUsers().subscribe(
       usersList => {
-
+        console.log(usersList);
+        this.usersList = usersList;
       },
       error => {
-
+        console.log("La liaste pardisima");
       }
     );
   }
@@ -33,10 +37,22 @@ export class UsersDashComponent implements OnInit {
   getPurchaseTableData(){
     this.rolesService.getRoles().subscribe(
       rolesList => {
-
+        console.log(rolesList);
+        this.rolesList = rolesList;
       },
       error => {
+        console.log("La liaste pardisima");
+      }
+    );
+  }
 
+  setUserRole(){
+    this.userService.setUserRole().subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log("La liaste pardisima");
       }
     );
   }

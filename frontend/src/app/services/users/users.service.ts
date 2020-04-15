@@ -31,4 +31,19 @@ export class UsersService {
   getUser(id){
     const url = environment.apiEndPoint + '/users/' + id;
   }
+
+  setUserRole(){
+    //Arreglar
+    const url = environment.apiEndPoint + '/users'
+
+    return this.http.get(url)
+      .pipe(
+        map(user =>{
+          return user;
+        }),
+        catchError(error => {
+          return throwError(error);
+        })
+      );
+  }
 }
