@@ -76,9 +76,9 @@
                 <div class="form-group">
                     <label class="register-event-form">Día</label>
                     <input
-                        name="day"
+                        name="date"
                         type="text"
-                        formControlName="day"
+                        formControlName="date"
                         ngControl="inp"
                         class="form-control"
                         placeholder="21-01-2020"
@@ -90,7 +90,7 @@
                     <input
                         type="text"
                         name="time"
-                        formControlName="hour"
+                        formControlName="time"
                         ngControl="inp"
                         class="form-control"
                         placeholder="14:00"
@@ -117,7 +117,7 @@
                         formControlName="isTournament"
                         ngControl="inp"
                         class="check-mostrar"
-                        value="true"/>
+                        value="1"/>
 					<span class="auto-style4"> El evento es un torneo</span>
 				</p>
 
@@ -141,7 +141,7 @@
                         formControlName="isTournament"
                         ngControl="inp"
                         class="check-mostrar"
-                        value="false"/>
+                        value="0"/>
                     <span class="auto-style4"> El evento es un evento general</span>
                 </p>
 

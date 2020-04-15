@@ -33,8 +33,8 @@ export class EventsFormComponent implements OnInit {
       name: new FormControl(null,Validators.required),
       game: new FormControl(null,Validators.required),
       place: new FormControl(null,Validators.required),
-      day: new FormControl(null,Validators.required),
-      hour: new FormControl(null,Validators.required),
+      date: new FormControl(null,Validators.required),
+      time: new FormControl(null,Validators.required),
       description: new FormControl(null,Validators.required),
       isTournament: new FormControl(null,Validators.required),
       reward: new FormControl(null),
@@ -69,9 +69,10 @@ export class EventsFormComponent implements OnInit {
   submit(){
     console.log(this.event.value);
     this.eventService.saveEvent(this.event.value).subscribe(
-        
-      (error: Error) => console.error('Error creating new book: ' + error),
-      
+      (error) => {
+        console.log("error");
+      //(error: Error) => console.error('Error creating new event: ' + error),
+      }
     );
 
     //this.onUpload();
