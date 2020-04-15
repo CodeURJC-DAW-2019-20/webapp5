@@ -12,7 +12,9 @@ export class UsersService {
 
   constructor(private http: HttpClient) {}
    
-  register(){}
+  register(){
+    
+  }
 
   getUsers(){
     const url = environment.apiEndPoint + '/users'
