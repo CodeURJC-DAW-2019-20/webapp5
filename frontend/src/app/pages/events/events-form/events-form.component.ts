@@ -11,19 +11,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EventsFormComponent implements OnInit {
 
-  //event;
+  public event;
   gamesList: string[]=["1","2","3"];
   public flag: boolean;
-
-  public selectedFile;
-  public event1;
-  imgURL: any;
+  selectedFile: File;
   receivedImageData: any;
-  base64Data: any;
-  convertedImage: any;
 
-  constructor(private httpClient: HttpClient) {
-    /*this.event = new FormGroup({
+
+  constructor(private httpClient: HttpClient, public eventService: EventsService) {
+    this.createEvent();
+  }
+
+  public onFileChanged(event) {
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+  }
+
+  private createEvent(){
+    
+    this.event = new FormGroup({
       name: new FormControl(null,Validators.required),
       game: new FormControl(null,Validators.required),
       place: new FormControl(null,Validators.required),
@@ -35,46 +41,25 @@ export class EventsFormComponent implements OnInit {
       groupSize: new FormControl(null,Validators.required),
       maxParticipants: new FormControl(null,Validators.required),
       inscriptionFee: new FormControl(null,Validators.required)
-    });*/ 
+    });
   }
 
-
-  public  onFileChanged(event) {
-    console.log(event);
-    this.selectedFile = event.target.files[0];
-
-    // Below part is used to display the selected image
-    let reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onload = (event2) => {
-      this.imgURL = reader.result;
-  };
-
- }
-
-
  // This part is for uploading
- onUpload() {
-
-
-  const uploadData = new FormData();
-  uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
-
-
-  this.httpClient.post('http://localhost:8080/check/upload', uploadData)
-  .subscribe(
-               res => {console.log(res);
-                       this.receivedImageData = res;
-                       this.base64Data = this.receivedImageData.pic;
-                       this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data; },
-               err => console.log('Error Occured duringng saving: ' + err)
-            );
-
-
- }
-
-
-
+  onUpload() {
+    console.log(this.selectedFile);
+    //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
+    const uploadImageData = new FormData();
+    uploadImageData.append('imageFile', this.selectedFile);
+    //Make a call to the Spring Boot Application to save the image
+    this.eventService.saveImage(57,uploadImageData).subscribe(
+      (response) => {
+        console.log("nice");
+      },
+      (error) => {
+        console.log("error");
+      },
+    );
+  }
 
   ngOnInit(): void{
     //this.event = this.EventsService.getItems();
@@ -82,10 +67,14 @@ export class EventsFormComponent implements OnInit {
   }
 
   submit(){
-    //this.name = name;
-    //this.service.saveEvent(this.event);
-    
-    //console.log(this.event.value);
+    console.log(this.event.value);
+    this.eventService.saveEvent(this.event.value).subscribe(
+        
+      (error: Error) => console.error('Error creating new book: ' + error),
+      
+    );
+
+    //this.onUpload();
   }
   showReward(){
     this.flag = true;

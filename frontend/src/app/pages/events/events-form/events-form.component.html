@@ -10,13 +10,13 @@
         <div class="col-6 mx-auto">
         <h1>Crear un nuevo evento</h1>
 
-            <!--<form class="form-horizontal"
+            <form class="form-horizontal"
                 [formGroup]="event"
-                (ngSubmit)="submit()">-->
-            <form>
+                (ngSubmit)="submit()">
+            <!--<form>-->
 
                 <div class="form-group">
-                    <label class="register-event-form_img">Imagen</label>
+                    
 
                     <div>
                         <!--<div class="custom-file">-->
@@ -29,18 +29,17 @@
                             class="custom-file-input"
                             id="inputGroupFile01"/>
                         <label class="custom-file-label" for="inputGroupFile01">Elegir fichero</label>
-                        <img [src]="imgURL" height="200" *ngIf="imgURL">
-
+                        
                     </div>
-
+<!--
                     <input type="button" (click)="onUpload()" value="upload">
                     <hr />
 
                     {{ receivedImageData['pic'] | json}}
                     <img [src]="convertedImage" >
-
+-->
                 </div>
-<!--
+
                 <div class="form-group">
                     <label class="register-event-form">Nombre</label>
                     <input
@@ -193,7 +192,7 @@
                             class="btn btn-primary">Register</button>
                     </div>
                 </div>
--->
+
                <!--<input type="hidden" name="_csrf" value="{{token}}"/>--> 
 
 
