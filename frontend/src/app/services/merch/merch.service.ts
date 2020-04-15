@@ -12,7 +12,11 @@ export class MerchService {
   getMerch() {
     return this.http.get('https://localhost:8443/api/merchandisings/38');
   }
-
+  
+  getMerchType() {
+    return this.http.get('https://localhost:8443/api/merchandisings/38/type');
+  }
+  
   getImage(imageUrl: string): Observable<Blob> {
     return this.http.get(imageUrl, { responseType: 'blob' });
   }

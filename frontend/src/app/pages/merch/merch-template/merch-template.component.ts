@@ -14,6 +14,7 @@ import { faBoxOpen, faCog, faCalculator, faPercent, faMoneyBillWave } from '@for
 })
 export class MerchTemplateComponent implements OnInit {
   Merch: any;
+  MerchType: any;
 
   faBoxOpen = faBoxOpen;
   faCog = faCog;
@@ -31,12 +32,20 @@ export class MerchTemplateComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshMerch();
+    this.refreshMerchType();
     this.getImageFromService();
   }
 
   private refreshMerch() {
     this.merchService.getMerch().subscribe(
 			response => this.Merch = response as any,
+			error => this.handleError(error)
+    );
+  }
+
+  private refreshMerchType() {
+    this.merchService.getMerchType().subscribe(
+			response => this.MerchType = response as any,
 			error => this.handleError(error)
     );
   }
