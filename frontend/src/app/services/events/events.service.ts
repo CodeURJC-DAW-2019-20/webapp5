@@ -37,10 +37,10 @@ export class EventsService {
 
     const url = environment.apiEndPoint + '/events/'
 
-    return this.http.post(url, event)
+    return this.http.post(url, event, {headers})
     .pipe(
-      map(eventRegister =>{
-        return eventRegister;
+      map(eventSend =>{
+        return eventSend;
       }),
       catchError(error => {
         return throwError(error);
@@ -77,6 +77,10 @@ export class EventsService {
   private handleError(error: any) {
     console.error(error);
     return Observable.throw('Server error (' + error.status + '): ' + error);
+  }
+
+  getNewEventId(){
+    const url = environment.apiEndPoint + '/events/' +  + '/image/'
   }
 
 }

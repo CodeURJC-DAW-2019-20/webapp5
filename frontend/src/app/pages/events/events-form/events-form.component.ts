@@ -5,7 +5,6 @@ import { EventsService } from 'src/app/services/events/events.service';
 import { HttpClient } from '@angular/common/http';
 import { GamesService } from 'src/app/services/games/games.service';
 import { throwError, Observable } from 'rxjs';
-import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-events-form',
@@ -67,7 +66,7 @@ export class EventsFormComponent implements OnInit {
 
   ngOnInit(): void{
     //this.event = this.EventsService.getItems();
-    //this.createGamesList();
+    this.createGamesList();
     this.reward = false;
   }
 
@@ -89,6 +88,7 @@ export class EventsFormComponent implements OnInit {
       },
     );
     if(this.event.value.haveImage){
+      //this.eventNumber = 
       this.onUpload();
     }  
   }
