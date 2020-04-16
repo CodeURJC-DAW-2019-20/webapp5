@@ -129,10 +129,10 @@ public class User {
 		return passwordHash;
 	}
 
-	public void setPasswordHash(String passwordHash) {
+	/*public void setPasswordHash(String passwordHash) {
 		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);;
 	}
-
+	*/
 	public List<String> getRoles() {
 		return roles;
 	}

@@ -105,11 +105,11 @@ public class UserRestController {
 	}
 	
 	//add a new user, permited all
-	@PostMapping("/")
+	@PostMapping("/new")
 	public ResponseEntity<User> postUser(@RequestBody User user) {
 		
 		boolean result = userService.createAnUser(user);
-		if ((result == true)&&(user.getName()!=null)&&(user.getPasswordHash()!=null)) {
+		if ((result == true)&&(user.getName()!=null)) {
 			return new ResponseEntity<>(user, HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
