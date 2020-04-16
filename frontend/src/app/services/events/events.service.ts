@@ -38,7 +38,14 @@ export class EventsService {
     const url = environment.apiEndPoint + '/events/'
 
     return this.http.post(url, event)
-    .pipe(catchError((error) => this.handleError(error)));
+    .pipe(
+      map(eventRegister =>{
+        return eventRegister;
+      }),
+      catchError(error => {
+        return throwError(error);
+      })
+    );
 
 /*
     if (!event.id) {
@@ -57,11 +64,19 @@ export class EventsService {
     const url = environment.apiEndPoint + '/events/' + id + '/image/'
 
     return this.http.post(url,image)
-    .pipe(catchError((error) => this.handleError(error)));
+    .pipe(
+      map(eventRegister =>{
+        return eventRegister;
+      }),
+      catchError(error => {
+        return throwError(error);
+      })
+    );
     //return image;
   }
   private handleError(error: any) {
     console.error(error);
     return Observable.throw('Server error (' + error.status + '): ' + error);
-}
+  }
+
 }

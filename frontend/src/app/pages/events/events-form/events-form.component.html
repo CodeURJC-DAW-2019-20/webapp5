@@ -13,28 +13,25 @@
             <form class="form-horizontal"
                 [formGroup]="event"
                 (ngSubmit)="submit()">
-            <!--<form>-->
 
                 <div class="form-group">
-                    
+                    <label class="register-event-form_img">Imagen</label>
 
-                    <div>
-                        <!--<div class="custom-file">-->
+                    <div class="custom-file">
 
                         <input
                             type="file"
                             (change)="onFileChanged($event)"
+                            formControlName="haveImage"
+                            ngControl="inp"
                             name="imageFile"
                             accept=".jpg, .jpeg"
                             class="custom-file-input"
                             id="inputGroupFile01"/>
                         <label class="custom-file-label" for="inputGroupFile01">Elegir fichero</label>
-                        
-                    </div>
+                    </div> 
+                    
 <!--
-                    <input type="button" (click)="onUpload()" value="upload">
-                    <hr />
-
                     {{ receivedImageData['pic'] | json}}
                     <img [src]="convertedImage" >
 -->
@@ -117,7 +114,7 @@
                         formControlName="isTournament"
                         ngControl="inp"
                         class="check-mostrar"
-                        value="1"/>
+                        value="true"/>
 					<span class="auto-style4"> El evento es un torneo</span>
 				</p>
 
@@ -141,7 +138,7 @@
                         formControlName="isTournament"
                         ngControl="inp"
                         class="check-mostrar"
-                        value="0"/>
+                        value="false"/>
                     <span class="auto-style4"> El evento es un evento general</span>
                 </p>
 
@@ -192,10 +189,6 @@
                             class="btn btn-primary">Register</button>
                     </div>
                 </div>
-
-               <!--<input type="hidden" name="_csrf" value="{{token}}"/>--> 
-
-
             </form>
         </div>
     </div>
