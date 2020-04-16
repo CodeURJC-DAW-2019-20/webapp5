@@ -1,1 +1,195 @@
-<p>events-form works!</p>
+
+<div class="container mt-2 mb-3">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <img class="mx-auto d-block" src="assets/img/logo/png/logo_grande.png" width="150" height="150"/>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-6 mx-auto">
+        <h1>Crear un nuevo evento</h1>
+
+            <form class="form-horizontal"
+                [formGroup]="event"
+                (ngSubmit)="submit()">
+
+                <div class="form-group">
+                    <label class="register-event-form_img">Imagen</label>
+
+                    <div class="custom-file">
+
+                        <input
+                            type="file"
+                            (change)="onFileChanged($event)"
+                            formControlName="haveImage"
+                            ngControl="inp"
+                            name="imageFile"
+                            accept=".jpg, .jpeg"
+                            class="custom-file-input"
+                            id="inputGroupFile01"/>
+                        <label class="custom-file-label" for="inputGroupFile01">Elegir fichero</label>
+                    </div> 
+                    
+<!--
+                    {{ receivedImageData['pic'] | json}}
+                    <img [src]="convertedImage" >
+-->
+                </div>
+
+                <div class="form-group">
+                    <label class="register-event-form">Nombre</label>
+                    <input
+                        type="text"
+                        name="name"
+                        formControlName="name"
+                        ngControl="inp"
+                        class="form-control"
+                        placeholder="Nombre"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label class="register-event-form">Elige un juego </label>
+                    <select class="form-control" formControlName="game" name="game" required>
+                            <option [ngValue]="null" disabled>Juegos disponibles...</option>
+                            <option *ngFor="let obj of gamesList">{{obj}}</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="register-event-form">Lugar</label>
+                    <input
+                        type="text"
+                        name="place"
+                        formControlName="place"
+                        ngControl="inp"
+                        class="form-control"
+                        placeholder="Lugar"
+                        required/>
+                </div>
+                <div class="form-group">
+                    <label class="register-event-form">Día</label>
+                    <input
+                        name="date"
+                        type="text"
+                        formControlName="date"
+                        ngControl="inp"
+                        class="form-control"
+                        placeholder="21-01-2020"
+                        required/>
+                </div>
+
+                <div class="form-group">
+                    <label class="register-event-form">Hora</label>
+                    <input
+                        type="text"
+                        name="time"
+                        formControlName="time"
+                        ngControl="inp"
+                        class="form-control"
+                        placeholder="14:00"
+                        required/>
+                </div>
+
+                <div class="form-group">
+                    <label class="register-event-form">Descripción</label>
+                    <textarea
+                        name="description"
+                        formControlName="description"
+                        ngControl="inp"
+                        rows="3"
+                        class="form-control"
+                        required>
+                    </textarea>
+                </div>
+
+                <p class="auto-style3">
+                    <input
+                        type="radio"
+                        name="isTournament"
+                        (click)="showReward()"
+                        formControlName="isTournament"
+                        ngControl="inp"
+                        class="check-mostrar"
+                        value="true"/>
+					<span class="auto-style4"> El evento es un torneo</span>
+				</p>
+
+                <div *ngIf="flag==true" id="div-mostrar" class="form-group">
+                    <label class="register-event-form">Premio</label>
+                    <input
+                        type="text"
+                        name="reward"
+                        formControlName="reward"
+                        ngControl="inp"
+                        class="form-control"
+                        placeholder="Premio (indicar unidades)"/>
+                </div>
+
+                <p class="auto-style3">
+                    <input
+                        type="radio"
+                        name="isTournament"
+                        (click)="hideReward()"
+                        [value]="false"
+                        formControlName="isTournament"
+                        ngControl="inp"
+                        class="check-mostrar"
+                        value="false"/>
+                    <span class="auto-style4"> El evento es un evento general</span>
+                </p>
+
+                <div class="form-group">
+                    <label class="register-event-form">Máximo de integrantes de los equipos</label>
+                    <input
+                        type="number"
+                        name="groupSize"
+                        formControlName="groupSize"
+                        ngControl="inp"
+                        class="form-control"
+                        id="register-event-form"
+                        placeholder="Máximo de integrantes de los equipo"
+                        required/>
+                </div>
+                
+                <div class="form-group">
+                    <label class="register-event-form">Máximo de participantes</label>
+                    <input
+                        type="number"
+                        name="maxParticipants"
+                        formControlName="maxParticipants"
+                        ngControl="inp"
+                        class="form-control"
+                        id="register-event-form"
+                        placeholder="Máximo de participantes"
+                        required/>
+                </div>
+                
+                <div class="form-group">
+                    <label class="register-event-form">Tasa de inscripción</label>
+                    <input
+                        type="number"
+                        name="inscriptionFee"
+                        formControlName="inscriptionFee"
+                        ngControl="inp"
+                        class="form-control"
+                        id="register-event-form"
+                        placeholder="Tasa de inscripción (euros)"
+                        required/>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button
+                            id="register"
+                            type="submit"
+                            class="btn btn-primary">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

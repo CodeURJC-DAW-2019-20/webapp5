@@ -135,7 +135,7 @@ public class Event {
 	}
 
 
-	public void setTournament(boolean isTournament) {
+	public void setIsTournament(boolean isTournament) {
 		this.isTournament = isTournament;
 	}
 

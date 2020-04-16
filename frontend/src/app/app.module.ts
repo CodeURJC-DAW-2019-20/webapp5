@@ -32,6 +32,9 @@ import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EventTemplateComponent } from './pages/events/event-template/event-template.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     ErrorComponent,
     EventsBarChartComponent,
     MerchLineChartComponent,
+    EventTemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +70,10 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     ChartsModule,
     FormsModule,
     ReactiveFormsModule
+    ChartsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

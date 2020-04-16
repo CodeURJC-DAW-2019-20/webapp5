@@ -186,49 +186,8 @@ form .form-control:focus{
     margin-left: -30px;
 }
 
-/* Event-form
-============================================================================================ */
 
 
-#div-mostrar{
-	display:none;
-	margin-left:2rem;
-}
-
-/* Event-template
-============================================================================================ */
-#hidden-element {
-    display: none;
-}
-#general-container{
-    width: 90%;
-    margin: auto;
-    margin-top: 2rem;
-} 
-#event-container-main-image{
-    float: left;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-     max-width: 800px;
-    /* width: 60%; */
-}
-    /* image-with-text */
-.event-main-image{
-   
-}
-#event-info{
-    /* float: left; */
-    /* width: 30%; */
-    padding: 1rem;
-    /*background-color: chartreuse;*/
-}
-
-#event-description{
-   padding: 1rem;
-    clear: both;
-    text-align: justify;
-    /*background-color: tomato;*/
-}
 
 /* Login 
 ============================================================================================ */
