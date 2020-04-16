@@ -8,7 +8,7 @@ import { PurchasesService } from 'src/app/services/purchases/purchases.service';
 })
 export class MerchDashComponent implements OnInit {
 
-  public lastYearPurchases: any;
+  public lastYearPurchases: any = [];
   public purchaseList: any;
   
   constructor(

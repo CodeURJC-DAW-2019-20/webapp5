@@ -19,10 +19,10 @@ export class MerchLineChartComponent implements OnInit {
   data: any;
 
   charType: ChartType = 'line';
-  labels: Label[] = ['1', '2', '3', '4'];
+  labels: Label[] = [];
   datasets: ChartDataSets[] = [
     {
-      data: [5, 10, 7, 9],
+      data: [],
       lineTension: 0,
       backgroundColor: 'transparent',
       borderColor: '#a10600',
@@ -51,6 +51,21 @@ export class MerchLineChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.fillData();
+  }
+
+  fillData(){
+    setTimeout(() => {
+      if(this.data[0] == undefined || this.data[1] == undefined){
+        this.fillData();
+      } else {
+        this.labels = this.data[0];
+        this.datasets =  [
+          { data: this.data[1], }
+        ];
+      }
+      
+    }, 10)
   }
 
 }

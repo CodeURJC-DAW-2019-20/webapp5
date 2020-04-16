@@ -21,6 +21,9 @@ export class EventsDashComponent implements OnInit {
   ngOnInit(): void {
     this.getEventsByGameChartData();
     this.getInscriptionTableData();
+
+    setTimeout(() => {
+    }, 1000);
   }
 
   getEventsByGameChartData(){
