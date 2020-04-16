@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MerchService } from '../../services/merch/merch.service';
+import { MerchService } from 'src/app/services/merch/merch.service';
 
 @Component({
   selector: 'app-merch',

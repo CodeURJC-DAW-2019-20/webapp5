@@ -54,7 +54,7 @@
                     <label class="register-event-form">Elige un juego </label>
                     <select class="form-control" formControlName="game" name="game" required>
                             <option [ngValue]="null" disabled>Juegos disponibles...</option>
-                            <option *ngFor="let obj of gamesList">{{obj}}</option>
+                            <option *ngFor="let game of gamesList" [ngValue]="game">{{game.name}}</option>
                     </select>
                 </div>
 

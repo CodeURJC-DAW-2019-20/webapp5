@@ -14,11 +14,10 @@ export class GamesService {
   getGamesType() {
 
     const url = environment.apiEndPoint + '/events/games'
-    console.log(url);
     return this.http.get(url)
     .pipe(
       map(gameList =>{
-        console.log(gameList);
+        console.error(gameList);
         return gameList;
       }),
       catchError(error => {

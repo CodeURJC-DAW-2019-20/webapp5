@@ -5,6 +5,7 @@ import { EventsService } from 'src/app/services/events/events.service';
 import { HttpClient } from '@angular/common/http';
 import { GamesService } from 'src/app/services/games/games.service';
 import { throwError, Observable } from 'rxjs';
+import { Games } from 'src/app/interfaces/games';
 
 @Component({
   selector: 'app-events-form',
@@ -14,8 +15,9 @@ import { throwError, Observable } from 'rxjs';
 export class EventsFormComponent implements OnInit {
 
   public event;
-  gamesList: string[]=["1","2","3"];
-  games;
+  gamesList: Games[];
+  //gamesList: string[] = [""];
+  //games: Games[];
   public reward: boolean;
   selectedFile: File;
   receivedImageData: any;
@@ -71,9 +73,18 @@ export class EventsFormComponent implements OnInit {
   }
 
   private createGamesList() {
-    this.games = this.gamesService.getGamesType();
-    
-    console.log(this.games);
+    this.gamesService.getGamesType().subscribe(
+      response => {
+        this.gamesList = response as Games[];
+        
+        /*this.games.forEach(element => {
+          this.gamesList.push(element.name);
+        });
+        this.gamesList.splice(0,1);
+        console.error(this.gamesList);*/
+      },
+      error => this.handleError(error)
+    );
   }
 
   submit(){
