@@ -12,8 +12,8 @@ export class UsersService {
 
   constructor(private http: HttpClient) {}
    
-  register(){
-    
+  register(userName: string,firstName: string,lastName: string,pass: string,mail: string){
+    return ;
   }
 
   getUsers(){
