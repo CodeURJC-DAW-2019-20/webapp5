@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DomSanitizer } from '@angular/platform-browser';
 import { Merch } from '../../../interfaces/merch';
 import { MerchType } from '../../../interfaces/merch-type';
 
 import { MerchService } from '../../../services/merch/merch.service';
 import { MerchTypeService } from '../../../services/merch-type/merch-type.service';
+
 import { faBoxOpen, faCog, faCalculator, faPercent, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -15,18 +15,19 @@ import { faBoxOpen, faCog, faCalculator, faPercent, faMoneyBillWave } from '@for
   styleUrls: ['./merch-template.component.css']
 })
 export class MerchTemplateComponent implements OnInit {
+
+  //merch var
   merch: Merch;
   merchType: MerchType;
 
+  //icon var
   faBoxOpen = faBoxOpen;
   faCog = faCog;
   faCalculator = faCalculator;
   faPercent = faPercent;
   faMoneyBillWave = faMoneyBillWave;
 
-  thumbnail: any;
-
-  imgUrl: string = 'https://localhost:8443/api/merchandisings/36/image';
+  //img var
   imageToShow: any;
   isImageLoading: boolean;
 
@@ -69,7 +70,7 @@ export class MerchTemplateComponent implements OnInit {
  
    private getImageFromService() {
        this.isImageLoading = true;
-       this.merchService.getImage(this.imgUrl).subscribe(data => {
+       this.merchService.getImage().subscribe(data => {
          this.createImageFromBlob(data);
          this.isImageLoading = false;
        }, error => {

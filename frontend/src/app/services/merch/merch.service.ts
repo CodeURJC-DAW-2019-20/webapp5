@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MerchService {
+  imgUrl: string = 'https://localhost:8443/api/merchandisings/36/image';
 
   constructor(protected http: HttpClient) { }
 
@@ -13,7 +14,7 @@ export class MerchService {
     return this.http.get('https://localhost:8443/api/merchandisings/38');
   }
   
-  public getImage(imageUrl: string): Observable<Blob> {
-    return this.http.get(imageUrl, { responseType: 'blob' });
+  public getImage(): Observable<Blob> {
+    return this.http.get(this.imgUrl, { responseType: 'blob' });
   }
 }
