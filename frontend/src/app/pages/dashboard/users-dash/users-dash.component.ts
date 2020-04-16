@@ -18,14 +18,13 @@ export class UsersDashComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getPurchasesByMonthChartData();
-    this.getPurchaseTableData();
+    this.getUserTableData();
+    this.getRoleData();
   }
 
-  getPurchasesByMonthChartData(){
+  getUserTableData(){
     this.userService.getUsers().subscribe(
       usersList => {
-        console.log(usersList);
         this.usersList = usersList;
       },
       error => {
@@ -34,10 +33,9 @@ export class UsersDashComponent implements OnInit {
     );
   }
 
-  getPurchaseTableData(){
+  getRoleData(){
     this.rolesService.getRoles().subscribe(
       rolesList => {
-        console.log(rolesList);
         this.rolesList = rolesList;
       },
       error => {
@@ -46,10 +44,21 @@ export class UsersDashComponent implements OnInit {
     );
   }
 
-  setUserRole(){
-    this.userService.setUserRole().subscribe(
+  setUserRole(userId, roleId){
+    this.userService.setUserRole(userId, roleId).subscribe(
       response => {
         console.log(response);
+      },
+      error => {
+        console.log("La liaste pardisima");
+      }
+    );
+  }
+
+  deleteUser(userId){
+    this.userService.deleteUser(userId).subscribe(
+      response => {
+        this.getUserTableData();
       },
       error => {
         console.log("La liaste pardisima");
