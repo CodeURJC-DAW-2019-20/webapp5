@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users/users.service';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login/login.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -10,14 +11,12 @@ import { LoginService } from 'src/app/services/login/login.service';
 })
 export class RegisterComponent implements OnInit {
 
-  public userName: string;
-  public pass: string;
-  public firstName: string;
-  public lastName: string;
-  public mail: string;
   public loginService: LoginService;
+  public user ;
 
-  constructor(public userService: UsersService, public router: Router) {}
+  constructor(public userService: UsersService, public router: Router) {
+    this.createUser();
+  }
 
   ngOnInit(): void {
     if(this.loginService.isLogged){
@@ -25,16 +24,23 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  register(){
-    /*this.userService.register(this.userName,this.firstName,this.lastName,this.pass,this.mail).subscribe(
-      (user) => {
-        console.log(user);
-        this.router.navigate(['/login']);
-      },
+  private createUser(){
+    this.user = new FormGroup({
+      name: new FormControl(null,Validators.required),
+      email: new FormControl(null,Validators.required),
+      firstName: new FormControl(null,Validators.required),
+      lastName: new FormControl(null,Validators.required),
+      roles: new FormControl('ROLE_USER'),
+    });
+  }
+
+  submit(){
+    console.log(this.user.value);
+    this.userService.saveUser(this.user.value).subscribe(
       (error) => {
-        console.log(error);
-        alert('User already exist');
+        console.log("error");
+      //(error: Error) => console.error('Error creating new event: ' + error),
       }
     );
-    */}
+    }
 }
