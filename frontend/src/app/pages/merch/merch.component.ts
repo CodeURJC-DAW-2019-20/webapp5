@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Merch } from '../../interfaces/merch';
+
 import { MerchService } from '../../services/merch/merch.service';
 
 @Component({
@@ -9,23 +11,29 @@ import { MerchService } from '../../services/merch/merch.service';
 })
 export class MerchComponent implements OnInit {
 
-  Merch: any;
+  //private merch: Merch;
+  private page: number = 0;
+  private merchList: any[];
 
   constructor(protected merchService: MerchService) { }
 
   ngOnInit(): void {
-    this.refreshMerch();
-  }
-
-  private refreshMerch() {
-    this.merchService.getMerch().subscribe(
-			response => this.Merch = response as any,
-			error => this.handleError(error)
-    );
+    this.getMerchList();
   }
 
   private handleError(error: any) {
 		console.error(error);
+  }
+
+  private getMerchList(){
+    this.merchService.getMerchPage(this.page).subscribe(
+      data => {
+      this.merchList = data['content'];
+      this.page = this.page+1;
+      console.log(data);
+    },
+    error => this.handleError(error)
+    )
   }
 
 }

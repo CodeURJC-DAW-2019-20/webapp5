@@ -17,19 +17,19 @@ import { faBoxOpen, faCog, faCalculator, faPercent, faMoneyBillWave } from '@for
 export class MerchTemplateComponent implements OnInit {
 
   //merch var
-  merch: Merch;
-  merchType: MerchType;
+  public merch: Merch;
+  public merchType: MerchType;
 
   //icon var
-  faBoxOpen = faBoxOpen;
-  faCog = faCog;
-  faCalculator = faCalculator;
-  faPercent = faPercent;
-  faMoneyBillWave = faMoneyBillWave;
+  public faBoxOpen = faBoxOpen;
+  public faCog = faCog;
+  public faCalculator = faCalculator;
+  public faPercent = faPercent;
+  public faMoneyBillWave = faMoneyBillWave;
 
   //img var
-  imageToShow: any;
-  isImageLoading: boolean;
+  public imageToShow: any;
+  public isImageLoading: boolean;
 
   constructor(protected merchService: MerchService, protected merchTypeService: MerchTypeService) { }
 
