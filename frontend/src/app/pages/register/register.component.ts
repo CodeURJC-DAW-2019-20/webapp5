@@ -10,11 +10,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  public user;
 
-  public loginService: LoginService;
-  public user ;
-
-  constructor(public userService: UsersService, public router: Router) {
+  constructor(public userService: UsersService, public router: Router,public loginService: LoginService) {
     this.createUser();
   }
 
@@ -22,6 +20,7 @@ export class RegisterComponent implements OnInit {
     if(this.loginService.isLogged){
       this.router.navigate(['/error']);
     }
+    
   }
 
   private createUser(){
@@ -31,15 +30,16 @@ export class RegisterComponent implements OnInit {
       firstName: new FormControl(null,Validators.required),
       lastName: new FormControl(null,Validators.required),
       roles: new FormControl('ROLE_USER'),
+      password: new FormControl(null,Validators.required),
     });
   }
 
   submit(){
     console.log(this.user.value);
     this.userService.saveUser(this.user.value).subscribe(
+      (response) => {console.log("Ok")},
       (error) => {
         console.log("error");
-      //(error: Error) => console.error('Error creating new event: ' + error),
       }
     );
     }

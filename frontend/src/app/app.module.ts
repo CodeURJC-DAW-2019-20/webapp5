@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
@@ -64,7 +64,8 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     LoadingBarRouterModule,
     GoogleMapsModule,
     ChartsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

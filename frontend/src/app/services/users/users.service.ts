@@ -12,10 +12,6 @@ export class UsersService {
 
   constructor(private http: HttpClient) {}
    
-  register(userName: string,firstName: string,lastName: string,pass: string,mail: string){
-    return ;
-  }
-
   getUsers(){
     const url = environment.apiEndPoint + '/users'
 
@@ -33,6 +29,8 @@ export class UsersService {
   getUser(id){
     const url = environment.apiEndPoint + '/users/' + id;
   }
+
+
   saveUser(user){
     const body = JSON.stringify(user);
     console.log(body);
@@ -42,10 +40,19 @@ export class UsersService {
 
     const url = environment.apiEndPoint + '/users/'
 
-    return this.http.post(url, user)
-    .pipe(catchError((error) => this.handleError(error)));
-
+    return this.http.post(url, user,{headers})
+    .pipe(
+      map(user =>{
+        return user;
+      }),
+      catchError(error => {
+        return throwError(error);
+      })
+    );
   }
-  private handleError
-  
+
+  private handleError(error: any) {
+    console.error(error);
+    return Observable.throw('Server error (' + error.status + '): ' + error);
+  }
 }

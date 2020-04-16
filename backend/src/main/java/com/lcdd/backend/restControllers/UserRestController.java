@@ -105,7 +105,7 @@ public class UserRestController {
 	}
 	
 	//add a new user, permited all
-	@PostMapping("/new")
+	@PostMapping("/")
 	public ResponseEntity<User> postUser(@RequestBody User user) {
 		
 		boolean result = userService.createAnUser(user);
