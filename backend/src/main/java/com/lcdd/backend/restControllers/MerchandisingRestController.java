@@ -58,10 +58,18 @@ public class MerchandisingRestController {
 		List<MerchType> type = serviceType.findAll();
 		return new ResponseEntity<>(type, HttpStatus.OK);
 	}
+	
+	//every user
+	@GetMapping("/{id}/type")
+	public ResponseEntity<MerchType> getMerchTypeById(@PathVariable long id) {
+		Merchandising merch = service.findById(id);
+		MerchType type = merch.getType();
+		return new ResponseEntity<>(type, HttpStatus.OK);
+	}
 
 	//every user
 	@GetMapping("/{id}")
-	public ResponseEntity<Merchandising> getMerchandising(@PathVariable long id) {
+	public ResponseEntity<Merchandising> getMerchandisingById(@PathVariable long id) {
 		Merchandising merch = service.findById(id);
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}

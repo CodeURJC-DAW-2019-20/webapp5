@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { MerchComponent } from './pages/merch/merch.component';
+import { MerchTemplateComponent } from './pages/merch/merch-template/merch-template.component';
 import { EventsComponent } from './pages/events/events.component';
 import { EventsFormComponent } from './pages/events/events-form/events-form.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'merch',
     component: MerchComponent
+  },
+  {
+    path: 'merch-template',
+    component: MerchTemplateComponent
   },
   {
     path: 'events',

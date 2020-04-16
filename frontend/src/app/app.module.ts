@@ -28,6 +28,7 @@ import { LcddMapComponent } from './elements/lcdd-map/lcdd-map.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { EventsBarChartComponent } from './elements/events-bar-chart/events-bar-chart.component';
 import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-chart.component';
+import { MerchTemplateComponent } from './pages/merch/merch-template/merch-template.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventTemplateComponent } from './pages/events/event-template/event-template.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -54,6 +55,7 @@ import { HttpClientModule } from '@angular/common/http';
     EventsBarChartComponent,
     MerchLineChartComponent,
     EventTemplateComponent,
+    MerchTemplateComponent,
   ],
   imports: [
     BrowserModule,

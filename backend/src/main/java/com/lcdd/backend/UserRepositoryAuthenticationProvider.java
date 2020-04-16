@@ -24,7 +24,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 	@Autowired 
 	public UserSession userSession;
 	@Autowired
-	private UserComponent userComponent;
+	public UserComponent userComponent;
 
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
