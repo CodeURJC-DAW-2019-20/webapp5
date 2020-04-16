@@ -56,7 +56,7 @@ export class EventsFormComponent implements OnInit {
     console.log(this.selectedFile);
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile);
-    this.eventService.saveImage(this.eventNumber,uploadImageData).subscribe(
+    this.eventService.saveImage(56,uploadImageData).subscribe(
       (response) => {
         console.log("nice image");
       },

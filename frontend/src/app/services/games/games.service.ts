@@ -17,7 +17,6 @@ export class GamesService {
     return this.http.get(url)
     .pipe(
       map(gameList =>{
-        console.error(gameList);
         return gameList;
       }),
       catchError(error => {

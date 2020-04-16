@@ -33,7 +33,7 @@ public class Event {
 	
 	private boolean haveImage;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToOne(cascade=CascadeType.ALL)
 	private Tournament tournament;
 	
@@ -130,7 +130,7 @@ public class Event {
 	}
 
 
-	public boolean isTournament() {
+	public boolean getIsTournament() {
 		return isTournament;
 	}
 

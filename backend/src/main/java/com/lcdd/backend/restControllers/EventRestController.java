@@ -157,8 +157,8 @@ public class EventRestController {
 		if(event.getDescription()!= null) {
 			event.setDescription(updateEvent.getDescription());
 	}
-		if(event.isTournament()!= updateEvent.isTournament()) {
-			event.setIsTournament(updateEvent.isTournament());
+		if(event.getIsTournament()!= updateEvent.getIsTournament()) {
+			event.setIsTournament(updateEvent.getIsTournament());
 	}
 		if(event.getGroupSize() != 0) {
 			event.setGroupSize(updateEvent.getGroupSize());

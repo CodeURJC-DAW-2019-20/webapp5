@@ -27,6 +27,12 @@ export class EventsService {
         })
       );
   }
+
+  public getEvent(id: number) {
+    const url = environment.apiEndPoint + '/events/'+ id;
+    return this.http.get(url);
+  }
+
   saveEvent(event){
     
     const body = JSON.stringify(event);
@@ -46,18 +52,6 @@ export class EventsService {
         return throwError(error);
       })
     );
-
-/*
-    if (!event.id) {
-      return this.http
-          .post<Events>(URL, body, { headers })
-          .pipe(catchError((error) => this.handleError(error)));
-  } else {
-      return this.http
-          .put<Book>(URL + book.id, body, { headers })
-          .pipe(catchError((error) => this.handleError(error)));
-  }*/
-    //return true;
   }
 
   saveImage(id: number, image){
@@ -81,6 +75,20 @@ export class EventsService {
 
   getNewEventId(){
     const url = environment.apiEndPoint + '/events/' +  + '/image/'
+    return this.http.get(url)
+    .pipe(
+      map(gameList =>{
+        return gameList;
+      }),
+      catchError(error => {
+        return throwError(error);
+      })
+    );
+  }
+
+  public getImage(id: number): Observable<Blob> {
+    const url = environment.apiEndPoint + '/events/'+ id +'/image';
+    return this.http.get(url, { responseType: 'blob' });
   }
 
 }

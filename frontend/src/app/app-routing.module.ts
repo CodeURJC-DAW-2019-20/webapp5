@@ -5,6 +5,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { MerchComponent } from './pages/merch/merch.component';
 import { MerchTemplateComponent } from './pages/merch/merch-template/merch-template.component';
 import { EventsComponent } from './pages/events/events.component';
+import { EventTemplateComponent } from './pages/events/event-template/event-template.component';
 import { EventsFormComponent } from './pages/events/events-form/events-form.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'events',
     component: EventsComponent
+  },
+  {
+    path: 'event-template',
+    component: EventTemplateComponent
   },
   {
     path: 'event-form',
