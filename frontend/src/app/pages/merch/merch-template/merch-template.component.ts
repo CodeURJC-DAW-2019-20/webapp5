@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DomSanitizer } from '@angular/platform-browser';
-
 import { Merch } from '../../../interfaces/merch';
+import { MerchType } from '../../../interfaces/merch-type';
+
 import { MerchService } from '../../../services/merch/merch.service';
+import { MerchTypeService } from '../../../services/merch-type/merch-type.service';
 import { faBoxOpen, faCog, faCalculator, faPercent, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -13,8 +15,8 @@ import { faBoxOpen, faCog, faCalculator, faPercent, faMoneyBillWave } from '@for
   styleUrls: ['./merch-template.component.css']
 })
 export class MerchTemplateComponent implements OnInit {
-  Merch: any;
-  MerchType: any;
+  merch: Merch;
+  merchType: MerchType;
 
   faBoxOpen = faBoxOpen;
   faCog = faCog;
@@ -28,7 +30,7 @@ export class MerchTemplateComponent implements OnInit {
   imageToShow: any;
   isImageLoading: boolean;
 
-  constructor(protected merchService: MerchService) { }
+  constructor(protected merchService: MerchService, protected merchTypeService: MerchTypeService) { }
 
   ngOnInit(): void {
     this.refreshMerch();
@@ -38,14 +40,14 @@ export class MerchTemplateComponent implements OnInit {
 
   private refreshMerch() {
     this.merchService.getMerch().subscribe(
-			response => this.Merch = response as any,
+			response => this.merch = response as any,
 			error => this.handleError(error)
     );
   }
 
   private refreshMerchType() {
-    this.merchService.getMerchType().subscribe(
-			response => this.MerchType = response as any,
+    this.merchTypeService.getMerchType().subscribe(
+			response => this.merchType = response as any,
 			error => this.handleError(error)
     );
   }
@@ -54,7 +56,7 @@ export class MerchTemplateComponent implements OnInit {
 		console.error(error);
   }
   
-  createImageFromBlob(image: Blob) {
+  private createImageFromBlob(image: Blob) {
     let reader = new FileReader();
     reader.addEventListener("load", () => {
        this.imageToShow = reader.result;
@@ -65,7 +67,7 @@ export class MerchTemplateComponent implements OnInit {
     }
    }
  
-   getImageFromService() {
+   private getImageFromService() {
        this.isImageLoading = true;
        this.merchService.getImage(this.imgUrl).subscribe(data => {
          this.createImageFromBlob(data);

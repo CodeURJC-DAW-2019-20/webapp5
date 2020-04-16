@@ -6,17 +6,17 @@
         </div>
 
         <div class="event-info">
-            <h1>{{Merch.name}}</h1>
+            <h1>{{merch.name}}</h1>
             <div>
-                <fa-icon [icon]="faBoxOpen"></fa-icon><i> Nombre: {{Merch.name}}</i>
+                <fa-icon [icon]="faBoxOpen"></fa-icon><i> Nombre: {{merch.name}}</i>
                 <br>				
-                <fa-icon [icon]="faCog"></fa-icon><i> Tipo: {{MerchType.type}}</i>
+                <fa-icon [icon]="faCog"></fa-icon><i> Tipo: {{merchType.type}}</i>
                 <br>
-                <fa-icon [icon]="faCalculator"></fa-icon><i> Unidades: {{Merch.stock}} ud</i>
+                <fa-icon [icon]="faCalculator"></fa-icon><i> Unidades: {{merch.stock}} ud</i>
                 <br>
-                <fa-icon [icon]="faPercent"></fa-icon><i> Descuento: {{Merch.discount}} %</i>
+                <fa-icon [icon]="faPercent"></fa-icon><i> Descuento: {{merch.discount}} %</i>
                 <br>
-                <fa-icon [icon]="faMoneyBillWave"></fa-icon><i> Precio: {{Merch.price}} euros.</i>
+                <fa-icon [icon]="faMoneyBillWave"></fa-icon><i> Precio: {{merch.price}} euros.</i>
                 <!--<div class="control-group">
                     <div class="controls">
                         <form class="form-horizontal" action="/purchaseMerch/{{id}}"  method="POST" >
@@ -30,7 +30,7 @@
 
         <div>
             <h2>Descripción</h2>
-            <p>{{Merch.description}}</p>
+            <p>{{merch.description}}</p>
         </div>
     
     <br>

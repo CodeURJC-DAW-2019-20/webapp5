@@ -9,15 +9,11 @@ export class MerchService {
 
   constructor(protected http: HttpClient) { }
 
-  getMerch() {
+  public getMerch() {
     return this.http.get('https://localhost:8443/api/merchandisings/38');
   }
   
-  getMerchType() {
-    return this.http.get('https://localhost:8443/api/merchandisings/38/type');
-  }
-  
-  getImage(imageUrl: string): Observable<Blob> {
+  public getImage(imageUrl: string): Observable<Blob> {
     return this.http.get(imageUrl, { responseType: 'blob' });
   }
 }
