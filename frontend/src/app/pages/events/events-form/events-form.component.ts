@@ -88,15 +88,17 @@ export class EventsFormComponent implements OnInit {
       (response) => {
         this.eventCreated = response;
         this.eventNumber = this.eventCreated.id;
+        console.error(this.eventNumber);
         console.log("nice event");
+        if(this.event.value.haveImage){
+          this.uploadImage();
+        } 
       },
       (error) => {
         console.log("error event");
       },
     );
-    if(this.event.value.haveImage){
-      this.uploadImage();
-    }  
+     
   }
   //show div of reward
   showReward(){
