@@ -13,8 +13,8 @@ export class MerchComponent implements OnInit {
 
   //private merch: Merch;
   page: number = 0;
-  merchList: any[];
-  merchListAux: any[];
+  merchList: Merch[];
+  merchListAux: Merch[];
   lastPage: boolean = true;
 
   constructor(protected merchService: MerchService) { }

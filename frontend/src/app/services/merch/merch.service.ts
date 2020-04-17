@@ -11,8 +11,8 @@ export class MerchService {
 
   constructor(protected http: HttpClient) { }
 
-  public getMerch() {
-    return this.http.get('https://localhost:8443/api/merchandisings/38');
+  public getMerch(id:number) {
+    return this.http.get(this.baseURL + '/' + id);
   }
   
   public getImage(): Observable<Blob> {
