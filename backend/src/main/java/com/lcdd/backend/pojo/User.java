@@ -26,7 +26,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 
-	@JsonIgnore
+	
 	private String passwordHash;
 	
 	//do not put @JsonIgnore
