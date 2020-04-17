@@ -3,13 +3,10 @@
 
     <div id="merch-container-main-image">
         <div id="event-container-main-image" >
-            <img class="event-main-image img-fluid" [src]="imageToShow"/>
+            <img *ngIf="isImageLoading==true" class="event-main-image img-fluid" [src]="imageToShow"/>
+            <img *ngIf="isImageLoading==false" class="event-main-image img-fluid" src='assets/img/events-merch/event-image.jpg'/>
         </div>
-         <!--   
-            <div >
-                <img class="event-main-image img-fluid" src='assets/img/events-merch/event-image.jpg'/>
-            </div>
-            -->
+
     </div>
     <div id="event-info">
         

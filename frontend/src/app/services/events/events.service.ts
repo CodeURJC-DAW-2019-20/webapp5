@@ -30,7 +30,15 @@ export class EventsService {
 
   public getEvent(id: number) {
     const url = environment.apiEndPoint + '/events/'+ id;
-    return this.http.get(url);
+    return this.http.get(url)
+    .pipe(
+      map(eventSend =>{
+        return eventSend;
+      }),
+      catchError(error => {
+        return throwError(error);
+      })
+    );
   }
 
   saveEvent(event){
@@ -70,19 +78,6 @@ export class EventsService {
   private handleError(error: any) {
     console.error(error);
     return Observable.throw('Server error (' + error.status + '): ' + error);
-  }
-
-  getNewEventId(){
-    const url = environment.apiEndPoint + '/events/' +  + '/image/'
-    return this.http.get(url)
-    .pipe(
-      map(gameList =>{
-        return gameList;
-      }),
-      catchError(error => {
-        return throwError(error);
-      })
-    );
   }
 
   public getImage(id: number): Observable<Blob> {

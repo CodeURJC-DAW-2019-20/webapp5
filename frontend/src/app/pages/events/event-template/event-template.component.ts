@@ -11,10 +11,10 @@ import { faClock, faMapMarkerAlt, faGamepad, faChild, faUsers, faMoneyBillWave, 
 })
 export class EventTemplateComponent implements OnInit {
 
- event: Events;
- imageToShow: any;
- isImageLoading: boolean;
-
+  event: Events;
+  imageToShow: any;
+  isImageLoading: boolean;
+  eventNumber: number;
   //icon var
   faClock = faClock;
   faMapMarkerAlt = faMapMarkerAlt;
@@ -27,21 +27,22 @@ export class EventTemplateComponent implements OnInit {
   constructor(protected eventsService: EventsService) {    
    }
 
+  // on init, get the event data
   ngOnInit(): void {
     this.refreshEvent();
-    this.getImageFromService();
   }
 
+  //get the event data
   refreshEvent(){
     this.eventsService.getEvent(23).subscribe(
       response => {
         this.event = response as Events;
-        console.log(this.event);
+        this.eventNumber = this.event.id;
+        this.getImageFromService();
       },
       error => this.handleError(error)
     );
   }
-
 
   private createImageFromBlob(image: Blob) {
     let reader = new FileReader();
@@ -54,14 +55,15 @@ export class EventTemplateComponent implements OnInit {
     }
    }
 
+  //get the event image
   private getImageFromService() {
-    this.isImageLoading = true;
-    this.eventsService.getImage(23).subscribe(data => {
+    console.error(this.event.id);
+    
+    this.eventsService.getImage(this.event.id).subscribe(data => {
       this.createImageFromBlob(data);
-      this.isImageLoading = false;
+      this.isImageLoading = true;
     }, error => {
       this.isImageLoading = false;
-      //this.imageToShow = 
       console.log(error);
     });
   }
