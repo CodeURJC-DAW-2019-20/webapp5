@@ -25,7 +25,13 @@
     padding: 1rem;
     /*background-color: chartreuse;*/
 }
-
+#event-info i{
+    /* float: left; */
+    /* width: 30%; */
+    font-style: inherit;
+    font-weight: bold;
+    /*background-color: chartreuse;*/
+}
 #event-description{
    padding: 1rem;
     clear: both;
