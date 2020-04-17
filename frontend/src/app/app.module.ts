@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
@@ -67,9 +66,6 @@ import { HttpClientModule } from '@angular/common/http';
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
     GoogleMapsModule,
-    ChartsModule,
-    FormsModule,
-    ReactiveFormsModule
     ChartsModule,
     FormsModule,
     ReactiveFormsModule,

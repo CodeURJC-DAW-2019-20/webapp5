@@ -11,7 +11,7 @@ export interface Users {
 	firstName: string;
 	lastName: string;
 
-	password?: string;
+	passwordHash?: string;
 	role?: Roles;
 
 	purchases?: Purchase[];

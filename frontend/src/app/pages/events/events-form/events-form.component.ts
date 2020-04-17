@@ -5,7 +5,7 @@ import { EventsService } from 'src/app/services/events/events.service';
 import { HttpClient } from '@angular/common/http';
 import { GamesService } from 'src/app/services/games/games.service';
 import { throwError, Observable } from 'rxjs';
-import { timingSafeEqual } from 'crypto';
+
 
 @Component({
   selector: 'app-events-form',

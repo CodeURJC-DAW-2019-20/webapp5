@@ -20,7 +20,6 @@ export class RegisterComponent implements OnInit {
     if(this.loginService.isLogged){
       this.router.navigate(['/error']);
     }
-    
   }
 
   private createUser(){
@@ -29,8 +28,8 @@ export class RegisterComponent implements OnInit {
       email: new FormControl(null,Validators.required),
       firstName: new FormControl(null,Validators.required),
       lastName: new FormControl(null,Validators.required),
-      roles: new FormControl('ROLE_USER'),
-      password: new FormControl(null,Validators.required),
+      roles: new FormControl(['ROLE_USER']),
+      passwordHash: new FormControl(null,Validators.required),
     });
   }
 
