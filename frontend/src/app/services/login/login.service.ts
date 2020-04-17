@@ -38,7 +38,6 @@ export class LoginService {
         user.authData = auth;
         localStorage.setItem('currentUser', JSON.stringify(user));
       }
-      console.log(user);
       return user;
     }));
   }

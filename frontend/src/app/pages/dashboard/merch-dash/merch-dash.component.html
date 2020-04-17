@@ -3,7 +3,7 @@
 		<h2>Ventas mensuales del ultimo año</h2>
 	</div>
 
-	<app-merch-line-chart width="900" height="380" class="chart my-4 w-100"></app-merch-line-chart>
+	<app-merch-line-chart width="900" height="380" [data]="lastYearPurchases" class="chart my-4 w-100"></app-merch-line-chart>
 
 	<h2>Lista de ventas</h2>
 	<div class="table-responsive">
@@ -18,12 +18,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>----</td>
-					<td>----</td>
-					<td>----</td>
-					<td>----€</td>
-					<td>----</td>
+				<tr *ngFor="let purchase of purchaseList">
+					<td>{{purchase.date | date:'medium'}}</td>
+					<td>{{purchase.merch.name}}</td>
+					<td>{{purchase.merch.type.type}}</td>
+					<td>{{purchase.merch.price}}€</td>
+					<td>{{purchase.user.name}}</td>
 				</tr>
 			</tbody>
 		</table>

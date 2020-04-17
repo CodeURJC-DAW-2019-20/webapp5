@@ -31,4 +31,38 @@ export class UsersService {
   getUser(id){
     const url = environment.apiEndPoint + '/users/' + id;
   }
+
+  setUserRole(userId: number, roleId: number){
+    //Arreglar
+    const url = environment.apiEndPoint + '/users/' + userId + "/role";
+
+    
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/json',
+    });
+    
+    return this.http.put(url, JSON.stringify(roleId), {headers})
+      .pipe(
+        map(user =>{
+          return user;
+        }),
+        catchError(error => {
+          return throwError(error);
+        })
+      );
+  }
+
+  deleteUser(userId: number){
+    const url = environment.apiEndPoint + '/users/' + userId;
+
+    return this.http.delete(url)
+      .pipe(
+        map(user =>{
+          return user;
+        }),
+        catchError(error => {
+          return throwError(error);
+        })
+      );
+  }
 }
