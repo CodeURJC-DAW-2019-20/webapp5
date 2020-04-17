@@ -3,6 +3,7 @@ import { Purchase } from './purchase';
 import { EventRegister } from './event-register';
 
 
+
 export interface Users {
 	id: number;
 	email: string;
@@ -10,9 +11,11 @@ export interface Users {
 	firstName: string;
 	lastName: string;
 
-	password?: string;
+	passwordHash?: string;
 	role?: Roles;
 
 	purchases?: Purchase[];
 	events?: EventRegister[];
+	authData?: string; 
+	roles?: string[];
 }

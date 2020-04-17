@@ -29,6 +29,9 @@ import { ErrorComponent } from './pages/error/error.component';
 import { EventsBarChartComponent } from './elements/events-bar-chart/events-bar-chart.component';
 import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-chart.component';
 import { MerchTemplateComponent } from './pages/merch/merch-template/merch-template.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventTemplateComponent } from './pages/events/event-template/event-template.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -70,7 +73,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,7 @@ import { GamesService } from 'src/app/services/games/games.service';
 import { throwError, Observable } from 'rxjs';
 import { Games } from 'src/app/interfaces/games';
 
+
 @Component({
   selector: 'app-events-form',
   templateUrl: './events-form.component.html',

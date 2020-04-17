@@ -26,7 +26,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 
-	@JsonIgnore
+	
 	private String passwordHash;
 	
 	//do not put @JsonIgnore
@@ -132,7 +132,7 @@ public class User {
 	public void setPasswordHash(String passwordHash) {
 		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);;
 	}
-
+	
 	public List<String> getRoles() {
 		return roles;
 	}

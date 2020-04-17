@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PurchasesService } from 'src/app/services/purchases/purchases.service';
 
 @Component({
   selector: 'app-merch-dash',
@@ -7,9 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MerchDashComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private purchaseService: PurchasesService
+  ) { }
 
   ngOnInit(): void {
+    //getPurchasesByMonthChartData();
+    //getPurchaseTableData();
+  }
+
+  getPurchasesByMonthChartData(){
+    this.purchaseService.getPurchaseLastYearList().subscribe(
+      lastYearPurchases => {
+
+      },
+      error => {
+
+      }
+    );
+  }
+
+  getPurchaseTableData(){
+    this.purchaseService.getPurchaseList().subscribe(
+      purchaseList => {
+
+      },
+      error => {
+
+      }
+    );
   }
 
 }
