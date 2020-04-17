@@ -5,11 +5,10 @@
   <div class="container">
     <h1>Merchandising</h1>
     <div class="two_column_product" id="original">
-      <div class="row" id="main_row">
+      <div class="row">
         <!-- body -->
-        <div class='col-lg-4 col-sm-6'>
 
-          <div class='l_product_item' *ngFor="let merch of merchList">
+          <div class='col-3 col-sm-4' *ngFor="let merch of merchList">
             <h4> {{merch.name}} </h4> 
             <h5> {{merch.price}} € - {{merch.discount}} %</h5>
             <div class='l_p_img'>
@@ -22,14 +21,13 @@
               </ul>
             </div>
           </div>
-        </div>
 
       </div>
     </div>
   </div>
 </div>
 <div class="container text-center">
-  <button class="btn btn-primary" (click)="getMerchList()"  nextPage="0">Mostrar más</button>
+  <button class="btn btn-primary" *ngIf="this.lastPage" (click)="getNewMerchList()">Mostrar más</button>
 </div>
 
 

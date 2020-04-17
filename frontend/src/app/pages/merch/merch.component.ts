@@ -12,8 +12,10 @@ import { MerchService } from '../../services/merch/merch.service';
 export class MerchComponent implements OnInit {
 
   //private merch: Merch;
-  private page: number = 0;
-  private merchList: any[];
+  page: number = 0;
+  merchList: any[];
+  merchListAux: any[];
+  lastPage: boolean = true;
 
   constructor(protected merchService: MerchService) { }
 
@@ -25,11 +27,26 @@ export class MerchComponent implements OnInit {
 		console.error(error);
   }
 
-  private getMerchList(){
+  getMerchList(){
     this.merchService.getMerchPage(this.page).subscribe(
       data => {
-      this.merchList = data['content'];
-      this.page = this.page+1;
+      this.merchList = (data['content']);
+      this.page = this.page + 1;
+      console.log(data);
+    },
+    error => this.handleError(error)
+    )
+  }
+
+  getNewMerchList(){
+    this.merchService.getMerchPage(this.page).subscribe(
+      data => {
+      if(data['empty'] == false){
+      this.merchListAux = (data['content']);
+      this.merchList = this.merchList.concat(this.merchListAux);
+      this.page = this.page + 1;
+      if(data['last']==true){this.lastPage = false}
+    }
       console.log(data);
     },
     error => this.handleError(error)
