@@ -15,7 +15,7 @@ export class EventsService {
   ) { }
 
   getEventGamesCount(){
-    const url = environment.apiEndPoint + '/event/games/counts';
+    const url = environment.apiEndPoint + '/events/games/counts';
 
     return this.http.get(url)
       .pipe(

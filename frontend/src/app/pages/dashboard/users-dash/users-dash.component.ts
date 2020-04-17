@@ -9,34 +9,59 @@ import { RolesService } from 'src/app/services/roles/roles.service';
 })
 export class UsersDashComponent implements OnInit {
 
+  public usersList: any;
+  public rolesList: any;
+
   constructor(
     private userService: UsersService,
     private rolesService: RolesService,
   ) { }
 
   ngOnInit(): void {
-    //getPurchasesByMonthChartData();
-    //getPurchaseTableData();
+    this.getUserTableData();
+    this.getRoleData();
   }
 
-  getPurchasesByMonthChartData(){
+  getUserTableData(){
     this.userService.getUsers().subscribe(
       usersList => {
-
+        this.usersList = usersList;
       },
       error => {
-
+        console.log("La liaste pardisima");
       }
     );
   }
 
-  getPurchaseTableData(){
+  getRoleData(){
     this.rolesService.getRoles().subscribe(
       rolesList => {
-
+        this.rolesList = rolesList;
       },
       error => {
+        console.log("La liaste pardisima");
+      }
+    );
+  }
 
+  setUserRole(userId, roleId){
+    this.userService.setUserRole(userId, roleId).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log("La liaste pardisima");
+      }
+    );
+  }
+
+  deleteUser(userId){
+    this.userService.deleteUser(userId).subscribe(
+      response => {
+        this.getUserTableData();
+      },
+      error => {
+        console.log("La liaste pardisima");
       }
     );
   }

@@ -15,10 +15,13 @@ export class EventsBarChartComponent implements OnInit {
   @Input()
   height: any = 380;
 
+  @Input()
+  data: any;
+
   charType: ChartType = 'bar';
-  labels: Label[] = ['1', '2', '3', '4'];
+  labels: Label[] = [];
   datasets: ChartDataSets[] = [
-    { data: [5, 10, 7, 9] }
+    { data: [] }
   ];
   options: ChartOptions = {
     scales: {
@@ -38,6 +41,20 @@ export class EventsBarChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.fillData();
   }
 
+  fillData(){
+    setTimeout(() => {
+      if(this.data[0] == undefined || this.data[1] == undefined){
+        this.fillData();
+      } else {
+        this.labels = this.data[0];
+        this.datasets =  [
+          { data: this.data[1], }
+        ];
+      }
+      
+    }, 10)
+  }
 }

@@ -17,9 +17,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
 import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.pojo.Purchase;
+import com.lcdd.backend.pojo.Role;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.services.RoleService;
 import com.lcdd.backend.services.UserService;
 
 @Controller
@@ -28,6 +32,9 @@ public class UserRestController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private RoleService roleService;
 	
 	
 	
@@ -136,6 +143,19 @@ public class UserRestController {
 		}		
 	}
 	
+	/*@DeleteMapping("/{id}")
+	public ResponseEntity<Object> deleteUserById(@PathVariable long id) {
+		User userFound = userService.findById(id);
+		
+		if(userFound==null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		userService.deleteById(id);
+		
+		return new ResponseEntity<>(true, HttpStatus.OK);
+	}*/
+	
 	//update an existing user
 	@PutMapping("/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User userUpdate,
@@ -197,6 +217,27 @@ public class UserRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}		
 	}
+	
+	@PutMapping("/{id}/role")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<Object> editUserRole(@PathVariable long id, @RequestBody String newRoleId) {
+		
+		System.out.println(newRoleId.replaceAll("\"", ""));
+		
+		Long roleId = Long.parseLong(newRoleId.replaceAll("\"", ""));
+		
+		Role roleObject = roleService.findById(roleId);
+		
+		User user = userService.findById(id);
+		
+		user.setRole(roleObject);
+		
+		userService.save(user);
+		
+		return new ResponseEntity<>(user, HttpStatus.OK);
+	}
+	
+	
 	
 	
 }
