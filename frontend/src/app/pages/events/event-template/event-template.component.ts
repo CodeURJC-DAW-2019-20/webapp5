@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Events } from 'src/app/interfaces/events';
 import { EventsService } from 'src/app/services/events/events.service';
 import { throwError, Observable } from 'rxjs';
+import { faClock, faMapMarkerAlt, faGamepad, faChild, faUsers, faMoneyBillWave, faBoxes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-event-template',
@@ -13,6 +14,15 @@ export class EventTemplateComponent implements OnInit {
  event: Events;
  imageToShow: any;
  isImageLoading: boolean;
+
+  //icon var
+  faClock = faClock;
+  faMapMarkerAlt = faMapMarkerAlt;
+  faGamepad = faGamepad;
+  faChild = faChild;
+  faUsers = faUsers;
+  faMoneyBillWave = faMoneyBillWave;
+  faBoxes = faBoxes;
 
   constructor(protected eventsService: EventsService) {    
    }
@@ -31,10 +41,7 @@ export class EventTemplateComponent implements OnInit {
       error => this.handleError(error)
     );
   }
-  private handleError(error: any) {
-    console.error(error);
-    return Observable.throw('Server error (' + error.status + '): ' + error);
-  }
+
 
   private createImageFromBlob(image: Blob) {
     let reader = new FileReader();
@@ -57,5 +64,9 @@ export class EventTemplateComponent implements OnInit {
       //this.imageToShow = 
       console.log(error);
     });
-}
+  }
+  private handleError(error: any) {
+    console.error(error);
+    return Observable.throw('Server error (' + error.status + '): ' + error);
+  }
 }

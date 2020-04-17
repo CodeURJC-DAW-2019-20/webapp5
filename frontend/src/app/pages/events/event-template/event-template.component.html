@@ -15,19 +15,19 @@
         
         <h1>{{event.name}}</h1>
         <div>
-            <fa-icon ></fa-icon><i> {{event.date}}</i>
+            <fa-icon [icon]="faClock"></fa-icon><i> {{event.date}}</i>
             <br>
-            <fa-icon ></fa-icon><i> {{event.time}}</i>
+            <fa-icon [icon]="faMapMarkerAlt"></fa-icon><i> {{event.time}}</i>
             <br>
-            <fa-icon ></fa-icon><i> Lugar: {{event.place}}</i>
+            <fa-icon [icon]="faGamepad"></fa-icon><i> Lugar: {{event.place}}</i>
             <br>
-            <fa-icon ></fa-icon><i> Juego: {{event.game.name}}</i>
+            <fa-icon [icon]="faChild"></fa-icon><i> Juego: {{event.game.name}}</i>
             <br>
-            <fa-icon ></fa-icon><i> Máximo de participantes: {{event.maxParticipants}}</i>
+            <fa-icon [icon]="faUsers"></fa-icon><i> Máximo de participantes: {{event.maxParticipants}}</i>
             <br>
-            <fa-icon ></fa-icon><i> Tamaño del equipo: {{event.groupSize}}</i>
+            <fa-icon [icon]="faMoneyBillWave"></fa-icon><i> Tamaño del equipo: {{event.groupSize}}</i>
             <br>
-            <fa-icon ></fa-icon><i> Tasa de inscripción: {{event.inscriptionFee}} euros.</i>
+            <fa-icon [icon]="faBoxes"></fa-icon><i> Tasa de inscripción: {{event.inscriptionFee}} euros.</i>
             
             
             <br>

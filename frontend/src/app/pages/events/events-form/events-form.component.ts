@@ -16,13 +16,13 @@ export class EventsFormComponent implements OnInit {
 
   public event;
   gamesList: Games[];
-  //gamesList: string[] = [""];
-  //games: Games[];
   public reward: boolean;
   selectedFile: File;
   receivedImageData: any;
   eventNumber: number;
-
+  eventCreated;
+  eventId;
+  
   constructor(private httpClient: HttpClient, public eventService: EventsService, public gamesService: GamesService) {
     this.createEvent();
   }
@@ -51,12 +51,12 @@ export class EventsFormComponent implements OnInit {
     });
   }
 
- // This part is for uploading
-  onUpload() {
+ // upload image of the new event
+  uploadImage() {
     console.log(this.selectedFile);
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile);
-    this.eventService.saveImage(56,uploadImageData).subscribe(
+    this.eventService.saveImage(this.eventNumber,uploadImageData).subscribe(
       (response) => {
         console.log("nice image");
       },
@@ -65,9 +65,8 @@ export class EventsFormComponent implements OnInit {
       },
     );
   }
-
+  // on init, get the events list
   ngOnInit(): void{
-    //this.event = this.EventsService.getItems();
     this.createGamesList();
     this.reward = false;
   }
@@ -76,22 +75,18 @@ export class EventsFormComponent implements OnInit {
     this.gamesService.getGamesType().subscribe(
       response => {
         this.gamesList = response as Games[];
-        
-        /*this.games.forEach(element => {
-          this.gamesList.push(element.name);
-        });
-        this.gamesList.splice(0,1);
-        console.error(this.gamesList);*/
       },
       error => this.handleError(error)
     );
   }
 
+  //upload a new event
   submit(){
-    
     console.log(this.event.value);
     this.eventService.saveEvent(this.event.value).subscribe(
       (response) => {
+        this.eventCreated = response;
+        this.eventNumber = this.eventCreated.id;
         console.log("nice event");
       },
       (error) => {
@@ -99,13 +94,14 @@ export class EventsFormComponent implements OnInit {
       },
     );
     if(this.event.value.haveImage){
-      //this.eventNumber = 
-      this.onUpload();
+      this.uploadImage();
     }  
   }
+  //show div of reward
   showReward(){
     this.reward = true;
   }
+  //hide div of reward
   hideReward(){
     this.reward = false;
   }
