@@ -21,6 +21,9 @@ export class LoginComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    if(this.loginService.isLogged){
+      this.router.navigate(['/error']);
+    }
   }
 
   login(){

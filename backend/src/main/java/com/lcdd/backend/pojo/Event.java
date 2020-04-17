@@ -20,7 +20,7 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-
+	//@JsonIgnore
 	@ManyToOne
 	private Game game;
 
@@ -33,7 +33,7 @@ public class Event {
 	
 	private boolean haveImage;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToOne(cascade=CascadeType.ALL)
 	private Tournament tournament;
 	
@@ -130,12 +130,12 @@ public class Event {
 	}
 
 
-	public boolean isTournament() {
+	public boolean getIsTournament() {
 		return isTournament;
 	}
 
 
-	public void setTournament(boolean isTournament) {
+	public void setIsTournament(boolean isTournament) {
 		this.isTournament = isTournament;
 	}
 

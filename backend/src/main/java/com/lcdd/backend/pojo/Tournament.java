@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Tournament {
 	
@@ -13,6 +15,7 @@ public class Tournament {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@JsonIgnore
 	@OneToOne
 	private EventRegister winner;
 	

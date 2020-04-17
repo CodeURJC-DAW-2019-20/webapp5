@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
@@ -29,9 +28,13 @@ import { LcddMapComponent } from './elements/lcdd-map/lcdd-map.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { EventsBarChartComponent } from './elements/events-bar-chart/events-bar-chart.component';
 import { MerchLineChartComponent } from './elements/merch-line-chart/merch-line-chart.component';
+import { MerchTemplateComponent } from './pages/merch/merch-template/merch-template.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EventTemplateComponent } from './pages/events/event-template/event-template.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,8 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     ErrorComponent,
     EventsBarChartComponent,
     MerchLineChartComponent,
+    EventTemplateComponent,
+    MerchTemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +69,9 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     LoadingBarRouterModule,
     GoogleMapsModule,
     ChartsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
