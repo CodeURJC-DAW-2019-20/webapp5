@@ -10,7 +10,8 @@
         <div class="col-6 mx-auto">
         <h1>Crear un nuevo evento</h1>
 
-            <form class="form-horizontal"
+            <form ngNativeValidate
+                class="form-horizontal"
                 [formGroup]="event"
                 (ngSubmit)="submit()">
 
@@ -23,7 +24,6 @@
                             type="file"
                             (change)="onFileChanged($event)"
                             formControlName="haveImage"
-                            ngControl="inp"
                             name="imageFile"
                             accept=".jpg, .jpeg"
                             class="custom-file-input"
@@ -31,10 +31,6 @@
                         <label class="custom-file-label" for="inputGroupFile01">Elegir fichero</label>
                     </div> 
                     
-<!--
-                    {{ receivedImageData['pic'] | json}}
-                    <img [src]="convertedImage" >
--->
                 </div>
 
                 <div class="form-group">
@@ -43,7 +39,6 @@
                         type="text"
                         name="name"
                         formControlName="name"
-                        ngControl="inp"
                         class="form-control"
                         placeholder="Nombre"
                         required
@@ -65,7 +60,6 @@
                         type="text"
                         name="place"
                         formControlName="place"
-                        ngControl="inp"
                         class="form-control"
                         placeholder="Lugar"
                         required/>
@@ -76,7 +70,6 @@
                         name="date"
                         type="text"
                         formControlName="date"
-                        ngControl="inp"
                         class="form-control"
                         placeholder="21-01-2020"
                         required/>
@@ -88,7 +81,6 @@
                         type="text"
                         name="time"
                         formControlName="time"
-                        ngControl="inp"
                         class="form-control"
                         placeholder="14:00"
                         required/>
@@ -99,7 +91,6 @@
                     <textarea
                         name="description"
                         formControlName="description"
-                        ngControl="inp"
                         rows="3"
                         class="form-control"
                         required>
@@ -112,7 +103,6 @@
                         name="isTournament"
                         (click)="showReward()"
                         formControlName="isTournament"
-                        ngControl="inp"
                         class="check-mostrar"
                         value="true"/>
 					<span class="auto-style4"> El evento es un torneo</span>
@@ -124,7 +114,6 @@
                         type="text"
                         name="reward"
                         formControlName="reward"
-                        ngControl="inp"
                         class="form-control"
                         placeholder="Premio (indicar unidades)"/>
                 </div>
@@ -134,9 +123,8 @@
                         type="radio"
                         name="isTournament"
                         (click)="hideReward()"
-                        [value]="false"
+                        [value]="null"
                         formControlName="isTournament"
-                        ngControl="inp"
                         class="check-mostrar"
                         value="false"/>
                     <span class="auto-style4"> El evento es un evento general</span>
@@ -148,7 +136,6 @@
                         type="number"
                         name="groupSize"
                         formControlName="groupSize"
-                        ngControl="inp"
                         class="form-control"
                         id="register-event-form"
                         placeholder="Máximo de integrantes de los equipo"
@@ -161,7 +148,6 @@
                         type="number"
                         name="maxParticipants"
                         formControlName="maxParticipants"
-                        ngControl="inp"
                         class="form-control"
                         id="register-event-form"
                         placeholder="Máximo de participantes"
@@ -174,7 +160,6 @@
                         type="number"
                         name="inscriptionFee"
                         formControlName="inscriptionFee"
-                        ngControl="inp"
                         class="form-control"
                         id="register-event-form"
                         placeholder="Tasa de inscripción (euros)"

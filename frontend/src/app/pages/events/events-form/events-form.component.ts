@@ -22,13 +22,18 @@ export class EventsFormComponent implements OnInit {
   eventNumber: number;
   eventCreated;
   eventId;
-  
+
   constructor(private httpClient: HttpClient, public eventService: EventsService, public gamesService: GamesService) {
     this.createEvent();
   }
 
+  // on init, get the events list
+  ngOnInit(): void{
+    this.createGamesList();
+    this.reward = false;
+  }
+
   public onFileChanged(event) {
-    console.log(event);
     this.selectedFile = event.target.files[0];
     this.event.controls['haveImage'].setValue(true);
   }
@@ -64,11 +69,6 @@ export class EventsFormComponent implements OnInit {
         console.log("error image");
       },
     );
-  }
-  // on init, get the events list
-  ngOnInit(): void{
-    this.createGamesList();
-    this.reward = false;
   }
 
   private createGamesList() {
