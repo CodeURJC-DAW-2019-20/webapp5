@@ -3,6 +3,7 @@ import { UsersService } from 'src/app/services/users/users.service';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login/login.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LocalStorage } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-register',
@@ -12,12 +13,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   public user;
 
-  constructor(public userService: UsersService, public router: Router,public loginService: LoginService) {
+  @LocalStorage('isUserLogged')
+  public isUserLoggedIn;
+
+  constructor(
+    public userService: UsersService,
+    public router: Router,
+  ) {
     this.createUser();
   }
 
   ngOnInit(): void {
-    if(this.loginService.isLogged){
+    if(this.isUserLoggedIn){
       this.router.navigate(['/error']);
     }
   }
