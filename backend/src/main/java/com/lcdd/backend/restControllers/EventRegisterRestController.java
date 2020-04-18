@@ -8,10 +8,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,11 +48,12 @@ public class EventRegisterRestController {
 	//need user registered
 	@PostMapping("/{id}")
 	public ResponseEntity<EventRegister> serveEvent(@PathVariable Long id, 
-			@RequestParam int participants, UserSession session, HttpServletRequest request) {
-		User user = userService.findByName(session.getUsername());
+			@RequestBody String participants,Authentication auth,  UserSession session, HttpServletRequest request) {
+		int i = Integer.parseInt(participants.replaceAll("\"", ""));
+		User user = userService.findByName(auth.getName());
 		Event event = eventService.findById(id);
-		EventRegister register = new EventRegister(user,event,user.getName(),participants);
-		event.setMaxParticipants(event.getMaxParticipants()-participants);
+		EventRegister register = new EventRegister(user,event,user.getName(),i);
+		event.setMaxParticipants(event.getMaxParticipants()-i);
 		eventService.save(event);
 		eventRegisterService.save(register);
 		return new ResponseEntity<>(register, HttpStatus.OK);

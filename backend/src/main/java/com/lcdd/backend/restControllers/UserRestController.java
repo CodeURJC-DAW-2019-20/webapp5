@@ -222,7 +222,7 @@ public class UserRestController {
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<Object> editUserRole(@PathVariable long id, @RequestBody String newRoleId) {
 		
-		System.out.println(newRoleId.replaceAll("\"", ""));
+		//System.out.println(newRoleId.replaceAll("\"", ""));
 		
 		Long roleId = Long.parseLong(newRoleId.replaceAll("\"", ""));
 		

@@ -95,6 +95,7 @@ export class EventTemplateComponent implements OnInit {
     this.showRegisterEvent = true;
   }
 
+  //register new user event inscription
   submit(){
     this.showRegisterEvent = false;
     console.log(this.showRegisterEvent);
