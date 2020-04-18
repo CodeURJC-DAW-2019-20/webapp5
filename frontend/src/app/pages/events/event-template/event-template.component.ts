@@ -6,6 +6,7 @@ import { faClock, faMapMarkerAlt, faGamepad, faChild, faUsers, faMoneyBillWave, 
 import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { LocalStorage } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-event-template',
@@ -18,9 +19,14 @@ export class EventTemplateComponent implements OnInit {
   imageToShow: any;
   isImageLoading: boolean;
   eventNumber: number;
-  isLogged: boolean;
   showRegisterEvent: boolean;
   public inscription;
+
+  @LocalStorage('isUserLogged')
+  public isUserLogged;
+
+  @LocalStorage('currentUser')
+  public currentUser;
 
   //icon var
   faClock = faClock;
@@ -37,18 +43,15 @@ export class EventTemplateComponent implements OnInit {
     public router: Router
     ) { 
       this.inscription = new FormGroup({
-        eventsReg: new FormControl(null,Validators.required)
+        participants: new FormControl(null,Validators.required)
       });
    }
 
   // on init, get the event data
   ngOnInit(): void {
     this.showRegisterEvent = false;
+    console.error(this.isUserLogged);
     //this.isLogged = this.loginService.isLogged;
-    this.isLogged = true;
-    if(this.isLogged){
-      //this.router.navigate(['/error']);
-    }
     this.refreshEvent();
   }
 
@@ -99,8 +102,8 @@ export class EventTemplateComponent implements OnInit {
   submit(){
     this.showRegisterEvent = false;
     console.log(this.showRegisterEvent);
-    console.error(this.inscription.value.eventsReg);
-    this.eventsService.saveInscription(this.event.id,this.inscription.value).subscribe(
+    console.error(this.inscription.value.participants);
+    this.eventsService.saveInscription(this.event.id,this.inscription.value.participants).subscribe(
       response => {
         console.log("register great");
       },

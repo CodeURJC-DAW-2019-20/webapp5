@@ -86,6 +86,7 @@ export class EventsService {
   }
 
   saveInscription(id: number, inscription){
+    console.error(inscription);
     const url = environment.apiEndPoint + '/userRegisterEvent/'+ id ;//id of event
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

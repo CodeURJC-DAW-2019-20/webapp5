@@ -49,6 +49,7 @@ public class EventRegisterRestController {
 	@PostMapping("/{id}")
 	public ResponseEntity<EventRegister> serveEvent(@PathVariable Long id, 
 			@RequestBody String participants,Authentication auth,  UserSession session, HttpServletRequest request) {
+		
 		int i = Integer.parseInt(participants.replaceAll("\"", ""));
 		User user = userService.findByName(auth.getName());
 		Event event = eventService.findById(id);
