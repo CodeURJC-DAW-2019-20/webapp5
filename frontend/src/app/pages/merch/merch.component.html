@@ -12,7 +12,7 @@
             <h4> {{merch.name}} </h4> 
             <h5> {{merch.price}} € - {{merch.discount}} %</h5>
             <div class='l_p_img'>
-              <img src='assets/img/events-merch/event-image.jpg' width='300' height='300'>
+              <img *ngIf src = "https://localhost:8443/api/merchandisings/{{merch.id}}/image" width='300' height='300'>
               <h5 class='sale'>Opciones:</h5>
             </div>
             <div class='l_p_text'>

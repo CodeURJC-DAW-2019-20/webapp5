@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MerchService {
-  imgURL: string = 'https://localhost:8443/api/merchandisings/36/image';
   baseURL: string = 'https://localhost:8443/api/merchandisings';
 
   constructor(protected http: HttpClient) { }
@@ -15,11 +14,12 @@ export class MerchService {
     return this.http.get(this.baseURL + '/' + id);
   }
   
-  public getImage(): Observable<Blob> {
-    return this.http.get(this.imgURL, { responseType: 'blob' });
+  public getImage(id:number): Observable<Blob> {
+    return this.http.get(this.baseURL + '/' + id + '/image', { responseType: 'blob' });
   }
 
   public getMerchPage(page:number){
     return this.http.get(this.baseURL+'?page='+page);
   }
+  
 }

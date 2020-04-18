@@ -77,7 +77,7 @@ export class MerchTemplateComponent implements OnInit {
  
    private getImageFromService() {
        this.isImageLoading = true;
-       this.merchService.getImage().subscribe(data => {
+       this.merchService.getImage(this.merchId).subscribe(data => {
          this.createImageFromBlob(data);
          this.isImageLoading = false;
        }, error => {
