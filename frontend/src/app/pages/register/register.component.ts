@@ -50,7 +50,10 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['/login'])
         },
         (error) => {
-          console.log("error");
+          if(error.status == 406 ){
+            alert("Usuario ya existe con ese UserName");
+          }
+          console.log(error);
         }
       );
     }else{

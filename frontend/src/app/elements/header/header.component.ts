@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   @LocalStorage('isUserLogged')
   public isUserLoggedIn;
 
-  @LocalStorage('currentUser')
+  @LocalStorage('isUserAdmin')
   public isUserAdmin;
 
   constructor(
@@ -27,7 +27,11 @@ export class HeaderComponent implements OnInit {
     public router: Router,
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    console.log(this.isUserAdmin);
+    console.log(this.isUserLoggedIn);
+    console.log(this.currentUser);
+  }
 
   logOut() {
     this.isUserMenuCollapsed = true
