@@ -4,7 +4,7 @@ import { EventsService } from 'src/app/services/events/events.service';
 import { throwError, Observable } from 'rxjs';
 import { faClock, faMapMarkerAlt, faGamepad, faChild, faUsers, faMoneyBillWave, faBoxes } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from 'src/app/services/login/login.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LocalStorage } from 'ngx-webstorage';
 
@@ -19,6 +19,7 @@ export class EventTemplateComponent implements OnInit {
   imageToShow: any;
   isImageLoading: boolean;
   eventNumber: number;
+  eventId: number;
   showRegisterEvent: boolean;
   public inscription;
 
@@ -40,7 +41,8 @@ export class EventTemplateComponent implements OnInit {
   constructor(
     protected eventsService: EventsService,
     public loginService: LoginService,
-    public router: Router
+    public router: Router,
+    public activatedRoute: ActivatedRoute
     ) { 
       this.inscription = new FormGroup({
         participants: new FormControl(null,Validators.required)
@@ -50,14 +52,14 @@ export class EventTemplateComponent implements OnInit {
   // on init, get the event data
   ngOnInit(): void {
     this.showRegisterEvent = false;
-    console.error(this.isUserLogged);
+    this.eventId = this.activatedRoute.snapshot.queryParams['id'];
     //this.isLogged = this.loginService.isLogged;
     this.refreshEvent();
   }
 
   //get the event data
   refreshEvent(){
-    this.eventsService.getEvent(23).subscribe(
+    this.eventsService.getEvent(this.eventId).subscribe(
       response => {
         this.event = response as Events;
         this.eventNumber = this.event.id;

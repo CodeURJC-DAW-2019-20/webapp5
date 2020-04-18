@@ -31,6 +31,7 @@ public class Purchase {
 	public Purchase(User user, Date date, Merchandising merch) {
 		this.user = user;
 		this.date = date;
+		this.price = merch.getPrice();
 		this.merch = merch;
 	}
 	
