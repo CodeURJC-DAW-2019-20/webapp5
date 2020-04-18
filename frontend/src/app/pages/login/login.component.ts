@@ -29,6 +29,9 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/error']);
     }
   }
+  cancel(){
+    this.router.navigate(['/']);
+  }
 
   login(){
     this.loginService.login(this.user, this.pass).subscribe(
