@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Merch } from '../../../interfaces/merch';
-import { MerchType } from '../../../interfaces/merch-type';
+import { Merch } from 'src/app//interfaces/merch';
+import { MerchType } from 'src/app//interfaces/merch-type';
 
-import { MerchService } from '../../../services/merch/merch.service';
-import { MerchTypeService } from '../../../services/merch-type/merch-type.service';
+import { MerchService } from 'src/app/services/merch/merch.service';
+import { MerchTypeService } from 'src/app/services/merch-type/merch-type.service';
 
 import { faBoxOpen, faCog, faCalculator, faPercent, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute } from "@angular/router";

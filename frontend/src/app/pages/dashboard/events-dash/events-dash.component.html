@@ -3,7 +3,7 @@
 		<h2>Eventos por juego</h2>
 	</div>
 
-	<app-events-bar-chart width="900" height="380" class="chart my-4 w-100"></app-events-bar-chart>
+	<app-events-bar-chart width="900" height="380" [data]="eventsByGame" class="chart my-4 w-100"></app-events-bar-chart>
 
 	<h2>Inscripciones</h2>
 	<div class="table-responsive">
@@ -18,12 +18,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>----</td>
-					<td>----</td>
-					<td>----</td>
-					<td>----</td>
-					<td>----</td>
+				<tr *ngFor="let inscription of inscriptions">
+					<td>{{inscription.event.name}}</td>
+					<td>{{inscription.event.game.acronym}}</td>
+					<td>{{inscription.user.name}}</td>
+					<td>{{inscription.inscriptionName}}</td>
+					<td>{{inscription.participantsNumber}}</td>
 				</tr>
 			</tbody>
 		</table>

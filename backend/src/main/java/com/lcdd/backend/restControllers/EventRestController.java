@@ -157,8 +157,8 @@ public class EventRestController {
 		if(event.getDescription()!= null) {
 			event.setDescription(updateEvent.getDescription());
 	}
-		if(event.isTournament()!= updateEvent.isTournament()) {
-			event.setTournament(updateEvent.isTournament());
+		if(event.getIsTournament()!= updateEvent.getIsTournament()) {
+			event.setIsTournament(updateEvent.getIsTournament());
 	}
 		if(event.getGroupSize() != 0) {
 			event.setGroupSize(updateEvent.getGroupSize());
@@ -179,6 +179,12 @@ public class EventRestController {
 		Event event = eventService.findById(id);
 		eventService.delete(id);
 		return new ResponseEntity<>(event, HttpStatus.OK);
+	}
+	
+	@GetMapping("/games/counts")
+	public ResponseEntity<List<Object[]>> getEventGamesCount() {
+		List<Object[]> eventGameList = eventService.countGamesEvent();
+		return new ResponseEntity<>(eventGameList, HttpStatus.OK);
 	}
 	
 }

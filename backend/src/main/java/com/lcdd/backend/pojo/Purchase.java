@@ -16,7 +16,6 @@ public class Purchase {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@JsonIgnore
 	@ManyToOne
 	private User user;
 	

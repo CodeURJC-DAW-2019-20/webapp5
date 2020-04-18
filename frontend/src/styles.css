@@ -1,11 +1,11 @@
 /* General */
 @font-face{
 	font-family: Montserrat-Regular;
-	src: url(./assets/fonts/Montserrat/Montserrat-Regular.ttf);
+	src: url(assets/fonts/Montserrat/Montserrat-Regular.ttf);
 }
 @font-face{
 	font-family: Montserrat-Bold;
-	src: url(./assets/fonts/Montserrat/Montserrat-Bold.ttf);
+	src: url(assets/fonts/Montserrat/Montserrat-Bold.ttf);
 }
 
 *{
@@ -85,14 +85,7 @@ a:not(nav):hover{
     display: block;
 }
 
-#login_button{
-	margin-right: 30px;
-}
-@media (max-width: 768px){
-	#login_button{
-		margin-bottom: 1rem;;
-	}
-}
+
 .head {
 	background-color: white; 
 }
@@ -109,45 +102,6 @@ form .form-control:focus{
 ============================================================================================ */
 
 
-#div-mostrar{
-	display:none;
-	margin-left:2rem;
-}
-
-/* Event-template
-============================================================================================ */
-#hidden-element {
-    display: none;
-}
-#general-container{
-    width: 90%;
-    margin: auto;
-    margin-top: 2rem;
-} 
-#event-container-main-image{
-    float: left;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-     max-width: 800px;
-    /* width: 60%; */
-}
-    /* image-with-text */
-.event-main-image{
-   
-}
-#event-info{
-    /* float: left; */
-    /* width: 30%; */
-    padding: 1rem;
-    /*background-color: chartreuse;*/
-}
-
-#event-description{
-   padding: 1rem;
-    clear: both;
-    text-align: justify;
-    /*background-color: tomato;*/
-}
 
 /* Login 
 ============================================================================================ */

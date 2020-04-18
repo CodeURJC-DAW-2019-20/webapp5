@@ -17,7 +17,6 @@ public class Merchandising {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@JsonIgnore
 	@ManyToOne
 	private MerchType type;
 	

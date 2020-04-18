@@ -4,9 +4,10 @@ import { EventRegister } from './event-register';
 import { Tournaments } from './tournaments';
 
 export interface Events {
-	id: number;
-	game: Games;
+
 	name: string;
+	id?: number;
+	game: Games;
 	place: string;
 	date: Date;
 	time: Time;
@@ -17,5 +18,13 @@ export interface Events {
 	groupSize: number;
 	inscriptionFee: number;
 	maxParticipants: number;
-	registrations: EventRegister[];
+	registrations?: EventRegister[];
+
+
+
+
+
 }
+
+	
+	
