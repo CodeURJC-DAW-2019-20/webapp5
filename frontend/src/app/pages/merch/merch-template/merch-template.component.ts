@@ -4,10 +4,13 @@ import { Merch } from 'src/app//interfaces/merch';
 import { MerchType } from 'src/app//interfaces/merch-type';
 
 import { MerchService } from 'src/app/services/merch/merch.service';
+import { PurchasesService } from 'src/app/services/purchases/purchases.service';
 import { MerchTypeService } from 'src/app/services/merch-type/merch-type.service';
 
 import { faBoxOpen, faCog, faCalculator, faPercent, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute } from "@angular/router";
+
+import { LocalStorage } from 'ngx-webstorage';
 
 
 @Component({
@@ -23,6 +26,12 @@ export class MerchTemplateComponent implements OnInit {
   merchId: number;
   activatedRoute: ActivatedRoute;
 
+  @LocalStorage('isUserLogged')
+  public isUserLogged;
+
+  @LocalStorage('currentUser')
+  public currentUser;
+
 
   //icon var
   public faBoxOpen = faBoxOpen;
@@ -35,7 +44,7 @@ export class MerchTemplateComponent implements OnInit {
   public imageToShow: any;
   public isImageLoading: boolean;
 
-  constructor(protected merchService: MerchService, protected merchTypeService: MerchTypeService, private route: ActivatedRoute) { }
+  constructor(protected purchaseService: PurchasesService, protected merchService: MerchService, protected merchTypeService: MerchTypeService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.merchId = this.route.snapshot.queryParams['id'];
@@ -90,6 +99,14 @@ export class MerchTemplateComponent implements OnInit {
    
   buyMerch(){
     this.merch.stock = this.merch.stock - 1;
+    if(this.merch.stock != 0){
+        this.purchaseService.postPurchase(this.merch.id).subscribe(
+          data => {
+            console.log(data);
+        }, error => {
+          console.log(error);
+        });
+    }
   }
 
 

@@ -21,5 +21,6 @@ export class MerchService {
   public getMerchPage(page:number){
     return this.http.get(this.baseURL+'?page='+page);
   }
+
   
 }
