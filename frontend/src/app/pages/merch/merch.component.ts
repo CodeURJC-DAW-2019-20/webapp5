@@ -52,5 +52,4 @@ export class MerchComponent implements OnInit {
     error => this.handleError(error)
     )
   }
-
 }

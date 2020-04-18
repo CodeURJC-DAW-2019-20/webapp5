@@ -7,7 +7,6 @@ import { MerchService } from '../../../services/merch/merch.service';
 import { MerchTypeService } from '../../../services/merch-type/merch-type.service';
 
 import { faBoxOpen, faCog, faCalculator, faPercent, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
 import { ActivatedRoute } from "@angular/router";
 
 
@@ -19,8 +18,8 @@ import { ActivatedRoute } from "@angular/router";
 export class MerchTemplateComponent implements OnInit {
 
   //merch var
-  public merch: Merch;
-  public merchType: MerchType;
+  merch: Merch;
+  merchType: MerchType;
   merchId: number;
   activatedRoute: ActivatedRoute;
 
@@ -40,22 +39,24 @@ export class MerchTemplateComponent implements OnInit {
 
   ngOnInit(): void {
     this.merchId = this.route.snapshot.queryParams['id'];
-    console.log(this.route.snapshot.queryParams);
+    //console.log(this.route.snapshot.queryParams);
     this.refreshMerch();
+    console.log(this.merch);
     this.refreshMerchType();
+    console.log(this.merchType);
     this.getImageFromService();
   }
 
   private refreshMerch() {
     this.merchService.getMerch(this.merchId).subscribe(
-			response => this.merch = response as any,
+			response => this.merch = response as Merch,
 			error => this.handleError(error)
     );
   }
 
   private refreshMerchType() {
     this.merchTypeService.getMerchType(this.merchId).subscribe(
-			response => this.merchType = response as any,
+			response => this.merchType = response as MerchType,
 			error => this.handleError(error)
     );
   }
@@ -85,5 +86,11 @@ export class MerchTemplateComponent implements OnInit {
          console.log(error);
        });
    }
+
+   
+  buyMerch(){
+    this.merch.stock = this.merch.stock - 1;
+  }
+
 
 }

@@ -17,14 +17,9 @@
                 <fa-icon [icon]="faPercent"></fa-icon><i> Descuento: {{merch.discount}} %</i>
                 <br>
                 <fa-icon [icon]="faMoneyBillWave"></fa-icon><i> Precio: {{merch.price}} euros.</i>
-                <!--<div class="control-group">
-                    <div class="controls">
-                        <form class="form-horizontal" action="/purchaseMerch/{{id}}"  method="POST" >
-                            <button id="purchase" class="btn btn-primary">Comprar</button>
-                            <input type="hidden" name="_csrf" value="{{token}}"/>
-                        </form>
-                    </div>
-                </div>--> 
+                
+                <button (click)="buyMerch()"  class="btn btn-primary">Comprar</button>
+
             </div>
         </div>
 
