@@ -117,5 +117,16 @@ form .form-control:focus{
 }
 
 
-
+.carousel-control-prev-icon{
+	background-image: url("assets/img/home/prevFOTO.png") !important;
+	width: 50px !important;
+	height: 50px !important;
+	opacity: 1 ;
+}
+.carousel-control-next-icon{
+	background-image: url("assets/img/home/nextFOTO.png") !important;
+	width: 50px !important;
+	height: 50px !important;
+	opacity: 1;
+}
 
