@@ -155,7 +155,7 @@ public class MerchandisingRestController {
 	}
 	
 
-
+	
 	//only admin
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Merchandising> deleteMerch(@PathVariable long id) {

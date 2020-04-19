@@ -9,10 +9,11 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.lcdd.backend.pojo.User.Basico;
 
 @Entity
 public class Purchase {
-	
+	@JsonView (User.Basico.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -20,11 +21,12 @@ public class Purchase {
 	@JsonView (User.Basico.class)
 	@ManyToOne
 	private User user;
-	
+	@JsonView(Basico.class)
 	private float price;
+	@JsonView(Basico.class)
 	private Date date;
 	
-	//do not put @JsonIgnore
+	@JsonView(Basico.class)
 	@ManyToOne
 	private Merchandising merch;
 	

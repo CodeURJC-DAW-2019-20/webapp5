@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.Merchandising;
 import com.lcdd.backend.pojo.User;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.lcdd.backend.ImageService;
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.services.GameService;
@@ -85,6 +86,7 @@ public class EventRestController {
 	}
 	
 	//get all users registered in an event
+	@JsonView (User.Basico.class)
 	@GetMapping("{id}/userRegistered")
 	public ResponseEntity<List<User>> getUsersInEventRegister(@PathVariable long id, HttpSession session) {
 		//admin can see all users

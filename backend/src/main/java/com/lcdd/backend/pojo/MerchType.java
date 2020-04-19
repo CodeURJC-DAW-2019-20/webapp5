@@ -8,14 +8,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.lcdd.backend.pojo.User.Basico;
 
 @Entity
 public class MerchType {
-	
+	@JsonView(Basico.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+	@JsonView(Basico.class)
 	private String typeName;
 	
 	@JsonIgnore

@@ -37,6 +37,8 @@ public class EventRegisterRestController {
 	@Autowired
 	private EventService eventService;
 	
+	
+	
 	//get all inscriptions
 	//only admin
 	@JsonView (User.Basico.class)
@@ -48,6 +50,7 @@ public class EventRegisterRestController {
 	
 	//register user in an event
 	//need user registered
+	@JsonView (User.Basico.class)
 	@PostMapping("/{id}")
 	public ResponseEntity<EventRegister> serveEvent(@PathVariable Long id, 
 			@RequestBody String participants,Authentication auth,  UserSession session, HttpServletRequest request) {

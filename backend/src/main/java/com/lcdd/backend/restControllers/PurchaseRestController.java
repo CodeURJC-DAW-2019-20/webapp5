@@ -25,6 +25,7 @@ import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.pojo.Merchandising;
 import com.lcdd.backend.pojo.Purchase;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.pojo.User.Basico;
 import com.lcdd.backend.services.MerchandisingService;
 import com.lcdd.backend.services.PurchaseService;
 import com.lcdd.backend.services.UserService;
@@ -73,6 +74,7 @@ public class PurchaseRestController {
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	//USER
+	@JsonView(Basico.class)
 	@PostMapping("/{id}")
 	public ResponseEntity<Purchase> serveEvent(@PathVariable Long id, 
 			Authentication auth,  UserSession session, HttpServletRequest request) {
