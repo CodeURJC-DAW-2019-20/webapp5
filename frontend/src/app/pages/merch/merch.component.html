@@ -5,30 +5,29 @@
   <div class="container">
     <h1>Merchandising</h1>
     <div class="two_column_product" id="original">
-      <div class="row" id="main_row">
+      <div class="row">
         <!-- body -->
-        <div class='col-lg-4 col-sm-6'>
-          <div class='l_product_item'>
-            <h4> {{Merch.name}} </h4> 
-            <h5> {{Merch.price}} € - {{Merch.discount}} %</h5>
+
+          <div class='col-3 col-sm-4' *ngFor="let merch of merchList">
+            <h4> {{merch.name}} </h4> 
+            <h5> {{merch.price}} € - {{merch.discount}} %</h5>
             <div class='l_p_img'>
-              <img src='assets/img/events-merch/event-image.jpg' width='300' height='300'>
+              <img src = "https://localhost:8443/api/merchandisings/{{merch.id}}/image" width='300' height='300'>
               <h5 class='sale'>Opciones:</h5>
             </div>
             <div class='l_p_text'>
               <ul>
-                <li class='p_icon'><a href="merch-template/">Ver Detalles</a></li>
+                <li class='p_icon'><a routerLink="/merch-template" [queryParams]="{id: merch.id}">Ver Detalles</a></li>
               </ul>
             </div>
           </div>
-        </div>
 
       </div>
     </div>
   </div>
 </div>
 <div class="container text-center">
-  <button class="btn btn-primary" id="show_more_button" nextPage="0">Mostrar más</button>
+  <button class="btn btn-primary" *ngIf="this.lastPage" (click)="getNewMerchList()">Mostrar más</button>
 </div>
 
 

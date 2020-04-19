@@ -5,10 +5,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MerchTypeService {
+  baseURL: string = 'https://localhost:8443/api/merchandisings/';
 
   constructor(protected http: HttpClient) { }
 
-  public getMerchType() {
-    return this.http.get('https://localhost:8443/api/merchandisings/38/type');
+  public getMerchType(id:number) {
+    return this.http.get(this.baseURL + id + '/type');
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
@@ -8,6 +8,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PurchasesService {
+  postURL: string = 'https://localhost:8443/api/purchase/';
 
   constructor(
     private http: HttpClient,
@@ -39,5 +40,24 @@ export class PurchasesService {
           return throwError(error);
         })
       );
+  }
+
+  postPurchase(id:number){
+    const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+    });
+
+    const url = environment.apiEndPoint + '/purchase/' + id
+    console.log(url);
+    return this.http.post(url,{headers})
+    .pipe(
+      map(purchaseSend =>{
+        console.log(purchaseSend);
+        return purchaseSend;
+      }),
+      catchError(error => {
+        return throwError(error);
+      })
+    );
   }
 }

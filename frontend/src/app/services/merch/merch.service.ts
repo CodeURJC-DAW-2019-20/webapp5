@@ -6,15 +6,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MerchService {
-  imgUrl: string = 'https://localhost:8443/api/merchandisings/36/image';
+  baseURL: string = 'https://localhost:8443/api/merchandisings';
 
   constructor(protected http: HttpClient) { }
 
-  public getMerch() {
-    return this.http.get('https://localhost:8443/api/merchandisings/38');
+  public getMerch(id:number) {
+    return this.http.get(this.baseURL + '/' + id);
   }
   
-  public getImage(): Observable<Blob> {
-    return this.http.get(this.imgUrl, { responseType: 'blob' });
+  public getImage(id:number): Observable<Blob> {
+    return this.http.get(this.baseURL + '/' + id + '/image', { responseType: 'blob' });
   }
+
+  public getMerchPage(page:number){
+    return this.http.get(this.baseURL+'?page='+page);
+  }
+
+  
 }

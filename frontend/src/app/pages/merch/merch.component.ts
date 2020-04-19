@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MerchService } from 'src/app/services/merch/merch.service';
+import { Merch } from '../../interfaces/merch';
+
+import { MerchService } from '../../services/merch/merch.service';
 
 @Component({
   selector: 'app-merch',
@@ -9,23 +11,45 @@ import { MerchService } from 'src/app/services/merch/merch.service';
 })
 export class MerchComponent implements OnInit {
 
-  Merch: any;
+  //private merch: Merch;
+  page: number = 0;
+  merchList: Merch[];
+  merchListAux: Merch[];
+  lastPage: boolean = true;
 
   constructor(protected merchService: MerchService) { }
 
   ngOnInit(): void {
-    this.refreshMerch();
-  }
-
-  private refreshMerch() {
-    this.merchService.getMerch().subscribe(
-			response => this.Merch = response as any,
-			error => this.handleError(error)
-    );
+    this.getMerchList();
   }
 
   private handleError(error: any) {
 		console.error(error);
   }
 
+  getMerchList(){
+    this.merchService.getMerchPage(this.page).subscribe(
+      data => {
+      this.merchList = (data['content']);
+      this.page = this.page + 1;
+      console.log(data);
+    },
+    error => this.handleError(error)
+    )
+  }
+
+  getNewMerchList(){
+    this.merchService.getMerchPage(this.page).subscribe(
+      data => {
+      if(data['empty'] == false){
+      this.merchListAux = (data['content']);
+      this.merchList = this.merchList.concat(this.merchListAux);
+      this.page = this.page + 1;
+      if(data['last']==true){this.lastPage = false}
+    }
+      console.log(data);
+    },
+    error => this.handleError(error)
+    )
+  }
 }
