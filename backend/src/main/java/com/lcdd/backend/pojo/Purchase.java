@@ -16,7 +16,6 @@ public class Purchase {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@JsonIgnore
 	@ManyToOne
 	private User user;
 	
@@ -32,6 +31,7 @@ public class Purchase {
 	public Purchase(User user, Date date, Merchandising merch) {
 		this.user = user;
 		this.date = date;
+		this.price = merch.getPrice();
 		this.merch = merch;
 	}
 	

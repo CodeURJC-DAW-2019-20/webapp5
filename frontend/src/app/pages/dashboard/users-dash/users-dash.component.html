@@ -16,19 +16,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr user_id="1">
-					<td>----</td>
-					<td>----</td>
-					<td>----</td>
-					<td>----</td>
-					<td>----</td>
+				<tr *ngFor="let user of usersList">
+					<td>{{user.id}}</td>
+					<td>{{user.name}}</td>
+					<td>{{user.firstName}}</td>
+					<td>{{user.lastName}}</td>
+					<td>{{user.email}}</td>
 					<td>
-						<select class="role_select" value="">
-							<option value="">----</option> 
+						<select [(ngModel)]="user.role.id" class="role_select">
+							<option *ngFor="let role of rolesList" value="{{role.id}}">{{role.name}}</option> 
 						</select>
 					</td>
-					<td><button class="btn btn-sm btn-outline-secondary save_button" user_id="">Guardar</button></td>
-					<td><button class="btn btn-sm btn-outline-secondary delete_button" user_id="">Eliminar</button></td>
+					<td><button class="btn btn-sm btn-outline-secondary save_button" (click)="setUserRole(user.id, user.role.id)">Guardar</button></td>
+					<td><button class="btn btn-sm btn-outline-secondary delete_button" (click)="deleteUser(user.id)">Eliminar</button></td>
 				</tr>
 			</tbody>
 		</table>

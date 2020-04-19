@@ -3,6 +3,7 @@ import { faDollarSign, faCalendar, faUsers } from '@fortawesome/free-solid-svg-i
 import { LoginService } from 'src/app/services/login/login.service';
 import { LoginComponent } from '../login/login.component';
 import { Router } from '@angular/router';
+import { LocalStorage } from 'ngx-webstorage';
 
 
 @Component({
@@ -13,8 +14,9 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   dashSection: string;
+  @LocalStorage('isUserAdmin')
+  public isUserAdmin;
 
-  public loginService: LoginService;
 
   public faIcons = {
     events: faCalendar,
@@ -29,7 +31,7 @@ export class DashboardComponent implements OnInit {
   constructor(public router: Router) { }
 
   ngOnInit(): void {
-    if(!this.loginService.isAdmin){
+    if(!this.isUserAdmin){
       this.router.navigate(['/error']);
     }
     this.dashSection = 'events';

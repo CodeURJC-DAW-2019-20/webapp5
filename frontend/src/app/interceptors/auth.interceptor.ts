@@ -6,12 +6,17 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
+  constructor(private localStorage: LocalStorageService) {}
+
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let user = JSON.parse(localStorage.getItem('currentUser'));
+    let localStore: LocalStorageService;
+
+    let user = this.localStorage.retrieve('currentUser');
 
     if (user && user.authData){
       request = request.clone({
@@ -20,8 +25,6 @@ export class AuthInterceptor implements HttpInterceptor {
         }
       });
     }
-    console.log(user)
-    console.log(request)
     return next.handle(request);
   }
 }

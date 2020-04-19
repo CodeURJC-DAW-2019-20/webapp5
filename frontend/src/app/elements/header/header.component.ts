@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
+import { LocalStorage } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +13,24 @@ export class HeaderComponent implements OnInit {
   public isMenuCollapsed = true;
   public isUserMenuCollapsed = true;
 
+  @LocalStorage('currentUser')
+  public currentUser;
+
+  @LocalStorage('isUserLogged')
+  public isUserLoggedIn;
+
+  @LocalStorage('isUserAdmin')
+  public isUserAdmin;
+
   constructor(
     public loginService: LoginService,
-    public router: Router
+    public router: Router,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    console.log(this.isUserAdmin);
+    console.log(this.isUserLoggedIn);
+    console.log(this.currentUser);
   }
 
   logOut() {

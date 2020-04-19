@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { LocalStorageService } from 'ngx-webstorage';
 
 import { environment } from '../../../environments/environment'
 import { Users } from 'src/app/interfaces/users';
@@ -10,17 +11,19 @@ import { Users } from 'src/app/interfaces/users';
   providedIn: 'root'
 })
 export class LoginService {
-  isLogged = false;
-  isAdmin = false;
   user : Users;
   auth : string;
 
-  constructor(private http: HttpClient) {
-    let user = JSON.parse(localStorage.getItem('currentUser'));
+  constructor(
+    private http: HttpClient,
+    private localStorage: LocalStorageService
+    ) {
+    let user = this.localStorage.retrieve('currentUser');
     if(user){
       console.log('Logged user');
+    }
   }
-}
+  
   login(user: string, pass: string){
     let auth = window.btoa(user + ':' + pass);
     let url = environment.apiEndPoint + '/logIn';
@@ -34,11 +37,9 @@ export class LoginService {
       .pipe(map(user => {
 
       if (user) {
-        this.setCurrentUser(user);
         user.authData = auth;
-        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.setCurrentUser(user);
       }
-      console.log(user);
       return user;
     }));
   }
@@ -55,14 +56,12 @@ export class LoginService {
   }
 
   private setCurrentUser(user: Users){
-    this.isLogged = true;
-    this.user = user;
-    this.isAdmin = user.roles.indexOf('ROLE_ADMIN') !== -1;
+    this.localStorage.store('currentUser', user);
+    this.localStorage.store('isUserLogged', true);
+    this.localStorage.store('isUserAdmin', user.roles.indexOf('ROLE_ADMIN') !== -1);
   }
   removeCurrentUser(){
-    localStorage.removeItem('currentUser');
-    this.isLogged = false;
-    this.isAdmin = false;
+    this.localStorage.clear();
   }
 }
 
