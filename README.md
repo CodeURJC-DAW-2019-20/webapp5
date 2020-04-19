@@ -363,6 +363,7 @@ To stop running the docker use:
 
 
 ### Templates, Components and Services Diagram
+
 ![Templates, Components and Services Diagram](frontend/src/main/assets/img/diagramPhase4.png)
 
 ### Members participation
