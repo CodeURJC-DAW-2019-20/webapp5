@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 import { GamesService } from 'src/app/services/games/games.service';
 import { throwError, Observable } from 'rxjs';
 import { Games } from 'src/app/interfaces/games';
+import { Router } from '@angular/router';
+import { LocalStorage } from 'ngx-webstorage';
 
 
 @Component({
@@ -14,6 +16,9 @@ import { Games } from 'src/app/interfaces/games';
   styleUrls: ['./events-form.component.css']
 })
 export class EventsFormComponent implements OnInit {
+
+  @LocalStorage('isUserAdmin')
+  public isUserAdmin;
 
   public event;
   gamesList: Games[];
@@ -24,12 +29,15 @@ export class EventsFormComponent implements OnInit {
   eventCreated;
   eventId;
 
-  constructor(private httpClient: HttpClient, public eventService: EventsService, public gamesService: GamesService) {
+  constructor(private httpClient: HttpClient, public eventService: EventsService, public gamesService: GamesService,public router: Router) {
     this.createEvent();
   }
 
   // on init, get the events list
   ngOnInit(): void{
+    if(!this.isUserAdmin){
+      this.router.navigate(['/error']);
+    }
     this.createGamesList();
     this.reward = false;
   }
@@ -89,6 +97,7 @@ export class EventsFormComponent implements OnInit {
         this.eventCreated = response;
         this.eventNumber = this.eventCreated.id;
         console.log("nice event");
+        this.router.navigate(['/event-template'],{ queryParams: { id: this.eventNumber}});
         if(this.event.value.haveImage){
           this.uploadImage();
         } 

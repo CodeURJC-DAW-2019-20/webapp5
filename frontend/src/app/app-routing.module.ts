@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { MerchComponent } from './pages/merch/merch.component';
 import { MerchTemplateComponent } from './pages/merch/merch-template/merch-template.component';
+import { MerchFormComponent } from './pages/merch/merch-form/merch-form.component';
 import { EventsComponent } from './pages/events/events.component';
 import { EventTemplateComponent } from './pages/events/event-template/event-template.component';
 import { EventsFormComponent } from './pages/events/events-form/events-form.component';
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'merch-template',
     component: MerchTemplateComponent
+  },
+  {
+    path: 'merch-form',
+    component: MerchFormComponent
   },
   {
     path: 'events',

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.pojo.Purchase;
 import com.lcdd.backend.pojo.Role;
@@ -39,6 +40,7 @@ public class UserRestController {
 	
 	
 	//get all existing users
+	@JsonView (User.Basico.class)
 	@GetMapping(value={"", "/"})
 	public ResponseEntity<List<User>> getUsers(HttpSession session) {
 		//admin can see all users
@@ -48,6 +50,7 @@ public class UserRestController {
 	}
 	
 	//get an existing user
+	@JsonView (User.Basico.class)
 	@GetMapping("/{id}")
 	public ResponseEntity<User> getUser(@PathVariable int id, Authentication auth, 
 			HttpServletRequest request, HttpSession session) {
@@ -112,6 +115,7 @@ public class UserRestController {
 	}
 	
 	//add a new user, permited all
+	@JsonView (User.Basico.class)
 	@PostMapping("/")
 	public ResponseEntity<User> postUser(@RequestBody User user) {
 		
@@ -157,6 +161,7 @@ public class UserRestController {
 	}*/
 	
 	//update an existing user
+	@JsonView (User.Basico.class)
 	@PutMapping("/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User userUpdate,
 			Authentication auth, HttpServletRequest request, HttpSession session) {
@@ -218,6 +223,7 @@ public class UserRestController {
 		}		
 	}
 	
+	@JsonView (User.Basico.class)
 	@PutMapping("/{id}/role")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<Object> editUserRole(@PathVariable long id, @RequestBody String newRoleId) {

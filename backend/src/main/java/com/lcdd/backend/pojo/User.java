@@ -14,25 +14,35 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class User {
 	
+	public interface Basico{}
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView(Basico.class)
 	private Long id;
+	@JsonView(Basico.class)
 	private String email;
+	@JsonView(Basico.class)
 	private String name;
+	@JsonView(Basico.class)
 	private String firstName;
+	@JsonView(Basico.class)
 	private String lastName;
 
-	
 	private String passwordHash;
 	
 	//do not put @JsonIgnore
+	@JsonView(Basico.class)
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
+	@JsonView(Basico.class)
 	@ManyToOne
 	private Role role;
 	
