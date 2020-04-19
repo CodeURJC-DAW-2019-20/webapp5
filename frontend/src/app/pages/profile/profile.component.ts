@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorage } from 'ngx-webstorage';
+import { UsersService } from 'src/app/services/users/users.service'
+import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LocalStorageService } from 'ngx-webstorage';
 
 import { ProfileService } from 'src/app/services/profile/profile.service';
 
@@ -16,6 +20,8 @@ import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 export class ProfileComponent implements OnInit {
 
   @LocalStorage('currentUser')
+  @LocalStorage('isUserLogged')
+  public isUserLogged;
   public currentUser;
   eventList;
   gameId: number;
@@ -23,11 +29,21 @@ export class ProfileComponent implements OnInit {
   aux: number;
   activeId;
   active;
+  userForm: FormGroup;
 
-  constructor(protected profileService: ProfileService, protected eventsService: EventsService) { }
+  constructor(
+    protected profileService: ProfileService, 
+    protected eventsService: EventsService,
+    public userService: UsersService,
+    public router: Router,
+    private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.getUserEvents();
+    if(!this.isUserLogged){
+      this.router.navigate(['/error']);
+    }
+    this.createUserNewInfo();
   }
 
   getUserEvents() {
@@ -86,4 +102,36 @@ export class ProfileComponent implements OnInit {
 		console.error(error);
   }
 
+  createUserNewInfo(){
+    this.userForm = new FormGroup ({
+      email: new FormControl(this.currentUser.email, Validators.required),
+      firstName: new FormControl(this.currentUser.firstName, Validators.required),
+      lastName: new FormControl(this.currentUser.lastName, Validators.required)
+    });
+  }
+
+  editProfile() {  
+    this.userService.editUser(this.currentUser.id, this.userForm.value).subscribe(
+      (response) => {
+        console.log("Ok");
+        console.log(this.userForm.value);
+
+        this.currentUser.email = this.userForm.value.email;
+        this.currentUser.firstName = this.userForm.value.firstName;
+        this.currentUser.lastName = this.userForm.value.lastName;
+
+        this.localStorage.store('currentUser', this.currentUser);
+        
+        this.active = 1;
+      },
+      (error) => {
+        if(error.status == 406){
+          alert("error");
+        }
+        console.log(error);
+      }
+    );
+  }
+
 }
+
