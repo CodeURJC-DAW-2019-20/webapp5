@@ -10,6 +10,7 @@ export class ProfileComponent implements OnInit {
 
   @LocalStorage('currentUser')
   public currentUser;
+  activeId;
 
   constructor() { }
 
