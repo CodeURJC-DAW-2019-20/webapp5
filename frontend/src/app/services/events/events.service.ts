@@ -85,4 +85,19 @@ export class EventsService {
     return this.http.get(url, { responseType: 'blob' });
   }
 
+  saveInscription(id: number, inscription){
+    const url = environment.apiEndPoint + '/userRegisterEvent/'+ id ;//id of event
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.post(url,inscription,{headers})
+    .pipe(
+      map(eventRegister =>{
+        return eventRegister;
+      }),
+      catchError(error => {
+        return throwError(error);
+      })
+    );
+  }
 }

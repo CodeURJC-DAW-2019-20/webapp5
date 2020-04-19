@@ -33,7 +33,41 @@
             <br>
    
 
-            <div >
+            <div *ngIf="isUserLogged" class="row">
+				<br>
+					<div class="col-8 mx-auto">
+						<form ngNativeValidate class="form-horizontal" [formGroup]="inscription" (ngSubmit)="submit()" >
+                            <button (click)="showRegister()" id="button-register" class="btn btn-primary" type="button" >Inscribirse en el evento</button>
+                            <br>
+                            <div *ngIf="showRegisterEvent">
+                                <div class="form-group">
+                                    <label> Participantes del grupo:</label>
+                                    <input type="number"
+                                        name="participants"
+                                        formControlName="participants"
+                                        ngControl="inp"
+                                        class="form-control"
+                                        max="{{event.groupSize}}"
+                                        placeholder="Máximo {{event.groupSize}}"/>
+                                    <br>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <button
+                                            id="register"
+                                            type="submit"
+                                            class="btn btn-primary">Registrarse</button>
+                                    </div>
+                                </div>
+                            </div>
+						</form>
+					</div>
+				</div>
+
+
+
+
+            <div *ngIf="!isUserLogged">
                 <div class="row">
                     <div class="col-8 mx-auto">
                         <button class="btn btn-primary" type="button" disabled>Inscribirse en el evento</button>
@@ -53,8 +87,3 @@
         <p>{{event.description}}</p>
     </div>
 </div>
-
-
-<!--
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
--->
