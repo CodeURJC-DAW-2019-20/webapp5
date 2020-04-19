@@ -335,3 +335,48 @@ To stop running the docker use:
   
 
 ## PHASE 4: Web with SPA architecture
+
+### Docker
+Docker allows you to use our application without having anything install.You just need to follow the next steps:
+  1. Install docker, you can download it [here](https://docs.docker.com/install/#supported-platforms). 
+  2. To run the app you simply have to open a terminal in Docker folder and execute "docker-compose up".
+  3. If you are in Docker Desktop to access the app you have to open your navigator and go to https://localhost:8443/new/. If you are in Docker Toolbox to acces to the app you have to open your navigator and go to https://localhost:8443/new/ with the port number that it is indicated in the first lines of the command line: for example: `docker is configured to use the default machine with IP 192.168.99.100 `
+
+- To stop the app you have to execute "docker-compose down".
+- The docker-compose.yml file uses a mysql image sets up in port 3306 (Don't forget to stop your local mysql), and a contafin image, sets up in port 8080.
+
+#### Linux Commands
+To execute docker in linux you should follow the next commands:
+- ./create-image.sh
+- docker-compose up
+To stop running the docker use:
+- docker-compose down
+
+### How to run
+  1. Run the MySQL database.
+  2. Run Spring Boot backend.
+  3. On console, go to the root folder of the angular project. 
+  4. Run `npm install` to update packages.
+  5. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  6. Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  7. To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+### Templates, Components and Services Diagram
+![Templates, Components and Services Diagram](frontend/src/main/assets/img/diagramPhase4.png)
+
+### Members participation
+
+**Miguel**
+
+  
+**Daniel**
+
+
+**Carlos**
+
+
+**Óscar**
+
+
+**Alfonso**
