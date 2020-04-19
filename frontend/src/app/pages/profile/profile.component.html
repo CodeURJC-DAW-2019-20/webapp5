@@ -1,85 +1,92 @@
 <div class="container">
-	<div class="row">
-      <div class="col-6 mx-auto">
-        <img class="mx-auto d-block" src="/assets/img/logo/png/logo_grande.png" width="150" height="150">
-      </div>
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <img class="mx-auto d-block" src="/assets/img/logo/png/logo_grande.png" width="150" height="150">
     </div>
+  </div>
+
+  <div class="row my-2">
+    <div class="col-lg-8 order-lg-2">
+
+
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Informacion</a>
+          <ng-template ngbNavContent> 
+            <div class="tab-pane active" id="profile">
+              <h5 class="mb-3">Información personal</h5>
+              <div class="row">
+                <div class="col-md-16">
+                  <h6>Nombre</h6>
+                  <p>
+                    {{currentUser.firstName}}
+                  </p>
+                  <h6>Apellidos</h6>
+                  <p>
+                    {{currentUser.lastName}}
+                  </p>
+                  <h6>Email</h6>
+                  <p>
+                    {{currentUser.email}}
+                  </p>
+                  <h6>Nombre de usuario</h6>
+                  <p>
+                    {{currentUser.name}}
+                  </p>
+                  <h6>Recomendacion personalizada</h6>
+                  <p>
+                    Por tu actividad reciente te recomendamos eventos de <b>popular.name</b>
+                    <a href="/events?game=popular.id" class="btn btn-primary">Buscar más eventos de este tipo</a>
+                  </p>
     
-    <div class="row my-2">
-        <div class="col-lg-8 order-lg-2">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Editar</a>
-                </li>
-            </ul>
-            <div class="tab-content py-4">
-                <div class="tab-pane active" id="profile">
-                    <h5 class="mb-3">Información personal</h5>
-                    <div class="row">
-                        <div class="col-md-16">
-                            <h6>Nombre</h6>
-                            <p>
-                                {{currentUser.firstName}}
-                            </p>
-                            <h6>Apellidos</h6>
-                            <p>
-                              {{currentUser.lastName}}
-                            </p>
-                            <h6>Email</h6>
-                            <p>
-                              {{currentUser.email}}
-                            </p>
-                            <h6>Nombre de usuario</h6>
-                            <p>
-                              {{currentUser.name}}
-                            </p>
-                            <h6>Recomendacion personalizada</h6>
-                            <p>
-                                Por tu actividad reciente te recomendamos eventos de <b>popular.name</b>
-             					<a href="/events?game=popular.id" class="btn btn-primary">Buscar más eventos de este tipo</a>
-                            </p>
-                         
-                        </div>
-                    </div>
-                    <!--/row-->
                 </div>
-                <div class="tab-pane" id="edit">
-                    <form role="form" action="profile" method="POST">
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"><b>Nombre</b></label>
-                            <div class="col-lg-9">
-                                <input class="form-control"  name="firstName" type="text" value="session.firstName">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"><b>Apellidos</b></label>
-                            <div class="col-lg-9">
-                                <input class="form-control"  name="lastName" type="text" value="session.lastName">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"><b>Email</b></label>
-                            <div class="col-lg-9">
-                                <input class="form-control"  name="email" value="session.email">
-                            </div>
-                        </div>
-           			 		<div class="control-group">
-              					<div class="controls">
-              					<div class="col-lg-9">
-                                <input type="reset" class="btn btn-secondary" value="Resetear">
-                				<button id="edit" class="btn btn-primary">Guardar Cambios</button>
-                				</div>
-                		 	</div>
-           				 </div>
-                    </form>
-                </div>
-                <br>
-                <br>
-           
+              </div>
+              <!--/row-->
             </div>
-        </div>
+          </ng-template>
+        </li>
+        
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Editar</a>
+          <ng-template ngbNavContent>
+            <div class="tab-pane" id="edit">
+              <form role="form" action="profile" method="POST">
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label"><b>Nombre</b></label>
+                  <div class="col-lg-9">
+                    <input class="form-control" name="firstName" type="text" value="session.firstName">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label"><b>Apellidos</b></label>
+                  <div class="col-lg-9">
+                    <input class="form-control" name="lastName" type="text" value="session.lastName">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label"><b>Email</b></label>
+                  <div class="col-lg-9">
+                    <input class="form-control" name="email" value="session.email">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <div class="controls">
+                    <div class="col-lg-9">
+                      <input type="reset" class="btn btn-secondary" value="Resetear">
+                      <button id="edit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </ng-template>
+        </li>
+      
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      
     </div>
+  </div>
 </div>
