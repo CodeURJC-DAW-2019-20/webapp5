@@ -45,7 +45,9 @@ export class MerchComponent implements OnInit {
       this.merchListAux = (data['content']);
       this.merchList = this.merchList.concat(this.merchListAux);
       this.page = this.page + 1;
-      if(data['last']==true){this.lastPage = false}
+      if(data['last']==true){
+        this.lastPage = false
+      }
     }
       console.log(data);
     },

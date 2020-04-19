@@ -25,7 +25,7 @@ const routes: Routes = [
     component: ErrorComponent
   },
   {
-    path: 'merch',
+    path: 'merchs',
     component: MerchComponent
   },
   {
