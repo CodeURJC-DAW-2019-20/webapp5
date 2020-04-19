@@ -35,8 +35,8 @@
                     {{currentUser.name}}
                   </p>
                   <h5>Recomendacion personalizada</h5>
-                  <p>Por tu actividad reciente te recomendamos eventos de <b>popular.name</b></p>
-                  <a href="/events?game=popular.id" class="btn btn-primary">Buscar más eventos de este tipo</a>
+                  <p>Por tu actividad reciente te recomendamos eventos de <b>{{gameName}}</b></p>
+                  <a routerLink="/events" [queryParams]="{id: gameId}"  class="btn btn-primary">Buscar más eventos de este tipo</a>
                   
     
                 </div>

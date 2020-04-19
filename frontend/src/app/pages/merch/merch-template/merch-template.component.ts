@@ -98,8 +98,8 @@ export class MerchTemplateComponent implements OnInit {
 
    
   buyMerch(){
-    this.merch.stock = this.merch.stock - 1;
     if(this.merch.stock != 0){
+        this.merch.stock = this.merch.stock - 1;
         this.purchaseService.postPurchase(this.merch.id).subscribe(
           data => {
             console.log(data);
