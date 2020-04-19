@@ -11,9 +11,8 @@ export class MerchTypeService {
 
   constructor(protected http: HttpClient) { }
 
-  public getMerchType() {
+  public getMerchTypes() {
     const url = environment.apiEndPoint + '/merchandisings/types'  
-    console.log(url);
     return this.http.get(url)
     .pipe(
       map(merchTypeList =>{
@@ -23,6 +22,7 @@ export class MerchTypeService {
         return throwError(error);
       })
     );
+  }
   public getMerchType(id:number) {
     const url = environment.apiEndPoint + '/merchandisings/' + id + '/type';
     return this.http.get(url);

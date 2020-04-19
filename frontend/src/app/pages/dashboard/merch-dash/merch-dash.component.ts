@@ -23,11 +23,10 @@ export class MerchDashComponent implements OnInit {
   getPurchasesByMonthChartData(){
     this.purchaseService.getPurchaseLastYearList().subscribe(
       lastYearPurchases => {
-        console.log(lastYearPurchases);
         this.lastYearPurchases = lastYearPurchases;
       },
       error => {
-        console.log("La liaste pardisima");
+        console.error(error);
       }
     );
   }
@@ -35,11 +34,10 @@ export class MerchDashComponent implements OnInit {
   getPurchaseTableData(){
     this.purchaseService.getPurchaseList().subscribe(
       purchaseList => {
-        console.log(purchaseList);
         this.purchaseList = purchaseList;
       },
       error => {
-        console.log("La liaste pardisima");
+        console.error(error);
       }
     );
   }

@@ -37,7 +37,6 @@ export class MerchComponent implements OnInit {
       data => {
       this.merchList = (data['content']);
       this.page = this.page + 1;
-      console.log(data);
     },
     error => this.handleError(error)
     )
@@ -54,7 +53,6 @@ export class MerchComponent implements OnInit {
         this.lastPage = false
       }
     }
-      console.log(data);
     },
     error => this.handleError(error)
     )

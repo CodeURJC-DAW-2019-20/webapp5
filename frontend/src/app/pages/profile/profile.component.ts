@@ -59,7 +59,6 @@ export class ProfileComponent implements OnInit {
     ;}
 
   getPopular(){
-    console.log(this.eventList);
     this.eventList.forEach(element => {
       this.aux = element.event.game.id;
     })
@@ -92,8 +91,6 @@ export class ProfileComponent implements OnInit {
       default:
         break;
     }
-    console.log(this.gameId);
-    console.log(this.gameName);
   }
 
     
@@ -112,8 +109,6 @@ export class ProfileComponent implements OnInit {
   editProfile() {  
     this.userService.editUser(this.currentUser.id, this.userForm.value).subscribe(
       (response) => {
-        console.log("Ok");
-        console.log(this.userForm.value);
 
         this.currentUser.email = this.userForm.value.email;
         this.currentUser.firstName = this.userForm.value.firstName;
@@ -127,7 +122,7 @@ export class ProfileComponent implements OnInit {
         if(error.status == 406){
           alert("error");
         }
-        console.log(error);
+        console.error(error);
       }
     );
   }

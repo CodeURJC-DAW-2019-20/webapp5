@@ -40,7 +40,6 @@ export class EventsComponent implements OnInit {
       data => {
       this.eventsList = (data['content']);
       this.page = this.page + 1;
-      console.log(data);
     },
     error => this.handleError(error)
     )
@@ -58,7 +57,6 @@ export class EventsComponent implements OnInit {
         this.lastPage = false
       }
     }
-      console.log(data);
     },
     error => this.handleError(error)
     )
@@ -73,7 +71,6 @@ export class EventsComponent implements OnInit {
       this.lastPage = false
     }
   }
-    console.log(data);
   },
   error => this.handleError(error)
   )
@@ -86,7 +83,6 @@ export class EventsComponent implements OnInit {
       data => {
       this.eventsList = (data['content']);
       this.page = this.page + 1;
-      console.log(data);
       if(data['last']==true){
         this.lastPage = false
       }

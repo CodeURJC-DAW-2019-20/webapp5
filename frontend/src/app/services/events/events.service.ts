@@ -68,7 +68,6 @@ export class EventsService {
 
   saveEvent(event){
     const body = JSON.stringify(event);
-    console.log(body);
     const headers = new HttpHeaders({
         'Content-Type': 'application/json',
     });

@@ -51,7 +51,6 @@ export class PurchasesService {
     return this.http.post(url,{headers})
     .pipe(
       map(purchaseSend =>{
-        console.log(purchaseSend);
         return purchaseSend;
       }),
       catchError(error => {

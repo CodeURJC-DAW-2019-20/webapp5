@@ -24,7 +24,7 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	//@JsonIgnore
+	@JsonView(Basico.class)
 	@ManyToOne
 	private Game game;
 	@JsonView(Basico.class)

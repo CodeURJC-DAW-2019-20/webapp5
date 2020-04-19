@@ -43,17 +43,15 @@ export class RegisterComponent implements OnInit {
 
   submit(){
     if(this.user.value.passwordHash == this.user.value.password){
-      console.log(this.user.value);
       this.userService.saveUser(this.user.value).subscribe(
         (response) => {
-          console.log("Ok"),
           this.router.navigate(['/login'])
         },
         (error) => {
           if(error.status == 406 ){
             alert("Usuario ya existe con ese UserName");
           }
-          console.log(error);
+          console.error(error);
         }
       );
     }else{

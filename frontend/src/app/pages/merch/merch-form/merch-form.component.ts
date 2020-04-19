@@ -55,15 +55,13 @@ merchCreated;
   }
  // upload image of the new merch
  uploadImage() {
-  console.log(this.selectedFile);
   const uploadImageData = new FormData();
   uploadImageData.append('imageFile', this.selectedFile);
   this.merchService.saveImage(this.merchNumber,uploadImageData).subscribe(
     (response) => {
-      console.log("nice image");
     },
     (error) => {
-      console.log("error image");
+      console.error(error);
     },
   );
 }
@@ -73,25 +71,22 @@ merchCreated;
       (response) => {
         this.merchCreated = response;
         this.merchNumber = this.merchCreated.id;
-        console.log(this.merchCreated);
-        console.log("nice merch");
         this.router.navigate(['/merch-template'],{ queryParams: { id: this.merchNumber}});
         if(this.merch.value.haveImage){
           this.uploadImage();
         } 
       },
       (error) => {
-        console.log("error merch");
+        console.error(error);
       },
     );
      
   }
 
   private createMerchTypeList(){
-    this.merTypeService.getMerchType().subscribe(
+    this.merTypeService.getMerchTypes().subscribe(
       response => {
         this.merTypeList = response as MerchType[];
-        console.log(this.merTypeList);
       },
       error => this.handleError(error)
     );

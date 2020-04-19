@@ -18,10 +18,7 @@ export class LoginService {
     private http: HttpClient,
     private localStorage: LocalStorageService
     ) {
-    let user = this.localStorage.retrieve('currentUser');
-    if(user){
-      console.log('Logged user');
-    }
+
   }
   
   login(user: string, pass: string){

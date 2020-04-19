@@ -87,7 +87,7 @@ export class EventTemplateComponent implements OnInit {
       this.isImageLoading = true;
     }, error => {
       this.isImageLoading = false;
-      console.log(error);
+      console.error(error);
     });
   }
 
@@ -103,11 +103,9 @@ export class EventTemplateComponent implements OnInit {
   //register new user event inscription
   submit(){
     this.showRegisterEvent = false;
-    console.log(this.showRegisterEvent);
     console.error(this.inscription.value.participants);
     this.eventsService.saveInscription(this.event.id,this.inscription.value.participants).subscribe(
       response => {
-        console.log("register great");
       },
       error => this.handleError(error)
     );

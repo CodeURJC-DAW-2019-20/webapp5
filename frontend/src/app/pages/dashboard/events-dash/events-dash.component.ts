@@ -47,7 +47,7 @@ export class EventsDashComponent implements OnInit {
         }
       },
       error => {
-        console.log("La liaste pardisima");
+        console.error(error);
       }
     );
   }
@@ -58,7 +58,7 @@ export class EventsDashComponent implements OnInit {
         this.inscriptions = inscriptions;
       },
       error => {
-        console.log("La liaste pardisima");
+        console.error(error);
       }
     );
   }

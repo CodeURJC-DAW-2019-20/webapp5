@@ -14,7 +14,7 @@ export class EventRegisterService {
   ) { }
 
   getEventRegisterList(){
-    const url = environment.apiEndPoint + '/event-register';
+    const url = environment.apiEndPoint + '/userRegisterEvent';
 
     return this.http.get(url)
       .pipe(

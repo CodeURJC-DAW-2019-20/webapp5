@@ -36,11 +36,10 @@ export class LoginComponent implements OnInit {
   login(){
     this.loginService.login(this.user, this.pass).subscribe(
       (user) => {
-        console.log(user);
         this.router.navigate(['/']);
       },
       (error) => {
-        console.log(error);
+        console.error(error);
         alert('Invalid user or password');
       }
     );

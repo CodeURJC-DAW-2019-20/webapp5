@@ -15,7 +15,7 @@ public class EventRegister {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@JsonView (User.Basico.class)
+	@JsonView(Basico.class)
 	@ManyToOne
 	private User user;
 	

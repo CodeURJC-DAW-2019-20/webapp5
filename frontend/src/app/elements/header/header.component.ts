@@ -28,9 +28,6 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void { 
-    console.log(this.isUserAdmin);
-    console.log(this.isUserLoggedIn);
-    console.log(this.currentUser);
   }
 
   logOut() {
@@ -39,7 +36,7 @@ export class HeaderComponent implements OnInit {
       (response) => {
         this.router.navigate(['/']);
       },
-      (error) => console.log('Error when trying to log out: ' + error),
+      (error) => console.error('Error when trying to log out: ' + error),
     );
   }
   

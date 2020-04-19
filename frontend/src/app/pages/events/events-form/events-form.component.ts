@@ -67,15 +67,13 @@ export class EventsFormComponent implements OnInit {
 
  // upload image of the new event
   uploadImage() {
-    console.log(this.selectedFile);
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile);
     this.eventService.saveImage(this.eventNumber,uploadImageData).subscribe(
       (response) => {
-        console.log("nice image");
       },
       (error) => {
-        console.log("error image");
+        console.error(error);
       },
     );
   }
@@ -91,19 +89,17 @@ export class EventsFormComponent implements OnInit {
 
   //upload a new event
   submit(){
-    console.log(this.event.value);
     this.eventService.saveEvent(this.event.value).subscribe(
       (response) => {
         this.eventCreated = response;
         this.eventNumber = this.eventCreated.id;
-        console.log("nice event");
         this.router.navigate(['/event-template'],{ queryParams: { id: this.eventNumber}});
         if(this.event.value.haveImage){
           this.uploadImage();
         } 
       },
       (error) => {
-        console.log("error event");
+        console.error(error);
       },
     );
      

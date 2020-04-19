@@ -84,7 +84,6 @@ export class UsersService {
 
   saveUser(user){
     const body = JSON.stringify(user);
-    console.log(body);
     const headers = new HttpHeaders({
         'Content-Type': 'application/json',
     });

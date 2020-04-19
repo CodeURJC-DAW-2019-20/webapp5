@@ -28,7 +28,7 @@ export class UsersDashComponent implements OnInit {
         this.usersList = usersList;
       },
       error => {
-        console.log("La liaste pardisima");
+        console.error(error);
       }
     );
   }
@@ -39,7 +39,7 @@ export class UsersDashComponent implements OnInit {
         this.rolesList = rolesList;
       },
       error => {
-        console.log("La liaste pardisima");
+        console.error(error);
       }
     );
   }
@@ -47,10 +47,9 @@ export class UsersDashComponent implements OnInit {
   setUserRole(userId, roleId){
     this.userService.setUserRole(userId, roleId).subscribe(
       response => {
-        console.log(response);
       },
       error => {
-        console.log("La liaste pardisima");
+        console.error(error);
       }
     );
   }
@@ -61,7 +60,7 @@ export class UsersDashComponent implements OnInit {
         this.getUserTableData();
       },
       error => {
-        console.log("La liaste pardisima");
+        console.error(error);
       }
     );
   }
