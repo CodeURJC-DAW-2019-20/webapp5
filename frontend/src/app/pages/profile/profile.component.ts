@@ -14,6 +14,10 @@ export class ProfileComponent implements OnInit {
 
   @LocalStorage('currentUser')
   public currentUser;
+
+  @LocalStorage('isUserLogged')
+  public isUserLogged;
+
   userForm: FormGroup;
   
   active;
@@ -25,6 +29,9 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(!this.isUserLogged){
+      this.router.navigate(['/error']);
+    }
     this.createUserNewInfo();
   }
 
