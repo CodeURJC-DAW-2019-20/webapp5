@@ -1,27 +1,31 @@
 <br>
 <br>
-<div class="container">
-<div class="row">
-    <div class="col-sm-12">
-    <h1>
-        Eventos
-    </h1>
+<div class="events_section">
+    <div class="container">
+        <h1>
+            Eventos
+        </h1>
+        <div class="row">
+            <!-- body -->
+
+            <div class='col-3 col-sm-4' *ngFor="let event of eventsList">
+            <a routerLink="/event-template" [queryParams]="{id: event.id}">
+                <img src = "https://localhost:8443/api/events/{{event.id}}/image"  width='300'>
+                <h3 class='mt-2'> {{event.name}} </h3>
+            </a> 
+            <p> {{event.description}} </p>
+
+            <!-- body -->
+        </div>
     </div>
 </div>
-</div>
-<br>
-<div class="container ml-auto">
-<div class="row" id="main_row">
-</div>
-</div>
+    
+
+
 <div class="container text-center">
-<button class="btn btn-primary" id="show_more_button" nextPage="0">Mostrar más</button>
+    <button class="btn btn-primary" *ngIf="this.lastPage" (click)="getNewEventsList()">Mostrar más</button>
 </div>
 
-<a routerLink="/event-template" [queryParams]="{id: 23}">Angrahoy a las 18:10</a>
+
 <br>
 <br>
-<!--
-<script src="/assets/js/events.js"></script>
-<script src="/assets/js/show_more_events.js"></script>
--->

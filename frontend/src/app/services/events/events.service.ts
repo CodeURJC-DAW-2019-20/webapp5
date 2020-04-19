@@ -41,6 +41,19 @@ export class EventsService {
     );
   }
 
+  public getEventsPage(page: number) {
+    const url = environment.apiEndPoint + '/events?page='+ page;
+    return this.http.get(url)
+    .pipe(
+      map(eventPageSend =>{
+        return eventPageSend;
+      }),
+      catchError(error => {
+        return throwError(error);
+      })
+    );
+  }
+
   saveEvent(event){
     const body = JSON.stringify(event);
     console.log(body);
