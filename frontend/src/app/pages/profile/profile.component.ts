@@ -20,9 +20,11 @@ import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 export class ProfileComponent implements OnInit {
 
   @LocalStorage('currentUser')
+  public currentUser;
+  
   @LocalStorage('isUserLogged')
   public isUserLogged;
-  public currentUser;
+
   eventList;
   gameId: number;
   gameName: string;
