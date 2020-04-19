@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { catchError, map } from 'rxjs/operators';
+import { throwError, Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MerchService {
-  baseURL: string = 'https://localhost:8443/api/merchandisings';
+  baseURL: string = environment.apiEndPoint + '/merchandisings';
 
   constructor(protected http: HttpClient) { }
 
@@ -22,5 +24,32 @@ export class MerchService {
     return this.http.get(this.baseURL+'?page='+page);
   }
 
-  
+  saveMerch(merch){
+    const body = JSON.stringify(merch);
+    const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+    });
+    return this.http.post(this.baseURL+'/', merch, {headers})
+    .pipe(
+      map(merchSend =>{
+        return merchSend;
+      }),
+      catchError(error => {
+        return throwError(error);
+      })
+    );
+  }
+
+  saveImage(id: number, image){
+    return this.http.post(this.baseURL+'/'+ id + '/image/',image)
+    .pipe(
+      map(eventRegister =>{
+        return eventRegister;
+      }),
+      catchError(error => {
+        return throwError(error);
+      })
+    );
+    //return image;
+  }
 }
