@@ -3,6 +3,7 @@ import { LocalStorage } from 'ngx-webstorage';
 import { UsersService } from 'src/app/services/users/users.service'
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +20,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     public userService: UsersService,
-    public router: Router
+    public router: Router,
+    private localStorage: LocalStorageService
   ) { }
 
   ngOnInit(): void {
@@ -38,11 +40,15 @@ export class ProfileComponent implements OnInit {
     this.userService.editUser(this.currentUser.id, this.userForm.value).subscribe(
       (response) => {
         console.log("Ok");
+        console.log(this.userForm.value);
+
         this.currentUser.email = this.userForm.value.email;
         this.currentUser.firstName = this.userForm.value.firstName;
         this.currentUser.lastName = this.userForm.value.lastName;
+
+        this.localStorage.store('currentUser', this.currentUser);
+        
         this.active = 1;
-        this.router.navigate(['/profile'])
       },
       (error) => {
         if(error.status == 406){
