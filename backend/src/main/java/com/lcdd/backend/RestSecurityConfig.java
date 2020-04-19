@@ -27,11 +27,12 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		// URLs user
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/{id}").hasRole("USER");
-		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/{id}/purchases").hasRole("USER");
-		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/{id}/eventsRegistered").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/{id}/purchases").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/users/{id}/eventsRegistered").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/users/").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/users/{id}").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/users/{id}").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/users/{id}/role").hasRole("ADMIN");
 
 		// URLs role
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/role/").permitAll();
@@ -40,10 +41,10 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		// URLs merch
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandisings/").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandisings/types").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandisings/{id}/type").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandisings/{id}").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandisings/{id}/image").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/merchandisings").permitAll();
-		
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/merchandisings/").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/merchandisings/{id}/image").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/merchandisings/{id}/image").hasRole("ADMIN");
@@ -61,14 +62,21 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/{id}").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/{id}/image").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/{id}/userRegistered").hasRole("ADMIN");
-		//http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/events/").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/events/").permitAll();
-		//http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/events/{id}/image").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/events/{id}/image").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/events/").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/events/{id}/image").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/events/{id}/image").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/events/{id}").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/events/{id}").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/events/games/counts").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/userRegisterEvent/{id}").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/userRegisterEvent/").hasRole("ADMIN");
+		
+		//URLS purchases
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/purchase/").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/purchase/lastYearByMonth").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/purchase/{id}").hasRole("USER");
+
+		
 		// Other URLs can be accessed without authentication
 		http.authorizeRequests().anyRequest().permitAll();
 

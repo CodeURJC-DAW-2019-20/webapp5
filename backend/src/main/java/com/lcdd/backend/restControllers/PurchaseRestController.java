@@ -38,13 +38,13 @@ public class PurchaseRestController {
 	private UserService userService;
 	@Autowired
 	private MerchandisingService merchService;
-	
+	//ADMIN
 	@GetMapping(value={"", "/"})
 	public ResponseEntity<List<Purchase>> getEventList() {
 		List<Purchase> purchaseList = purchaseService.findAll(Sort.by(Sort.Direction.DESC, "date"));
 		return new ResponseEntity<>(purchaseList, HttpStatus.OK);
 	}
-	
+	//ADMIN
 	@GetMapping("/lastYearByMonth")
 	public ResponseEntity<Object[]> gatLastYearPurchasesByMonth() {
 		Integer[] salesArray = new Integer[12];
@@ -70,7 +70,7 @@ public class PurchaseRestController {
 		
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
-
+	//USER
 	@PostMapping("/{id}")
 	public ResponseEntity<Purchase> serveEvent(@PathVariable Long id, 
 			Authentication auth,  UserSession session, HttpServletRequest request) {

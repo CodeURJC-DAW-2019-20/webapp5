@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class User {
@@ -26,7 +27,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 
-	
+	@JsonView
 	private String passwordHash;
 	
 	//do not put @JsonIgnore
