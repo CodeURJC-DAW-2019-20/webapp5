@@ -8,7 +8,6 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PurchasesService {
-  postURL: string = 'https://localhost:8443/api/purchase/';
 
   constructor(
     private http: HttpClient,
@@ -48,7 +47,7 @@ export class PurchasesService {
     });
 
     const url = environment.apiEndPoint + '/purchase/' + id
-    console.log(url);
+
     return this.http.post(url,{headers})
     .pipe(
       map(purchaseSend =>{

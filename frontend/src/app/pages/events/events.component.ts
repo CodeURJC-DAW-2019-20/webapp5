@@ -4,6 +4,8 @@ import { Events } from 'src/app/interfaces/events';
 
 import { EventsService } from 'src/app/services/events/events.service';
 
+import { ActivatedRoute } from "@angular/router";
+
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -15,11 +17,18 @@ export class EventsComponent implements OnInit {
   eventsList: Events[];
   eventsListAux: Events[];
   lastPage: boolean = true;
+  activatedRoute: ActivatedRoute;
+  gameId: number = 0;
 
-  constructor(protected eventsService: EventsService) { }
+  constructor(protected eventsService: EventsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getEventsList();
+    this.gameId = this.route.snapshot.queryParams['id'];
+    if(this.gameId == null)
+      this.getEventsList();
+    else{
+      this.getEventsListByGame();
+  }
   }
 
   private handleError(error: any) {
@@ -37,7 +46,8 @@ export class EventsComponent implements OnInit {
     )
   }
 
-  getNewEventsList(){
+  showMore(){
+    if(this.gameId == null){
     this.eventsService.getEventsPage(this.page).subscribe(
       data => {
       if(data['empty'] == false){
@@ -52,6 +62,38 @@ export class EventsComponent implements OnInit {
     },
     error => this.handleError(error)
     )
+  }else{
+    this.eventsService.getEventsPageByGame(this.page, this.gameId).subscribe(
+    data => {
+    if(data['empty'] == false){
+    this.eventsListAux = (data['content']);
+    this.eventsList = this.eventsList.concat(this.eventsListAux);
+    this.page = this.page + 1;
+    if(data['last']==true){
+      this.lastPage = false
+    }
   }
+    console.log(data);
+  },
+  error => this.handleError(error)
+  )
+
+  }
+  }
+
+  getEventsListByGame(){
+    this.eventsService.getEventsPageByGame(this.page, this.gameId).subscribe(
+      data => {
+      this.eventsList = (data['content']);
+      this.page = this.page + 1;
+      console.log(data);
+      if(data['last']==true){
+        this.lastPage = false
+      }
+    },
+    error => this.handleError(error)
+    )
+  }
+
 
 }

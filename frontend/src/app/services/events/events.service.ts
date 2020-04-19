@@ -53,6 +53,18 @@ export class EventsService {
       })
     );
   }
+  public getEventsPageByGame(page: number, id:number) {
+    const url = environment.apiEndPoint + '/events?page='+ page + '&gameId=' + id;
+    return this.http.get(url)
+    .pipe(
+      map(eventPageSend =>{
+        return eventPageSend;
+      }),
+      catchError(error => {
+        return throwError(error);
+      })
+    );
+  }
 
   saveEvent(event){
     const body = JSON.stringify(event);

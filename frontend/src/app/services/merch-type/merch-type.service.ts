@@ -23,5 +23,8 @@ export class MerchTypeService {
         return throwError(error);
       })
     );
+  public getMerchType(id:number) {
+    const url = environment.apiEndPoint + '/merchandisings/' + id + '/type';
+    return this.http.get(url);
   }
 }

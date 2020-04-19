@@ -13,15 +13,18 @@ export class MerchService {
   constructor(protected http: HttpClient) { }
 
   public getMerch(id:number) {
-    return this.http.get(this.baseURL + '/' + id);
+    const url = environment.apiEndPoint + '/merchandisings/' + id;
+    return this.http.get(url);
   }
   
   public getImage(id:number): Observable<Blob> {
-    return this.http.get(this.baseURL + '/' + id + '/image', { responseType: 'blob' });
+    const url = environment.apiEndPoint + '/merchandisings/' + id + '/image';
+    return this.http.get(url, { responseType: 'blob' });
   }
 
   public getMerchPage(page:number){
-    return this.http.get(this.baseURL+'?page='+page);
+    const url = environment.apiEndPoint + '/merchandisings?page=' + page;
+    return this.http.get(url);
   }
 
   saveMerch(merch){

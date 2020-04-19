@@ -4,6 +4,8 @@ import { Merch } from '../../interfaces/merch';
 
 import { MerchService } from '../../services/merch/merch.service';
 
+
+
 @Component({
   selector: 'app-merch',
   templateUrl: './merch.component.html',
@@ -16,6 +18,9 @@ export class MerchComponent implements OnInit {
   merchList: Merch[];
   merchListAux: Merch[];
   lastPage: boolean = true;
+
+
+
 
   constructor(protected merchService: MerchService) { }
 

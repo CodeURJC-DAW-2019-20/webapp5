@@ -61,6 +61,14 @@ public class EventRestController {
 	}
 	
 	//every user
+	@GetMapping(value = "", params = {"page","gameId"})
+	public ResponseEntity<Page<Event>> getEventPagesByGame(@RequestParam(name = "page") int page, @RequestParam("gameId") int gameId) {
+		Game game = gameService.findById(gameId);
+		Page<Event> event = eventService.findAllPagesByGame(game, page, 3);
+		return new ResponseEntity<>(event, HttpStatus.OK);
+	}
+	
+	//every user
 	@GetMapping("/games")
 	public ResponseEntity<List<Game>> getEventGame() {
 		List<Game> games = gameService.findAll();
