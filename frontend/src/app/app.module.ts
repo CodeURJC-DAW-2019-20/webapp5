@@ -36,6 +36,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventTemplateComponent } from './pages/events/event-template/event-template.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { HttpClientModule } from '@angular/common/http';
     MerchLineChartComponent,
     EventTemplateComponent,
     MerchTemplateComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
