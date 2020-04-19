@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.lcdd.backend.services.RoleService;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.lcdd.backend.pojo.Role;
 import com.lcdd.backend.pojo.User;
 
@@ -29,6 +30,7 @@ public class RoleRestController {
 	}
 	
 	//only permited to admin
+	@JsonView (User.Basico.class)
 	@GetMapping("/{id}")
 	public ResponseEntity<List<User>> getAllUsersByRole(@PathVariable long id, HttpSession session) {
 		

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.lcdd.backend.UserSession;
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.pojo.EventRegister;
@@ -38,6 +39,7 @@ public class EventRegisterRestController {
 	
 	//get all inscriptions
 	//only admin
+	@JsonView (User.Basico.class)
 	@GetMapping(value={"", "/"})
 	public ResponseEntity<List<EventRegister>> getEventList() {
 		List<EventRegister> eventRegisterList = eventRegisterService.findAll();

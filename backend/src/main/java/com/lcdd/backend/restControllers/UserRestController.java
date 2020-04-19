@@ -71,6 +71,7 @@ public class UserRestController {
 	}
 	
 	//get user pruchases
+	@JsonView (User.Basico.class)
 	@GetMapping("/{id}/purchases")
 	public ResponseEntity<List<Purchase>> getUserPurchases(@PathVariable int id, Authentication auth, 
 			HttpServletRequest request, HttpSession session) {
@@ -93,6 +94,7 @@ public class UserRestController {
 	}
 	
 	//get user events Registered
+	@JsonView (User.Basico.class)
 	@GetMapping("/{id}/eventsRegistered")
 	public ResponseEntity<List<EventRegister>> getUsereventsRegistered(@PathVariable int id, Authentication auth, 
 			HttpServletRequest request, HttpSession session) {
@@ -227,20 +229,25 @@ public class UserRestController {
 	@PutMapping("/{id}/role")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<Object> editUserRole(@PathVariable long id, @RequestBody String newRoleId) {
-		
-		//System.out.println(newRoleId.replaceAll("\"", ""));
-		
+				
 		Long roleId = Long.parseLong(newRoleId.replaceAll("\"", ""));
 		
 		Role roleObject = roleService.findById(roleId);
 		
 		User user = userService.findById(id);
 		
-		user.setRole(roleObject);
+		if(user!=null) {
 		
-		userService.save(user);
+			user.setRole(roleObject);
+			
+			userService.save(user);
+			
+			return new ResponseEntity<>(user, HttpStatus.OK);
+			
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 		
-		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 	
 	
