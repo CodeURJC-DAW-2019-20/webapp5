@@ -5,6 +5,8 @@ import { MerchService } from 'src/app/services/merch/merch.service';
 import { MerchTypeService } from 'src/app/services/merch-type/merch-type.service';
 import { MerchType } from 'src/app/interfaces/merch-type';
 import { throwError, Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { LocalStorage } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-merch-form',
@@ -13,6 +15,10 @@ import { throwError, Observable } from 'rxjs';
 })
 export class MerchFormComponent implements OnInit {
 
+  @LocalStorage('isUserAdmin')
+  public isUserAdmin;
+
+
 public merch;
 merTypeList: MerchType[];
 selectedFile: File;
@@ -20,11 +26,14 @@ receivedImageData: any;
 merchNumber: number;
 merchCreated;
 
-  constructor(private httpClient: HttpClient, public merchService: MerchService, public merTypeService: MerchTypeService) {
+  constructor(private httpClient: HttpClient, public merchService: MerchService, public merTypeService: MerchTypeService,public router: Router) {
     this.createMerch();
   }
 
   ngOnInit(): void {
+    if(!this.isUserAdmin){
+      this.router.navigate(['/error']);
+    }
     this.createMerchTypeList();
   }
   
@@ -65,13 +74,14 @@ merchCreated;
         this.merchCreated = response;
         this.merchNumber = this.merchCreated.id;
         console.log(this.merchCreated);
-        console.log("nice event");
+        console.log("nice merch");
+        this.router.navigate(['/merch-template'],{ queryParams: { id: this.merchNumber}});
         if(this.merch.value.haveImage){
           this.uploadImage();
         } 
       },
       (error) => {
-        console.log("error event");
+        console.log("error merch");
       },
     );
      

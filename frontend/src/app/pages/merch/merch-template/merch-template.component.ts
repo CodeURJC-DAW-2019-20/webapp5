@@ -51,20 +51,21 @@ export class MerchTemplateComponent implements OnInit {
     //console.log(this.route.snapshot.queryParams);
     this.refreshMerch();
     console.log(this.merch);
-    this.refreshMerchType();
+    //this.refreshMerchType();
     console.log(this.merchType);
     this.getImageFromService();
   }
 
   private refreshMerch() {
     this.merchService.getMerch(this.merchId).subscribe(
-			response => this.merch = response as Merch,
+      response => {this.merch = response as Merch;
+      console.log(this.merch)},
 			error => this.handleError(error)
     );
   }
 
   private refreshMerchType() {
-    this.merchTypeService.getMerchType(this.merchId).subscribe(
+    this.merchTypeService.getMerchType().subscribe(
 			response => this.merchType = response as MerchType,
 			error => this.handleError(error)
     );
@@ -98,8 +99,9 @@ export class MerchTemplateComponent implements OnInit {
 
    
   buyMerch(){
-    this.merch.stock = this.merch.stock - 1;
+    
     if(this.merch.stock != 0){
+      this.merch.stock = this.merch.stock - 1;
         this.purchaseService.postPurchase(this.merch.id).subscribe(
           data => {
             console.log(data);
