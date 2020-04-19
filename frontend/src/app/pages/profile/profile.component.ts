@@ -37,7 +37,11 @@ export class ProfileComponent implements OnInit {
   editProfile() {  
     this.userService.editUser(this.currentUser.id, this.userForm.value).subscribe(
       (response) => {
-        console.log("Ok"),
+        console.log("Ok");
+        this.currentUser.email = this.userForm.value.email;
+        this.currentUser.firstName = this.userForm.value.firstName;
+        this.currentUser.lastName = this.userForm.value.lastName;
+        this.active = 1;
         this.router.navigate(['/profile'])
       },
       (error) => {
