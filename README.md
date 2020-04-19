@@ -361,9 +361,8 @@ To stop running the docker use:
   6. Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
   7. To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-
-**Templates, Components and Services Diagram**:
-![Templates, Components and Services Diagram](frontend/src/main/assets/img/diagramPhase4.png)
+### Templates, Components and Services Diagram
+![Templates, Components and Services Diagram](frontend/src/main/assets/img/readme/diagramPhase4.png)
 
 ### Members participation
 
