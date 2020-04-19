@@ -35,8 +35,8 @@
                     {{currentUser.name}}
                   </p>
                   <h5>Recomendacion personalizada</h5>
-                  <p>Por tu actividad reciente te recomendamos eventos de <b>popular.name</b></p>
-                  <a href="/events?game=popular.id" class="btn btn-primary">Buscar más eventos de este tipo</a>
+                  <p>Por tu actividad reciente te recomendamos eventos de <b>{{gameName}}</b></p>
+                  <a routerLink="/events" [queryParams]="{id: gameId}"  class="btn btn-primary">Buscar más eventos de este tipo</a>
                   
     
                 </div>
@@ -55,26 +55,26 @@
                 <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label"><b>Nombre:</b></label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="firstName" type="text" value="{{currentUser.firstName}}">
+                    <input formControlName="firstName" class="form-control" name="firstName" type="text" value="{{currentUser.firstName}}">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label"><b>Apellidos:</b></label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="lastName" type="text" value="{{currentUser.lastName}}">
+                    <input formControlName="lastName" class="form-control" name="lastName" type="text" value="{{currentUser.lastName}}">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label"><b>Email:</b></label>
                   <div class="col-lg-9">
-                    <input class="form-control" name="email" value="{{currentUser.email}}">
+                    <input formControlName="email" class="form-control" name="email" type="text" value="{{currentUser.email}}">
                   </div>
                 </div>
                 <div class="control-group">
                   <div class="controls">
                     <div class="col-lg-9">
                       <input type="reset" class="btn btn-secondary" value="Resetear">
-                      <button id="edit" class="btn btn-primary">Guardar Cambios</button>
+                      <button id="edit" class="btn btn-primary" type="editProfile">Guardar Cambios</button>
                     </div>
                   </div>
                 </div>
