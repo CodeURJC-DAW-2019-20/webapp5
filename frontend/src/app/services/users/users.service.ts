@@ -34,7 +34,6 @@ export class UsersService {
     //Arreglar
     const url = environment.apiEndPoint + '/users/' + userId + "/role";
 
-    
     const headers = new HttpHeaders({
       'Content-Type':  'application/json',
     });
