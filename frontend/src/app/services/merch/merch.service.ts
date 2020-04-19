@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MerchService {
-  baseURL: string = 'https://localhost:8443/api/merchandisings';
 
   constructor(protected http: HttpClient) { }
 
   public getMerch(id:number) {
-    return this.http.get(this.baseURL + '/' + id);
+    const url = environment.apiEndPoint + '/merchandisings/' + id;
+    return this.http.get(url);
   }
   
   public getImage(id:number): Observable<Blob> {
-    return this.http.get(this.baseURL + '/' + id + '/image', { responseType: 'blob' });
+    const url = environment.apiEndPoint + '/merchandisings/' + id + '/image';
+    return this.http.get(url, { responseType: 'blob' });
   }
 
   public getMerchPage(page:number){
-    return this.http.get(this.baseURL+'?page='+page);
+    const url = environment.apiEndPoint + '/merchandisings?page=' + page;
+    return this.http.get(url);
   }
 
   

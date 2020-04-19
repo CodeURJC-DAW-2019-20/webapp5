@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
 
   @LocalStorage('currentUser')
   public currentUser;
-  
+
   @LocalStorage('isUserLogged')
   public isUserLogged;
 
@@ -52,7 +52,6 @@ export class ProfileComponent implements OnInit {
     this.profileService.getEventsRegistered(this.currentUser.id).subscribe(
       data => {
         this.eventList = data;
-        console.log(data);
         this.getPopular();
       },
       error => this.handleError(error)
@@ -63,9 +62,7 @@ export class ProfileComponent implements OnInit {
     console.log(this.eventList);
     this.eventList.forEach(element => {
       this.aux = element.event.game.id;
-      console.log(element.event.game.id);
     })
-    console.log(this.aux);
     switch (this.aux) {
       case 1:
         this.gameId = 1;
