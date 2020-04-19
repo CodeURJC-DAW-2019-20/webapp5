@@ -18,14 +18,14 @@
                 <br>
                 <fa-icon [icon]="faMoneyBillWave"></fa-icon><i> Precio: {{merch.price}} euros.</i>
                 
-                <div *ngIf="isUserLogged">
-                <button (click)="buyMerch()"  class="btn btn-primary">Comprar el articulo</button>
+                <div *ngIf="isUserLogged && merch.stock > 0">
+                    <button (click)="buyMerch()"  class="btn btn-primary">Comprar el articulo</button>
                 </div>
                 
                 <div *ngIf="!isUserLogged">
                     <div class="row">
-                        <div class="col-8 mx-auto">
-                            <button class="btn btn-primary" type="button" disabled>Comprar el articulo</button>
+                        <div *ngIf="merch.stock > 0" class="col-8 mx-auto">
+                            <button  class="btn btn-primary" type="button" disabled>Comprar el articulo</button>
                             <p>Necesitas iniciar sesión para realizar una compra.</p>
                         </div>
                     </div>
