@@ -362,7 +362,7 @@ To stop running the docker use:
   7. To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ### Templates, Components and Services Diagram
-![Templates, Components and Services Diagram](frontend/src/main/assets/img/readme/diagramPhase4.png)
+![Templates, Components and Services Diagram](frontend/src/assets/img/readme/diagramPhase4.png)
 
 ### Members participation
 
