@@ -336,6 +336,8 @@ To stop running the docker use:
 
 ## PHASE 4: Web with SPA architecture
 
+- Document [Api documentation](API.md) with information about the REST API.
+
 ### Docker
 Docker allows you to use our application without having anything install.You just need to follow the next steps:
   1. Install docker, you can download it [here](https://docs.docker.com/install/#supported-platforms). 
@@ -368,14 +370,75 @@ To stop running the docker use:
 
 **Miguel**
 
+- Completed tasks: adapting most of static pages to angular framework. new front services to get data to fill chats of dashboard, add new angular technology to dockerize script. 
+
+- 5 most significant commits:
+  1. Front structure
+  2. All services for dashboard created
+  3. Login and logout ready
+  4. Save role + delete user ready
+  5. Charts ready
+
+- 5 files with participation:
+  1. Merch-line-chart
+  2. Events-bar-chart
+  3. Dashboard
+  4. User-dash
+  5. Event-dash
   
 **Daniel**
 
 
 **Carlos**
 
+- Completed tasks: coding profile page frontend, http put for the edit profile functionality, updating the README and helping with the logic behind the events and merch pages.
+
+- 5 most significant commits:
+  1. http put for user working
+  2. first steps on profile front 
+  3. first readme update
+  4. working tabs
+  5. fixed not showing correct user info after refreshing
+
+- 5 files with participation:
+  1. profile.component.html
+  2. profile.component.ts
+  3. users.service.ts
+  4. app.component.html
+  5. README.md
 
 **Óscar**
 
+- Completed tasks: creating events pages with angular technology. Catch the form data information and save it into the data base. Then, get the information ftom the data base and show it at the web page.
+
+- 5 most significant commits:
+  1. create an event work SUPER NICE
+  2. create user registration in an event
+  3. create event-template
+  4. create new api purchase post
+  5. create home by angular
+
+- 5 files with participation:
+  1. event-form-component
+  2. event-template.component
+  3. home.component
+  4. error.component
+  5. PurchaseRestController.java
 
 **Alfonso**
+
+- Completed tasks: creating merch and profile pages with angular technology. From creating new merchandising to displaying the details in a template. Great contribution in profile implementing the advanced algorithm that suggest events to users.
+
+- 5 most significant commits:
+  1. created a merch template
+  2. started MerchPageable
+  3. merchList finished
+  4. implemented buyMerch button
+  5. finished advanced algorithm
+
+- 5 files with participation:
+  1. merch-form-component
+  2. merch-template.component
+  3. merch.component
+  4. profile.component
+  5. MerchRestController.java
