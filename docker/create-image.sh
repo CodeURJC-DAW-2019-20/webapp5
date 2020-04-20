@@ -14,7 +14,7 @@ path_front_location_in_back=$path_project_back/src/main/resources/static/new
 echo "Building frontend"
 cd $path_project_front
 
-docker run --rm -it -v $(pwd):/frontend -w /frontend teracy/angular-cli:8.3 npm install --no-bin-links && ng build --prod --base-href=/new/
+#docker run --rm -it -v $(pwd):/frontend -w /frontend teracy/angular-cli:8.3 npm install --no-bin-links && ng build --prod --base-href=/new/
 
 echo "Moving frontend"
 rm -r $path_front_location_in_back/

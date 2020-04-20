@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-  baseURL: string = 'https://localhost:8443/api/users';
+  baseURL: string = environment.apiEndPoint + '/users';
 
   constructor(protected http: HttpClient) { }
 
