@@ -388,6 +388,22 @@ To stop running the docker use:
   
 **Daniel**
 
+- Completed tasks: update the security  for angular technology, creation of login and register pages to permit the access to the app. Resolving errors in different components.
+
+- 5 most significant commits:
+  1. apiRest calls fixed
+  2. apiRest calls fixed
+  3. backend security active
+  4. Register working
+  5. finishing userRegister
+
+- 5 files with participation:
+  1. Login-component
+  2. Register-component
+  3. Auth-interceptor
+  4. Validator-interceptor
+  5. RestSecurityConfig
+
 
 **Carlos**
 
