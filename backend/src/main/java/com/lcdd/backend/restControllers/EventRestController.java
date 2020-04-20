@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.lcdd.backend.pojo.Game;
 import com.lcdd.backend.pojo.Merchandising;
 import com.lcdd.backend.pojo.User;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.lcdd.backend.ImageService;
 import com.lcdd.backend.pojo.Event;
 import com.lcdd.backend.services.GameService;
@@ -60,6 +61,14 @@ public class EventRestController {
 	}
 	
 	//every user
+	@GetMapping(value = "", params = {"page","gameId"})
+	public ResponseEntity<Page<Event>> getEventPagesByGame(@RequestParam(name = "page") int page, @RequestParam("gameId") int gameId) {
+		Game game = gameService.findById(gameId);
+		Page<Event> event = eventService.findAllPagesByGame(game, page, 3);
+		return new ResponseEntity<>(event, HttpStatus.OK);
+	}
+	
+	//every user
 	@GetMapping("/games")
 	public ResponseEntity<List<Game>> getEventGame() {
 		List<Game> games = gameService.findAll();
@@ -85,6 +94,7 @@ public class EventRestController {
 	}
 	
 	//get all users registered in an event
+	@JsonView (User.Basico.class)
 	@GetMapping("{id}/userRegistered")
 	public ResponseEntity<List<User>> getUsersInEventRegister(@PathVariable long id, HttpSession session) {
 		//admin can see all users
@@ -106,9 +116,23 @@ public class EventRestController {
 		return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 	}
 	
-	//@PostMapping("/{id}/image")
-	@PutMapping("/{id}/image")
+	@PostMapping("/{id}/image")
 	public ResponseEntity<Event> postEventImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
+			throws IOException {
+
+		Event event = eventService.findById(id);
+
+		//event.isHaveImage();
+		event.setHaveImage(true);
+		eventService.save(event);
+
+		imageService.saveImage("eventsImages", event.getId(), imageFile);
+		return new ResponseEntity<>(HttpStatus.CREATED);
+
+	}
+	
+	@PutMapping("/{id}/image")
+	public ResponseEntity<Event> putEventImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
 			throws IOException {
 
 		Event event = eventService.findById(id);
@@ -143,8 +167,8 @@ public class EventRestController {
 		if(event.getDescription()!= null) {
 			event.setDescription(updateEvent.getDescription());
 	}
-		if(event.isTournament()!= updateEvent.isTournament()) {
-			event.setTournament(updateEvent.isTournament());
+		if(event.getIsTournament()!= updateEvent.getIsTournament()) {
+			event.setIsTournament(updateEvent.getIsTournament());
 	}
 		if(event.getGroupSize() != 0) {
 			event.setGroupSize(updateEvent.getGroupSize());
@@ -165,6 +189,12 @@ public class EventRestController {
 		Event event = eventService.findById(id);
 		eventService.delete(id);
 		return new ResponseEntity<>(event, HttpStatus.OK);
+	}
+	
+	@GetMapping("/games/counts")
+	public ResponseEntity<List<Object[]>> getEventGamesCount() {
+		List<Object[]> eventGameList = eventService.countGamesEvent();
+		return new ResponseEntity<>(eventGameList, HttpStatus.OK);
 	}
 	
 }

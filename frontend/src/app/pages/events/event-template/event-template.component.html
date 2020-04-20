@@ -1,0 +1,89 @@
+<div id="general-container">
+
+
+    <div id="merch-container-main-image">
+        <div id="event-container-main-image" >
+            <img *ngIf="isImageLoading==true" class="event-main-image img-fluid" [src]="imageToShow"/>
+            <img *ngIf="isImageLoading==false" class="event-main-image img-fluid" src='assets/img/events-merch/event-image.jpg'/>
+        </div>
+
+    </div>
+    <div id="event-info">
+        
+        <h1>{{event.name}}</h1>
+        <div>
+            <fa-icon [icon]="faClock"></fa-icon><i> {{event.date}}</i>
+            <br>
+            <fa-icon [icon]="faMapMarkerAlt"></fa-icon><i> {{event.time}}</i>
+            <br>
+            <fa-icon [icon]="faGamepad"></fa-icon><i> Lugar: {{event.place}}</i>
+            <br>
+            <fa-icon [icon]="faChild"></fa-icon><i> Juego: {{event.game.name}}</i>
+            <br>
+            <fa-icon [icon]="faUsers"></fa-icon><i> Máximo de participantes: {{event.maxParticipants}}</i>
+            <br>
+            <fa-icon [icon]="faMoneyBillWave"></fa-icon><i> Tamaño del equipo: {{event.groupSize}}</i>
+            <br>
+            <fa-icon [icon]="faBoxes"></fa-icon><i> Tasa de inscripción: {{event.inscriptionFee}} euros.</i>
+            
+            
+            <br>
+            <fa-icon ></fa-icon><i *ngIf="event.isTournament" class="fas fa-boxes"> Premio para el ganador/es del torneo: {{event.tournament.reward}}</i>
+
+            <br>
+
+
+            <div *ngIf="isUserLogged" class="row">
+            <br>
+                <div class="col-8 mx-auto">
+                    <form ngNativeValidate class="form-horizontal" [formGroup]="inscription" (ngSubmit)="submit()" >
+                        <button (click)="showRegister()" id="button-register" class="btn btn-primary" type="button" >Inscribirse en el evento</button>
+                        <br>
+                        <div *ngIf="showRegisterEvent">
+                            <div class="form-group">
+                                <label> Participantes del grupo:</label>
+                                <input type="number"
+                                    name="participants"
+                                    formControlName="participants"
+                                    ngControl="inp"
+                                    class="form-control"
+                                    max="{{event.groupSize}}"
+                                    placeholder="Máximo {{event.groupSize}}"/>
+                                <br>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button
+                                        id="register"
+                                        type="submit"
+                                        class="btn btn-primary">Registrarse</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+            <div *ngIf="!isUserLogged">
+                <div class="row">
+                    <div class="col-8 mx-auto">
+                        <button class="btn btn-primary" type="button" disabled>Inscribirse en el evento</button>
+                        <p>Para registrarte en un evento es necesario iniciar sesión.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="align-middle"></p>
+    </div>
+
+    
+
+    <div id="event-description">
+        <h2>Descripción</h2>
+        <p>{{event.description}}</p>
+    </div>
+</div>

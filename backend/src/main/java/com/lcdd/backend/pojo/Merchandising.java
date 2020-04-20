@@ -9,24 +9,29 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.lcdd.backend.pojo.User.Basico;
 
 @Entity
 public class Merchandising {
-	
+	@JsonView(Basico.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-
-	@JsonIgnore
+	@JsonView(Basico.class)
 	@ManyToOne
 	private MerchType type;
-	
+	@JsonView(Basico.class)
 	private String name;
+	@JsonView(Basico.class)
 	private float price;
+	@JsonView(Basico.class)
 	private float discount;
+	@JsonView(Basico.class)
 	private int stock;
+	@JsonView(Basico.class)
 	private String description;
-	
+	@JsonView(Basico.class)
 	private boolean haveImage;
 	
 	@JsonIgnore

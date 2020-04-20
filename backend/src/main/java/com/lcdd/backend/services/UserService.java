@@ -55,7 +55,7 @@ public class UserService {
 		/*if (user.getPasswordHash() == null ){
 			return false;
 		}*/
-		user.setPasswordHash(user.getPasswordHash());
+		//user.setPasswordHash(user.getPasswordHash());
 		save(user);
 		return true;
 	}

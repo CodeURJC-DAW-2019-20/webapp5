@@ -1,0 +1,132 @@
+/* General */
+@font-face{
+	font-family: Montserrat-Regular;
+	src: url(assets/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face{
+	font-family: Montserrat-Bold;
+	src: url(assets/fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
+*{
+	font-family: Montserrat-Regular;
+	font-weight: normal;
+	color: black;
+	size: 12px;
+}
+h1{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: #a10600;
+}
+h2{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: #a10600 ;
+}
+h3{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: black ;
+}
+h4{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: black ;
+}
+h5{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: #a10600 ;
+}
+h6{
+	font-family: Montserrat-Bold;
+	font-weight: bold;
+	color: black ;
+}
+p{
+	font-family: Montserrat-Regular;
+	font-weight: normal;
+	color: black;
+	size: 12px;
+}
+.social_icons{
+	font-size: 40px;
+	color: #a10600;
+}
+.social_icons:hover{
+	color: #870500;
+}
+a:not(nav){
+  color: #a10600;
+}
+a:not(nav):hover{
+  color: #870500;
+}
+
+.btn.btn-primary, body .btn-primary:not(:disabled):not(.disabled):active{
+	background-color: #a10600;
+	border-color: #a10600;
+}
+.btn.btn-primary:hover{
+	background-color: #870500;
+	border-color: #870500;
+}
+.btn.btn-primary:focus{
+	background-color: #870500;
+  border-color: #870500;
+  box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
+}
+.btn.btn-primary:not(:disabled):not(.disabled):active:focus{
+  box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
+}
+
+.chart{
+    display: block;
+}
+
+
+.head {
+	background-color: white; 
+}
+
+form .form-control:focus{
+	border-color: #ED0800;
+	box-shadow: 0 0 0 0.2rem rgb(237, 8, 0,0.25);
+}
+#header_profile_image{
+	margin-left: 1rem;
+}
+
+/* Event-form
+============================================================================================ */
+
+
+
+/* Login 
+============================================================================================ */
+    /* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+
+.carousel-control-prev-icon{
+	background-image: url("assets/img/home/prevFOTO.png") !important;
+	width: 50px !important;
+	height: 50px !important;
+	opacity: 1 ;
+}
+.carousel-control-next-icon{
+	background-image: url("assets/img/home/nextFOTO.png") !important;
+	width: 50px !important;
+	height: 50px !important;
+	opacity: 1;
+}
+

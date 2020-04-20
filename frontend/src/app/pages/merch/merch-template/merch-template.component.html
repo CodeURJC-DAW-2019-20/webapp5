@@ -1,0 +1,50 @@
+    <br>
+
+    <div id="general-container">
+        <div id="merch-container-main-image" >
+                <img class="event-main-image img-fluid" [src]="imageToShow"/>
+        </div>
+
+        <div class="event-info">
+            <h1>{{merch.name}}</h1>
+            <div>
+                <fa-icon [icon]="faBoxOpen"></fa-icon><i> Nombre: {{merch.name}}</i>
+                <br>				
+                <fa-icon [icon]="faCog"></fa-icon><i> Tipo: {{merchType.typeName}}</i>
+                <br>
+                <fa-icon [icon]="faCalculator"></fa-icon><i> Unidades: {{merch.stock}} ud</i>
+                <br>
+                <fa-icon [icon]="faPercent"></fa-icon><i> Descuento: {{merch.discount}} %</i>
+                <br>
+                <fa-icon [icon]="faMoneyBillWave"></fa-icon><i> Precio: {{merch.price}} euros.</i>
+                
+                <div *ngIf="isUserLogged && merch.stock > 0">
+                    <button (click)="buyMerch()"  class="btn btn-primary">Comprar el articulo</button>
+                </div>
+                
+                <div *ngIf="!isUserLogged">
+                    <div class="row">
+                        <div *ngIf="merch.stock > 0" class="col-8 mx-auto">
+                            <button  class="btn btn-primary" type="button" disabled>Comprar el articulo</button>
+                            <p>Necesitas iniciar sesión para realizar una compra.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div>
+            <h2>Descripción</h2>
+            <p>{{merch.description}}</p>
+        </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    </div>

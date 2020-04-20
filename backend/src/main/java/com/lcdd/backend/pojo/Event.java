@@ -11,34 +11,45 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.lcdd.backend.pojo.User.Basico;
 
 
 
 @Entity
 public class Event {
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@JsonIgnore
+	@JsonView(Basico.class)
 	@ManyToOne
 	private Game game;
-
+	@JsonView(Basico.class)
 	private String name;
+	@JsonView(Basico.class)
 	private String place;
+	@JsonView(Basico.class)
 	private String date;//yyyy-MM-dd
+	@JsonView(Basico.class)
 	private String time;//hh:mm
+	@JsonView(Basico.class)
 	private String description;
+	@JsonView(Basico.class)
 	private boolean isTournament;
-	
+	@JsonView(Basico.class)
 	private boolean haveImage;
 	
-	@JsonIgnore
+	@JsonView(Basico.class)
 	@OneToOne(cascade=CascadeType.ALL)
 	private Tournament tournament;
-	
+	@JsonView(Basico.class)
 	private int groupSize;
+	@JsonView(Basico.class)
 	private float inscriptionFee;
+	@JsonView(Basico.class)
 	private int maxParticipants;
 	
 	@JsonIgnore
@@ -130,12 +141,12 @@ public class Event {
 	}
 
 
-	public boolean isTournament() {
+	public boolean getIsTournament() {
 		return isTournament;
 	}
 
 
-	public void setTournament(boolean isTournament) {
+	public void setIsTournament(boolean isTournament) {
 		this.isTournament = isTournament;
 	}
 

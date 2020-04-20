@@ -27,6 +27,7 @@ The following queries contains information about the Users.
 |Add User|ALL|POST|/api/users/|(USER) and *CREATED* (201)|*NOT ACCEPTABLE* (406)|
 |Delate User|USER|DELETE|/api/users/id/|(USER) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 |Update information of an USER|USER|PUT|/api/users/id/|(USER) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Update role information of a USER|ADMIN|PUT|/api/users/id/role|*OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 
 ### Example of GET to https://localhost:8443/api/users/ 
 ```json
@@ -37,7 +38,6 @@ The following queries contains information about the Users.
         "name": "cPabe",
         "firstName": "carlos",
         "lastName": "pabe",
-        "passwordHash": "$2a$10$SWHYXTts.MoEJMdK5WS/PufoZYXZ1GnP3RWr0hZLHCZkPYcEtaBpm",
         "roles": [
             "ROLE_USER"
         ],
@@ -52,7 +52,6 @@ The following queries contains information about the Users.
         "name": "daniel",
         "firstName": "dani",
         "lastName": "moreno",
-        "passwordHash": "$2a$10$Obl9jm5ZYBOafd5TkrzXzOwkUq0rIsUNCUawb2rCxyazhTaargnyi",
         "roles": [
             "ROLE_USER",
             "ROLE_ADMIN"
@@ -72,7 +71,6 @@ The following queries contains information about the Users.
     "name": "cPabe",
     "firstName": "carlos",
     "lastName": "pabe",
-    "passwordHash": "$2a$10$SWHYXTts.MoEJMdK5WS/PufoZYXZ1GnP3RWr0hZLHCZkPYcEtaBpm",
     "roles": [
         "ROLE_USER"
     ],
@@ -89,7 +87,6 @@ The following queries contains information about the Users.
     "name": "daniel",
     "firstName": "dani",
     "lastName": "moreno",
-    "passwordHash": "pass",
     "roles": [
         "ROLE_USER",
         "ROLE_ADMIN"
@@ -108,12 +105,14 @@ The following queries contains information about the Merchandaising.
 |----------------|-----------|------------|------------|-------------------|---------------------|
 |Merch list|ALL|GET|/api/merchandaisings/|(Merch List) and *OK* (200)|*NOT FOUND* (404)|
 |List of merchandaising type|ALL|GET|/api/merchandaisings/types/|(Merch Type list) and *OK* (200)|*NOT FOUND* (404)|
+|TyeMerch of a merch|ALL|GET|/api/merchandaisings/id/type/|(Merch Type) and *OK* (200)|*NOT FOUND* (404)|
 |Merch Information|ALL|GET|/api/merchandaisings/id/|(MERCH) and *OK* (200)|*NOT FOUND* (404)|
+|Merch with an image|ALL|GET|/api/merchandaisings/id/image|(MERCH) and *OK* (200)|*NOT FOUND* (404)|
 |Create a Merch|ADMIN|POST|/api/merchandaisings/|(MERCH) and *CREATED* (200)|*NOT ACCEPTABLE* (406)|
+|Create Merch Image|ADMIN|POST|/api/merchandaising/id/image/|(Merch image) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Update MErch Image|ADMIN|PUT|/api/merchandaising/id/image/|(Merch image) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 |Update Merch|ADMIN|PUT|/api/merchandaisings/id/|(MERCH) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 |Delate Merch|ADMIN|DELETE|/api/merchandaisings/id/|(MERCH) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
-|Merch Image|ALL|GET|/api/merchandaisings/id/image/|(Merch image) and *OK* (200)|*NOT FOUND* (404)|
-|Create MErch Image|ADMIN|POST|/api/merchandaising/id/image/|(Merch image) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 
 ### Example of GET to https://localhost:8443/api/merchandisings/
 ```json
@@ -222,12 +221,14 @@ The following queries contains information about the Events.
 |Event list|ALL|GET|/api/events/|(Event List) and *OK* (200)|*NOT FOUND* (404)|
 |Game list|ALL|GET|/api/events/games/|(Game list) and *OK* (200)|*NOT FOUND* (404)|
 |Event information|ALL|GET|/api/events/id/|(EVENT) and *OK* (200)|*NOT FOUND* (404)|
+|Event Image|ALL|GET|/api/events/id/image/|(Event image) and *OK* (200)|*NOT FOUND* (404)|
 |Users registered in an specific event|ADMIN|GET|/api/events/id/userRegistered/|(User list) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 |Create an Event|ADMIN|POST|/api/events/|(EVENT) and *CREATED* (200)|*NOT ACCEPTABLE* (406)|
+|Create Event Image|ADMIN|POST|/api/events/id/image/|(Event image) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Update Event Image|ADMIN|PUT|/api/events/id/image/|(Event image) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 |Update an event|ADMIN|PUT|/api/events/id/|(EVENT) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 |Delete an event|ADMIN|DELETE|/api/events/id/|(EVENT) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
-|Event Image|ALL|GET|/api/events/id/image/|(Event image) and *OK* (200)|*NOT FOUND* (404)|
-|Create Event Image|ADMIN|POST|/api/events/id/image/|(Event image) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Game list|ADMIN|GET|/api/events/games/counts/|(Game list) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
 
 ### Example of GET to https://localhost:8443/api/events/games
 ```json
@@ -263,7 +264,6 @@ The following queries contains information about the Events.
         "name": "cPabe",
         "firstName": "carlos",
         "lastName": "pabe",
-        "passwordHash": "$2a$10$g.a1mn5ef6QRC5L/C5tfsOOWiNxgzefBevh5NH4Oekzav/FPA/85a",
         "roles": [
             "ROLE_USER"
         ],
@@ -278,7 +278,6 @@ The following queries contains information about the Events.
         "name": "alfonso",
         "firstName": "angra",
         "lastName": "lopz",
-        "passwordHash": "$2a$10$JRdPWxmmSMgWF7/m4YCole40VavGDIgJjb.RE.RD7wSFPhgrcaoFa",
         "roles": [
             "ROLE_USER",
             "ROLE_ADMIN"
@@ -364,7 +363,6 @@ The following queries contains information about the all types of roles (Preside
         "name": "oscar",
         "firstName": "osk",
         "lastName": "rivas",
-        "passwordHash": "$2a$10$r564zwMtQqBC.iCplimgSeHAbL93OmUyJaLyO9Qy.UnKRDNIZ7Xua",
         "roles": [
             "ROLE_USER"
         ],
@@ -379,13 +377,104 @@ The following queries contains information about the all types of roles (Preside
         "name": "miguel",
         "firstName": "byGranizo",
         "lastName": "jimenez",
-        "passwordHash": "$2a$10$vKhAJtVDmj6Dzq1Etlwl.OhSK4cRNT3/eAXj8IJagLTpVV/nEAOdq",
         "roles": [
             "ROLE_USER"
         ],
         "role": {
             "id": 8,
             "name": "Vocal"
+        }
+    }
+]
+```
+
+## PURCHASES
+The following queries contains information about the Purchases.
+
+|Purchases Information|Permissions|Request Type|Request URL|Sucess response|Error Response|
+|----------------|-----------|------------|------------|-------------------|---------------------|
+|Purchase list|ADMIN|GET|/api/purchase/|(Purchases List) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Purchases of the last mounth|ADMIN|GET|/api/purchase/lastYearByMonth|(Puchases list order by month) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|Purchase|USER|POST|/api/purchase/id/|(Purchase) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+### Example of GET to https://localhost:8443/api/purchase/
+```json
+[
+ {
+        "user": {
+            "id": 31,
+            "email": "email",
+            "name": "miguel",
+            "firstName": "byGranizo",
+            "lastName": "jimenez",
+            "roles": [
+                "ROLE_USER"
+            ],
+            "role": {
+                "id": 8,
+                "name": "Vocal"
+            }
+        }
+    }
+]
+```
+### Example of GET to https://localhost:8443/api/purchase/lastYearByMonth
+```json
+[
+    [
+        "mayo",
+        "junio",
+        "julio",
+        "agosto",
+        "septiembre",
+        "octubre",
+        "noviembre",
+        "diciembre",
+        "enero",
+        "febrero",
+        "marzo",
+        "abril"
+    ],
+    [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ]
+]
+```
+## EVENTREGISTER
+The following queries contains information about the EventRegister.
+
+|EventRegister Information|Permissions|Request Type|Request URL|Sucess response|Error Response|
+|----------------|-----------|------------|------------|-------------------|---------------------|
+|EventRegister list|ADMIN|GET|/api/userRegisterEvent/|(EventRegister List) and *OK* (200)|*NOT FOUND* (404) OR *FORBIDDEN*(401)|
+|User EventRegister|ALL|POST|/api/userRegisterEvent/id/|(EventRegister) and *OK* (200)|*NOT FOUND* (404)|
+
+### Example of GET to https://localhost:8443/api/userRegisterEvent/
+```json
+[
+{
+        "user": {
+            "id": 27,
+            "email": "email",
+            "name": "cPabe",
+            "firstName": "carlos",
+            "lastName": "pabe",
+            "roles": [
+                "ROLE_USER"
+            ],
+            "role": {
+                "id": 9,
+                "name": "Secretary"
+            }
         }
     }
 ]

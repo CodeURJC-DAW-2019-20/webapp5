@@ -17,9 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import com.fasterxml.jackson.annotation.JsonView;
 import com.lcdd.backend.pojo.EventRegister;
 import com.lcdd.backend.pojo.Purchase;
+import com.lcdd.backend.pojo.Role;
 import com.lcdd.backend.pojo.User;
+import com.lcdd.backend.services.RoleService;
 import com.lcdd.backend.services.UserService;
 
 @Controller
@@ -29,10 +34,14 @@ public class UserRestController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private RoleService roleService;
+	
 	
 	
 	//get all existing users
-	@GetMapping("/")
+	@JsonView (User.Basico.class)
+	@GetMapping(value={"", "/"})
 	public ResponseEntity<List<User>> getUsers(HttpSession session) {
 		//admin can see all users
 		List<User> users = userService.findAll();
@@ -41,6 +50,7 @@ public class UserRestController {
 	}
 	
 	//get an existing user
+	@JsonView (User.Basico.class)
 	@GetMapping("/{id}")
 	public ResponseEntity<User> getUser(@PathVariable int id, Authentication auth, 
 			HttpServletRequest request, HttpSession session) {
@@ -61,6 +71,7 @@ public class UserRestController {
 	}
 	
 	//get user pruchases
+	@JsonView (User.Basico.class)
 	@GetMapping("/{id}/purchases")
 	public ResponseEntity<List<Purchase>> getUserPurchases(@PathVariable int id, Authentication auth, 
 			HttpServletRequest request, HttpSession session) {
@@ -83,6 +94,7 @@ public class UserRestController {
 	}
 	
 	//get user events Registered
+	@JsonView (User.Basico.class)
 	@GetMapping("/{id}/eventsRegistered")
 	public ResponseEntity<List<EventRegister>> getUsereventsRegistered(@PathVariable int id, Authentication auth, 
 			HttpServletRequest request, HttpSession session) {
@@ -105,11 +117,12 @@ public class UserRestController {
 	}
 	
 	//add a new user, permited all
+	@JsonView (User.Basico.class)
 	@PostMapping("/")
 	public ResponseEntity<User> postUser(@RequestBody User user) {
 		
 		boolean result = userService.createAnUser(user);
-		if ((result == true)&&(user.getName()!=null)&&(user.getPasswordHash()!=null)) {
+		if ((result == true)&&(user.getName()!=null)) {
 			return new ResponseEntity<>(user, HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
@@ -136,7 +149,21 @@ public class UserRestController {
 		}		
 	}
 	
+	/*@DeleteMapping("/{id}")
+	public ResponseEntity<Object> deleteUserById(@PathVariable long id) {
+		User userFound = userService.findById(id);
+		
+		if(userFound==null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		userService.deleteById(id);
+		
+		return new ResponseEntity<>(true, HttpStatus.OK);
+	}*/
+	
 	//update an existing user
+	@JsonView (User.Basico.class)
 	@PutMapping("/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User userUpdate,
 			Authentication auth, HttpServletRequest request, HttpSession session) {
@@ -197,6 +224,33 @@ public class UserRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}		
 	}
+	
+	@JsonView (User.Basico.class)
+	@PutMapping("/{id}/role")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<Object> editUserRole(@PathVariable long id, @RequestBody String newRoleId) {
+				
+		Long roleId = Long.parseLong(newRoleId.replaceAll("\"", ""));
+		
+		Role roleObject = roleService.findById(roleId);
+		
+		User user = userService.findById(id);
+		
+		if(user!=null) {
+		
+			user.setRole(roleObject);
+			
+			userService.save(user);
+			
+			return new ResponseEntity<>(user, HttpStatus.OK);
+			
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+	}
+	
+	
 	
 	
 }

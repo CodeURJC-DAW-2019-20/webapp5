@@ -58,10 +58,18 @@ public class MerchandisingRestController {
 		List<MerchType> type = serviceType.findAll();
 		return new ResponseEntity<>(type, HttpStatus.OK);
 	}
+	
+	//every user
+	@GetMapping("/{id}/type")
+	public ResponseEntity<MerchType> getMerchTypeById(@PathVariable long id) {
+		Merchandising merch = service.findById(id);
+		MerchType type = merch.getType();
+		return new ResponseEntity<>(type, HttpStatus.OK);
+	}
 
 	//every user
 	@GetMapping("/{id}")
-	public ResponseEntity<Merchandising> getMerchandising(@PathVariable long id) {
+	public ResponseEntity<Merchandising> getMerchandisingById(@PathVariable long id) {
 		Merchandising merch = service.findById(id);
 		return new ResponseEntity<>(merch, HttpStatus.OK);
 	}
@@ -89,9 +97,23 @@ public class MerchandisingRestController {
 	
 	//only admin
 	
-	//@PostMapping("/{id}/image")
-	@PutMapping("/{id}/image")
+	@PostMapping("/{id}/image")
 	public ResponseEntity<Merchandising> postMerchandisingImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
+			throws IOException {
+
+		Merchandising merch = service.findById(id);
+
+		//merch.isHaveImage();
+		merch.setHaveImage(true);
+		service.save(merch);
+
+		serviceImage.saveImage("merchImages", merch.getId(), imageFile);
+		return new ResponseEntity<>(HttpStatus.CREATED);
+
+	}
+	
+	@PutMapping("/{id}/image")
+	public ResponseEntity<Merchandising> putMerchandisingImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
 			throws IOException {
 
 		Merchandising merch = service.findById(id);
@@ -133,7 +155,7 @@ public class MerchandisingRestController {
 	}
 	
 
-
+	
 	//only admin
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Merchandising> deleteMerch(@PathVariable long id) {

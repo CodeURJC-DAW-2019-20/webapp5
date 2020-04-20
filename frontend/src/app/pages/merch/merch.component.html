@@ -1,0 +1,39 @@
+<br>
+<br>
+
+<div class="merchs_section">
+  <div class="container">
+    <h1>
+      Merchandising
+    </h1>
+    <div class="two_column_product" id="original">
+      <div class="row">
+        <!-- body -->
+
+          <div class='col-3 col-sm-4' *ngFor="let merch of merchList">
+            <h4> {{merch.name}} </h4> 
+            <h5> {{merch.price}} € - {{merch.discount}} %</h5>
+            <div class='l_p_img'>
+              <img src = "https://localhost:8443/api/merchandisings/{{merch.id}}/image" width='300' height='300'>
+              <h5 class='sale'>Opciones:</h5>
+            </div>
+            <div class='l_p_text'>
+              <ul>
+                <li class='p_icon'><a routerLink="/merch-template" [queryParams]="{id: merch.id}">Ver Detalles</a></li>
+              </ul>
+            </div>
+          </div>
+
+        <!-- body -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center">
+  <button class="btn btn-primary" *ngIf="this.lastPage" (click)="getNewMerchList()">Mostrar más</button>
+</div>
+
+
+<br>
+<br>

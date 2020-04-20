@@ -1,0 +1,36 @@
+<main role="main">
+	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+		<h2>Admin</h2>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped table-sm user_table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Usuario</th>
+					<th>Nombre</th>
+					<th>Apellidos</th>
+					<th>Email</th>
+					<th>Rol</th>
+					<th colspan="2"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let user of usersList">
+					<td>{{user.id}}</td>
+					<td>{{user.name}}</td>
+					<td>{{user.firstName}}</td>
+					<td>{{user.lastName}}</td>
+					<td>{{user.email}}</td>
+					<td>
+						<select [(ngModel)]="user.role.id" class="role_select">
+							<option *ngFor="let role of rolesList" value="{{role.id}}">{{role.name}}</option> 
+						</select>
+					</td>
+					<td><button class="btn btn-sm btn-outline-secondary save_button" (click)="setUserRole(user.id, user.role.id)">Guardar</button></td>
+					<td><button class="btn btn-sm btn-outline-secondary delete_button" (click)="deleteUser(user.id)">Eliminar</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</main>

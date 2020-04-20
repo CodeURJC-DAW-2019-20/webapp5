@@ -23,6 +23,8 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 	private UserService userService;
 	@Autowired 
 	public UserSession userSession;
+	@Autowired
+	public UserComponent userComponent;
 
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
@@ -42,7 +44,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 		for (String role : user.getRoles()) {
 			roles.add(new SimpleGrantedAuthority(role));
 		}
-		
+		userComponent.setLoggedUser(user);
 		userSession.setIsLogggedIn(true);
 		userSession.setId(user.getId());
 		userSession.setUsername(user.getName());

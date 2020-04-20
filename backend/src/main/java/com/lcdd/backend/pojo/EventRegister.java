@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.lcdd.backend.pojo.User.Basico;
 
 @Entity
 public class EventRegister {
@@ -13,15 +15,16 @@ public class EventRegister {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@JsonIgnore
+	@JsonView(Basico.class)
 	@ManyToOne
 	private User user;
 	
-	//do not put @JsonIgnore
+	@JsonView(Basico.class)
 	@ManyToOne
 	private Event event;
-	
+	@JsonView(Basico.class)
 	private String inscriptionName;
+	@JsonView(Basico.class)
 	private int participantsNumber;
 	
 	protected EventRegister() { }
