@@ -38,6 +38,7 @@ import { EventTemplateComponent } from './pages/events/event-template/event-temp
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { MerchFormComponent } from './pages/merch/merch-form/merch-form.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { MerchFormComponent } from './pages/merch/merch-form/merch-form.componen
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent]
 })
