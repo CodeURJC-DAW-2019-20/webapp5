@@ -1,4 +1,4 @@
-# WEB APP GROUP 5
+# WEB APPLICATION GROUP 5
 
 Project developed as an assignment for Web Application Development subject, Software Engineering degree.
 Rey Juan Carlos University 2019/2020
