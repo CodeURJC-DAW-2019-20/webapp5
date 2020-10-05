@@ -1,4 +1,4 @@
-# WEB APP GROUP 5
+# WEB APPLICATION GROUP 5
 
 Project developed as an assignment for Web Application Development subject, Software Engineering degree.
 Rey Juan Carlos University 2019/2020
@@ -30,7 +30,7 @@ https://youtu.be/Q4QKvOvLdIg
 
 **User's role and permissions:**
 - Registered users that belong to the association:
-  - President and vicepresident: association's members permisisions and responsabilities managment  
+  - President and vicepresident: association's members permisisions and responsabilities managment. 
   - Secretary: events and tournaments managment.
   - Treasurer: accounts manager and merchandising store managment.
   - Board member: site maintenance and user support.
